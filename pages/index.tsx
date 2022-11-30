@@ -17,6 +17,7 @@ export default function Home() {
   const [currentGirl, setCurrentGirl] = React.useState<string>();
   const [previousGirl, setPreviousGirl] = React.useState<string>();
   const [nextGirl, setNextGirl] = React.useState<string>();
+  const [currentScreen, setCurrentScreen] = React.useState<Screen>();
 
   const router = useRouter();
 
@@ -91,7 +92,7 @@ export default function Home() {
 
   useEffect(() => {
     getAllEscorts();
-    console.log(screen);
+    setCurrentScreen(screen);
   }, []);
 
   return (
@@ -118,7 +119,11 @@ export default function Home() {
             {escortCount > 0 && (
               <div>
                 <div className="rounded-3xl md:w-[250px] lg:w-[300px] xl:w-[350px] 2xl:w-[400px] md:h-[300px] lg:h-[400px] xl:h-[500px] 2xl:h-[600px]">
-                  <img src={previousGirl} alt="" className="rounded-3xl" />
+                  <img
+                    src={previousGirl}
+                    alt=""
+                    className="rounded-3xl md:w-[250px] lg:w-[300px] xl:w-[350px] 2xl:w-[400px] md:h-[300px] lg:h-[400px] xl:h-[500px] 2xl:h-[600px]"
+                  />
                 </div>
                 <div className="flex items-end z-10 h-5/6 2xl:ml-10 -mt-24 ml-5">
                   <div>
@@ -147,8 +152,14 @@ export default function Home() {
               id="img bnt"
               className="flex justify-center flex-wrap my-5 bg-transparent px-5"
             >
-              <div className="flex justify-center items-center h-[600px]">
-                <img src={currentGirl} alt="" className="rounded-3xl" />
+              <div className="flex justify-center items-center md:h-auto">
+                <img
+                  src={currentGirl}
+                  alt=""
+                  className={`rounded-3xl ${
+                    currentScreen?.availHeight < 800 ? "h-[600px]" : "h-[700px]"
+                  }  md:w-[250px] lg:w-[300px] xl:w-[350px] 2xl:w-[400px] md:h-[300px] lg:h-[400px] xl:h-[500px] 2xl:h-[600px]`}
+                />
               </div>
 
               <div
@@ -375,7 +386,11 @@ export default function Home() {
             {escortCount + 1 < AllEscorts.length && (
               <div>
                 <div className="rounded-3xl md:w-[250px] lg:w-[300px] xl:w-[350px] 2xl:w-[400px] md:h-[300px] lg:h-[400px] xl:h-[500px] 2xl:h-[600px]">
-                  <img src={nextGirl} alt="" className="rounded-3xl " />
+                  <img
+                    src={nextGirl}
+                    alt=""
+                    className="rounded-3xl md:w-[250px] lg:w-[300px] xl:w-[350px] 2xl:w-[400px] md:h-[300px] lg:h-[400px] xl:h-[500px] 2xl:h-[600px]"
+                  />
                 </div>
                 <div className="flex items-end z-10 h-5/6 2xl:ml-10 -mt-24 ml-5">
                   <div>
