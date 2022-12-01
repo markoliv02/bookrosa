@@ -21,10 +21,15 @@ a {
   }
   body {
     color: white;
-    background: white;
+    background: #ff93c6;
   }
 }
 
+@media screen and (min-width: 0px) and (max-width: 765px) {
+  body {
+    background-color: white;
+  }
+}
 /* tailwind */
 
 @tailwind base;
