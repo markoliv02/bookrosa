@@ -148,11 +148,11 @@ const Profile = () => {
           <div className="flex justify-center w-full">
             <div className="md:grid md:grid-cols-3 md:w-full md:justify-start">
               <div id="resume" className="grid grid-cols-3 md:py-5 w-full">
-                <div className="grid grid-cols-3 py-5 col-span-3 rounded-3xl md:bg-[#D9D9D9] mr-5 pl-4 pb-10">
-                  <div className="flex justify-start ">
+                <div className="grid grid-cols-3 py-5 col-span-3 rounded-3xl md:bg-[#D9D9D9] mr-5 lg:pl-4 md:pl-0  pb-10 md:grid-cols-1 lg:grid-cols-3">
+                  <div className="flex justify-start md:justify-center">
                     <div
                       id="profile"
-                      className="relative bg-gray-500 w-32 h-32 rounded-full shadow shadow-[#FF4DA2]"
+                      className="relative bg-gray-500 w-24 h-24 xl:w-32 xl:h-32 rounded-full shadow shadow-[#FF4DA2]"
                     >
                       <Image
                         quality={100}
@@ -169,10 +169,10 @@ const Profile = () => {
                     </div>
                   </div>
 
-                  <div className="flex justify-start items-center col-span-2 text-left text-black">
+                  <div className="flex justify-start items-center col-span-2 text-left text-black md:justify-center lg:justify-start">
                     <div className="ml-5">
-                      <h1 className="text-3xl font-semibold">
-                        {Profile[0]?.nome} smith
+                      <h1 className="text-3xl font-semibold text-3xl md:text-2xl lg:text-3xl">
+                        {Profile[0]?.nome}{" "}
                       </h1>
                       <div className="flex">
                         <Image
@@ -186,7 +186,9 @@ const Profile = () => {
                           className="z-10 rounded-full"
                         />
 
-                        <h3 className="ml-1 text-lg">{Profile[0]?.celular}</h3>
+                        <h3 className="ml-1 text-lg md:text-sm lg:text-lg">
+                          {Profile[0]?.celular}
+                        </h3>
                       </div>
                     </div>
                   </div>
@@ -203,103 +205,121 @@ const Profile = () => {
                       <tr className="bg-[#D9D9D9] ">
                         <th
                           scope="row"
-                          className="py-4 px-6 font-medium text-lg text-gray-900 whitespace-nowrap"
+                          className="py-4 px-6 font-medium text-lg text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
                         >
                           Bairro/Cidade
                         </th>
-                        <td className="py-4 px-6">
+                        <td className="py-4 px-6 text-lg md:text-sm md:px-2">
                           {Profile[0]?.bairro_cidade}
                         </td>
                       </tr>
                       <tr className="bg-[#EBE9E9]">
                         <th
                           scope="row"
-                          className="py-4 px-6 font-medium text-lg text-gray-900 whitespace-nowrap"
+                          className="py-4 px-6 font-medium text-lg text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
                         >
                           Idade
                         </th>
-                        <td className="py-4 px-6">{Profile[0]?.idade}</td>
+                        <td className="py-4 px-6 text-sm md:px-2">
+                          {Profile[0]?.idade}
+                        </td>
                       </tr>
                       <tr className="bg-[#D9D9D9]">
                         <th
                           scope="row"
-                          className="py-4 px-6 font-medium text-lg text-gray-900 whitespace-nowrap"
+                          className="py-4 px-6 font-medium text-lg text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
                         >
                           Peso
                         </th>
-                        <td className="py-4 px-6">{Profile[0]?.peso}</td>
+                        <td className="py-4 px-6 text-sm md:px-2">
+                          {Profile[0]?.peso}
+                        </td>
                       </tr>
                       <tr className="bg-[#EBE9E9] ">
                         <th
                           scope="row"
-                          className="py-4 px-6 font-medium text-lg text-gray-900 whitespace-nowrap"
+                          className="py-4 px-6 font-medium text-lg text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
                         >
                           Pés
                         </th>
-                        <td className="py-4 px-6">{Profile[0]?.pes}</td>
+                        <td className="py-4 px-6 text-sm md:px-2">
+                          {Profile[0]?.pes}
+                        </td>
                       </tr>
                       <tr className="bg-[#D9D9D9]">
                         <th
                           scope="row"
-                          className="py-4 px-6 font-medium text-lg text-gray-900 whitespace-nowrap"
+                          className="py-4 px-6 font-medium text-lg text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
                         >
                           Celular
                         </th>
-                        <td className="py-4 px-6">{Profile[0]?.celular}</td>
+                        <td className="py-4 px-6 text-sm md:px-2">
+                          {Profile[0]?.celular}
+                        </td>
                       </tr>
                       <tr className="bg-[#EBE9E9]">
                         <th
                           scope="row"
-                          className="py-4 px-6 font-medium text-lg text-gray-900 whitespace-nowrap"
+                          className="py-4 px-6 font-medium text-lg text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
                         >
                           Agenda
                         </th>
-                        <td className="py-4 px-6">{Profile[0]?.agenda}</td>
+                        <td className="py-4 px-6 text-sm md:px-2">
+                          {Profile[0]?.agenda}
+                        </td>
                       </tr>
                       <tr className="bg-[#D9D9D9] ">
                         <th
                           scope="row"
-                          className="py-4 px-6 font-medium text-lg text-gray-900 whitespace-nowrap"
+                          className="py-4 px-6 font-medium text-lg text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
                         >
                           Acompanha
                         </th>
-                        <td className="py-4 px-6">{Profile[0]?.acompanha}</td>
+                        <td className="py-4 px-6 text-sm md:px-2">
+                          {Profile[0]?.acompanha}
+                        </td>
                       </tr>
                       <tr className="bg-[#EBE9E9] ">
                         <th
                           scope="row"
-                          className="py-4 px-6 font-medium text-lg text-gray-900 whitespace-nowrap"
+                          className="py-4 px-6 font-medium text-lg text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
                         >
                           Atende em:
                         </th>
-                        <td className="py-4 px-6">{Profile[0]?.atende_em}</td>
+                        <td className="py-4 px-6 text-sm md:px-2">
+                          {Profile[0]?.atende_em}
+                        </td>
                       </tr>
                       <tr className="bg-[#D9D9D9]">
                         <th
                           scope="row"
-                          className="py-4 px-6 font-medium text-lg text-gray-900 whitespace-nowrap"
+                          className="py-4 px-6 font-medium text-lg text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
                         >
                           Cachê
                         </th>
-                        <td className="py-4 px-6">{Profile[0]?.cache}</td>
+                        <td className="py-4 px-6 text-sm md:px-2">
+                          {Profile[0]?.cache}
+                        </td>
                       </tr>
                       <tr className="bg-[#EBE9E9]">
                         <th
                           scope="row"
-                          className="py-4 px-6 font-medium text-lg text-gray-900 whitespace-nowrap"
+                          className="py-4 px-6 font-medium text-lg text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
                         >
                           Pagamento
                         </th>
-                        <td className="py-4 px-6">{Profile[0]?.pagamento}</td>
+                        <td className="py-4 px-6 text-sm md:px-2">
+                          {Profile[0]?.pagamento}
+                        </td>
                       </tr>
                     </tbody>
                   </table>
                 </div>
 
-                <div className="mb-5 hidden md:block col-span-3 h-64 overflow-hidden">
+                <div className="mb-5 hidden md:block col-span-3 h-64 overflow-hidden mr-3 lg:-mt-10">
                   <h1 className="text-xl font-semibold py-5">Descrição</h1>
 
-                  <p className="text=lg">{Profile[0]?.desc}</p>
+                  <p className="text=lg lg:text-sm">{Profile[0]?.desc}</p>
                 </div>
               </div>
               <div
@@ -402,7 +422,7 @@ const Profile = () => {
                     setPhotoView(galery[4]);
                     setViewPhoto(true);
                   }}
-                  className="relative w-full h-[190px] md:h-[33rem] -mt-7 bg-transparent cursor-pointer"
+                  className="relative w-full h-[190px] md:h-[33rem] md:mt-0 -mt-7 bg-transparent cursor-pointer"
                 >
                   <Image
                     id="05"
@@ -440,134 +460,151 @@ const Profile = () => {
                   />
                 </div>
               </div>
-            </div>
-          </div>
-
-          <div
-            id="divisor"
-            className="w-full h-[4px] bg-[#FF4DA2] rounded-full my-3 cursor-pointer"
-          />
-          <div>
-            <h1 className="text-xl font-semibold">Vídeo</h1>
-
-            <div className="flex justify-center w-full h-48 md:h-[33rem] bg-gray-300 mt-5 shadow shadow-[#FF4DA2]">
-              <video
-                className="w-full h-48 md:h-[33rem]"
-                src={videoUrl}
-                // width={200}
-                // height={200}
-                controls
+              <div
+                id="divisor 2"
+                className="w-full h-[4px] bg-[#FF4DA2] rounded-full my-3 col-span-3"
               />
+              <div className="col-span-3">
+                <h1 className="text-xl font-semibold">Vídeo</h1>
+
+                <div className="flex justify-center w-full h-48 md:h-[33rem] bg-gray-300 my-5 shadow shadow-[#FF4DA2]">
+                  <video
+                    className="w-full h-48 md:h-[33rem]"
+                    src={videoUrl}
+                    // width={200}
+                    // height={200}
+                    controls
+                  />
+                </div>
+              </div>
+              <div className="overflow-x-auto relative shadow-md rounded-3xl my-10 shadow shadow-[#FF4DA2] md:hidden">
+                <table className="w-full text-sm text-left ">
+                  <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                      <th scope="col" className="py-0 px-6"></th>
+                      <th scope="col" className="py-0 px-6"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr className="bg-[#D9D9D9] ">
+                      <th
+                        scope="row"
+                        className="py-4 px-6 font-medium text-lg text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
+                      >
+                        Bairro/Cidade
+                      </th>
+                      <td className="py-4 px-6 text-sm md:px-2">
+                        {Profile[0]?.bairro_cidade}
+                      </td>
+                    </tr>
+                    <tr className="bg-[#EBE9E9]">
+                      <th
+                        scope="row"
+                        className="py-4 px-6 font-medium text-lg text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
+                      >
+                        Idade
+                      </th>
+                      <td className="py-4 px-6 text-sm md:px-2">
+                        {Profile[0]?.idade}
+                      </td>
+                    </tr>
+                    <tr className="bg-[#D9D9D9]">
+                      <th
+                        scope="row"
+                        className="py-4 px-6 font-medium text-lg text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
+                      >
+                        Peso
+                      </th>
+                      <td className="py-4 px-6 text-sm md:px-2">
+                        {Profile[0]?.peso}
+                      </td>
+                    </tr>
+                    <tr className="bg-[#EBE9E9] ">
+                      <th
+                        scope="row"
+                        className="py-4 px-6 font-medium text-lg text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
+                      >
+                        Pés
+                      </th>
+                      <td className="py-4 px-6 text-sm md:px-2">
+                        {Profile[0]?.pes}
+                      </td>
+                    </tr>
+                    <tr className="bg-[#D9D9D9]">
+                      <th
+                        scope="row"
+                        className="py-4 px-6 font-medium text-lg text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
+                      >
+                        Celular
+                      </th>
+                      <td className="py-4 px-6 text-sm md:px-2">
+                        {Profile[0]?.celular}
+                      </td>
+                    </tr>
+                    <tr className="bg-[#EBE9E9]">
+                      <th
+                        scope="row"
+                        className="py-4 px-6 font-medium text-lg text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
+                      >
+                        Agenda
+                      </th>
+                      <td className="py-4 px-6 text-sm md:px-2">
+                        {Profile[0]?.agenda}
+                      </td>
+                    </tr>
+                    <tr className="bg-[#D9D9D9] ">
+                      <th
+                        scope="row"
+                        className="py-4 px-6 font-medium text-lg text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
+                      >
+                        Acompanha
+                      </th>
+                      <td className="py-4 px-6 text-sm md:px-2">
+                        {Profile[0]?.acompanha}
+                      </td>
+                    </tr>
+                    <tr className="bg-[#EBE9E9] ">
+                      <th
+                        scope="row"
+                        className="py-4 px-6 font-medium text-lg text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
+                      >
+                        Atende em:
+                      </th>
+                      <td className="py-4 px-6 text-sm md:px-2">
+                        {Profile[0]?.atende_em}
+                      </td>
+                    </tr>
+                    <tr className="bg-[#D9D9D9]">
+                      <th
+                        scope="row"
+                        className="py-4 px-6 font-medium text-lg text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
+                      >
+                        Cachê
+                      </th>
+                      <td className="py-4 px-6 text-sm md:px-2">
+                        {Profile[0]?.cache}
+                      </td>
+                    </tr>
+                    <tr className="bg-[#EBE9E9]">
+                      <th
+                        scope="row"
+                        className="py-4 px-6 font-medium text-lg text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
+                      >
+                        Pagamento
+                      </th>
+                      <td className="py-4 px-6 text-sm md:px-2">
+                        {Profile[0]?.pagamento}
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div className="mb-5 md:hidden h-40 ">
+                <h1 className="text-xl font-semibold py-5">Descrição</h1>
+
+                <p className="text=lg">{Profile[0]?.desc}</p>
+              </div>
             </div>
-          </div>
-
-          <div className="overflow-x-auto relative shadow-md rounded-3xl my-10 shadow shadow-[#FF4DA2] md:hidden">
-            <table className="w-full text-sm text-left ">
-              <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                <tr>
-                  <th scope="col" className="py-0 px-6"></th>
-                  <th scope="col" className="py-0 px-6"></th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr className="bg-[#D9D9D9] ">
-                  <th
-                    scope="row"
-                    className="py-4 px-6 font-medium text-lg text-gray-900 whitespace-nowrap"
-                  >
-                    Bairro/Cidade
-                  </th>
-                  <td className="py-4 px-6">{Profile[0]?.bairro_cidade}</td>
-                </tr>
-                <tr className="bg-[#EBE9E9]">
-                  <th
-                    scope="row"
-                    className="py-4 px-6 font-medium text-lg text-gray-900 whitespace-nowrap"
-                  >
-                    Idade
-                  </th>
-                  <td className="py-4 px-6">{Profile[0]?.idade}</td>
-                </tr>
-                <tr className="bg-[#D9D9D9]">
-                  <th
-                    scope="row"
-                    className="py-4 px-6 font-medium text-lg text-gray-900 whitespace-nowrap"
-                  >
-                    Peso
-                  </th>
-                  <td className="py-4 px-6">{Profile[0]?.peso}</td>
-                </tr>
-                <tr className="bg-[#EBE9E9] ">
-                  <th
-                    scope="row"
-                    className="py-4 px-6 font-medium text-lg text-gray-900 whitespace-nowrap"
-                  >
-                    Pés
-                  </th>
-                  <td className="py-4 px-6">{Profile[0]?.pes}</td>
-                </tr>
-                <tr className="bg-[#D9D9D9]">
-                  <th
-                    scope="row"
-                    className="py-4 px-6 font-medium text-lg text-gray-900 whitespace-nowrap"
-                  >
-                    Celular
-                  </th>
-                  <td className="py-4 px-6">{Profile[0]?.celular}</td>
-                </tr>
-                <tr className="bg-[#EBE9E9]">
-                  <th
-                    scope="row"
-                    className="py-4 px-6 font-medium text-lg text-gray-900 whitespace-nowrap"
-                  >
-                    Agenda
-                  </th>
-                  <td className="py-4 px-6">{Profile[0]?.agenda}</td>
-                </tr>
-                <tr className="bg-[#D9D9D9] ">
-                  <th
-                    scope="row"
-                    className="py-4 px-6 font-medium text-lg text-gray-900 whitespace-nowrap"
-                  >
-                    Acompanha
-                  </th>
-                  <td className="py-4 px-6">{Profile[0]?.acompanha}</td>
-                </tr>
-                <tr className="bg-[#EBE9E9] ">
-                  <th
-                    scope="row"
-                    className="py-4 px-6 font-medium text-lg text-gray-900 whitespace-nowrap"
-                  >
-                    Atende em:
-                  </th>
-                  <td className="py-4 px-6">{Profile[0]?.atende_em}</td>
-                </tr>
-                <tr className="bg-[#D9D9D9]">
-                  <th
-                    scope="row"
-                    className="py-4 px-6 font-medium text-lg text-gray-900 whitespace-nowrap"
-                  >
-                    Cachê
-                  </th>
-                  <td className="py-4 px-6">{Profile[0]?.cache}</td>
-                </tr>
-                <tr className="bg-[#EBE9E9]">
-                  <th
-                    scope="row"
-                    className="py-4 px-6 font-medium text-lg text-gray-900 whitespace-nowrap"
-                  >
-                    Pagamento
-                  </th>
-                  <td className="py-4 px-6">{Profile[0]?.pagamento}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div className="mb-5 md:hidden h-40">
-            <h1 className="text-xl font-semibold py-5">Descrição</h1>
-
-            <p className="text=lg">{Profile[0]?.desc}</p>
           </div>
         </div>
       )}
