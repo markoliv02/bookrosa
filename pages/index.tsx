@@ -10,16 +10,17 @@ import React, { useEffect } from "react";
 import supabase from "../utils/supabase";
 import { useRouter } from "next/router";
 
-export default function Home() {
-  const screeen = screen;
+let initScreen: Screen;
 
+export default function Home() {
   const [escortCount, setescortCount] = React.useState(0);
   const [AllEscorts, setAllEscorts] = React.useState<Array<any>>([]);
 
   const [currentGirl, setCurrentGirl] = React.useState<string>();
   const [previousGirl, setPreviousGirl] = React.useState<string>();
   const [nextGirl, setNextGirl] = React.useState<string>();
-  const [currentScreen, setCurrentScreen] = React.useState<Screen>(screeen);
+
+  const [currentScreen, setCurrentScreen] = React.useState<Screen>(initScreen);
 
   const router = useRouter();
 
