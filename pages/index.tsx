@@ -90,6 +90,8 @@ export default function Home() {
     getCurrentGirlImage();
     getNextGirlImage();
     getPreviousGirlImage();
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [escortCount, AllEscorts]);
 
   useEffect(() => {
