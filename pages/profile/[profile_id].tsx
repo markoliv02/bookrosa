@@ -37,9 +37,12 @@ const Profile = () => {
   };
 
   const handleGetProfileImage = async () => {
+    let full_name = `${Profile[0]?.nome}`;
+    let first_name = full_name.split(" ");
+
     const { data } = supabase.storage
       .from("photos")
-      .getPublicUrl(`${Profile[0]?.nome}/${Profile[0]?.nome}001`);
+      .getPublicUrl(`${first_name[0]}/${first_name[0]}001`);
 
     if (data) {
       // console.log(data);
@@ -48,11 +51,14 @@ const Profile = () => {
   };
 
   const handleGetGaleryImages = async () => {
+    let full_name = `${Profile[0]?.nome}`;
+    let first_name = full_name.split(" ");
+
     let ar = [];
     for (let i = 0; i < 6; i++) {
       const { data } = supabase.storage
         .from("photos")
-        .getPublicUrl(`${Profile[0]?.nome}/galery/00${i + 1}`);
+        .getPublicUrl(`${first_name[0]}/galery/00${i + 1}`);
 
       if (data) {
         ar.push(data?.publicUrl);
@@ -89,7 +95,7 @@ const Profile = () => {
   }, [id]);
 
   return (
-    <div className="container mx-auto px-7 text-black ">
+    <div className="container mx-auto px-7 text-black">
       <div className="grid grid-cols-4 md:grid-cols-1">
         {!viewPhoto && (
           <div
