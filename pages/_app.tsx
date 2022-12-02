@@ -29,5 +29,9 @@ export default function App({ Component, pageProps }: AppProps) {
 
   changeBodyColor();
 
-  return <Component {...pageProps} />;
+  return (
+    // <div className="bg-white">
+    <Component {...pageProps} />
+    // </div>
+  );
 }

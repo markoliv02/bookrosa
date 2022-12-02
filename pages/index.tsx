@@ -142,7 +142,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div id="garota atual" className="flex items-center bg-white">
+        <div id="garota atual" className="flex items-center bg-white h-screen">
           <div className="mb-82">
             {/* <div className="flex items-center justify-center -mt-24">
               <Image src={logo} alt="" width={200} height={100} />
@@ -179,10 +179,10 @@ export default function Home() {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-3 z-10 mt-5 w-full ">
+                <div className="grid grid-cols-3 z-10 mt-0 md:mt-5 w-full ">
                   <div
                     id="voltar"
-                    className="w-full flex justify-start  cursor-pointer"
+                    className="w-full flex justify-start cursor-pointer"
                   >
                     <Image
                       onClick={() => {
