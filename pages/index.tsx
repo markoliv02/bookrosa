@@ -3,8 +3,11 @@ import Image from "next/image";
 
 import botaoX from "../assets/botaox.svg";
 import botaoVoltar from "../assets/botaoVoltar.svg";
-import botaoCoracao from "../assets/botaoCoracao.svg";
+import botaoMatch from "../assets/botaoMatch.svg";
+import botaoMatchGold from "../assets/botaoMatchGold.svg";
+
 import logo from "../assets/logo.svg";
+import logoGold from "../assets/logoGold.svg";
 
 import React, { useEffect } from "react";
 import supabase from "../utils/supabase";
@@ -13,8 +16,8 @@ import { useRouter } from "next/router";
 let initScreen: Screen;
 
 export default function Home() {
-  const [escortCount, setescortCount] = React.useState(0);
-  const [AllEscorts, setAllEscorts] = React.useState<Array<any>>([]);
+  const [girlCount, setGirlCount] = React.useState(0);
+  const [AllGirls, setAllGirls] = React.useState<Array<any>>([]);
 
   const [currentGirl, setCurrentGirl] = React.useState<string>();
   const [previousGirl, setPreviousGirl] = React.useState<string>();
@@ -24,18 +27,30 @@ export default function Home() {
 
   const router = useRouter();
 
-  const getAllEscorts = async () => {
+  const handleGetAllGirls = async () => {
     let { data: acompanhantes, error } = await supabase
       .from("acompanhantes")
       .select("*");
 
     if (acompanhantes) {
-      setAllEscorts(acompanhantes);
+      handleOrderAllGirls(acompanhantes);
     }
   };
 
-  const getCurrentGirlImage = async () => {
-    let full_name = `${AllEscorts[escortCount]?.nome}`;
+  const handleOrderAllGirls = (escorts: Array<any>) => {
+    let ecortsOrdened: Array<any> = [];
+    for (let i = 0; i < escorts.length; i++) {
+      if (escorts[i]?.destaque) {
+        ecortsOrdened.unshift(escorts[i]);
+      } else {
+        ecortsOrdened.push(escorts[i]);
+      }
+    }
+    setAllGirls(ecortsOrdened);
+  };
+
+  const handleGetCurrentGirlImage = async () => {
+    let full_name = `${AllGirls[girlCount]?.nome}`;
     let first_name = full_name.split(" ");
 
     const { data } = supabase.storage
@@ -47,11 +62,11 @@ export default function Home() {
     }
   };
 
-  const getPreviousGirlImage = async () => {
-    let full_name = `${AllEscorts[escortCount - 1]?.nome}`;
+  const handleGetPreviousGirlImage = async () => {
+    let full_name = `${AllGirls[girlCount - 1]?.nome}`;
     let first_name = full_name.split(" ");
 
-    if (escortCount !== 0) {
+    if (girlCount !== 0) {
       const { data } = supabase.storage
         .from("photos")
         .getPublicUrl(`${first_name[0]}/${first_name[0]}001`);
@@ -64,11 +79,11 @@ export default function Home() {
     }
   };
 
-  const getNextGirlImage = async () => {
-    let full_name = `${AllEscorts[escortCount + 1]?.nome}`;
+  const handleGetNextGirlImage = async () => {
+    let full_name = `${AllGirls[girlCount + 1]?.nome}`;
     let first_name = full_name.split(" ");
 
-    if (escortCount + 1 === AllEscorts.length) {
+    if (girlCount + 1 === AllGirls.length) {
       setNextGirl(undefined);
     } else {
       const { data } = supabase.storage
@@ -82,16 +97,16 @@ export default function Home() {
   };
 
   useEffect(() => {
-    getCurrentGirlImage();
-    getNextGirlImage();
-    getPreviousGirlImage();
-
+    handleGetCurrentGirlImage();
+    handleGetNextGirlImage();
+    handleGetPreviousGirlImage();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [escortCount, AllEscorts]);
+  }, [girlCount, AllGirls]);
 
   useEffect(() => {
-    getAllEscorts();
+    handleGetAllGirls();
     setCurrentScreen(screen);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -110,12 +125,12 @@ export default function Home() {
             <h1 className="w-full text-3xl font-semibold text-white my-5 ml-2">
               Anterior
             </h1>
-            {escortCount === 0 && (
+            {girlCount === 0 && (
               <div className="flex justify-center items-center text-2xl text-white  w-full h-[600px] rounded-3xl">
                 <h1>Vazio</h1>
               </div>
             )}
-            {escortCount > 0 && (
+            {girlCount > 0 && (
               <div>
                 <div className="rounded-3xl md:w-[250px] lg:w-[300px] xl:w-[350px] 2xl:w-[400px] md:h-[300px] lg:h-[400px] xl:h-[500px] 2xl:h-[600px]">
                   <img
@@ -127,13 +142,13 @@ export default function Home() {
                 <div className="flex items-end z-10 h-5/6 2xl:ml-10 -mt-24 ml-5">
                   <div>
                     <h1 className="relative text-white text-4xl font-semibold">
-                      {AllEscorts[escortCount - 1]?.nome}{" "}
+                      {AllGirls[girlCount - 1]?.nome}{" "}
                       <span className="text-3xl">
-                        {AllEscorts[escortCount - 1]?.idade}
+                        {AllGirls[girlCount - 1]?.idade}
                       </span>
                     </h1>
                     <h3 className="relative text-white text-xl">
-                      @{AllEscorts[escortCount - 1]?.social_midia}
+                      @{AllGirls[girlCount - 1]?.social_midia}
                     </h3>
                   </div>
                 </div>
@@ -142,39 +157,56 @@ export default function Home() {
           </div>
         </div>
 
-        <div id="garota atual" className="flex items-center bg-white h-screen">
+        <div
+          id="garota atual"
+          style={{ transition: "background-color 0.5s ease" }}
+          className={`flex items-center h-screen ${
+            AllGirls[girlCount]?.destaque ? "bg-black" : "bg-white"
+          }`}
+        >
           <div className="mb-82">
-            {/* <div className="flex items-center justify-center -mt-24">
-              <Image src={logo} alt="" width={200} height={100} />
-            </div> */}
+            <div className="flex items-center justify-center">
+              <Image
+                src={AllGirls[girlCount]?.destaque ? logoGold : logo}
+                alt=""
+                width={200}
+                height={100}
+              />
+            </div>
             <div
               id="img bnt"
-              className="flex justify-center flex-wrap my-5 bg-transparent px-5"
+              className="flex justify-center flex-wrap mb-5 mt-2 bg-transparent px-5"
             >
               <div className="flex justify-center items-center md:h-auto">
                 <img
                   src={currentGirl}
                   alt=""
-                  className={`rounded-3xl ${
-                    currentScreen?.availHeight < 800 ? "h-[600px]" : "h-[700px]"
-                  }  md:w-[250px] lg:w-[300px] xl:w-[350px] 2xl:w-[400px] md:h-[300px] lg:h-[400px] xl:h-[500px] 2xl:h-[600px]`}
+                  className={`rounded-3xl shadow shadow-xl ${
+                    AllGirls[girlCount]?.destaque
+                      ? "shadow-[#FFB800]"
+                      : "shadow-[#FF4DA2]"
+                  } ${currentScreen?.availHeight < 800 ? "h-[500px]" : ""} ${
+                    currentScreen?.availHeight < 635 ? "h-[300px]" : "h-[700px]"
+                  } md:w-[250px] lg:w-[300px] xl:w-[350px] 2xl:w-[400px] md:h-[300px] lg:h-[400px] xl:h-[500px] 2xl:h-[600px]`}
                 />
               </div>
 
               <div
                 id="nome e social"
-                className="z-10 flex flex-wrap items-end px-5 -mt-56"
+                className={`z-10 flex flex-wrap items-end px-5  ${
+                  currentScreen?.availHeight < 830 ? "-mt-96" : "-mt-64"
+                } `}
               >
                 <div className="flex items-end z-10 h-5/6 2xl:ml-10">
                   <div>
                     <h1 className="relative text-white text-4xl font-semibold">
-                      {AllEscorts[escortCount]?.nome}{" "}
+                      {AllGirls[girlCount]?.nome}{" "}
                       <span className="text-3xl">
-                        {AllEscorts[escortCount]?.idade}
+                        {AllGirls[girlCount]?.idade}
                       </span>
                     </h1>
                     <h3 className="relative text-white text-xl">
-                      @{AllEscorts[escortCount]?.social_midia}
+                      @{AllGirls[girlCount]?.social_midia}
                     </h3>
                   </div>
                 </div>
@@ -186,11 +218,11 @@ export default function Home() {
                   >
                     <Image
                       onClick={() => {
-                        if (escortCount === 0) {
-                          setescortCount(0);
+                        if (girlCount === 0) {
+                          setGirlCount(0);
                         } else {
-                          let index = escortCount - 1;
-                          setescortCount(index);
+                          let index = girlCount - 1;
+                          setGirlCount(index);
                         }
                       }}
                       src={botaoVoltar}
@@ -202,11 +234,11 @@ export default function Home() {
 
                     <Image
                       onClick={() => {
-                        if (escortCount === 0) {
-                          setescortCount(0);
+                        if (girlCount === 0) {
+                          setGirlCount(0);
                         } else {
-                          let index = escortCount - 1;
-                          setescortCount(index);
+                          let index = girlCount - 1;
+                          setGirlCount(index);
                         }
                       }}
                       src={botaoVoltar}
@@ -218,11 +250,11 @@ export default function Home() {
 
                     <Image
                       onClick={() => {
-                        if (escortCount === 0) {
-                          setescortCount(0);
+                        if (girlCount === 0) {
+                          setGirlCount(0);
                         } else {
-                          let index = escortCount - 1;
-                          setescortCount(index);
+                          let index = girlCount - 1;
+                          setGirlCount(index);
                         }
                       }}
                       src={botaoVoltar}
@@ -234,11 +266,11 @@ export default function Home() {
 
                     <Image
                       onClick={() => {
-                        if (escortCount === 0) {
-                          setescortCount(0);
+                        if (girlCount === 0) {
+                          setGirlCount(0);
                         } else {
-                          let index = escortCount - 1;
-                          setescortCount(index);
+                          let index = girlCount - 1;
+                          setGirlCount(index);
                         }
                       }}
                       src={botaoVoltar}
@@ -251,13 +283,17 @@ export default function Home() {
 
                   <div
                     onClick={() =>
-                      router.push(`/profile/${AllEscorts[escortCount]?.id}`)
+                      router.push(`/profile/${AllGirls[girlCount]?.id}`)
                     }
                     className="z-20 -mt-10 sm:-mt-14 md:-mt-10 lg:-mt-14 xl:-mt-36 2xl:-mt-28 w-full flex justify-center cursor-pointer"
                   >
                     {/* mobile button */}
                     <Image
-                      src={botaoCoracao}
+                      src={
+                        AllGirls[girlCount]?.destaque
+                          ? botaoMatchGold
+                          : botaoMatch
+                      }
                       className="rounded-full drop-shadow-xl md:hidden"
                       alt=""
                       width={110}
@@ -265,7 +301,11 @@ export default function Home() {
                     />
 
                     <Image
-                      src={botaoCoracao}
+                      src={
+                        AllGirls[girlCount]?.destaque
+                          ? botaoMatchGold
+                          : botaoMatch
+                      }
                       className="rounded-full drop-shadow-xl mt-5 hidden 2xl:block"
                       alt=""
                       width={150}
@@ -273,7 +313,11 @@ export default function Home() {
                     />
 
                     <Image
-                      src={botaoCoracao}
+                      src={
+                        AllGirls[girlCount]?.destaque
+                          ? botaoMatchGold
+                          : botaoMatch
+                      }
                       className="rounded-full drop-shadow-xl mt-5 hidden lg:block 2xl:hidden"
                       alt=""
                       width={100}
@@ -281,7 +325,11 @@ export default function Home() {
                     />
 
                     <Image
-                      src={botaoCoracao}
+                      src={
+                        AllGirls[girlCount]?.destaque
+                          ? botaoMatchGold
+                          : botaoMatch
+                      }
                       className="rounded-full drop-shadow-xl mt-5 hidden md:block lg:hidden 2xl:hidden"
                       alt=""
                       width={90}
@@ -294,11 +342,11 @@ export default function Home() {
                   >
                     <Image
                       onClick={() => {
-                        if (escortCount + 1 === AllEscorts.length) {
-                          setescortCount(0);
+                        if (girlCount + 1 === AllGirls.length) {
+                          setGirlCount(0);
                         } else {
-                          let index = escortCount + 1;
-                          setescortCount(index);
+                          let index = girlCount + 1;
+                          setGirlCount(index);
                         }
                       }}
                       src={botaoX}
@@ -310,11 +358,11 @@ export default function Home() {
 
                     <Image
                       onClick={() => {
-                        if (escortCount + 1 === AllEscorts.length) {
-                          setescortCount(0);
+                        if (girlCount + 1 === AllGirls.length) {
+                          setGirlCount(0);
                         } else {
-                          let index = escortCount + 1;
-                          setescortCount(index);
+                          let index = girlCount + 1;
+                          setGirlCount(index);
                         }
                       }}
                       src={botaoX}
@@ -326,11 +374,11 @@ export default function Home() {
 
                     <Image
                       onClick={() => {
-                        if (escortCount + 1 === AllEscorts.length) {
-                          setescortCount(0);
+                        if (girlCount + 1 === AllGirls.length) {
+                          setGirlCount(0);
                         } else {
-                          let index = escortCount + 1;
-                          setescortCount(index);
+                          let index = girlCount + 1;
+                          setGirlCount(index);
                         }
                       }}
                       src={botaoX}
@@ -342,11 +390,11 @@ export default function Home() {
 
                     <Image
                       onClick={() => {
-                        if (escortCount + 1 === AllEscorts.length) {
-                          setescortCount(0);
+                        if (girlCount + 1 === AllGirls.length) {
+                          setGirlCount(0);
                         } else {
-                          let index = escortCount + 1;
-                          setescortCount(index);
+                          let index = girlCount + 1;
+                          setGirlCount(index);
                         }
                       }}
                       src={botaoX}
@@ -369,12 +417,12 @@ export default function Home() {
             <h1 className="w-full text-3xl font-semibold text-white my-5 ml-2">
               Próxima
             </h1>
-            {escortCount + 1 === AllEscorts.length && (
+            {girlCount + 1 === AllGirls.length && (
               <div className="flex justify-center items-center text-2xl text-white  w-full h-[600px] rounded-3xl">
                 <h1>Vazio</h1>
               </div>
             )}
-            {escortCount + 1 < AllEscorts.length && (
+            {girlCount + 1 < AllGirls.length && (
               <div>
                 <div className="rounded-3xl md:w-[250px] lg:w-[300px] xl:w-[350px] 2xl:w-[400px] md:h-[300px] lg:h-[400px] xl:h-[500px] 2xl:h-[600px]">
                   <img
@@ -386,13 +434,13 @@ export default function Home() {
                 <div className="flex items-end z-10 h-5/6 2xl:ml-10 -mt-24 ml-5">
                   <div>
                     <h1 className="relative text-white text-4xl font-semibold">
-                      {AllEscorts[escortCount + 1]?.nome}{" "}
+                      {AllGirls[girlCount + 1]?.nome}{" "}
                       <span className="text-3xl">
-                        {AllEscorts[escortCount + 1]?.idade}
+                        {AllGirls[girlCount + 1]?.idade}
                       </span>
                     </h1>
                     <h3 className="relative text-white text-xl">
-                      @{AllEscorts[escortCount + 1]?.social_midia}
+                      @{AllGirls[girlCount + 1]?.social_midia}
                     </h3>
                   </div>
                 </div>
