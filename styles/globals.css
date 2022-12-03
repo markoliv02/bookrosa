@@ -28,8 +28,10 @@ a {
 @media screen and (min-width: 0px) and (max-width: 765px) {
   body {
     background-color: white;
+    transition: "background-color 1s ease";
   }
 }
+
 /* tailwind */
 
 @tailwind base;
