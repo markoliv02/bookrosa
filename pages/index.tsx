@@ -14,6 +14,7 @@ import supabase from "../utils/supabase";
 import { useRouter } from "next/router";
 
 let initScreen: Screen;
+let docInit: Document;
 
 export default function Home() {
   const [girlCount, setGirlCount] = React.useState(0);
@@ -24,6 +25,7 @@ export default function Home() {
   const [nextGirl, setNextGirl] = React.useState<string>();
 
   const [currentScreen, setCurrentScreen] = React.useState<Screen>(initScreen);
+  const [Dom, setDom] = React.useState<Document>(docInit);
 
   const router = useRouter();
 
@@ -96,10 +98,27 @@ export default function Home() {
     }
   };
 
+  const changeBodyColor = () => {
+    if (Dom !== undefined) {
+      const bd = Dom.querySelector("body");
+
+      if (bd !== null) {
+        if (AllGirls[girlCount]?.destaque) {
+          bd.style.backgroundColor = "black";
+        } else if (currentScreen?.availWidth < 770) {
+          bd.style.backgroundColor = "white";
+        } else {
+          bd.style.backgroundColor = "#ff93c6";
+        }
+      }
+    }
+  };
+
   useEffect(() => {
     handleGetCurrentGirlImage();
     handleGetNextGirlImage();
     handleGetPreviousGirlImage();
+    changeBodyColor();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [girlCount, AllGirls]);
 
