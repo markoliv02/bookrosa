@@ -156,7 +156,7 @@ export default function Home() {
                   src={currentGirl}
                   alt=""
                   className={`rounded-3xl ${
-                    currentScreen?.availHeight < 800 ? "h-[600px]" : "h-[700px]"
+                    currentScreen?.availHeight > 800 ? "h-[700px]" : "h-[600px]"
                   }  md:w-[250px] lg:w-[300px] xl:w-[350px] 2xl:w-[400px] md:h-[300px] lg:h-[400px] xl:h-[500px] 2xl:h-[600px]`}
                 />
               </div>
