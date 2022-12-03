@@ -185,9 +185,9 @@ export default function Home() {
                     AllGirls[girlCount]?.destaque
                       ? "shadow-[#FFB800]"
                       : "shadow-[#FF4DA2]"
-                  } ${currentScreen?.availHeight < 800 ? "h-[500px]" : ""} ${
-                    currentScreen?.availHeight < 635 ? "h-[300px]" : "h-[700px]"
-                  } md:w-[250px] lg:w-[300px] xl:w-[350px] 2xl:w-[400px] md:h-[300px] lg:h-[400px] xl:h-[500px] 2xl:h-[600px]`}
+                  } ${
+                    currentScreen?.availHeight > 800 ? "h-[700px]" : "h-[500px]"
+                  }  md:w-[250px] lg:w-[300px] xl:w-[350px] 2xl:w-[400px] md:h-[300px] lg:h-[400px] xl:h-[500px] 2xl:h-[600px]`}
                 />
               </div>
 
