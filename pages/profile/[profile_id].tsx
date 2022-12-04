@@ -5,8 +5,14 @@ import * as React from "react";
 import supabase from "../../utils/supabase";
 
 import wpp from "../../assets/whatsapp.svg";
+import botaoVoltar from "../../assets/botaoVoltar02.svg";
+import botaoVoltarGold from "../../assets/botaoVoltarGold.svg";
+
 import logo from "../../assets/logo.svg";
-import voltar from "../../assets/botaoVoltar02.svg";
+import logoGold from "../../assets/logoGold.svg";
+
+let initScreen: Screen;
+let docInit: Document;
 
 const Profile = () => {
   const { query } = useRouter();
@@ -20,6 +26,9 @@ const Profile = () => {
 
   const [photoView, setPhotoView] = React.useState<string>();
   const [viewPhoto, setViewPhoto] = React.useState<boolean>(false);
+
+  const [currentScreen, setCurrentScreen] = React.useState<Screen>(initScreen);
+  const [Dom, setDom] = React.useState<Document>(docInit);
 
   const handleGetProfile = async () => {
     if (id !== undefined) {
@@ -77,18 +86,32 @@ const Profile = () => {
     }
   };
 
+  const changeBodyColor = () => {
+    if (Dom !== undefined) {
+      const bd = Dom.querySelector("body");
+      if (bd !== null) {
+        if (Profile[0]?.destaque) {
+          bd.style.backgroundColor = "black";
+        } else {
+          bd.style.backgroundColor = "white";
+        }
+      }
+    }
+  };
+
   React.useEffect(() => {
     if (Profile.length > 0) {
       handleGetProfileImage();
       handleGetGaleryImages();
       handleGetVideo();
+      changeBodyColor();
     }
   }, [Profile]);
 
   React.useEffect(() => {
-    console.log(query.profile_id);
     setid(`${query.profile_id}`);
-  });
+    setDom(document);
+  }, []);
 
   React.useEffect(() => {
     handleGetProfile();
@@ -100,19 +123,29 @@ const Profile = () => {
         {!viewPhoto && (
           <div
             className="mt-5 cursor-pointer md:hidden"
-            onClick={() => router.push("/")}
+            onClick={() => document.location.replace("/")}
           >
-            <Image src={voltar} alt="" width={40} height={40} />
+            <Image
+              src={Profile[0]?.destaque ? botaoVoltarGold : botaoVoltar}
+              alt=""
+              width={40}
+              height={40}
+            />
           </div>
         )}
         <div className="flex items-center justify-between md:justify-center mt-5 col-span-2">
-          <Image src={logo} alt="" width={300} height={300} />
+          <Image
+            src={Profile[0]?.destaque ? logoGold : logo}
+            alt=""
+            width={300}
+            height={300}
+          />
         </div>
       </div>
       {viewPhoto && (
         <div>
           <div
-            className="flex justify-end cursor-pointer"
+            className="flex justify-end cursor-pointer rounded-full bg-white"
             onClick={() => setViewPhoto(!viewPhoto)}
           >
             <svg
@@ -154,11 +187,21 @@ const Profile = () => {
           <div className="flex justify-center w-full">
             <div className="md:grid md:grid-cols-3 md:w-full md:justify-start">
               <div id="resume" className="grid grid-cols-3 md:py-5 w-full">
-                <div className="grid grid-cols-3 py-5 col-span-3 rounded-3xl md:bg-[#D9D9D9] mr-5 lg:pl-4 md:pl-0  pb-10 md:grid-cols-1 lg:grid-cols-3">
+                <div
+                  className={`grid grid-cols-3 py-5 col-span-3 rounded-3xl md:bg-[#D9D9D9] shadow-none mr-5 lg:pl-4 md:pl-0 pb-10 md:grid-cols-1 lg:grid-cols-3 ${
+                    Profile[0]?.destaque
+                      ? "md:shadow-[#FFB800] md:shadow-lg"
+                      : "md:shadow-[#FF4DA2] md:shadow-md "
+                  }`}
+                >
                   <div className="flex justify-start md:justify-center">
                     <div
                       id="profile"
-                      className="relative bg-gray-500 w-24 h-24 xl:w-32 xl:h-32 rounded-full shadow shadow-[#FF4DA2]"
+                      className={`relative bg-gray-500 w-24 h-24 xl:w-32 xl:h-32 rounded-full  shadow ${
+                        Profile[0]?.destaque
+                          ? "shadow-[#FFB800] shadow-lg"
+                          : "shadow-[#FF4DA2] shadow-lg"
+                      } `}
                     >
                       <Image
                         quality={100}
@@ -177,7 +220,11 @@ const Profile = () => {
 
                   <div className="flex justify-start items-center col-span-2 text-left text-black md:justify-center lg:justify-start">
                     <div className="ml-5">
-                      <h1 className="text-3xl font-semibold text-3xl md:text-2xl lg:text-3xl">
+                      <h1
+                        className={`text-3xl font-semibold text-3xl md:text-2xl lg:text-3xl ${
+                          Profile[0]?.destaque ? "text-white" : "text-black"
+                        }`}
+                      >
                         {Profile[0]?.nome}{" "}
                       </h1>
                       <div className="flex">
@@ -192,14 +239,24 @@ const Profile = () => {
                           className="z-10 rounded-full"
                         />
 
-                        <h3 className="ml-1 text-lg md:text-sm lg:text-lg">
+                        <h3
+                          className={`ml-1 text-lg md:text-sm lg:text-lg ${
+                            Profile[0]?.destaque ? "text-white" : "text-black"
+                          }`}
+                        >
                           {Profile[0]?.celular}
                         </h3>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div className="overflow-x-auto relative shadow-md rounded-3xl my-10 shadow shadow-[#FF4DA2] md:shadow-none col-span-3 mr-5 hidden md:block">
+                <div
+                  className={`overflow-x-auto relative shadow-md rounded-3xl my-10 col-span-3 mr-5 hidden md:block ${
+                    Profile[0]?.destaque
+                      ? "shadow shadow-[#FFB800] shadow-xl"
+                      : "shadow-[#FF4DA2] shadow-md"
+                  }`}
+                >
                   <table className="w-full text-sm text-left ">
                     <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                       <tr>
@@ -322,7 +379,11 @@ const Profile = () => {
                   </table>
                 </div>
 
-                <div className="mb-5 hidden md:block col-span-3 h-64 overflow-hidden mr-3 lg:-mt-10">
+                <div
+                  className={`mb-5 hidden md:block col-span-3 h-64 overflow-hidden mr-3 lg:-mt-10  ${
+                    Profile[0]?.destaque ? "text-white" : "text-black"
+                  } `}
+                >
                   <h1 className="text-xl font-semibold py-5">Descrição</h1>
 
                   <p className="text=lg lg:text-sm">{Profile[0]?.desc}</p>
@@ -330,12 +391,14 @@ const Profile = () => {
               </div>
               <div
                 id="divisor"
-                className="w-full h-[4px] bg-[#FF4DA2] rounded-full md:hidden"
+                className={`w-full h-[4px]  rounded-full md:hidden ${
+                  Profile[0]?.destaque ? "bg-[#FFB800]" : "bg-[#FF4DA2]"
+                }`}
               />
 
               <div
                 id="grade das fotos"
-                className="grid grid-cols-3 mt-5 gap-2 col-span-2 md:h-[780px]"
+                className="grid grid-cols-3 mt-5 gap-2 md:gap-8 col-span-2 md:h-[780px]"
               >
                 <div
                   onClick={() => {
@@ -355,10 +418,14 @@ const Profile = () => {
                     alt=""
                     fill={true}
                     objectFit="cover"
-                    className=" rounded-3xl shadow shadow-[#FF4DA2]"
+                    className={`rounded-3xl shadow ${
+                      Profile[0]?.destaque
+                        ? "shadow shadow-[#FFB800] shadow-lg "
+                        : "shadow-[#FF4DA2] shadow-md"
+                    }`}
                   />
                 </div>
-                <div className="grid grid-cols-1 gap-2 w-full h-48 md:h-[33rem] cursor-pointer">
+                <div className="grid grid-cols-1 gap-2 md:gap-8 w-full h-48 md:h-[33rem] cursor-pointer">
                   <div
                     onClick={() => {
                       setPhotoView(galery[1]);
@@ -377,7 +444,11 @@ const Profile = () => {
                       alt=""
                       fill={true}
                       objectFit="cover"
-                      className=" rounded-3xl shadow shadow-[#FF4DA2]"
+                      className={`rounded-3xl shadow ${
+                        Profile[0]?.destaque
+                          ? "shadow-[#FFB800] shadow-lg"
+                          : "shadow-[#FF4DA2] shadow-md"
+                      }`}
                     />
                   </div>
                   <div
@@ -398,7 +469,11 @@ const Profile = () => {
                       alt=""
                       fill={true}
                       objectFit="cover"
-                      className=" rounded-3xl shadow shadow-[#FF4DA2]"
+                      className={`rounded-3xl shadow ${
+                        Profile[0]?.destaque
+                          ? "shadow-[#FFB800] shadow-lg"
+                          : "shadow-[#FF4DA2] shadow-md"
+                      }`}
                     />
                   </div>
                 </div>
@@ -420,7 +495,11 @@ const Profile = () => {
                     alt=""
                     fill={true}
                     objectFit="cover"
-                    className=" rounded-3xl shadow shadow-[#FF4DA2]"
+                    className={`rounded-3xl shadow ${
+                      Profile[0]?.destaque
+                        ? "shadow-[#FFB800] shadow-lg"
+                        : "shadow-[#FF4DA2] shadow-md"
+                    }`}
                   />
                 </div>
                 <div
@@ -441,7 +520,11 @@ const Profile = () => {
                     alt=""
                     fill={true}
                     objectFit="cover"
-                    className=" rounded-3xl shadow shadow-[#FF4DA2]"
+                    className={`rounded-3xl shadow ${
+                      Profile[0]?.destaque
+                        ? "shadow-[#FFB800] shadow-lg"
+                        : "shadow-[#FF4DA2] shadow-md"
+                    }`}
                   />
                 </div>
                 <div
@@ -462,20 +545,32 @@ const Profile = () => {
                     alt=""
                     fill={true}
                     objectFit="cover"
-                    className=" rounded-3xl shadow shadow-[#FF4DA2]"
+                    className={`rounded-3xl shadow ${
+                      Profile[0]?.destaque
+                        ? "shadow-[#FFB800] shadow-lg"
+                        : "shadow-[#FF4DA2] shadow-md"
+                    }`}
                   />
                 </div>
               </div>
               <div
                 id="divisor 2"
-                className="w-full h-[4px] bg-[#FF4DA2] rounded-full my-3 col-span-3"
+                className={`w-full h-[4px] rounded-full mt-10 col-span-3 ${
+                  Profile[0]?.destaque ? "bg-[#FFB800]" : "bg-[#FF4DA2]"
+                }`}
               />
               <div className="col-span-3">
                 <h1 className="text-xl font-semibold">Vídeo</h1>
 
-                <div className="flex justify-center w-full h-48 md:h-[33rem] bg-gray-300 my-5 shadow shadow-[#FF4DA2]">
+                <div
+                  className={`flex justify-center w-full h-48 md:h-[33rem] bg-gray-300 my-5 shadow rounded-3xl ${
+                    Profile[0]?.destaque
+                      ? "shadow-[#FFB800] shadow-lg"
+                      : "shadow-[#FF4DA2] shadow-md"
+                  }`}
+                >
                   <video
-                    className="w-full h-48 md:h-[33rem]"
+                    className="w-full h-48 md:h-[33rem] rounded-3xl"
                     src={videoUrl}
                     // width={200}
                     // height={200}
@@ -483,7 +578,13 @@ const Profile = () => {
                   />
                 </div>
               </div>
-              <div className="overflow-x-auto relative shadow-md rounded-3xl my-10 shadow shadow-[#FF4DA2] md:hidden">
+              <div
+                className={`overflow-x-auto relative shadow-md rounded-3xl my-10 shadow shadow-md md:hidden ${
+                  Profile[0]?.destaque
+                    ? "shadow shadow-[#FFB800] shadow-xl"
+                    : "shadow-[#FF4DA2] shadow-md"
+                }`}
+              >
                 <table className="w-full text-sm text-left ">
                   <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
@@ -605,7 +706,11 @@ const Profile = () => {
                   </tbody>
                 </table>
               </div>
-              <div className="mb-5 md:hidden h-40 ">
+              <div
+                className={`mb-5 md:hidden h-40 ${
+                  Profile[0]?.destaque ? "text-white" : "text-black"
+                }`}
+              >
                 <h1 className="text-xl font-semibold py-5">Descrição</h1>
 
                 <p className="text=lg">{Profile[0]?.desc}</p>

@@ -103,7 +103,7 @@ export default function Home() {
       const bd = Dom.querySelector("body");
 
       if (bd !== null) {
-        if (AllGirls[girlCount]?.destaque) {
+        if (AllGirls[girlCount]?.destaque && currentScreen?.availWidth < 770) {
           bd.style.backgroundColor = "black";
         } else if (currentScreen?.availWidth < 770) {
           bd.style.backgroundColor = "white";
@@ -125,6 +125,7 @@ export default function Home() {
   useEffect(() => {
     handleGetAllGirls();
     setCurrentScreen(screen);
+    setDom(document);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
