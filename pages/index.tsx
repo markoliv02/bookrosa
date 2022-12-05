@@ -17,100 +17,141 @@ let initScreen: Screen;
 let docInit: Document;
 
 export default function Home() {
-  const [girlCount, setGirlCount] = React.useState(0);
+  const [girlNumberCount, setGirlNumberCount] = React.useState(0);
   const [AllGirls, setAllGirls] = React.useState<Array<any>>([]);
 
   const [currentGirl, setCurrentGirl] = React.useState<string>();
   const [previousGirl, setPreviousGirl] = React.useState<string>();
   const [nextGirl, setNextGirl] = React.useState<string>();
 
-  const [currentScreen, setCurrentScreen] = React.useState<Screen>(initScreen);
+  const [currentScreenProps, setCurrentScreenProps] =
+    React.useState<Screen>(initScreen);
   const [Dom, setDom] = React.useState<Document>(docInit);
 
   const router = useRouter();
 
   const handleGetAllGirls = async () => {
-    let { data: acompanhantes, error } = await supabase
-      .from("acompanhantes")
-      .select("*");
+    try {
+      let { data: acompanhantes, error } = await supabase
+        .from("acompanhantes")
+        .select("*");
 
-    if (acompanhantes) {
-      handleOrderAllGirls(acompanhantes);
+      if (acompanhantes) {
+        handleOrderAllGirls(acompanhantes);
+      } else if (error) {
+        console.error(error);
+      }
+    } catch (error) {
+      console.error(error);
+      console.log("Erro ao buscar dados das garotas !!! f(handleGetAllGirls)");
     }
   };
 
-  const handleOrderAllGirls = (escorts: Array<any>) => {
-    let ecortsOrdened: Array<any> = [];
-    for (let i = 0; i < escorts.length; i++) {
-      if (escorts[i]?.destaque) {
-        ecortsOrdened.unshift(escorts[i]);
-      } else {
-        ecortsOrdened.push(escorts[i]);
+  const handleOrderAllGirls = (girls: Array<any>) => {
+    try {
+      let girlsOrdered: Array<any> = [];
+      for (let i = 0; i < girls.length; i++) {
+        if (girls[i]?.destaque) {
+          girlsOrdered.unshift(girls[i]);
+        } else {
+          girlsOrdered.push(girls[i]);
+        }
       }
+      setAllGirls(girlsOrdered);
+    } catch (error) {
+      console.error(error);
+      console.log("Erro ao ordenar as garotas !!! f(handleOrderAllGirls)");
     }
-    setAllGirls(ecortsOrdened);
   };
 
   const handleGetCurrentGirlImage = async () => {
-    let full_name = `${AllGirls[girlCount]?.nome}`;
-    let first_name = full_name.split(" ");
+    try {
+      const { data } = supabase.storage
+        .from("photos")
+        .getPublicUrl(
+          `${AllGirls[girlNumberCount]?.id}/${AllGirls[girlNumberCount]?.id}_capa`
+        );
 
-    const { data } = supabase.storage
-      .from("photos")
-      .getPublicUrl(`${first_name[0]}/${first_name[0]}001`);
-
-    if (data) {
-      setCurrentGirl(data?.publicUrl);
+      if (data) {
+        setCurrentGirl(data?.publicUrl);
+      }
+    } catch (error) {
+      console.error(error);
+      console.log(
+        "Erro ao buscar foto de capa da garota atual!!! f(handleGetCurrentGirlImage)"
+      );
     }
   };
 
   const handleGetPreviousGirlImage = async () => {
-    let full_name = `${AllGirls[girlCount - 1]?.nome}`;
-    let first_name = full_name.split(" ");
+    try {
+      if (girlNumberCount !== 0) {
+        const { data } = supabase.storage
+          .from("photos")
+          .getPublicUrl(
+            `${AllGirls[girlNumberCount]?.id}/${AllGirls[girlNumberCount]?.id}_capa`
+          );
 
-    if (girlCount !== 0) {
-      const { data } = supabase.storage
-        .from("photos")
-        .getPublicUrl(`${first_name[0]}/${first_name[0]}001`);
-
-      if (data) {
-        setPreviousGirl(data?.publicUrl);
+        if (data) {
+          setPreviousGirl(data?.publicUrl);
+        }
+      } else {
+        setPreviousGirl(undefined);
       }
-    } else {
-      setPreviousGirl(undefined);
+    } catch (error) {
+      console.error(error);
+      console.log(
+        "Erro ao buscar foto de capa da garota anterior!!! f(handleGetPreviousGirlImage)"
+      );
     }
   };
 
   const handleGetNextGirlImage = async () => {
-    let full_name = `${AllGirls[girlCount + 1]?.nome}`;
-    let first_name = full_name.split(" ");
+    try {
+      if (girlNumberCount + 1 === AllGirls.length) {
+        setNextGirl(undefined);
+      } else {
+        const { data } = supabase.storage
+          .from("photos")
+          .getPublicUrl(
+            `${AllGirls[girlNumberCount]?.id}/${AllGirls[girlNumberCount]?.id}_capa`
+          );
 
-    if (girlCount + 1 === AllGirls.length) {
-      setNextGirl(undefined);
-    } else {
-      const { data } = supabase.storage
-        .from("photos")
-        .getPublicUrl(`${first_name[0]}/${first_name[0]}001`);
-
-      if (data) {
-        setNextGirl(data?.publicUrl);
+        if (data) {
+          setNextGirl(data?.publicUrl);
+        }
       }
+    } catch (error) {
+      console.error(error);
+      console.log(
+        "Erro ao buscar foto de capa da proxima garota!!! f(handleGetNextGirlImage)"
+      );
     }
   };
 
   const changeBodyColor = () => {
-    if (Dom !== undefined) {
-      const bd = Dom.querySelector("body");
+    try {
+      if (Dom !== undefined) {
+        const bd = Dom.querySelector("body");
 
-      if (bd !== null) {
-        if (AllGirls[girlCount]?.destaque && currentScreen?.availWidth < 770) {
-          bd.style.backgroundColor = "black";
-        } else if (currentScreen?.availWidth < 770) {
-          bd.style.backgroundColor = "white";
-        } else {
-          bd.style.backgroundColor = "#ff93c6";
+        if (bd !== null) {
+          if (
+            AllGirls[girlNumberCount]?.destaque &&
+            currentScreenProps?.availWidth < 770
+          ) {
+            bd.style.backgroundColor = "black";
+          } else if (currentScreenProps?.availWidth < 770) {
+            bd.style.backgroundColor = "white";
+          } else {
+            bd.style.backgroundColor = "#ff93c6";
+          }
         }
       }
+    } catch (error) {
+      console.error(error);
+      console.log(
+        "Erro ao atualizar background color em body!!! f(handleChangeBodyColor)"
+      );
     }
   };
 
@@ -120,11 +161,11 @@ export default function Home() {
     handleGetPreviousGirlImage();
     changeBodyColor();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [girlCount, AllGirls]);
+  }, [girlNumberCount, AllGirls]);
 
   useEffect(() => {
     handleGetAllGirls();
-    setCurrentScreen(screen);
+    setCurrentScreenProps(screen);
     setDom(document);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -145,12 +186,12 @@ export default function Home() {
             <h1 className="w-full text-3xl font-semibold text-white my-5 ml-2">
               Anterior
             </h1>
-            {girlCount === 0 && (
+            {girlNumberCount === 0 && (
               <div className="flex justify-center items-center text-2xl text-white  w-full h-[600px] rounded-3xl">
                 <h1>Vazio</h1>
               </div>
             )}
-            {girlCount > 0 && (
+            {girlNumberCount > 0 && (
               <div>
                 <div className="rounded-3xl md:w-[250px] lg:w-[300px] xl:w-[350px] 2xl:w-[400px] md:h-[300px] lg:h-[400px] xl:h-[500px] 2xl:h-[600px]">
                   <img
@@ -162,13 +203,13 @@ export default function Home() {
                 <div className="flex items-end z-10 h-5/6 2xl:ml-10 -mt-24 ml-5">
                   <div>
                     <h1 className="relative text-white text-4xl font-semibold">
-                      {AllGirls[girlCount - 1]?.nome}{" "}
+                      {AllGirls[girlNumberCount - 1]?.nome}{" "}
                       <span className="text-3xl">
-                        {AllGirls[girlCount - 1]?.idade}
+                        {AllGirls[girlNumberCount - 1]?.idade}
                       </span>
                     </h1>
                     <h3 className="relative text-white text-xl">
-                      @{AllGirls[girlCount - 1]?.social_midia}
+                      @{AllGirls[girlNumberCount - 1]?.social_midia}
                     </h3>
                   </div>
                 </div>
@@ -181,13 +222,13 @@ export default function Home() {
           id="garota atual"
           style={{ transition: "background-color 0.5s ease" }}
           className={`flex items-center h-screen ${
-            AllGirls[girlCount]?.destaque ? "bg-black" : "bg-white"
+            AllGirls[girlNumberCount]?.destaque ? "bg-black" : "bg-white"
           }`}
         >
           <div className="mb-82">
             <div className="flex items-center justify-center">
               <Image
-                src={AllGirls[girlCount]?.destaque ? logoGold : logo}
+                src={AllGirls[girlNumberCount]?.destaque ? logoGold : logo}
                 alt=""
                 width={200}
                 height={100}
@@ -202,11 +243,13 @@ export default function Home() {
                   src={currentGirl}
                   alt=""
                   className={`rounded-3xl shadow shadow-xl ${
-                    AllGirls[girlCount]?.destaque
+                    AllGirls[girlNumberCount]?.destaque
                       ? "shadow-[#FFB800]"
                       : "shadow-[#FF4DA2]"
                   } ${
-                    currentScreen?.availHeight > 800 ? "h-[700px]" : "h-[500px]"
+                    currentScreenProps?.availHeight > 800
+                      ? "h-[700px]"
+                      : "h-[500px]"
                   }  md:w-[250px] lg:w-[300px] xl:w-[350px] 2xl:w-[400px] md:h-[300px] lg:h-[400px] xl:h-[500px] 2xl:h-[600px]`}
                 />
               </div>
@@ -214,19 +257,19 @@ export default function Home() {
               <div
                 id="nome e social"
                 className={`z-10 flex flex-wrap items-end px-5  ${
-                  currentScreen?.availHeight < 830 ? "-mt-96" : "-mt-64"
+                  currentScreenProps?.availHeight < 830 ? "-mt-96" : "-mt-64"
                 } `}
               >
                 <div className="flex items-end z-10 h-5/6 2xl:ml-10">
                   <div>
                     <h1 className="relative text-white text-4xl font-semibold">
-                      {AllGirls[girlCount]?.nome}{" "}
+                      {AllGirls[girlNumberCount]?.nome}{" "}
                       <span className="text-3xl">
-                        {AllGirls[girlCount]?.idade}
+                        {AllGirls[girlNumberCount]?.idade}
                       </span>
                     </h1>
                     <h3 className="relative text-white text-xl">
-                      @{AllGirls[girlCount]?.social_midia}
+                      @{AllGirls[girlNumberCount]?.social_midia}
                     </h3>
                   </div>
                 </div>
@@ -238,11 +281,11 @@ export default function Home() {
                   >
                     <Image
                       onClick={() => {
-                        if (girlCount === 0) {
-                          setGirlCount(0);
+                        if (girlNumberCount === 0) {
+                          setGirlNumberCount(0);
                         } else {
-                          let index = girlCount - 1;
-                          setGirlCount(index);
+                          let index = girlNumberCount - 1;
+                          setGirlNumberCount(index);
                         }
                       }}
                       src={botaoVoltar}
@@ -254,11 +297,11 @@ export default function Home() {
 
                     <Image
                       onClick={() => {
-                        if (girlCount === 0) {
-                          setGirlCount(0);
+                        if (girlNumberCount === 0) {
+                          setGirlNumberCount(0);
                         } else {
-                          let index = girlCount - 1;
-                          setGirlCount(index);
+                          let index = girlNumberCount - 1;
+                          setGirlNumberCount(index);
                         }
                       }}
                       src={botaoVoltar}
@@ -270,11 +313,11 @@ export default function Home() {
 
                     <Image
                       onClick={() => {
-                        if (girlCount === 0) {
-                          setGirlCount(0);
+                        if (girlNumberCount === 0) {
+                          setGirlNumberCount(0);
                         } else {
-                          let index = girlCount - 1;
-                          setGirlCount(index);
+                          let index = girlNumberCount - 1;
+                          setGirlNumberCount(index);
                         }
                       }}
                       src={botaoVoltar}
@@ -286,11 +329,11 @@ export default function Home() {
 
                     <Image
                       onClick={() => {
-                        if (girlCount === 0) {
-                          setGirlCount(0);
+                        if (girlNumberCount === 0) {
+                          setGirlNumberCount(0);
                         } else {
-                          let index = girlCount - 1;
-                          setGirlCount(index);
+                          let index = girlNumberCount - 1;
+                          setGirlNumberCount(index);
                         }
                       }}
                       src={botaoVoltar}
@@ -303,14 +346,14 @@ export default function Home() {
 
                   <div
                     onClick={() =>
-                      router.push(`/profile/${AllGirls[girlCount]?.id}`)
+                      router.push(`/profile/${AllGirls[girlNumberCount]?.id}`)
                     }
                     className="z-20 -mt-10 sm:-mt-14 md:-mt-10 lg:-mt-14 xl:-mt-36 2xl:-mt-28 w-full flex justify-center cursor-pointer"
                   >
                     {/* mobile button */}
                     <Image
                       src={
-                        AllGirls[girlCount]?.destaque
+                        AllGirls[girlNumberCount]?.destaque
                           ? botaoMatchGold
                           : botaoMatch
                       }
@@ -322,7 +365,7 @@ export default function Home() {
 
                     <Image
                       src={
-                        AllGirls[girlCount]?.destaque
+                        AllGirls[girlNumberCount]?.destaque
                           ? botaoMatchGold
                           : botaoMatch
                       }
@@ -334,7 +377,7 @@ export default function Home() {
 
                     <Image
                       src={
-                        AllGirls[girlCount]?.destaque
+                        AllGirls[girlNumberCount]?.destaque
                           ? botaoMatchGold
                           : botaoMatch
                       }
@@ -346,7 +389,7 @@ export default function Home() {
 
                     <Image
                       src={
-                        AllGirls[girlCount]?.destaque
+                        AllGirls[girlNumberCount]?.destaque
                           ? botaoMatchGold
                           : botaoMatch
                       }
@@ -362,11 +405,11 @@ export default function Home() {
                   >
                     <Image
                       onClick={() => {
-                        if (girlCount + 1 === AllGirls.length) {
-                          setGirlCount(0);
+                        if (girlNumberCount + 1 === AllGirls.length) {
+                          setGirlNumberCount(0);
                         } else {
-                          let index = girlCount + 1;
-                          setGirlCount(index);
+                          let index = girlNumberCount + 1;
+                          setGirlNumberCount(index);
                         }
                       }}
                       src={botaoX}
@@ -378,11 +421,11 @@ export default function Home() {
 
                     <Image
                       onClick={() => {
-                        if (girlCount + 1 === AllGirls.length) {
-                          setGirlCount(0);
+                        if (girlNumberCount + 1 === AllGirls.length) {
+                          setGirlNumberCount(0);
                         } else {
-                          let index = girlCount + 1;
-                          setGirlCount(index);
+                          let index = girlNumberCount + 1;
+                          setGirlNumberCount(index);
                         }
                       }}
                       src={botaoX}
@@ -394,11 +437,11 @@ export default function Home() {
 
                     <Image
                       onClick={() => {
-                        if (girlCount + 1 === AllGirls.length) {
-                          setGirlCount(0);
+                        if (girlNumberCount + 1 === AllGirls.length) {
+                          setGirlNumberCount(0);
                         } else {
-                          let index = girlCount + 1;
-                          setGirlCount(index);
+                          let index = girlNumberCount + 1;
+                          setGirlNumberCount(index);
                         }
                       }}
                       src={botaoX}
@@ -410,11 +453,11 @@ export default function Home() {
 
                     <Image
                       onClick={() => {
-                        if (girlCount + 1 === AllGirls.length) {
-                          setGirlCount(0);
+                        if (girlNumberCount + 1 === AllGirls.length) {
+                          setGirlNumberCount(0);
                         } else {
-                          let index = girlCount + 1;
-                          setGirlCount(index);
+                          let index = girlNumberCount + 1;
+                          setGirlNumberCount(index);
                         }
                       }}
                       src={botaoX}
@@ -437,12 +480,12 @@ export default function Home() {
             <h1 className="w-full text-3xl font-semibold text-white my-5 ml-2">
               Próxima
             </h1>
-            {girlCount + 1 === AllGirls.length && (
+            {girlNumberCount + 1 === AllGirls.length && (
               <div className="flex justify-center items-center text-2xl text-white  w-full h-[600px] rounded-3xl">
                 <h1>Vazio</h1>
               </div>
             )}
-            {girlCount + 1 < AllGirls.length && (
+            {girlNumberCount + 1 < AllGirls.length && (
               <div>
                 <div className="rounded-3xl md:w-[250px] lg:w-[300px] xl:w-[350px] 2xl:w-[400px] md:h-[300px] lg:h-[400px] xl:h-[500px] 2xl:h-[600px]">
                   <img
@@ -454,13 +497,13 @@ export default function Home() {
                 <div className="flex items-end z-10 h-5/6 2xl:ml-10 -mt-24 ml-5">
                   <div>
                     <h1 className="relative text-white text-4xl font-semibold">
-                      {AllGirls[girlCount + 1]?.nome}{" "}
+                      {AllGirls[girlNumberCount + 1]?.nome}{" "}
                       <span className="text-3xl">
-                        {AllGirls[girlCount + 1]?.idade}
+                        {AllGirls[girlNumberCount + 1]?.idade}
                       </span>
                     </h1>
                     <h3 className="relative text-white text-xl">
-                      @{AllGirls[girlCount + 1]?.social_midia}
+                      @{AllGirls[girlNumberCount + 1]?.social_midia}
                     </h3>
                   </div>
                 </div>
