@@ -1,101 +1,127 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 // @flow
-import Image from "next/image";
-import { useRouter } from "next/router";
 import * as React from "react";
-import supabase from "../../utils/supabase";
 
-import wpp from "../../assets/whatsapp.svg";
+import { useRouter } from "next/router";
+import supabase from "../../utils/supabase";
+import Image from "next/image";
+
+import whatsappIcon from "../../assets/whatsapp.svg";
 import botaoVoltar from "../../assets/botaoVoltar02.svg";
 import botaoVoltarGold from "../../assets/botaoVoltarGold.svg";
 
 import logo from "../../assets/logo.svg";
 import logoGold from "../../assets/logoGold.svg";
 
-let initScreen: Screen;
 let docInit: Document;
 
 const Profile = () => {
   const { query } = useRouter();
-  const router = useRouter();
 
   const [id, setid] = React.useState<string>();
-  const [url, seturl] = React.useState<string>();
   const [Profile, setProfile] = React.useState<Array<any>>([]);
+  const [profileImage, setProfileImage] = React.useState<string>();
   const [galery, setGalery] = React.useState<Array<string>>([]);
   const [videoUrl, setVideoUrl] = React.useState<string>();
 
-  const [photoView, setPhotoView] = React.useState<string>();
-  const [viewPhoto, setViewPhoto] = React.useState<boolean>(false);
+  const [currentPhotoInViewMode, setcurrentPhotoInViewMode] =
+    React.useState<string>();
+  const [viewPhotoMode, setViewPhotoMode] = React.useState<boolean>(false);
 
-  const [currentScreen, setCurrentScreen] = React.useState<Screen>(initScreen);
   const [Dom, setDom] = React.useState<Document>(docInit);
 
   const handleGetProfile = async () => {
-    if (id !== undefined) {
-      let { data: acompanhantes, error } = await supabase
-        .from("acompanhantes")
-        .select("*")
+    try {
+      if (id !== undefined) {
+        let { data: acompanhantes, error } = await supabase
+          .from("acompanhantes")
+          .select("*")
 
-        // Filters
-        .eq("id", id);
+          // Filters
+          .eq("id", id);
 
-      if (acompanhantes) {
-        setProfile(acompanhantes);
+        if (acompanhantes) {
+          setProfile(acompanhantes);
+        }
       }
+    } catch (error) {
+      console.error(error);
+      console.log("Erro ao buscar perfil !!! f(handleGetProfile)");
     }
   };
 
   const handleGetProfileImage = async () => {
-    let full_name = `${Profile[0]?.nome}`;
-    let first_name = full_name.split(" ");
+    try {
+      const { data } = supabase.storage
+        .from("photos")
+        .getPublicUrl(`${Profile[0]?.id}/${Profile[0]?.id}_capa`);
 
-    const { data } = supabase.storage
-      .from("photos")
-      .getPublicUrl(`${first_name[0]}/${first_name[0]}001`);
-
-    if (data) {
-      // console.log(data);
-      seturl(data?.publicUrl);
+      if (data) {
+        setProfileImage(data?.publicUrl);
+      }
+    } catch (error) {
+      console.error(error);
+      console.log(
+        "Erro ao buscar imagem de perfil!!! f(handleGetProfileImage)"
+      );
     }
   };
 
   const handleGetGaleryImages = async () => {
-    let full_name = `${Profile[0]?.nome}`;
-    let first_name = full_name.split(" ");
+    try {
+      let ar = [];
+      for (let i = 0; i < 6; i++) {
+        const { data } = supabase.storage
+          .from("photos")
+          .getPublicUrl(`${Profile[0]?.id}/galery/00${i + 1}`);
 
-    let ar = [];
-    for (let i = 0; i < 6; i++) {
-      const { data } = supabase.storage
-        .from("photos")
-        .getPublicUrl(`${first_name[0]}/galery/00${i + 1}`);
-
-      if (data) {
-        ar.push(data?.publicUrl);
+        if (data) {
+          ar.push(data?.publicUrl);
+        }
       }
+      setGalery(ar);
+    } catch (error) {
+      console.error(error);
+      console.log(
+        "Erro ao buscar imagens na galeria do perfil !!! f(handleGetGaleryImages)"
+      );
     }
-    setGalery(ar);
   };
 
   const handleGetVideo = async () => {
-    const { data } = supabase.storage
-      .from("photos")
-      .getPublicUrl(`${Profile[0]?.nome}/${Profile[0]?.nome}_video`);
+    try {
+      const { data } = supabase.storage
+        .from("photos")
+        .getPublicUrl(`${Profile[0]?.id}/${Profile[0]?.id}_video`);
 
-    if (data) {
-      setVideoUrl(data?.publicUrl);
+      if (data) {
+        setVideoUrl(data?.publicUrl);
+      }
+    } catch (error) {
+      console.error(error);
+      console.log(
+        "Erro ao buscar video na galeria do perfil!!! f(handleGetVideo)"
+      );
     }
   };
 
-  const changeBodyColor = () => {
-    if (Dom !== undefined) {
-      const bd = Dom.querySelector("body");
-      if (bd !== null) {
-        if (Profile[0]?.destaque) {
-          bd.style.backgroundColor = "black";
-        } else {
-          bd.style.backgroundColor = "white";
+  const handleChangeBodyColor = () => {
+    try {
+      if (Dom !== undefined) {
+        const bd = Dom.querySelector("body");
+        if (bd !== null) {
+          if (Profile[0]?.destaque) {
+            bd.style.backgroundColor = "black";
+          } else {
+            bd.style.backgroundColor = "white";
+          }
         }
       }
+    } catch (error) {
+      console.error(error);
+      console.log(
+        "Erro ao atualizar background color em body!!! f(handleChangeBodyColor)"
+      );
     }
   };
 
@@ -104,23 +130,27 @@ const Profile = () => {
       handleGetProfileImage();
       handleGetGaleryImages();
       handleGetVideo();
-      changeBodyColor();
+      handleChangeBodyColor();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [Profile]);
 
   React.useEffect(() => {
     setid(`${query.profile_id}`);
     setDom(document);
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    //não colocar ',[]' pois se colocar quando der reload na pagina não vai carregar os dados
+  });
 
   React.useEffect(() => {
     handleGetProfile();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
 
   return (
     <div className="container mx-auto px-7 text-black">
       <div className="grid grid-cols-4 md:grid-cols-1">
-        {!viewPhoto && (
+        {!viewPhotoMode && (
           <div
             className="mt-5 cursor-pointer md:hidden"
             onClick={() => document.location.replace("/")}
@@ -142,11 +172,11 @@ const Profile = () => {
           />
         </div>
       </div>
-      {viewPhoto && (
+      {viewPhotoMode && (
         <div>
           <div
-            className="flex justify-end cursor-pointer rounded-full bg-white"
-            onClick={() => setViewPhoto(!viewPhoto)}
+            className="flex justify-end cursor-pointer rounded-full"
+            onClick={() => setViewPhotoMode(!viewPhotoMode)}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -154,7 +184,7 @@ const Profile = () => {
               viewBox="0 0 24 24"
               strokeWidth="1.5"
               stroke="currentColor"
-              className="w-6 h-6"
+              className="w-7 h-7 bg-white rounded-full"
             >
               <path
                 strokeLinecap="round"
@@ -168,8 +198,8 @@ const Profile = () => {
               <Image
                 quality={100}
                 src={
-                  photoView
-                    ? photoView
+                  currentPhotoInViewMode
+                    ? currentPhotoInViewMode
                     : "https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/default"
                 }
                 alt=""
@@ -182,7 +212,7 @@ const Profile = () => {
         </div>
       )}
 
-      {viewPhoto === false && (
+      {viewPhotoMode === false && (
         <div>
           <div className="flex justify-center w-full">
             <div className="md:grid md:grid-cols-3 md:w-full md:justify-start">
@@ -206,8 +236,8 @@ const Profile = () => {
                       <Image
                         quality={100}
                         src={
-                          url
-                            ? url
+                          profileImage
+                            ? profileImage
                             : "https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/default"
                         }
                         alt=""
@@ -231,8 +261,8 @@ const Profile = () => {
                         <Image
                           quality={100}
                           src={
-                            wpp
-                              ? wpp
+                            whatsappIcon
+                              ? whatsappIcon
                               : "https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/default"
                           }
                           alt=""
@@ -402,8 +432,8 @@ const Profile = () => {
               >
                 <div
                   onClick={() => {
-                    setPhotoView(galery[0]);
-                    setViewPhoto(true);
+                    setcurrentPhotoInViewMode(galery[0]);
+                    setViewPhotoMode(true);
                   }}
                   className="relative w-full h-40 md:h-[33rem] bg-transparent cursor-pointer"
                 >
@@ -428,8 +458,8 @@ const Profile = () => {
                 <div className="grid grid-cols-1 gap-2 md:gap-8 w-full h-48 md:h-[33rem] cursor-pointer">
                   <div
                     onClick={() => {
-                      setPhotoView(galery[1]);
-                      setViewPhoto(true);
+                      setcurrentPhotoInViewMode(galery[1]);
+                      setViewPhotoMode(true);
                     }}
                     className="relative w-full bg-transparent "
                   >
@@ -453,8 +483,8 @@ const Profile = () => {
                   </div>
                   <div
                     onClick={() => {
-                      setPhotoView(galery[2]);
-                      setViewPhoto(true);
+                      setcurrentPhotoInViewMode(galery[2]);
+                      setViewPhotoMode(true);
                     }}
                     className="relative w-full bg-transparent cursor-pointer"
                   >
@@ -479,8 +509,8 @@ const Profile = () => {
                 </div>
                 <div
                   onClick={() => {
-                    setPhotoView(galery[3]);
-                    setViewPhoto(true);
+                    setcurrentPhotoInViewMode(galery[3]);
+                    setViewPhotoMode(true);
                   }}
                   className="relative w-full h-48 md:h-[33rem] bg-transparent cursor-pointer"
                 >
@@ -504,8 +534,8 @@ const Profile = () => {
                 </div>
                 <div
                   onClick={() => {
-                    setPhotoView(galery[4]);
-                    setViewPhoto(true);
+                    setcurrentPhotoInViewMode(galery[4]);
+                    setViewPhotoMode(true);
                   }}
                   className="relative w-full h-[190px] md:h-[33rem] md:mt-0 -mt-7 bg-transparent cursor-pointer"
                 >
@@ -529,8 +559,8 @@ const Profile = () => {
                 </div>
                 <div
                   onClick={() => {
-                    setPhotoView(galery[5]);
-                    setViewPhoto(true);
+                    setcurrentPhotoInViewMode(galery[5]);
+                    setViewPhotoMode(true);
                   }}
                   className="col-span-2 h-40 md:h-[33rem] relative w-full bg-transparent cursor-pointer"
                 >
