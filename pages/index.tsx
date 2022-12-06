@@ -196,7 +196,7 @@ export default function Home() {
                   <img
                     src={previousGirl}
                     alt=""
-                    className="rounded-3xl md:w-[250px] lg:w-[300px] xl:w-[350px] 2xl:w-[400px] md:h-[300px] lg:h-[400px] xl:h-[500px] 2xl:h-[600px]"
+                    className="rounded-3xl md:w-[250px] lg:w-[300px] xl:w-[350px] 2xl:w-[400px] md:h-[300px] lg:h-[400px] xl:h-[500px] 2xl:h-[600px] brightness-75"
                   />
                 </div>
                 <div className="flex items-end z-10 h-5/6 2xl:ml-10 -mt-24 ml-5">
@@ -237,11 +237,16 @@ export default function Home() {
               id="img bnt"
               className="flex justify-center flex-wrap mb-5 mt-2 bg-transparent px-5"
             >
-              <div className="flex justify-center items-center md:h-auto">
+              <div
+                onClick={() =>
+                  router.push(`/profile/${AllGirls[girlNumberCount]?.id}`)
+                }
+                className="flex justify-center items-center md:h-auto cursor-pointer"
+              >
                 <img
                   src={currentGirl}
                   alt=""
-                  className={`rounded-3xl shadow shadow-xl ${
+                  className={`rounded-3xl shadow shadow-xl brightness-75 ${
                     AllGirls[girlNumberCount]?.destaque
                       ? "shadow-[#FFB800]"
                       : "shadow-[#FF4DA2]"
@@ -255,11 +260,16 @@ export default function Home() {
 
               <div
                 id="nome e social"
-                className={`z-10 flex flex-wrap items-end px-5  ${
+                className={`z-10 flex flex-wrap items-end px-5 ${
                   currentScreenProps?.availHeight < 830 ? "-mt-96" : "-mt-64"
                 } `}
               >
-                <div className="flex items-end z-10 h-5/6 2xl:ml-10">
+                <div
+                  onClick={() =>
+                    router.push(`/profile/${AllGirls[girlNumberCount]?.id}`)
+                  }
+                  className="flex items-end z-10 h-5/6 2xl:ml-10 cursor-pointer ml-2"
+                >
                   <div>
                     <h1 className="relative text-white text-4xl font-semibold">
                       {AllGirls[girlNumberCount]?.nome}{" "}
@@ -273,7 +283,7 @@ export default function Home() {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-3 z-10 mt-0 md:mt-5 w-full ">
+                <div className="z-20 grid grid-cols-3 z-10 mt-0 md:mt-5 w-full ">
                   <div
                     id="voltar"
                     className="w-full flex justify-start cursor-pointer"
@@ -490,7 +500,7 @@ export default function Home() {
                   <img
                     src={nextGirl}
                     alt=""
-                    className="rounded-3xl md:w-[250px] lg:w-[300px] xl:w-[350px] 2xl:w-[400px] md:h-[300px] lg:h-[400px] xl:h-[500px] 2xl:h-[600px]"
+                    className="rounded-3xl md:w-[250px] lg:w-[300px] xl:w-[350px] 2xl:w-[400px] md:h-[300px] lg:h-[400px] xl:h-[500px] 2xl:h-[600px] brightness-75"
                   />
                 </div>
                 <div className="flex items-end z-10 h-5/6 2xl:ml-10 -mt-24 ml-5">
