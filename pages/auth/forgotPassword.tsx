@@ -81,8 +81,8 @@ const ForgotPassword = () => {
   return (
     <div className="container mx-auto text-black">
       <div className="flex justify-center items-center h-screen">
-        <div className="grid grid-cols-3 bg-white rounded-3xl shadow shadow-2xl">
-          <div className="col-span-2">
+        <div className="grid grid-cols-1 xl:grid-cols-3 bg-white rounded-3xl shadow shadow-2xl">
+          <div className="col-span-2 hidden xl:block">
             <img
               className="w-full rounded-l-3xl"
               src="https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/092206d1-c899-4d65-8554-3fe7d1be4fa2/galery/006"
