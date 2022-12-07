@@ -1,5 +1,6 @@
 // @flow
 import Image from "next/image";
+import { useRouter } from "next/router";
 import * as React from "react";
 import Navbar from "../../component/Navbar";
 import supabase from "../../utils/supabase";
@@ -7,6 +8,8 @@ import supabase from "../../utils/supabase";
 let docInit: Document;
 
 const Home = () => {
+  const router = useRouter();
+
   const [Dom, setDom] = React.useState<Document>(docInit);
   const [AllGirls, setAllGirls] = React.useState<Array<any>>([]);
   const [allGirlImagesUrls, setAllGirlImagesUrls] = React.useState<Array<any>>(
@@ -82,7 +85,12 @@ const Home = () => {
     <div className="container mx-auto text-black">
       <Navbar />
       <div className="grid grid-cols-6 gap-8 mx-10 h-full">
-        <div className="col-span-2 cursor-pointer">
+        <div
+          onClick={() => {
+            router.push("/adm/girlinfo");
+          }}
+          className="col-span-2 cursor-pointer hover:brightness-75"
+        >
           <div className="relative rounded-3xl h-80">
             <Image
               src={
@@ -103,10 +111,14 @@ const Home = () => {
           </div>
         </div>
         {AllGirls.map((girl, index) => (
-          <div key={index} className="h-80">
+          <div key={index} className="h-80 hover:brightness-75">
             <div className="relative rounded-3xl h-80 cursor-pointer">
               <Image
-                src={allGirlImagesUrls[index]}
+                src={
+                  allGirlImagesUrls[index]
+                    ? allGirlImagesUrls[index]
+                    : "https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/default"
+                }
                 alt=""
                 className="rounded-3xl brightness-75"
                 fill={true}
