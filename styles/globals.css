@@ -37,3 +37,9 @@ a {
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/*input*/
+
+input[type="file"]::file-selector-button {
+  display: none;
+}

@@ -6,6 +6,7 @@ type Props = {};
 import logo from "../../../assets/logo.svg";
 
 import { useForm } from "react-hook-form";
+import { v4 as uuidv4 } from "uuid";
 
 import { useRouter } from "next/router";
 
@@ -13,14 +14,15 @@ import { ErrorMessage } from "@hookform/error-message";
 import { yupResolver } from "@hookform/resolvers/yup";
 import "yup-phone";
 import * as Yup from "yup";
-import supabase from "../../../utils/supabase";
+import supabase from "../../utils/supabase";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 let docInit: Document;
-const Girls = (props: Props) => {
+const GirlsInfo = (props: Props) => {
   const [Dom, setDom] = React.useState<Document>(docInit);
+  const router = useRouter();
 
   const schema = Yup.object().shape({
     nome: Yup.string().required("nome é obrigatório"),
@@ -69,10 +71,12 @@ const Girls = (props: Props) => {
 
   const handleRegisterNewGirl = async (data: any) => {
     try {
+      let Newid = uuidv4();
       const { data: newGirl, error } = await supabase
         .from("acompanhantes")
         .insert([
           {
+            id: Newid,
             acompanha: data?.acompanha,
             agenda: data?.agenda,
             cache: data?.cache,
@@ -94,8 +98,10 @@ const Girls = (props: Props) => {
         console.log(error);
         await toast.error(error.message);
       } else {
-        console.log("registrada com sucesso !");
         await toast.success("registrada com sucesso !");
+        setTimeout(() => {
+          router.push(`/adm/girlphotos/${Newid}`);
+        }, 3000);
       }
     } catch (error) {}
   };
@@ -324,4 +330,4 @@ const Girls = (props: Props) => {
   );
 };
 
-export default Girls;
+export default GirlsInfo;
