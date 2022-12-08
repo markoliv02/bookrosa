@@ -60,7 +60,7 @@ const Login = () => {
       if (error) {
         console.log(error.message);
       } else {
-        router.push("/");
+        router.push("/adm/home");
       }
     } catch (error) {
       console.log(error);

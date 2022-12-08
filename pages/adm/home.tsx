@@ -1,4 +1,5 @@
 // @flow
+import { User } from "@supabase/supabase-js";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import * as React from "react";
@@ -9,6 +10,8 @@ let docInit: Document;
 
 const Home = () => {
   const router = useRouter();
+
+  const [user, setUser] = React.useState<User>();
 
   const [Dom, setDom] = React.useState<Document>(docInit);
   const [AllGirls, setAllGirls] = React.useState<Array<any>>([]);
@@ -65,7 +68,19 @@ const Home = () => {
     } catch (error) {}
   };
 
+  const getUser = async () => {
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
+
+    if (user) {
+      setUser(user);
+    }
+  };
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   React.useEffect(() => {
+    getUser();
     setDom(document);
     handleChangeBodyColor();
   });
@@ -83,58 +98,62 @@ const Home = () => {
 
   return (
     <div className="container mx-auto text-black">
-      <Navbar />
-      <div className="grid grid-cols-6 gap-8 mx-10 h-full">
-        <div
-          onClick={() => {
-            router.push("/adm/girlinfo");
-          }}
-          className="col-span-2 cursor-pointer hover:brightness-75"
-        >
-          <div className="relative rounded-3xl h-80">
-            <Image
-              src={
-                "https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/8b1d70e0-f7e6-4d3a-9f77-f35eecf1b94c/galery/006"
-              }
-              alt=""
-              className="rounded-3xl brightness-75 h-82"
-              fill={true}
-              objectFit="cover"
-            />
-          </div>
-          <div className="flex items-end z-10 h-5/6 2xl:ml-10 xl-mt-56 2xl:-mt-80 ml-5">
-            <div>
-              <h1 className="relative text-white text-xl font-semibold">
-                CADASTRAR
-              </h1>
-            </div>
-          </div>
-        </div>
-        {AllGirls.map((girl, index) => (
-          <div key={index} className="h-80 hover:brightness-75">
-            <div className="relative rounded-3xl h-80 cursor-pointer">
-              <Image
-                src={
-                  allGirlImagesUrls[index]
-                    ? allGirlImagesUrls[index]
-                    : "https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/default"
-                }
-                alt=""
-                className="rounded-3xl brightness-75"
-                fill={true}
-                objectFit="cover"
-              />
-            </div>
-            <div className="flex items-end z-10 h-5/6 2xl:ml-10 xl-mt-56 2xl:-mt-80 ml-5">
-              <div>
-                <h1 className="relative text-white text-xl font-semibold">
-                  {girl?.nome}
-                </h1>
+      {user && (
+        <>
+          <Navbar />
+          <div className="grid grid-cols-6 gap-8 mx-10 h-full">
+            <div
+              onClick={() => {
+                router.push("/adm/girlinfo");
+              }}
+              className="col-span-2 cursor-pointer hover:brightness-75"
+            >
+              <div className="relative rounded-3xl h-80">
+                <Image
+                  src={
+                    "https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/8b1d70e0-f7e6-4d3a-9f77-f35eecf1b94c/galery/006"
+                  }
+                  alt=""
+                  className="rounded-3xl brightness-75 h-82"
+                  fill={true}
+                  objectFit="cover"
+                />
+              </div>
+              <div className="flex items-end z-10 h-5/6 2xl:ml-10 xl-mt-56 2xl:-mt-80 ml-5">
+                <div>
+                  <h1 className="relative text-white text-xl font-semibold">
+                    CADASTRAR
+                  </h1>
+                </div>
               </div>
             </div>
+            {AllGirls.map((girl, index) => (
+              <div key={index} className="h-80 hover:brightness-75">
+                <div className="relative rounded-3xl h-80 cursor-pointer">
+                  <Image
+                    src={
+                      allGirlImagesUrls[index]
+                        ? allGirlImagesUrls[index]
+                        : "https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/default"
+                    }
+                    alt=""
+                    className="rounded-3xl brightness-75"
+                    fill={true}
+                    objectFit="cover"
+                  />
+                </div>
+                <div className="flex items-end z-10 h-5/6 2xl:ml-10 xl-mt-56 2xl:-mt-80 ml-5">
+                  <div>
+                    <h1 className="relative text-white text-xl font-semibold">
+                      {girl?.nome}
+                    </h1>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
+        </>
+      )}
     </div>
   );
 };
