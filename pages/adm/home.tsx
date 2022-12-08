@@ -80,7 +80,6 @@ const Home = () => {
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   React.useEffect(() => {
-    getUser();
     setDom(document);
     handleChangeBodyColor();
   });
@@ -88,6 +87,7 @@ const Home = () => {
   React.useEffect(() => {
     handleChangeBodyColor();
     handleGetAllGirls();
+    getUser();
   }, []);
 
   React.useEffect(() => {
@@ -129,7 +129,12 @@ const Home = () => {
             </div>
             {AllGirls.map((girl, index) => (
               <div key={index} className="h-80 hover:brightness-75">
-                <div className="relative rounded-3xl h-80 cursor-pointer">
+                <div
+                  onClick={() => {
+                    router.push(`/adm/edit/${girl?.id}`);
+                  }}
+                  className="relative rounded-3xl h-80 cursor-pointer"
+                >
                   <Image
                     src={
                       allGirlImagesUrls[index]

@@ -13,7 +13,12 @@ const Navbar = (props: Props) => {
   const router = useRouter();
   return (
     <div className="flex justify-between w-full bg-transparent my-10">
-      <div className="relative">
+      <div
+        onClick={() => {
+          router.push("/adm/home");
+        }}
+        className="relative cursor-pointer"
+      >
         <Image
           className="rounded-l-3xl"
           src={logo}
