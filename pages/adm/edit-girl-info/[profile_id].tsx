@@ -154,7 +154,7 @@ const EditGirlsInfo = (props: Props) => {
     try {
       const { data, error } = await supabase
         .from("acompanhantes")
-        .update({ destaque: !Profile[0]?.status })
+        .update({ status: !Profile[0]?.status })
         .eq("id", id);
 
       if (error) {
