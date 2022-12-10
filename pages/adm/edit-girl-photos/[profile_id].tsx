@@ -19,15 +19,7 @@ const EditGirlsPhotos = (props: Props) => {
   const router = useRouter();
 
   const [user, setUser] = React.useState<User>();
-  const [Profile, setProfile] = React.useState<Array<any>>([]);
-
-  const [galery, setGalery] = React.useState<Array<string>>([]);
-
   const [Dom, setDom] = React.useState<Document>(docInit);
-
-  const [uploadsCount, setuploadsCount] = React.useState<Array<Number>>([
-    1, 2, 3, 4, 5, 6,
-  ]);
 
   const handleRemovePhotos = async (num: Number) => {
     if (query.profile_id !== undefined) {
@@ -37,6 +29,36 @@ const EditGirlsPhotos = (props: Props) => {
       if (data) {
         console.log(data);
         toast.success(`Foto ${num} deletada com sucesso !`);
+      } else if (error) {
+        console.log(error);
+        toast.error(error.message);
+      }
+    }
+  };
+
+  const handleRemoveVideo = async () => {
+    if (query.profile_id !== undefined) {
+      const { data, error } = await supabase.storage
+        .from("photos")
+        .remove([`${query.profile_id}/${query.profile_id}_video`]);
+      if (data) {
+        console.log(`${query.profile_id}/${query.profile_id}_video`);
+        toast.success(`Video deletado com sucesso !`);
+      } else if (error) {
+        console.log(error);
+        toast.error(error.message);
+      }
+    }
+  };
+
+  const handleRemoveCapa = async () => {
+    if (query.profile_id !== undefined) {
+      const { data, error } = await supabase.storage
+        .from("photos")
+        .remove([`${query.profile_id}/${query.profile_id}_capa`]);
+      if (data) {
+        console.log(data);
+        toast.success(`Capa deletada com sucesso !`);
       } else if (error) {
         console.log(error);
         toast.error(error.message);
@@ -94,11 +116,17 @@ const EditGirlsPhotos = (props: Props) => {
               Video e capa
             </h1>
 
-            <div className="flex justify-center items-center rounded-[50px] bg-[#890082]  text-white text-3xl font-semibold w-full text-center w-96 h-40 my-10 cursor-pointer">
+            <div
+              onClick={handleRemoveVideo}
+              className="flex justify-center items-center rounded-[50px] bg-[#890082]  text-white text-3xl font-semibold w-full text-center w-96 h-40 my-10 cursor-pointer"
+            >
               Excluir Video
             </div>
 
-            <div className="flex justify-center items-center rounded-[50px] bg-[#890082]  text-white text-3xl font-semibold w-full text-center w-96 h-40 my-10 cursor-pointer">
+            <div
+              onClick={handleRemoveCapa}
+              className="flex justify-center items-center rounded-[50px] bg-[#890082]  text-white text-3xl font-semibold w-full text-center w-96 h-40 my-10 cursor-pointer"
+            >
               Excluir foto da capa
             </div>
           </div>
@@ -156,7 +184,7 @@ const EditGirlsPhotos = (props: Props) => {
               onClick={() => {
                 router.push(`/adm/register-girl-photos/${newID}`);
               }}
-              className="flex justify-center items-center bg-gradient-to-b from-[#FF004C] to-[#FF00D6] text-white  font-semibold text-2xl col-span-2 rounded-xl p-5"
+              className="flex justify-center items-center bg-gradient-to-b from-[#FF004C] to-[#FF00D6] text-white  font-semibold text-2xl col-span-2 rounded-xl p-5 cursor-pointer"
             >
               NOVAS FOTOS
             </div>
