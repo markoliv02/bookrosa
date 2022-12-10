@@ -101,7 +101,7 @@ const Home = () => {
       {user && (
         <>
           <Navbar />
-          <div className="grid grid-cols-6 gap-8 mx-10 h-full">
+          <div className="grid grid-cols-2 lg:grid-cols-6 gap-8 mx-10 h-full">
             <div
               onClick={() => {
                 router.push("/adm/girlinfo");
@@ -111,7 +111,7 @@ const Home = () => {
               <div className="relative rounded-3xl h-80">
                 <Image
                   src={
-                    "https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/8b1d70e0-f7e6-4d3a-9f77-f35eecf1b94c/galery/006"
+                    "https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/register"
                   }
                   alt=""
                   className="rounded-3xl brightness-75 h-82"
@@ -119,9 +119,9 @@ const Home = () => {
                   objectFit="cover"
                 />
               </div>
-              <div className="flex items-end z-10 h-5/6 2xl:ml-10 xl-mt-56 2xl:-mt-80 ml-5">
+              <div className="flex items-end z-10 h-5/6  2xl:ml-10 xl-mt-56 2xl:-mt-80 ml-5">
                 <div>
-                  <h1 className="relative text-white text-xl font-semibold">
+                  <h1 className="relative text-white -mt-80 text-xl font-semibold">
                     CADASTRAR
                   </h1>
                 </div>
@@ -147,7 +147,7 @@ const Home = () => {
                     objectFit="cover"
                   />
                 </div>
-                <div className="flex items-end z-10 h-5/6 2xl:ml-10 xl-mt-56 2xl:-mt-80 ml-5">
+                <div className="flex items-end z-10 h-5/6 -mt-80 2xl:ml-10 xl-mt-56 2xl:-mt-80 ml-5">
                   <div>
                     <h1 className="relative text-white text-xl font-semibold">
                       {girl?.nome}
