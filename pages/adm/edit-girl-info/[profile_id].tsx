@@ -919,17 +919,28 @@ const EditGirlsInfo = (props: Props) => {
                       Salvar
                     </div>
                   )}
+                  <div>
+                    <input
+                      type="checkbox"
+                      onChange={getDestaque}
+                      className="w-10 h-10 rounded-3xl"
+                      checked={Profile[0]?.destaque}
+                    />
 
-                  <input
-                    type="checkbox"
-                    onChange={getDestaque}
-                    className="w-10 h-10 rounded-3xl"
-                    checked={Profile[0]?.destaque}
-                  />
-
-                  <span className="ml-3 text-sm font-medium text-gray-900">
-                    GAROTA DESTAQUE
-                  </span>
+                    <span className="ml-3 text-sm font-medium text-gray-900">
+                      GAROTA DESTAQUE
+                    </span>
+                  </div>
+                  <div className="flex justify-end w-full">
+                    <div
+                      onClick={() => {
+                        router.push(`/adm/edit-girl-photos/${id}`);
+                      }}
+                      className="bg-gradient-to-b from-[#FF004C] to-[#FF00D6] py-4 px-14 rounded-3xl text-2xl font-semibold my-5 text-white mt-10 cursor-pointer"
+                    >
+                      EDITAR FOTOS
+                    </div>
+                  </div>
                 </div>
               </form>
             </div>

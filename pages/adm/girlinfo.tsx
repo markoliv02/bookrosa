@@ -103,7 +103,7 @@ const GirlsInfo = (props: Props) => {
       } else {
         await toast.success("registrada com sucesso !");
         setTimeout(() => {
-          router.push(`/adm/girlphotos/${Newid}`);
+          router.push(`/adm/register-girl-photos/${Newid}`);
         }, 3000);
       }
     } catch (error) {}

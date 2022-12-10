@@ -131,7 +131,7 @@ const Home = () => {
               <div key={index} className="h-80 hover:brightness-75">
                 <div
                   onClick={() => {
-                    router.push(`/adm/edit/${girl?.id}`);
+                    router.push(`/adm/edit-girl-info/${girl?.id}`);
                   }}
                   className="relative rounded-3xl h-80 cursor-pointer"
                 >
