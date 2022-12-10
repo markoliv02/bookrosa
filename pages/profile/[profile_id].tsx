@@ -23,6 +23,7 @@ const Profile = () => {
   const [profileImage, setProfileImage] = React.useState<string>();
   const [galery, setGalery] = React.useState<Array<string>>([]);
   const [videoUrl, setVideoUrl] = React.useState<string>();
+  const [cell, setCell] = React.useState();
 
   const [currentPhotoInViewMode, setcurrentPhotoInViewMode] =
     React.useState<string>();
@@ -111,8 +112,10 @@ const Profile = () => {
         const bd = Dom.querySelector("body");
         if (bd !== null) {
           if (Profile[0]?.destaque) {
+            bd.style.backgroundImage = "none";
             bd.style.backgroundColor = "black";
           } else {
+            bd.style.backgroundImage = "none";
             bd.style.backgroundColor = "white";
           }
         }
@@ -131,6 +134,26 @@ const Profile = () => {
       handleGetGaleryImages();
       handleGetVideo();
       handleChangeBodyColor();
+    }
+
+    if (Profile.length !== 0) {
+      let cell = Profile[0]?.celular;
+      let cellArray = cell.split("");
+      // console.log(cellArray);
+      let formatedCell = [];
+      for (let i = 0; i < cellArray.length; i++) {
+        if (i === 0) {
+          formatedCell.push(`(${cellArray[i]}`);
+        } else if (i === 1) {
+          formatedCell.push(`${cellArray[i]})`);
+        } else if (i === 6) {
+          formatedCell.push(`${cellArray[i]}-`);
+        } else {
+          formatedCell.push(cellArray[i]);
+        }
+      }
+
+      setCell(formatedCell.join(""));
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [Profile]);
@@ -252,7 +275,9 @@ const Profile = () => {
                     <div className="ml-5">
                       <h1
                         className={`text-3xl font-semibold text-3xl md:text-2xl lg:text-3xl ${
-                          Profile[0]?.destaque ? "text-white" : "text-black"
+                          Profile[0]?.destaque
+                            ? "text-white lg:text-black"
+                            : "text-black"
                         }`}
                       >
                         {Profile[0]?.nome}{" "}
@@ -270,11 +295,18 @@ const Profile = () => {
                         />
 
                         <h3
-                          className={`ml-1 text-lg md:text-sm lg:text-lg ${
-                            Profile[0]?.destaque ? "text-white" : "text-black"
+                          onClick={() => {
+                            window.open(
+                              `https://api.whatsapp.com/send?phone=55${Profile[0]?.celular}&text=`
+                            );
+                          }}
+                          className={`ml-1 cursor-pointer text-lg md:text-sm lg:text-lg ${
+                            Profile[0]?.destaque
+                              ? "text-white lg:text-black"
+                              : "text-black"
                           }`}
                         >
-                          {Profile[0]?.celular}
+                          {cell}
                         </h3>
                       </div>
                     </div>

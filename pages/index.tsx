@@ -8,6 +8,7 @@ import botaoMatchGold from "../assets/botaoMatchGold.svg";
 
 import logo from "../assets/logo.svg";
 import logoGold from "../assets/logoGold.svg";
+import verificada from "../assets/verificadoIcon.svg";
 
 import React, { useEffect } from "react";
 import supabase from "../utils/supabase";
@@ -23,6 +24,7 @@ export default function Home() {
   const [currentGirl, setCurrentGirl] = React.useState<string>();
   const [previousGirl, setPreviousGirl] = React.useState<string>();
   const [nextGirl, setNextGirl] = React.useState<string>();
+  const [currentName, setCurrentName] = React.useState([]);
 
   const [currentScreenProps, setCurrentScreenProps] =
     React.useState<Screen>(initScreen);
@@ -144,10 +146,12 @@ export default function Home() {
             currentScreenProps?.availWidth < 770
           ) {
             bd.style.backgroundColor = "black";
+            bd.style.backgroundImage = "none";
           } else if (currentScreenProps?.availWidth < 770) {
             bd.style.backgroundColor = "white";
+            bd.style.backgroundImage = "none";
           } else {
-            bd.style.backgroundColor = "#ff93c6";
+            bd.style.backgroundColor = "#ff0078";
           }
         }
       }
@@ -164,6 +168,12 @@ export default function Home() {
     handleGetNextGirlImage();
     handleGetPreviousGirlImage();
     changeBodyColor();
+    let currentName = AllGirls[girlNumberCount]?.nome;
+
+    if (currentName !== undefined) {
+      const nameArray = currentName.split(" ");
+      setCurrentName(nameArray);
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [girlNumberCount, AllGirls]);
 
@@ -261,7 +271,7 @@ export default function Home() {
               <div
                 id="nome e social"
                 className={`z-10 flex flex-wrap items-end px-5 ${
-                  currentScreenProps?.availHeight < 830 ? "-mt-96" : "-mt-64"
+                  currentScreenProps?.availHeight < 830 ? "-mt-96" : "-mt-80"
                 } `}
               >
                 <div
@@ -271,11 +281,14 @@ export default function Home() {
                   className="flex items-end z-10 h-5/6 2xl:ml-10 cursor-pointer ml-2"
                 >
                   <div>
-                    <h1 className="relative text-white text-4xl font-semibold">
-                      {AllGirls[girlNumberCount]?.nome}{" "}
-                      <span className="text-3xl">
-                        {AllGirls[girlNumberCount]?.idade}
+                    <h1 className="relative text-white text-4xl font-semibold flex ">
+                      {currentName[0]}{" "}
+                      <span className="ml-2 text-3xl">
+                        {AllGirls[girlNumberCount]?.idade === "0"
+                          ? " "
+                          : AllGirls[girlNumberCount]?.idade}
                       </span>
+                      <Image src={verificada} alt="" />
                     </h1>
                     <h3 className="relative text-white text-xl">
                       @{AllGirls[girlNumberCount]?.social_midia}
@@ -283,7 +296,7 @@ export default function Home() {
                   </div>
                 </div>
 
-                <div className="z-20 grid grid-cols-3 z-10 mt-0 md:mt-5 w-full ">
+                <div className="z-20 grid grid-cols-3 z-10 mt-0 md:mt-10 w-full ">
                   <div
                     id="voltar"
                     className="w-full flex justify-start cursor-pointer"
