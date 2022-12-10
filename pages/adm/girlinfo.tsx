@@ -46,6 +46,7 @@ const GirlsInfo = (props: Props) => {
     atendeem: Yup.string().required("redesocial é obrigatório"),
     altura: Yup.string().required("redesocial é obrigatório"),
     destaque: Yup.boolean(),
+    desc: Yup.string(),
   });
   const {
     handleSubmit,
@@ -94,6 +95,7 @@ const GirlsInfo = (props: Props) => {
             atende_em: data?.atendeem,
             altura: data?.altura,
             destaque: data?.destaque,
+            desc: data?.desc,
           },
         ]);
 
@@ -103,7 +105,7 @@ const GirlsInfo = (props: Props) => {
       } else {
         await toast.success("registrada com sucesso !");
         setTimeout(() => {
-          router.push(`/adm/girlphotos/${Newid}`);
+          router.push(`/adm/register-girl-photos/${Newid}`);
         }, 3000);
       }
     } catch (error) {}
@@ -316,6 +318,19 @@ const GirlsInfo = (props: Props) => {
                   <ErrorMessage
                     errors={errors}
                     name="altura"
+                    as={<div style={{ color: "red" }} />}
+                  />
+                  <div className="bg-[#D9D9D9] py-5 px-3 w-full rounded-xl my-3">
+                    <input
+                      className="bg-transparent placeholder:text-[#616161] placeholder:font-semibold placeholder:text-xl ml-5 focus:outline-none"
+                      type="text"
+                      placeholder="Descrição"
+                      {...register("desc")}
+                    />
+                  </div>
+                  <ErrorMessage
+                    errors={errors}
+                    name="desc"
                     as={<div style={{ color: "red" }} />}
                   />
                   <label className="inline-flex relative items-center cursor-pointer">

@@ -149,7 +149,7 @@ const GirlsPhotos = (props: Props) => {
                       </span>
                       <input
                         type={"file"}
-                        className="mt-5 text-[#9C9C9C] text-3xl md:w-10 lg:w-32 xl:w-40 2xl:w-60"
+                        className="mt-5 text-[#9C9C9C] text-3xl w-10 md:w-10 lg:w-32 xl:w-40 2xl:w-60"
                         id="video"
                         accept="video/mp4"
                         onChange={handleUploadVideo}
@@ -168,7 +168,7 @@ const GirlsPhotos = (props: Props) => {
                       </span>
                       <input
                         type={"file"}
-                        className="mt-5 text-[#9C9C9C] text-3xl md:w-10 lg:w-32 xl:w-40 2xl:w-60"
+                        className="mt-5 text-[#9C9C9C] text-3xl w-10 md:w-10 lg:w-32 xl:w-40 2xl:w-60"
                         id="capa"
                         onChange={handleUploadCapa}
                         accept="image/png, image/jpeg, image/jpeg"
@@ -190,7 +190,7 @@ const GirlsPhotos = (props: Props) => {
                         </span>
                         <input
                           type={"file"}
-                          className="ml-2 text-[#9C9C9C] md:w-10 lg:w-20 xl:w-28 2xl:w-32"
+                          className="ml-2 text-[#9C9C9C] w-10 md:w-10 lg:w-20 xl:w-28 2xl:w-32"
                           id={`photo0${item}`}
                           accept="image/png, image/jpeg, image/jpeg"
                           onChange={(e) => {
