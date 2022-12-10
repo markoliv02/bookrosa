@@ -23,7 +23,7 @@ const Profile = () => {
   const [profileImage, setProfileImage] = React.useState<string>();
   const [galery, setGalery] = React.useState<Array<string>>([]);
   const [videoUrl, setVideoUrl] = React.useState<string>();
-  const [cell, setCell] = React.useState();
+  const [cell, setCell] = React.useState<string>();
 
   const [currentPhotoInViewMode, setcurrentPhotoInViewMode] =
     React.useState<string>();
@@ -153,7 +153,8 @@ const Profile = () => {
         }
       }
 
-      setCell(formatedCell.join(""));
+      let cellformated = formatedCell.join("");
+      setCell(cellformated);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [Profile]);
