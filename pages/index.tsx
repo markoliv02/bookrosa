@@ -38,8 +38,14 @@ export default function Home() {
         .from("acompanhantes")
         .select("*");
 
+      let activeGirls = [];
       if (acompanhantes) {
-        handleOrderAllGirls(acompanhantes);
+        for (let i = 0; i < acompanhantes.length; i++) {
+          if (acompanhantes[i]?.status) {
+            activeGirls.push(acompanhantes[i]);
+          }
+        }
+        handleOrderAllGirls(activeGirls);
       } else if (error) {
         console.error(error);
       }
