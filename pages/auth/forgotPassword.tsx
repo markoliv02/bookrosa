@@ -54,7 +54,7 @@ const ForgotPassword = () => {
     try {
       const { data: updateUser, error } =
         await supabase.auth.resetPasswordForEmail(data.email, {
-          redirectTo: "http://localhost:3000/auth/redefinePassword/aaa",
+          redirectTo: "https://casabranca.vercel.app/auth/redefinePassword/aaa",
         });
 
       if (error) {
