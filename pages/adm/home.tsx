@@ -119,9 +119,12 @@ const Home = () => {
                   objectFit="cover"
                 />
               </div>
-              <div className="flex items-end z-10 h-5/6  2xl:ml-10 xl-mt-56 2xl:-mt-80 ml-5">
+              <div className="flex items-end z-10 h-5/6 2xl:ml-10 xl-mt-56 2xl:-mt-80 ml-5">
                 <div>
-                  <h1 className="relative text-white -mt-80 text-xl font-semibold">
+                  <h1 className="text-white text-xl font-semibold -mt-80 relative md:hidden">
+                    CADASTRAR
+                  </h1>
+                  <h1 className="text-white text-xl font-semibold -mt-30 relative hidden md:block">
                     CADASTRAR
                   </h1>
                 </div>
