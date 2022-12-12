@@ -13,6 +13,7 @@ import verificada from "../assets/verificadoIcon.svg";
 import React, { useEffect } from "react";
 import supabase from "../utils/supabase";
 import { useRouter } from "next/router";
+import Script from "next/script";
 
 let initScreen: Screen;
 let docInit: Document;
@@ -192,6 +193,19 @@ export default function Home() {
 
   return (
     <div className="container mx-auto text-black">
+      <Script
+        strategy="afterInteractive"
+        src="https://www.googletagmanager.com/gtag/js?id=G-B38TV1VC8Z"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-YNJE9LHTDH');
+          
+          `}
+      </Script>
       <div className="md:grid md:grid-cols-3 md:h-screen">
         <div
           id="garota anterior"

@@ -12,6 +12,7 @@ import botaoVoltarGold from "../../assets/botaoVoltarGold.svg";
 
 import logo from "../../assets/logo.svg";
 import logoGold from "../../assets/logoGold.svg";
+import Script from "next/script";
 
 let docInit: Document;
 
@@ -173,6 +174,19 @@ const Profile = () => {
 
   return (
     <div className="container mx-auto px-7 text-black">
+      <Script
+        strategy="afterInteractive"
+        src="https://www.googletagmanager.com/gtag/js?id=G-B38TV1VC8Z"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-YNJE9LHTDH');
+          
+          `}
+      </Script>
       <div className="grid grid-cols-4 md:grid-cols-1">
         {!viewPhotoMode && (
           <div
