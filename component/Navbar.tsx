@@ -12,7 +12,7 @@ import "react-toastify/dist/ReactToastify.css";
 const Navbar = (props: Props) => {
   const router = useRouter();
   return (
-    <div className="flex justify-between w-full bg-transparent my-10">
+    <div className="flex justify-between w-full bg-transparent my-10 px-5">
       <div
         onClick={() => {
           router.push("/adm/home");
