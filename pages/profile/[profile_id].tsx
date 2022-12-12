@@ -18,6 +18,7 @@ let docInit: Document;
 
 const Profile = () => {
   const { query } = useRouter();
+  const router = useRouter();
 
   const [id, setid] = React.useState<string>();
   const [Profile, setProfile] = React.useState<Array<any>>([]);
@@ -201,12 +202,16 @@ const Profile = () => {
             />
           </div>
         )}
-        <div className="flex items-center justify-between md:justify-center mt-5 col-span-2">
+        <div className="flex items-center justify-between md:justify-center mt-5 col-span-2 ">
           <Image
+            onClick={() => {
+              router.push("/");
+            }}
             src={Profile[0]?.destaque ? logoGold : logo}
             alt=""
             width={300}
             height={300}
+            className="cursor-pointer"
           />
         </div>
       </div>
