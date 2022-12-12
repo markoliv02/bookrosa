@@ -170,6 +170,15 @@ export default function Home() {
     }
   };
 
+  const handleCountClick = async () => {
+    const { data, error } = await supabase
+      .from("acompanhantes")
+      .update({ clicks: AllGirls[girlNumberCount]?.clicks + 1 })
+      .eq("id", AllGirls[girlNumberCount]?.id);
+
+    await router.push(`/profile/${AllGirls[girlNumberCount]?.id}`);
+  };
+
   useEffect(() => {
     handleGetCurrentGirlImage();
     handleGetNextGirlImage();
@@ -387,9 +396,7 @@ export default function Home() {
                   </div>
 
                   <div
-                    onClick={() =>
-                      router.push(`/profile/${AllGirls[girlNumberCount]?.id}`)
-                    }
+                    onClick={() => handleCountClick()}
                     className="z-20 -mt-10 sm:-mt-14 md:-mt-10 lg:-mt-14 xl:-mt-36 2xl:-mt-28 w-full flex justify-center cursor-pointer"
                   >
                     {/* mobile button */}

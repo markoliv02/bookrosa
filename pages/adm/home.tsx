@@ -154,6 +154,7 @@ const Home = () => {
                   <div>
                     <h1 className="relative text-white text-xl font-semibold">
                       {girl?.nome}
+                      {" " + girl?.clicks}
                     </h1>
                   </div>
                 </div>
