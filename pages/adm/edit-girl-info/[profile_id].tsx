@@ -985,7 +985,7 @@ const EditGirlsInfo = (props: Props) => {
                             className="bg-transparent placeholder:text-[#616161] w-full placeholder:font-semibold placeholder:text-xl focus:outline-none"
                             type="text"
                             placeholder={Profile[0]?.atende_em}
-                            disabled={atendeEdit}
+                            disabled={!atendeEdit}
                           />
                           <svg
                             onClick={() => {
