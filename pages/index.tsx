@@ -259,7 +259,7 @@ export default function Home() {
         <div
           id="garota atual"
           style={{ transition: "background-color 0.5s ease" }}
-          className={`flex items-center h-screen ${
+          className={`flex items-center mt-10 ${
             AllGirls[girlNumberCount]?.destaque ? "bg-black" : "bg-white"
           }`}
         >
