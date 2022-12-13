@@ -282,6 +282,7 @@ export default function Home() {
                 }
                 className="flex justify-center items-center md:h-auto cursor-pointer"
               >
+                {/* em currentScreenProps, posso definir diferentes tamanhos para a foto de acordo com a altura ou largura do display do celular */}
                 <img
                   src={currentGirl}
                   alt=""
@@ -291,7 +292,7 @@ export default function Home() {
                       : "shadow-[#FF4DA2]"
                   } ${
                     currentScreenProps?.availHeight > 800
-                      ? "h-[700px]"
+                      ? "h-[500px]"
                       : "h-[500px]"
                   }  md:w-[250px] lg:w-[300px] xl:w-[350px] 2xl:w-[400px] md:h-[300px] lg:h-[400px] xl:h-[500px] 2xl:h-[600px]`}
                 />
