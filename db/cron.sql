@@ -2,22 +2,13 @@ select
     cron.schedule(
         'zerar-contagem',
         -- name of the cron job
-        '* * * * *',
+        '0 0 * * *',
         -- every minute
-        $ $ begin
-        select
-            *
-        from
-            acompanhantes;
-
-INSERT INTO
-    public.acompanhantes("clicks")
-VALUES
-    (0);
-
-RETURN NEW;
-
-END;
+        $ $
+        update
+            public.acompanhantes
+        set
+            clicks = (0);
 
 $ $
 );
