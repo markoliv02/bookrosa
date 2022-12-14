@@ -237,20 +237,7 @@ const Profile = () => {
             </svg>
           </div>
           <div className="flex justify-center items-center ">
-            <div className="relative w-full h-screen">
-              <Image
-                quality={50}
-                src={
-                  currentPhotoInViewMode
-                    ? currentPhotoInViewMode
-                    : "https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/default"
-                }
-                alt=""
-                className="z-10"
-                fill={true}
-                objectFit="contain"
-              />
-            </div>
+            <img src={currentPhotoInViewMode} alt="" />
           </div>
         </div>
       )}
@@ -484,10 +471,16 @@ const Profile = () => {
               >
                 <div
                   onClick={() => {
-                    setcurrentPhotoInViewMode(galery[0]);
+                    setcurrentPhotoInViewMode(
+                      `https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/001`
+                    );
                     setViewPhotoMode(true);
                   }}
-                  className="relative w-full h-40 md:h-[33rem] bg-transparent cursor-pointer"
+                  className={`relative w-full h-48 md:h-[33rem] bg-transparent cursor-pointer overflow-hidden rounded-3xl ${
+                    Profile[0]?.destaque
+                      ? "shadow shadow-[#FFB800] shadow-lg "
+                      : "shadow-[#FF4DA2] shadow-md"
+                  }`}
                 >
                   <img
                     id="01"
@@ -497,37 +490,22 @@ const Profile = () => {
                         : "https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/default"
                     }
                     alt=""
-                    className={`rounded-3xl shadow ${
-                      Profile[0]?.destaque
-                        ? "shadow shadow-[#FFB800] shadow-lg "
-                        : "shadow-[#FF4DA2] shadow-md"
-                    }`}
+                    className={`rounded-3xl shadow object-cover h-full md:h-[33rem]`}
                   />
-                  {/* <Image
-                    id="01"
-                    quality={50}
-                    src={
-                      `https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/001`
-                        ? `https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/001`
-                        : "https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/default"
-                    }
-                    alt=""
-                    fill={true}
-                    objectFit="cover"
-                    className={`rounded-3xl shadow ${
-                      Profile[0]?.destaque
-                        ? "shadow shadow-[#FFB800] shadow-lg "
-                        : "shadow-[#FF4DA2] shadow-md"
-                    }`}
-                  /> */}
                 </div>
-                <div className="grid grid-cols-1 gap-2 md:gap-8 w-full h-48 md:h-[33rem] cursor-pointer">
+                <div className="grid grid-cols-1 gap-4 w-full h-48 md:h-[33rem] cursor-pointer">
                   <div
                     onClick={() => {
-                      setcurrentPhotoInViewMode(galery[1]);
+                      setcurrentPhotoInViewMode(
+                        `https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/002`
+                      );
                       setViewPhotoMode(true);
                     }}
-                    className="relative w-full bg-transparent "
+                    className={`flex justify-center items-center relative w-full bg-transparent overflow-hidden rounded-3xl ${
+                      Profile[0]?.destaque
+                        ? "shadow shadow-[#FFB800] shadow-lg "
+                        : "shadow-[#FF4DA2] shadow-md"
+                    }`}
                   >
                     <img
                       id="02"
@@ -537,36 +515,21 @@ const Profile = () => {
                           : "https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/default"
                       }
                       alt=""
-                      className={`rounded-3xl shadow ${
-                        Profile[0]?.destaque
-                          ? "shadow shadow-[#FFB800] shadow-lg "
-                          : "shadow-[#FF4DA2] shadow-md"
-                      }`}
+                      className={`rounded-3xl shadow  h-full md:h-[16rem] w-full object-cover`}
                     />
-                    {/* <Image
-                      id="02"
-                      quality={50}
-                      src={
-                        `https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/002`
-                          ? `https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/002`
-                          : "https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/default"
-                      }
-                      alt=""
-                      fill={true}
-                      objectFit="cover"
-                      className={`rounded-3xl shadow ${
-                        Profile[0]?.destaque
-                          ? "shadow-[#FFB800] shadow-lg"
-                          : "shadow-[#FF4DA2] shadow-md"
-                      }`}
-                    /> */}
                   </div>
                   <div
                     onClick={() => {
-                      setcurrentPhotoInViewMode(galery[2]);
+                      setcurrentPhotoInViewMode(
+                        `https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/003`
+                      );
                       setViewPhotoMode(true);
                     }}
-                    className="relative w-full bg-transparent cursor-pointer"
+                    className={`flex justify-center items-center relative w-full bg-transparent cursor-pointer overflow-hidden rounded-3xl ${
+                      Profile[0]?.destaque
+                        ? "shadow shadow-[#FFB800] shadow-lg "
+                        : "shadow-[#FF4DA2] shadow-md"
+                    }`}
                   >
                     <img
                       id="03"
@@ -576,37 +539,22 @@ const Profile = () => {
                           : "https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/default"
                       }
                       alt=""
-                      className={`rounded-3xl shadow ${
-                        Profile[0]?.destaque
-                          ? "shadow shadow-[#FFB800] shadow-lg "
-                          : "shadow-[#FF4DA2] shadow-md"
-                      }`}
+                      className={`rounded-3xl shadow h-full md:h-[16rem] w-full object-cover`}
                     />
-                    {/* <Image
-                      id="03"
-                      quality={50}
-                      src={
-                        `https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/003`
-                          ? `https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/003`
-                          : "https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/default"
-                      }
-                      alt=""
-                      fill={true}
-                      objectFit="cover"
-                      className={`rounded-3xl shadow ${
-                        Profile[0]?.destaque
-                          ? "shadow-[#FFB800] shadow-lg"
-                          : "shadow-[#FF4DA2] shadow-md"
-                      }`}
-                    /> */}
                   </div>
                 </div>
                 <div
                   onClick={() => {
-                    setcurrentPhotoInViewMode(galery[3]);
+                    setcurrentPhotoInViewMode(
+                      `https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/004`
+                    );
                     setViewPhotoMode(true);
                   }}
-                  className="relative w-full h-48 md:h-[33rem] bg-transparent cursor-pointer"
+                  className={`relative w-full h-48 md:h-[33rem] bg-transparent cursor-pointer overflow-hidden rounded-3xl ${
+                    Profile[0]?.destaque
+                      ? "shadow shadow-[#FFB800] shadow-md "
+                      : "shadow-[#FF4DA2] shadow-md"
+                  }`}
                 >
                   <img
                     id="04"
@@ -616,36 +564,21 @@ const Profile = () => {
                         : "https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/default"
                     }
                     alt=""
-                    className={`rounded-3xl shadow ${
-                      Profile[0]?.destaque
-                        ? "shadow shadow-[#FFB800] shadow-lg "
-                        : "shadow-[#FF4DA2] shadow-md"
-                    }`}
+                    className={`md:h-[33rem] h-full object-cover`}
                   />
-                  {/* <Image
-                    id="04"
-                    quality={50}
-                    src={
-                      `https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/004`
-                        ? `https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/004`
-                        : "https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/default"
-                    }
-                    alt=""
-                    fill={true}
-                    objectFit="cover"
-                    className={`rounded-3xl shadow ${
-                      Profile[0]?.destaque
-                        ? "shadow-[#FFB800] shadow-lg"
-                        : "shadow-[#FF4DA2] shadow-md"
-                    }`}
-                  /> */}
                 </div>
                 <div
                   onClick={() => {
-                    setcurrentPhotoInViewMode(galery[4]);
+                    setcurrentPhotoInViewMode(
+                      `https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/005`
+                    );
                     setViewPhotoMode(true);
                   }}
-                  className="relative w-full h-[190px] md:h-[33rem] md:mt-0 -mt-7 bg-transparent cursor-pointer"
+                  className={`relative w-full h-40 md:h-[33rem] md:mt-0 bg-transparent cursor-pointer overflow-hidden rounded-3xl ${
+                    Profile[0]?.destaque
+                      ? "shadow shadow-[#FFB800] shadow-lg "
+                      : "shadow-[#FF4DA2] shadow-md"
+                  }`}
                 >
                   <img
                     id="05"
@@ -655,36 +588,21 @@ const Profile = () => {
                         : "https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/default"
                     }
                     alt=""
-                    className={`rounded-3xl shadow ${
-                      Profile[0]?.destaque
-                        ? "shadow shadow-[#FFB800] shadow-lg "
-                        : "shadow-[#FF4DA2] shadow-md"
-                    }`}
+                    className={`md:h-[33rem] full object-cover`}
                   />
-                  {/* <Image
-                    id="05"
-                    quality={50}
-                    src={
-                      `https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/005`
-                        ? `https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/005`
-                        : "https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/default"
-                    }
-                    alt=""
-                    fill={true}
-                    objectFit="cover"
-                    className={`rounded-3xl shadow ${
-                      Profile[0]?.destaque
-                        ? "shadow-[#FFB800] shadow-lg"
-                        : "shadow-[#FF4DA2] shadow-md"
-                    }`}
-                  /> */}
                 </div>
                 <div
                   onClick={() => {
-                    setcurrentPhotoInViewMode(galery[5]);
+                    setcurrentPhotoInViewMode(
+                      `https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/006`
+                    );
                     setViewPhotoMode(true);
                   }}
-                  className="col-span-2 h-40 md:h-[33rem] relative w-full bg-transparent cursor-pointer"
+                  className={`col-span-2 h-40 md:h-[33rem] relative w-full bg-transparent cursor-pointer overflow-hidden rounded-3xl ${
+                    Profile[0]?.destaque
+                      ? "shadow shadow-[#FFB800] shadow-lg "
+                      : "shadow-[#FF4DA2] shadow-md"
+                  }`}
                 >
                   <img
                     id="06"
@@ -694,29 +612,8 @@ const Profile = () => {
                         : "https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/default"
                     }
                     alt=""
-                    className={`rounded-3xl shadow ${
-                      Profile[0]?.destaque
-                        ? "shadow shadow-[#FFB800] shadow-lg "
-                        : "shadow-[#FF4DA2] shadow-md"
-                    }`}
+                    className={`h-full md:h-[33rem] object-cover`}
                   />
-                  {/* <Image
-                    id="06"
-                    quality={50}
-                    src={
-                      `https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/006`
-                        ? `https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/006`
-                        : "https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/default"
-                    }
-                    alt=""
-                    fill={true}
-                    objectFit="cover"
-                    className={`rounded-3xl shadow ${
-                      Profile[0]?.destaque
-                        ? "shadow-[#FFB800] shadow-lg"
-                        : "shadow-[#FF4DA2] shadow-md"
-                    }`}
-                  /> */}
                 </div>
               </div>
               <div
