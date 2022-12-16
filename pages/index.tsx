@@ -4,7 +4,7 @@ import Image from "next/image";
 import botaoX from "../assets/botaox.svg";
 import botaoVoltar from "../assets/botaoVoltar.svg";
 import botaoMatchGold from "../assets/botaoMatch.svg";
-import botaoMatch from "../assets/botaoMatch.svg";
+import botaoMatch from "../assets/botaoMatchP.png";
 
 import logo from "../assets/logo.svg";
 import logoGold from "../assets/logoGold.svg";
