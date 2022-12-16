@@ -4,8 +4,8 @@ import Image from "next/image";
 import botaoX from "../assets/botaox.svg";
 import botaoVoltar from "../assets/botaoVoltar.svg";
 import botaoMatchGold from "../assets/botaoMatch.svg";
-import botaoMatch from "../assets/botaoMatchP.png";
-import botaoMatch2 from "../assets/botaoMatchP2.png";
+import botaoMatch from "../assets/botaoMatch2.svg";
+import botaoMatch2 from "../assets/botaoMatch2.svg";
 
 import verificada from "../assets/verificadoIcon.svg";
 import logoGold from "../assets/logoRosa.png";
