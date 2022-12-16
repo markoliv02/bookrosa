@@ -248,20 +248,12 @@ const Profile = () => {
             <div className="md:grid md:grid-cols-3 md:w-full md:justify-start">
               <div id="resume" className="grid grid-cols-3 md:py-5 w-full">
                 <div
-                  className={`grid grid-cols-3 py-5 col-span-3 rounded-3xl md:bg-[#D9D9D9] shadow-none mr-5 lg:pl-4 md:pl-0 pb-10 md:grid-cols-1 lg:grid-cols-3 ${
-                    Profile[0]?.destaque
-                      ? "md:shadow-[#FFB800] md:shadow-lg"
-                      : "md:shadow-[#FF4DA2] md:shadow-md "
-                  }`}
+                  className={`grid grid-cols-3 py-5 col-span-3 rounded-3xl md:bg-[#D9D9D9] shadow-none mr-5 lg:pl-4 md:pl-0 pb-10 md:grid-cols-1 lg:grid-cols-3 shadow shadow-lg shadow-[#EC268F]`}
                 >
                   <div className="flex justify-start md:justify-center">
                     <div
                       id="profile"
-                      className={`relative bg-gray-500 w-24 h-24 xl:w-32 xl:h-32 rounded-full  shadow ${
-                        Profile[0]?.destaque
-                          ? "shadow-[#FFB800] shadow-lg"
-                          : "shadow-[#FF4DA2] shadow-lg"
-                      } `}
+                      className={`relative bg-gray-500 w-24 h-24 xl:w-32 xl:h-32 rounded-full  shadow shadow-lg shadow-[#EC268F] `}
                     >
                       <Image
                         quality={50}
@@ -320,11 +312,7 @@ const Profile = () => {
                   </div>
                 </div>
                 <div
-                  className={`overflow-x-auto relative shadow-md rounded-3xl my-10 col-span-3 mr-5 hidden md:block ${
-                    Profile[0]?.destaque
-                      ? "shadow shadow-[#FFB800] shadow-xl"
-                      : "shadow-[#FF4DA2] shadow-md"
-                  }`}
+                  className={`overflow-x-auto relative shadow-md rounded-3xl my-10 col-span-3 mr-5 hidden md:block shadow shadow-lg shadow-[#EC268F]`}
                 >
                   <table className="w-full text-sm text-left ">
                     <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -460,9 +448,7 @@ const Profile = () => {
               </div>
               <div
                 id="divisor"
-                className={`w-full h-[4px]  rounded-full md:hidden ${
-                  Profile[0]?.destaque ? "bg-[#FFB800]" : "bg-[#FF4DA2]"
-                }`}
+                className={`w-full h-[4px]  rounded-full md:hidden bg-[#EC268F]`}
               />
 
               <div
@@ -476,11 +462,7 @@ const Profile = () => {
                     );
                     setViewPhotoMode(true);
                   }}
-                  className={`relative w-full h-48 md:h-[33rem] bg-transparent cursor-pointer overflow-hidden rounded-3xl ${
-                    Profile[0]?.destaque
-                      ? "shadow shadow-[#FFB800] shadow-lg "
-                      : "shadow-[#FF4DA2] shadow-md"
-                  }`}
+                  className={`relative w-full h-48 md:h-[33rem] bg-transparent cursor-pointer overflow-hidden rounded-3xl shadow shadow-lg shadow-[#EC268F]`}
                 >
                   <img
                     id="01"
@@ -501,11 +483,7 @@ const Profile = () => {
                       );
                       setViewPhotoMode(true);
                     }}
-                    className={`flex justify-center items-center relative w-full bg-transparent overflow-hidden rounded-3xl ${
-                      Profile[0]?.destaque
-                        ? "shadow shadow-[#FFB800] shadow-lg "
-                        : "shadow-[#FF4DA2] shadow-md"
-                    }`}
+                    className={`flex justify-center items-center relative w-full bg-transparent overflow-hidden rounded-3xl shadow shadow-lg shadow-[#EC268F]`}
                   >
                     <img
                       id="02"
@@ -525,11 +503,7 @@ const Profile = () => {
                       );
                       setViewPhotoMode(true);
                     }}
-                    className={`flex justify-center items-center relative w-full bg-transparent cursor-pointer overflow-hidden rounded-3xl ${
-                      Profile[0]?.destaque
-                        ? "shadow shadow-[#FFB800] shadow-lg "
-                        : "shadow-[#FF4DA2] shadow-md"
-                    }`}
+                    className={`flex justify-center items-center relative w-full bg-transparent cursor-pointer overflow-hidden rounded-3xl shadow shadow-lg shadow-[#EC268F]`}
                   >
                     <img
                       id="03"
@@ -550,11 +524,7 @@ const Profile = () => {
                     );
                     setViewPhotoMode(true);
                   }}
-                  className={`relative w-full h-48 md:h-[33rem] bg-transparent cursor-pointer overflow-hidden rounded-3xl ${
-                    Profile[0]?.destaque
-                      ? "shadow shadow-[#FFB800] shadow-md "
-                      : "shadow-[#FF4DA2] shadow-md"
-                  }`}
+                  className={`relative w-full h-48 md:h-[33rem] bg-transparent cursor-pointer overflow-hidden rounded-3xl shadow shadow-lg shadow-[#EC268F]`}
                 >
                   <img
                     id="04"
@@ -574,11 +544,7 @@ const Profile = () => {
                     );
                     setViewPhotoMode(true);
                   }}
-                  className={`relative w-full h-40 md:h-[33rem] md:mt-0 bg-transparent cursor-pointer overflow-hidden rounded-3xl ${
-                    Profile[0]?.destaque
-                      ? "shadow shadow-[#FFB800] shadow-lg "
-                      : "shadow-[#FF4DA2] shadow-md"
-                  }`}
+                  className={`relative w-full h-40 md:h-[33rem] md:mt-0 bg-transparent cursor-pointer overflow-hidden rounded-3xl shadow shadow-lg shadow-[#EC268F]`}
                 >
                   <img
                     id="05"
@@ -598,11 +564,7 @@ const Profile = () => {
                     );
                     setViewPhotoMode(true);
                   }}
-                  className={`col-span-2 h-40 md:h-[33rem] relative w-full bg-transparent cursor-pointer overflow-hidden rounded-3xl flex justify-center ${
-                    Profile[0]?.destaque
-                      ? "shadow shadow-[#FFB800] shadow-lg "
-                      : "shadow-[#FF4DA2] shadow-md"
-                  }`}
+                  className={`col-span-2 h-40 md:h-[33rem] relative w-full bg-transparent cursor-pointer overflow-hidden rounded-3xl flex justify-center shadow shadow-lg shadow-[#EC268F]`}
                 >
                   <img
                     id="06"
@@ -618,19 +580,13 @@ const Profile = () => {
               </div>
               <div
                 id="divisor 2"
-                className={`w-full h-[4px] rounded-full mt-10 col-span-3 ${
-                  Profile[0]?.destaque ? "bg-[#FFB800]" : "bg-[#FF4DA2]"
-                }`}
+                className={`w-full h-[4px] rounded-full mt-10 col-span-3 bg-[#EC268F]`}
               />
               <div className="col-span-3">
                 <h1 className="text-xl font-semibold">Vídeo</h1>
 
                 <div
-                  className={`flex justify-center w-full h-48 md:h-[33rem] bg-gray-300 my-5 shadow rounded-3xl ${
-                    Profile[0]?.destaque
-                      ? "shadow-[#FFB800] shadow-lg"
-                      : "shadow-[#FF4DA2] shadow-md"
-                  }`}
+                  className={`flex justify-center w-full h-48 md:h-[33rem] bg-gray-300 my-5 rounded-3xl shadow shadow-lg shadow-[#EC268F]`}
                 >
                   <video
                     className="w-full h-48 md:h-[33rem] rounded-3xl"
