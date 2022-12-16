@@ -305,11 +305,7 @@ export default function Home() {
                 <img
                   src={currentGirl}
                   alt=""
-                  className={`rounded-3xl shadow shadow-xl brightness-75 ${
-                    AllGirls[girlNumberCount]?.destaque
-                      ? "shadow-[#FFB800]"
-                      : "shadow-[#FF4DA2]"
-                  } ${
+                  className={`rounded-3xl shadow shadow-xl brightness-75 shadow-[#EC268F] ${
                     currentScreenProps?.availHeight > 800
                       ? "h-[500px]"
                       : "h-[500px]"
