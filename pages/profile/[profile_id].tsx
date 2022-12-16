@@ -598,7 +598,7 @@ const Profile = () => {
                     );
                     setViewPhotoMode(true);
                   }}
-                  className={`col-span-2 h-40 md:h-[33rem] relative w-full bg-transparent cursor-pointer overflow-hidden rounded-3xl ${
+                  className={`col-span-2 h-40 md:h-[33rem] relative w-full bg-transparent cursor-pointer overflow-hidden rounded-3xl flex justify-center ${
                     Profile[0]?.destaque
                       ? "shadow shadow-[#FFB800] shadow-lg "
                       : "shadow-[#FF4DA2] shadow-md"
