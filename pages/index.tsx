@@ -58,11 +58,31 @@ export default function Home() {
   const handleOrderAllGirls = (girls: Array<any>) => {
     try {
       let girlsOrdered: Array<any> = [];
-      for (let i = 0; i < girls.length; i++) {
-        if (girls[i]?.destaque) {
-          girlsOrdered.unshift(girls[i]);
+      let girlsRandom: Array<any> = [];
+      const maxNumbers = girls.length;
+      let list = [];
+      for (let i = 0; i < maxNumbers; i++) {
+        list[i] = i;
+      }
+      let randomNumber;
+      let tmp;
+      for (let i = list.length; i; ) {
+        randomNumber = (Math.random() * i--) | 0;
+        tmp = list[randomNumber];
+        // troca o número aleatório pelo atual
+        list[randomNumber] = list[i];
+        // troca o atual pelo aleatório
+        list[i] = tmp;
+      }
+      for (let i = 0; i < list.length; i++) {
+        girlsRandom.push(girls[list[i]]);
+      }
+      // ordenando por destaque primeiro e depois comuns
+      for (let i = 0; i < girlsRandom.length; i++) {
+        if (girlsRandom[i]?.destaque) {
+          girlsOrdered.unshift(girlsRandom[i]);
         } else {
-          girlsOrdered.push(girls[i]);
+          girlsOrdered.push(girlsRandom[i]);
         }
       }
       setAllGirls(girlsOrdered);
