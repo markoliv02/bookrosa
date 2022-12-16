@@ -5,6 +5,7 @@ import botaoX from "../assets/botaox.svg";
 import botaoVoltar from "../assets/botaoVoltar.svg";
 import botaoMatchGold from "../assets/botaoMatch.svg";
 import botaoMatch from "../assets/botaoMatchP.png";
+import botaoMatch2 from "../assets/botaoMatchP2.png";
 
 import verificada from "../assets/verificadoIcon.svg";
 import logoGold from "../assets/logoRosa.png";
@@ -368,7 +369,7 @@ export default function Home() {
                     onClick={() => handleCountClick()}
                     className="z-20 -mt-10 sm:-mt-14 md:-mt-10 lg:-mt-14 xl:-mt-36 2xl:-mt-28 w-full flex justify-center items-center md:items-end cursor-pointer"
                   >
-                    <div className="relative w-28 h-28 md:w-16 md:h-16 lg:w-20 lg:h-20 xl:w-32 xl:h-28 2xl:w-36 2xl:h-36 px-5">
+                    {/* <div className="relative w-28 h-28 md:w-16 md:h-16 lg:w-20 lg:h-20 xl:w-32 xl:h-28 2xl:w-36 2xl:h-36 px-5">
                       <Image
                         src={botaoMatch}
                         className="rounded-full drop-shadow-xl "
@@ -376,7 +377,8 @@ export default function Home() {
                         quality={100}
                         fill={true}
                       />
-                    </div>
+                    </div> */}
+                    <Image src={botaoMatch} quality={100} alt="" />
                   </div>
                   <div
                     id="x"
