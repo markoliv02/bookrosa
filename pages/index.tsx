@@ -3,8 +3,8 @@ import Image from "next/image";
 
 import botaoX from "../assets/botaox.svg";
 import botaoVoltar from "../assets/botaoVoltar.svg";
+import botaoMatchGold from "../assets/botaoMatch.svg";
 import botaoMatch from "../assets/botaoMatch.svg";
-import botaoMatchGold from "../assets/botaoMatchGold.svg";
 
 import logo from "../assets/logo.svg";
 import logoGold from "../assets/logoGold.svg";
@@ -259,16 +259,16 @@ export default function Home() {
         <div
           id="garota atual"
           style={{ transition: "background-color 0.5s ease" }}
-          className={`flex items-center mt-10 ${
+          className={`flex items-center ${
             AllGirls[girlNumberCount]?.destaque ? "bg-black" : "bg-white"
           }`}
         >
           <div className="mb-82">
-            <div className="flex items-center justify-center">
+            <div className="flex items-center justify-center md:-mt-20 mb-10">
               <Image
                 src={AllGirls[girlNumberCount]?.destaque ? logoGold : logo}
                 alt=""
-                width={200}
+                width={250}
                 height={100}
               />
             </div>
@@ -404,7 +404,7 @@ export default function Home() {
                     <Image
                       src={
                         AllGirls[girlNumberCount]?.destaque
-                          ? botaoMatchGold
+                          ? botaoMatch
                           : botaoMatch
                       }
                       className="rounded-full drop-shadow-xl md:hidden"
@@ -416,7 +416,7 @@ export default function Home() {
                     <Image
                       src={
                         AllGirls[girlNumberCount]?.destaque
-                          ? botaoMatchGold
+                          ? botaoMatch
                           : botaoMatch
                       }
                       className="rounded-full drop-shadow-xl mt-5 hidden 2xl:block"
@@ -428,7 +428,7 @@ export default function Home() {
                     <Image
                       src={
                         AllGirls[girlNumberCount]?.destaque
-                          ? botaoMatchGold
+                          ? botaoMatch
                           : botaoMatch
                       }
                       className="rounded-full drop-shadow-xl mt-5 hidden lg:block 2xl:hidden"
@@ -440,7 +440,7 @@ export default function Home() {
                     <Image
                       src={
                         AllGirls[girlNumberCount]?.destaque
-                          ? botaoMatchGold
+                          ? botaoMatch
                           : botaoMatch
                       }
                       className="rounded-full drop-shadow-xl mt-5 hidden md:block lg:hidden 2xl:hidden"
