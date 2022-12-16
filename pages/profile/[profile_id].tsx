@@ -194,12 +194,7 @@ const Profile = () => {
             className="mt-5 cursor-pointer md:hidden"
             onClick={() => document.location.replace("/")}
           >
-            <Image
-              src={Profile[0]?.destaque ? botaoVoltarGold : botaoVoltar}
-              alt=""
-              width={40}
-              height={40}
-            />
+            <Image src={botaoVoltar} alt="" width={40} height={40} />
           </div>
         )}
         <div className="flex items-center justify-between md:justify-center mt-5 col-span-2 ">
@@ -248,7 +243,7 @@ const Profile = () => {
             <div className="md:grid md:grid-cols-3 md:w-full md:justify-start">
               <div id="resume" className="grid grid-cols-3 md:py-5 w-full">
                 <div
-                  className={`grid grid-cols-3 py-5 col-span-3 rounded-3xl md:bg-[#D9D9D9] shadow-none mr-5 lg:pl-4 md:pl-0 pb-10 md:grid-cols-1 lg:grid-cols-3 shadow shadow-lg shadow-[#EC268F]`}
+                  className={`grid grid-cols-3 py-5 col-span-3 rounded-3xl md:bg-[#D9D9D9] shadow-none mr-5 lg:pl-4 md:pl-0 pb-10 md:grid-cols-1 lg:grid-cols-3 md:shadow md:shadow-lg md:shadow-[#EC268F]`}
                 >
                   <div className="flex justify-start md:justify-center">
                     <div
