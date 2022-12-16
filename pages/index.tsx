@@ -268,8 +268,8 @@ export default function Home() {
               <Image
                 src={AllGirls[girlNumberCount]?.destaque ? logoGold : logo}
                 alt=""
-                width={250}
-                height={100}
+                // width={200}
+                // height={200}
               />
             </div>
             <div
@@ -331,179 +331,58 @@ export default function Home() {
                     id="voltar"
                     className="w-full flex justify-start cursor-pointer"
                   >
-                    <Image
-                      onClick={() => {
-                        if (girlNumberCount === 0) {
-                          setGirlNumberCount(0);
-                        } else {
-                          let index = girlNumberCount - 1;
-                          setGirlNumberCount(index);
-                        }
-                      }}
-                      src={botaoVoltar}
-                      alt=""
-                      className="rounded-full drop-shadow-xl md:hidden"
-                      width={90}
-                      height={90}
-                    />
-
-                    <Image
-                      onClick={() => {
-                        if (girlNumberCount === 0) {
-                          setGirlNumberCount(0);
-                        } else {
-                          let index = girlNumberCount - 1;
-                          setGirlNumberCount(index);
-                        }
-                      }}
-                      src={botaoVoltar}
-                      alt=""
-                      className="rounded-full drop-shadow-xl hidden 2xl:block"
-                      width={100}
-                      height={100}
-                    />
-
-                    <Image
-                      onClick={() => {
-                        if (girlNumberCount === 0) {
-                          setGirlNumberCount(0);
-                        } else {
-                          let index = girlNumberCount - 1;
-                          setGirlNumberCount(index);
-                        }
-                      }}
-                      src={botaoVoltar}
-                      alt=""
-                      className="rounded-full drop-shadow-xl  hidden  lg:block 2xl:hidden"
-                      width={80}
-                      height={80}
-                    />
-
-                    <Image
-                      onClick={() => {
-                        if (girlNumberCount === 0) {
-                          setGirlNumberCount(0);
-                        } else {
-                          let index = girlNumberCount - 1;
-                          setGirlNumberCount(index);
-                        }
-                      }}
-                      src={botaoVoltar}
-                      alt=""
-                      className="rounded-full drop-shadow-xl  hidden  md:block lg:hidden 2xl:hidden"
-                      width={60}
-                      height={60}
-                    />
+                    <div className="relative w-24 h-24 md:w-14 md:h-14 lg:w-16 lg:h-16 xl:w-20 xl:h-20 2xl:w-28 2xl:h-28 px-5">
+                      <Image
+                        onClick={() => {
+                          if (girlNumberCount === 0) {
+                            setGirlNumberCount(0);
+                          } else {
+                            let index = girlNumberCount - 1;
+                            setGirlNumberCount(index);
+                          }
+                        }}
+                        src={botaoVoltar}
+                        alt=""
+                        className="rounded-full drop-shadow-xl "
+                        fill={true}
+                      />
+                    </div>
                   </div>
 
                   <div
                     onClick={() => handleCountClick()}
-                    className="z-20 -mt-10 sm:-mt-14 md:-mt-10 lg:-mt-14 xl:-mt-36 2xl:-mt-28 w-full flex justify-center cursor-pointer"
+                    className="z-20 -mt-10 sm:-mt-14 md:-mt-10 lg:-mt-14 xl:-mt-36 2xl:-mt-28 w-full flex justify-center items-center md:items-end cursor-pointer"
                   >
-                    {/* mobile button */}
-                    <Image
-                      src={botaoMatch}
-                      className="rounded-full drop-shadow-xl md:hidden"
-                      alt=""
-                      quality={100}
-                      width={200}
-                      height={110}
-                    />
-
-                    <Image
-                      src={botaoMatch}
-                      className="rounded-full drop-shadow-xl mt-5 hidden 2xl:block"
-                      alt=""
-                      quality={100}
-                      width={150}
-                      height={150}
-                    />
-
-                    <Image
-                      src={botaoMatch}
-                      className="rounded-full drop-shadow-xl mt-5 hidden lg:block 2xl:hidden"
-                      alt=""
-                      quality={100}
-                      width={100}
-                      height={100}
-                    />
-
-                    <Image
-                      src={botaoMatch}
-                      className="rounded-full drop-shadow-xl mt-5 hidden md:block lg:hidden 2xl:hidden"
-                      alt=""
-                      quality={100}
-                      width={90}
-                      height={90}
-                    />
+                    <div className="relative w-24 h-24 md:w-16 md:h-16 lg:w-20 lg:h-20 xl:w-32 xl:h-28 2xl:w-36 2xl:h-36 px-5">
+                      <Image
+                        src={botaoMatch}
+                        className="rounded-full drop-shadow-xl "
+                        alt=""
+                        quality={100}
+                        fill={true}
+                      />
+                    </div>
                   </div>
                   <div
                     id="x"
                     className="w-full flex justify-end cursor-pointer"
                   >
-                    <Image
-                      onClick={() => {
-                        if (girlNumberCount + 1 === AllGirls.length) {
-                          setGirlNumberCount(0);
-                        } else {
-                          let index = girlNumberCount + 1;
-                          setGirlNumberCount(index);
-                        }
-                      }}
-                      src={botaoX}
-                      alt=""
-                      className="rounded-full drop-shadow-xl md:hidden"
-                      width={90}
-                      height={90}
-                    />
-
-                    <Image
-                      onClick={() => {
-                        if (girlNumberCount + 1 === AllGirls.length) {
-                          setGirlNumberCount(0);
-                        } else {
-                          let index = girlNumberCount + 1;
-                          setGirlNumberCount(index);
-                        }
-                      }}
-                      src={botaoX}
-                      alt=""
-                      className="rounded-full drop-shadow-xl hidden 2xl:block"
-                      width={100}
-                      height={100}
-                    />
-
-                    <Image
-                      onClick={() => {
-                        if (girlNumberCount + 1 === AllGirls.length) {
-                          setGirlNumberCount(0);
-                        } else {
-                          let index = girlNumberCount + 1;
-                          setGirlNumberCount(index);
-                        }
-                      }}
-                      src={botaoX}
-                      alt=""
-                      className="rounded-full drop-shadow-xl  hidden  lg:block 2xl:hidden"
-                      width={80}
-                      height={80}
-                    />
-
-                    <Image
-                      onClick={() => {
-                        if (girlNumberCount + 1 === AllGirls.length) {
-                          setGirlNumberCount(0);
-                        } else {
-                          let index = girlNumberCount + 1;
-                          setGirlNumberCount(index);
-                        }
-                      }}
-                      src={botaoX}
-                      alt=""
-                      className="rounded-full drop-shadow-xl  hidden  md:block lg:hidden 2xl:hidden"
-                      width={60}
-                      height={60}
-                    />
+                    <div className="relative w-24 h-24 md:w-14 md:h-14 lg:w-16 lg:h-16 xl:w-20 xl:h-20 2xl:w-28 2xl:h-28 px-5">
+                      <Image
+                        onClick={() => {
+                          if (girlNumberCount + 1 === AllGirls.length) {
+                            setGirlNumberCount(0);
+                          } else {
+                            let index = girlNumberCount + 1;
+                            setGirlNumberCount(index);
+                          }
+                        }}
+                        src={botaoX}
+                        alt=""
+                        className="rounded-full drop-shadow-xl"
+                        fill={true}
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
