@@ -10,8 +10,8 @@ import whatsappIcon from "../../assets/whatsapp.svg";
 import botaoVoltar from "../../assets/botaoVoltar02.svg";
 import botaoVoltarGold from "../../assets/botaoVoltarGold.svg";
 
-import logo from "../../assets/logo.svg";
-import logoGold from "../../assets/logoGold.svg";
+import logo from "../../assets/logo.png";
+import logoGold from "../../assets/logoRosa.png";
 import Script from "next/script";
 
 let docInit: Document;
@@ -207,7 +207,7 @@ const Profile = () => {
             onClick={() => {
               router.push("/");
             }}
-            src={Profile[0]?.destaque ? logoGold : logo}
+            src={Profile[0]?.destaque ? logoGold : logoGold}
             alt=""
             width={300}
             height={300}
