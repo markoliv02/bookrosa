@@ -1,0 +1,337 @@
+// @flow
+import Image from "next/image";
+import * as React from "react";
+type Props = {};
+
+import { useRouter } from "next/router";
+
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import supabase from "../../../utils/supabase";
+import { User } from "@supabase/supabase-js";
+import Navbar from "../../../component/Navbar";
+
+let docInit: Document;
+
+const EditGirlsPhotos = (props: Props) => {
+  const { query } = useRouter();
+  const newID = query.profile_id;
+  const router = useRouter();
+
+  const [user, setUser] = React.useState<User>();
+  const [Profile, setProfile] = React.useState<Array<any>>([]);
+
+  const [galery, setGalery] = React.useState<Array<string>>([]);
+
+  const [Dom, setDom] = React.useState<Document>(docInit);
+
+  const [uploadsCount, setuploadsCount] = React.useState<Array<Number>>([
+    1, 2, 3, 4, 5, 6,
+  ]);
+
+  const handleUploadPhotos = async (
+    e: React.ChangeEvent<HTMLInputElement>,
+    num: Number
+  ) => {
+    console.log(`${query.profile_id}/galery/` + `00${num}`);
+
+    let file;
+
+    if (e.target.files) {
+      file = e.target.files[0];
+    }
+
+    if (query.profile_id !== undefined) {
+      const { data, error } = await supabase.storage
+        .from("photos")
+        .upload(`${query.profile_id}/galery/` + `00${num}`, file as File);
+      if (data) {
+        console.log(data);
+        toast.success(`Foto ${num} enviada com sucesso !`);
+      } else if (error) {
+        console.log(error);
+        toast.error(error.message);
+      }
+    }
+  };
+
+  const handleRemovePhotos = async (num: Number) => {
+    console.log("removendo == " + num);
+
+    if (query.profile_id !== undefined) {
+      const { data, error } = await supabase.storage
+        .from("photos")
+        .remove([`${query.profile_id}/galery/` + `00${num}`]);
+      if (data) {
+        console.log(data);
+        toast.success(`Foto ${num} deletada com sucesso !`);
+      } else if (error) {
+        console.log(error);
+        toast.error(error.message);
+      }
+    }
+  };
+
+  const handleUploadCapa = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    let file;
+    if (e.target.files) {
+      file = e.target.files[0];
+    }
+
+    if (id !== undefined) {
+      const { data, error } = await supabase.storage
+        .from("photos")
+        .upload(`${id}/${id}` + "_capa", file as File);
+      if (data) {
+        console.log(data);
+        toast.success(`foto de capa enviada com sucesso !`);
+      } else if (error) {
+        console.log(error);
+        toast.error(error.message);
+      }
+    }
+  };
+
+  const handleUploadVideo = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    let file;
+    if (e.target.files) {
+      file = e.target.files[0];
+    }
+
+    if (id !== undefined) {
+      const { data, error } = await supabase.storage
+        .from("photos")
+        .upload(`${id}/${id}` + "_video", file as File);
+
+      if (error) {
+        toast.error(error.message);
+      } else {
+        console.log(data);
+        toast.success(`video enviado com sucesso !`);
+      }
+    }
+  };
+
+  const handleChangeBodyColor = () => {
+    try {
+      if (Dom !== undefined) {
+        const bd = Dom.querySelector("body");
+        if (bd !== null) {
+          bd.style.backgroundColor = "white";
+        }
+      }
+    } catch (error) {
+      console.error(error);
+      console.log(
+        "Erro ao atualizar background color em body!!! f(handleChangeBodyColor)"
+      );
+    }
+  };
+
+  const handleGetGaleryImages = async (id: string | string[] | undefined) => {
+    try {
+      if (galery.length < 6) {
+        let ar = [];
+        let validUrl: any[] = [];
+        for (let i = 0; i < 6; i++) {
+          const { data } = supabase.storage
+            .from("photos")
+            .getPublicUrl(`${id}/galery/00${i + 1}`);
+
+          if (data) {
+            ar.push(data?.publicUrl);
+          }
+        }
+
+        ar.map((url, index) => {
+          fetch(url).then((response) => {
+            if (response.status === 200) {
+              console.log(response.status);
+
+              setGalery((current) => [...current, url]);
+            } else {
+              setGalery((current) => [...current, `${index}`]);
+            }
+          });
+          console.log("buscando");
+        });
+      }
+    } catch (error) {
+      console.error(error);
+      console.log(
+        "Erro ao buscar imagens na galeria do perfil !!! f(handleGetGaleryImages)"
+      );
+    }
+  };
+
+  const getUser = async () => {
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
+
+    if (user) {
+      setUser(user);
+      // handleGetGaleryImages(query.profile_id);
+    }
+  };
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  React.useEffect(() => {
+    setDom(document);
+  });
+
+  React.useEffect(() => {
+    getUser();
+    if (newID !== undefined) {
+      handleGetGaleryImages(newID);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  React.useEffect(() => {
+    console.log(galery);
+  }, [galery]);
+
+  React.useEffect(() => {
+    handleChangeBodyColor();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [Dom]);
+
+  return (
+    <div className="container mx-auto text-black">
+      {user && (
+        <>
+          <Navbar />
+          <div className="flex justify-center items-center my-5 w-full">
+            <div className="grid grid-cols-1 lg:grid-cols-2 bg-white shadow shadow-xl rounded-3xl w-full">
+              <div className="flex flex-wrap justify-center items-center bg-gradient-to-b from-[#FA00FF] to-[#FF06C8] rounded-3xl lg:rounded-l-3xl w-full">
+                <h1
+                  onClick={() => {
+                    handleGetGaleryImages(query.profile_id);
+                  }}
+                  className="text-4xl font-semibold text-white mt-10 w-full text-center
+            "
+                >
+                  Video e capa
+                </h1>
+                <div className="flex flex-wrap justify-center items-center">
+                  <div className="mt-10 px-10 py-5">
+                    <label
+                      className="flex flex-wrap justify-center bg-[#D9D9D9] w-full rounded-[50px] pb-5 shadow shadow-lg cursor-pointer"
+                      htmlFor="video"
+                    >
+                      <span className="rounded-[50px] bg-[#890082] py-20 text-white text-3xl font-semibold w-full text-center">
+                        Escolha um video
+                      </span>
+                      <input
+                        type={"file"}
+                        className="mt-5 text-[#9C9C9C] text-3xl md:w-10 lg:w-32 xl:w-40 2xl:w-60"
+                        id="video"
+                        accept="video/mp4"
+                        // onChange={handleUploadVideo}
+                      />
+                    </label>
+                  </div>
+                </div>
+                <div className="flex flex-wrap justify-center items-center">
+                  <div className="mt-10 px-10 py-5">
+                    <label
+                      className="flex flex-wrap justify-center bg-[#D9D9D9] w-full rounded-[50px] pb-5 shadow shadow-lg cursor-pointer"
+                      htmlFor="capa"
+                    >
+                      <span className="rounded-[50px] bg-[#890082] py-20 text-white text-3xl font-semibold w-full text-center">
+                        Escolha uma capa
+                      </span>
+                      <input
+                        type={"file"}
+                        className="mt-5 text-[#9C9C9C] text-3xl md:w-10 lg:w-32 xl:w-40 2xl:w-60"
+                        id="capa"
+                        // onChange={handleUploadCapa}
+                        accept="image/png, image/jpeg, image/jpeg"
+                      />
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div className="flex justify-center p-5 w-full">
+                <div>
+                  {galery.length === 6 && (
+                    <div className="grid grid-cols-2 gap-8 w-full">
+                      {galery.map((photo, index) => (
+                        <div key={index}>
+                          {photo.length > 4 && (
+                            <div className="z-10 relative w-72 h-56 cursor-pointer hover:brightness-75">
+                              <Image
+                                onClick={() => {
+                                  handleRemovePhotos(Number(index) + 1);
+                                }}
+                                src={
+                                  photo !== "upload new"
+                                    ? photo
+                                    : "https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/404"
+                                }
+                                alt=""
+                                fill={true}
+                                objectFit="cover"
+                                className="z-10 rounded-3xl"
+                              />
+                            </div>
+                          )}
+
+                          {photo.length <= 2 && (
+                            <div className="flex flex-wrap justify-center items-center">
+                              <div className="px-10 py-5">
+                                <label
+                                  className="flex flex-wrap justify-center bg-[#D9D9D9] w-full rounded-[50px] pb-5 shadow shadow-lg cursor-pointer"
+                                  htmlFor={`photo${Number(photo) + 1}`}
+                                >
+                                  <span className="rounded-[50px] bg-[#FA00FF] py-20 text-white text-xl font-semibold w-full text-center">
+                                    Escolha a foto {Number(photo) + 1}
+                                  </span>
+                                  <input
+                                    type={"file"}
+                                    className="mt-5 text-[#9C9C9C] text-xl md:w-10 lg:w-32 xl:w-40 2xl:w-60"
+                                    id={`photo${Number(photo) + 1}`}
+                                    onChange={(e) => {
+                                      handleUploadPhotos(e, Number(photo) + 1);
+                                    }}
+                                    accept="image/png, image/jpeg, image/jpeg"
+                                  />
+                                </label>
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  )}
+
+                  <button
+                    onClick={() => {
+                      router.push("/adm/home");
+                    }}
+                    className="bg-gradient-to-b from-[#FF004C] to-[#FF00D6] py-4 px-14 rounded-3xl text-2xl font-semibold my-5 text-white mt-10"
+                  >
+                    FINALIZAR
+                  </button>
+
+                  <div
+                    onClick={() => {
+                      handleGetGaleryImages(query.profile_id);
+                    }}
+                    className="flex justify-center items-center bg-gradient-to-b from-[#FF004C] to-[#FF00D6] py-4 px-14 rounded-3xl text-2xl font-semibold my-5 text-white mt-10 mx-5 cursor-pointer w-40"
+                  >
+                    Atualizar
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </>
+      )}
+      <ToastContainer />
+    </div>
+  );
+};
+
+export default EditGirlsPhotos;
