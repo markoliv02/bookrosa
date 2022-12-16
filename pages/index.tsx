@@ -6,8 +6,8 @@ import botaoVoltar from "../assets/botaoVoltar.svg";
 import botaoMatchGold from "../assets/botaoMatch.svg";
 import botaoMatch from "../assets/botaoMatchP.png";
 
-import logo from "../assets/logo.svg";
-import logoGold from "../assets/logoGold.svg";
+import logo from "../assets/logo.png";
+import logoGold from "../assets/logoRosa.png";
 import verificada from "../assets/verificadoIcon.svg";
 
 import React, { useEffect } from "react";
