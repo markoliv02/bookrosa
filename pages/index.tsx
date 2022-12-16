@@ -266,7 +266,7 @@ export default function Home() {
           <div className="mb-82">
             <div className="flex items-center justify-center md:-mt-20 mb-10 mt-3">
               <Image
-                src={AllGirls[girlNumberCount]?.destaque ? logoGold : logo}
+                src={AllGirls[girlNumberCount]?.destaque ? logoGold : logoGold}
                 alt=""
                 width={200}
                 height={200}
