@@ -264,7 +264,7 @@ export default function Home() {
           }`}
         >
           <div className="mb-82">
-            <div className="flex items-center justify-center md:-mt-20 mb-10">
+            <div className="flex items-center justify-center md:-mt-20 mb-10 mt-3">
               <Image
                 src={AllGirls[girlNumberCount]?.destaque ? logoGold : logo}
                 alt=""
@@ -402,49 +402,37 @@ export default function Home() {
                   >
                     {/* mobile button */}
                     <Image
-                      src={
-                        AllGirls[girlNumberCount]?.destaque
-                          ? botaoMatch
-                          : botaoMatch
-                      }
+                      src={botaoMatch}
                       className="rounded-full drop-shadow-xl md:hidden"
                       alt=""
-                      width={110}
+                      quality={100}
+                      width={200}
                       height={110}
                     />
 
                     <Image
-                      src={
-                        AllGirls[girlNumberCount]?.destaque
-                          ? botaoMatch
-                          : botaoMatch
-                      }
+                      src={botaoMatch}
                       className="rounded-full drop-shadow-xl mt-5 hidden 2xl:block"
                       alt=""
+                      quality={100}
                       width={150}
                       height={150}
                     />
 
                     <Image
-                      src={
-                        AllGirls[girlNumberCount]?.destaque
-                          ? botaoMatch
-                          : botaoMatch
-                      }
+                      src={botaoMatch}
                       className="rounded-full drop-shadow-xl mt-5 hidden lg:block 2xl:hidden"
                       alt=""
+                      quality={100}
                       width={100}
                       height={100}
                     />
 
                     <Image
-                      src={
-                        AllGirls[girlNumberCount]?.destaque
-                          ? botaoMatch
-                          : botaoMatch
-                      }
+                      src={botaoMatch}
                       className="rounded-full drop-shadow-xl mt-5 hidden md:block lg:hidden 2xl:hidden"
                       alt=""
+                      quality={100}
                       width={90}
                       height={90}
                     />
