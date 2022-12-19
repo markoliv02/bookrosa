@@ -2,7 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 
 import botaoX from "../assets/botaox.svg";
-import botaoVoltar from "../assets/botaoVoltar.svg";
+import botaoVoltar from "../assets/botaoVoltar.png";
 
 import botaoMatch from "../assets/botaoMatchP.png";
 
