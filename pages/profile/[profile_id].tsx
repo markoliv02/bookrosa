@@ -361,6 +361,72 @@ const Profile = () => {
                           {Profile[0]?.pes}
                         </td>
                       </tr>
+                      <tr className="bg-[#EBE9E9] ">
+                        <th
+                          scope="row"
+                          className="py-4 px-6 font-medium text-lg text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
+                        >
+                          Manequim
+                        </th>
+                        <td className="py-4 px-6 text-sm md:px-2">
+                          {Profile[0]?.manequim}
+                        </td>
+                      </tr>
+                      <tr className="bg-[#EBE9E9] ">
+                        <th
+                          scope="row"
+                          className="py-4 px-6 font-medium text-lg text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
+                        >
+                          Cor do Cabelo
+                        </th>
+                        <td className="py-4 px-6 text-sm md:px-2">
+                          {Profile[0]?.cor_cabelos}
+                        </td>
+                      </tr>
+                      <tr className="bg-[#EBE9E9] ">
+                        <th
+                          scope="row"
+                          className="py-4 px-6 font-medium text-lg text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
+                        >
+                          Disponivel para viagens
+                        </th>
+                        <td className="py-4 px-6 text-sm md:px-2">
+                          {Profile[0]?.disponivel_para_viagens ? "sim" : "não"}
+                        </td>
+                      </tr>
+                      <tr className="bg-[#EBE9E9] ">
+                        <th
+                          scope="row"
+                          className="py-4 px-6 font-medium text-lg text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
+                        >
+                          Vende conteúdo digital
+                        </th>
+                        <td className="py-4 px-6 text-sm md:px-2">
+                          {Profile[0]?.conteudo_digital ? "sim" : "não"}
+                        </td>
+                      </tr>
+                      <tr className="bg-[#EBE9E9] ">
+                        <th
+                          scope="row"
+                          className="py-4 px-6 font-medium text-lg text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
+                        >
+                          Especialidades
+                        </th>
+                        <td className="py-4 px-6 text-sm md:px-2">
+                          {Profile[0]?.especialidades}
+                        </td>
+                      </tr>
+                      <tr className="bg-[#EBE9E9] ">
+                        <th
+                          scope="row"
+                          className="py-4 px-6 font-medium text-lg text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
+                        >
+                          Cor dos Olhos
+                        </th>
+                        <td className="py-4 px-6 text-sm md:px-2">
+                          {Profile[0]?.cor_olhos}
+                        </td>
+                      </tr>
                       <tr className="bg-[#D9D9D9]">
                         <th
                           scope="row"
@@ -593,11 +659,7 @@ const Profile = () => {
                 </div>
               </div>
               <div
-                className={`overflow-x-auto relative shadow-md rounded-3xl my-10 shadow shadow-md md:hidden ${
-                  Profile[0]?.destaque
-                    ? "shadow shadow-[#FFB800] shadow-xl"
-                    : "shadow-[#FF4DA2] shadow-md"
-                }`}
+                className={`overflow-x-auto relative shadow-md rounded-3xl my-10 shadow shadow-md md:hidden shadow shadow-lg shadow-[#EC268F]`}
               >
                 <table className="w-full text-sm text-left ">
                   <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -649,6 +711,72 @@ const Profile = () => {
                       </th>
                       <td className="py-4 px-6 text-sm md:px-2">
                         {Profile[0]?.pes}
+                      </td>
+                    </tr>
+                    <tr className="bg-[#EBE9E9] ">
+                      <th
+                        scope="row"
+                        className="py-4 px-6 font-medium text-lg text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
+                      >
+                        Manequim
+                      </th>
+                      <td className="py-4 px-6 text-sm md:px-2">
+                        {Profile[0]?.manequim}
+                      </td>
+                    </tr>
+                    <tr className="bg-[#EBE9E9] ">
+                      <th
+                        scope="row"
+                        className="py-4 px-6 font-medium text-lg text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
+                      >
+                        Cor do Cabelo
+                      </th>
+                      <td className="py-4 px-6 text-sm md:px-2">
+                        {Profile[0]?.cor_cabelos}
+                      </td>
+                    </tr>
+                    <tr className="bg-[#EBE9E9] ">
+                      <th
+                        scope="row"
+                        className="py-4 px-6 font-medium text-lg text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
+                      >
+                        Disponível para viagens
+                      </th>
+                      <td className="py-4 px-6 text-sm md:px-2">
+                        {Profile[0]?.disponivel_para_viagens ? "sim" : "não"}
+                      </td>
+                    </tr>
+                    <tr className="bg-[#EBE9E9] ">
+                      <th
+                        scope="row"
+                        className="py-4 px-6 font-medium text-lg text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
+                      >
+                        Vende conteúdo digital
+                      </th>
+                      <td className="py-4 px-6 text-sm md:px-2">
+                        {Profile[0]?.conteudo_digital ? "sim" : "não"}
+                      </td>
+                    </tr>
+                    <tr className="bg-[#EBE9E9] ">
+                      <th
+                        scope="row"
+                        className="py-4 px-6 font-medium text-lg text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
+                      >
+                        Especialidades
+                      </th>
+                      <td className="py-4 px-6 text-sm md:px-2">
+                        {Profile[0]?.especialidades}
+                      </td>
+                    </tr>
+                    <tr className="bg-[#EBE9E9] ">
+                      <th
+                        scope="row"
+                        className="py-4 px-6 font-medium text-lg text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
+                      >
+                        Cor dos Olhos
+                      </th>
+                      <td className="py-4 px-6 text-sm md:px-2">
+                        {Profile[0]?.cor_olhos}
                       </td>
                     </tr>
                     <tr className="bg-[#D9D9D9]">
