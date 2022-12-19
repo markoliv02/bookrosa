@@ -43,10 +43,17 @@ const GirlsInfo = (props: Props) => {
     agenda: Yup.string().required("agenda é obrigatório"),
     acompanha: Yup.string().required("acompanha é obrigatório"),
     redesocial: Yup.string().required("redesocial é obrigatório"),
-    atendeem: Yup.string().required("redesocial é obrigatório"),
-    altura: Yup.string().required("redesocial é obrigatório"),
+    atendeem: Yup.string().required("campo é obrigatório"),
+    altura: Yup.string().required("campo é obrigatório"),
     destaque: Yup.boolean(),
-    desc: Yup.string(),
+    desc: Yup.string().required("campo é obrig"),
+    manequim: Yup.string(),
+    cor_dos_cabelos: Yup.string(),
+    perfil: Yup.string(),
+    especialidades: Yup.string(),
+    conteudo_digital: Yup.boolean(),
+    viagens: Yup.boolean(),
+    cor_olhos: Yup.string(),
   });
   const {
     handleSubmit,
@@ -75,6 +82,7 @@ const GirlsInfo = (props: Props) => {
 
   const handleRegisterNewGirl = async (data: any) => {
     try {
+      console.log("enntrou");
       let Newid = uuidv4();
       const { data: newGirl, error } = await supabase
         .from("acompanhantes")
@@ -96,6 +104,13 @@ const GirlsInfo = (props: Props) => {
             altura: data?.altura,
             destaque: data?.destaque,
             desc: data?.desc,
+            manequim: data?.manequim,
+            cor_cabelos: data?.cor_dos_cabelos,
+            cor_olhos: data?.cor_olhos,
+            perfil: data?.perfil,
+            disponivel_para_viagens: data?.viagens,
+            conteudo_digital: data?.conteudo_digital,
+            especialidades: data?.especialidades,
           },
         ]);
 
@@ -126,7 +141,7 @@ const GirlsInfo = (props: Props) => {
     getUser();
     // eslint-disable-next-line react-hooks/exhaustive-deps
     setDom(document);
-  });
+  }, []);
   React.useEffect(() => {
     handleChangeBodyColor();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -240,8 +255,6 @@ const GirlsInfo = (props: Props) => {
                     name="telefone"
                     as={<div style={{ color: "red" }} />}
                   />
-                </div>
-                <div id="02">
                   <div className="bg-[#D9D9D9] py-5 px-3 w-full rounded-xl my-3">
                     <input
                       className="bg-transparent placeholder:text-[#616161] placeholder:font-semibold placeholder:text-xl ml-5 focus:outline-none"
@@ -281,6 +294,8 @@ const GirlsInfo = (props: Props) => {
                     name="acompanha"
                     as={<div style={{ color: "red" }} />}
                   />
+                </div>
+                <div id="02">
                   <div className="bg-[#D9D9D9] py-5 px-3 w-full rounded-xl my-3">
                     <input
                       className="bg-transparent placeholder:text-[#616161] placeholder:font-semibold placeholder:text-xl ml-5 focus:outline-none"
@@ -333,6 +348,72 @@ const GirlsInfo = (props: Props) => {
                     name="desc"
                     as={<div style={{ color: "red" }} />}
                   />
+                  <div className="bg-[#D9D9D9] py-5 px-3 w-full rounded-xl my-3">
+                    <input
+                      className="bg-transparent placeholder:text-[#616161] placeholder:font-semibold placeholder:text-xl ml-5 focus:outline-none"
+                      type="text"
+                      placeholder="Manequim"
+                      {...register("manequim")}
+                    />
+                  </div>
+                  <ErrorMessage
+                    errors={errors}
+                    name="manequim"
+                    as={<div style={{ color: "red" }} />}
+                  />
+                  <div className="bg-[#D9D9D9] py-5 px-3 w-full rounded-xl my-3">
+                    <input
+                      className="bg-transparent placeholder:text-[#616161] placeholder:font-semibold placeholder:text-xl ml-5 focus:outline-none"
+                      type="text"
+                      placeholder="Cor dos cabelos"
+                      {...register("cor_dos_cabelos")}
+                    />
+                  </div>
+                  <ErrorMessage
+                    errors={errors}
+                    name="cor_dos_cabelos"
+                    as={<div style={{ color: "red" }} />}
+                  />
+                  <div className="bg-[#D9D9D9] py-5 px-3 w-full rounded-xl my-3">
+                    <input
+                      className="bg-transparent placeholder:text-[#616161] placeholder:font-semibold placeholder:text-xl ml-5 focus:outline-none"
+                      type="text"
+                      placeholder="Cor dos olhos"
+                      {...register("cor_olhos")}
+                    />
+                  </div>
+                  <ErrorMessage
+                    errors={errors}
+                    name="cor_olhos"
+                    as={<div style={{ color: "red" }} />}
+                  />
+                  <div className="bg-[#D9D9D9] py-5 px-3 w-full rounded-xl my-3">
+                    <input
+                      className="bg-transparent placeholder:text-[#616161] placeholder:font-semibold placeholder:text-xl ml-5 focus:outline-none"
+                      type="text"
+                      placeholder="Perfil"
+                      {...register("perfil")}
+                    />
+                  </div>
+                  <ErrorMessage
+                    errors={errors}
+                    name="perfil"
+                    as={<div style={{ color: "red" }} />}
+                  />
+                  <div className="bg-[#D9D9D9] py-5 px-3 w-full rounded-xl my-3">
+                    <input
+                      className="bg-transparent placeholder:text-[#616161] placeholder:font-semibold placeholder:text-xl ml-5 focus:outline-none"
+                      type="text"
+                      placeholder="Especialiades"
+                      {...register("especialidades")}
+                    />
+                  </div>
+                  <ErrorMessage
+                    errors={errors}
+                    name="especialidades"
+                    as={<div style={{ color: "red" }} />}
+                  />
+
                   <label className="inline-flex relative items-center cursor-pointer">
                     <input
                       type="checkbox"
@@ -344,6 +425,32 @@ const GirlsInfo = (props: Props) => {
                     <div className="w-11 h-6 bg-[#D9D9D9] peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-[#FA00FF] rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#FA00FF]"></div>
                     <span className="ml-3 text-sm font-medium text-gray-900">
                       GAROTA DESTAQUE
+                    </span>
+                  </label>
+                  <label className="inline-flex relative items-center cursor-pointer">
+                    <input
+                      type="checkbox"
+                      value=""
+                      className="sr-only peer"
+                      {...register("conteudo_digital")}
+                    />
+
+                    <div className="w-11 h-6 bg-[#D9D9D9] peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-[#FA00FF] rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#FA00FF]"></div>
+                    <span className="ml-3 text-sm font-medium text-gray-900">
+                      CONTEÚDO DIGITAL
+                    </span>
+                  </label>
+                  <label className="inline-flex relative items-center cursor-pointer">
+                    <input
+                      type="checkbox"
+                      value=""
+                      className="sr-only peer"
+                      {...register("viagens")}
+                    />
+
+                    <div className="w-11 h-6 bg-[#D9D9D9] peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-[#FA00FF] rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#FA00FF]"></div>
+                    <span className="ml-3 text-sm font-medium text-gray-900">
+                      VIAGENS
                     </span>
                   </label>
                 </div>

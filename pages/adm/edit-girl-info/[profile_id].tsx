@@ -37,6 +37,12 @@ const EditGirlsInfo = (props: Props) => {
   const [atendeEdit, setAtendeEdit] = React.useState<boolean>(false);
   const [heightEdit, setHeightEdit] = React.useState<boolean>(false);
   const [descEdit, setDescEdit] = React.useState<boolean>(false);
+  const [manequimEdit, setManequimEdit] = React.useState<boolean>(false);
+  const [corCabelosEdit, setCorCabelosEdit] = React.useState<boolean>(false);
+  const [corOlhosEdit, setCorOlhosEdit] = React.useState<boolean>(false);
+  const [perfilEdit, setPerfilEdit] = React.useState<boolean>(false);
+  const [especialidadesEdit, setEspecialidadesEdit] =
+    React.useState<boolean>(false);
 
   const [newName, setNewName] = React.useState<string>();
   const [newFeet, setNewFeet] = React.useState<string>();
@@ -52,6 +58,11 @@ const EditGirlsInfo = (props: Props) => {
   const [newAtende, setNewAtende] = React.useState<string>();
   const [newHeight, setNewHeight] = React.useState<string>();
   const [newDesc, setNewDesc] = React.useState<string>();
+  const [newManequim, setNewManequim] = React.useState<string>();
+  const [newCorCabelos, setNewCorCabelos] = React.useState<string>();
+  const [newCorOlhos, setNewCorOlhos] = React.useState<string>();
+  const [newPerfil, setNewPerfil] = React.useState<string>();
+  const [newEspecialidades, setNewEspecialidades] = React.useState<string>();
 
   const handleChangeBodyColor = () => {
     try {
@@ -121,12 +132,65 @@ const EditGirlsInfo = (props: Props) => {
   const getDesc = (event: React.ChangeEvent<HTMLInputElement>) => {
     setNewDesc(event.target.value);
   };
+  const getManequim = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setNewManequim(event.target.value);
+  };
+  const getPerfil = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setNewPerfil(event.target.value);
+  };
+  const getEspecialidades = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setNewEspecialidades(event.target.value);
+  };
+  const getCorOlhos = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setNewCorOlhos(event.target.value);
+  };
+  const getCorCabelos = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setNewCorCabelos(event.target.value);
+  };
 
   const handleEditDestaque = async () => {
     try {
       const { data, error } = await supabase
         .from("acompanhantes")
         .update({ destaque: !Profile[0]?.destaque })
+        .eq("id", id);
+
+      if (error) {
+        console.error("Error updating ", error);
+      } else {
+        toast.success("alterado com sucesso !");
+        setTimeout(() => {
+          document.location.reload();
+        }, 1000);
+      }
+    } catch (error) {}
+  };
+
+  const handleEditConteudoDigital = async () => {
+    try {
+      const { data, error } = await supabase
+        .from("acompanhantes")
+        .update({ conteudo_digital: !Profile[0]?.conteudo_digital })
+        .eq("id", id);
+
+      if (error) {
+        console.error("Error updating ", error);
+      } else {
+        toast.success("alterado com sucesso !");
+        setTimeout(() => {
+          document.location.reload();
+        }, 1000);
+      }
+    } catch (error) {}
+  };
+
+  const handleEditViagens = async () => {
+    try {
+      const { data, error } = await supabase
+        .from("acompanhantes")
+        .update({
+          disponivel_para_viagens: !Profile[0]?.disponivel_para_viagens,
+        })
         .eq("id", id);
 
       if (error) {
@@ -383,6 +447,88 @@ const EditGirlsInfo = (props: Props) => {
         console.error("Error updating pes ", error);
       } else {
         toast.success("descrição alterada com sucesso !");
+        setTimeout(() => {
+          document.location.reload();
+        }, 2000);
+      }
+    } catch (error) {}
+  };
+  const handleEditManequim = async () => {
+    try {
+      const { data, error } = await supabase
+        .from("acompanhantes")
+        .update({ manequim: newManequim })
+        .eq("id", id);
+      if (error) {
+        console.error("Error updating pes ", error);
+      } else {
+        toast.success("manequim alterado com sucesso !");
+        setTimeout(() => {
+          document.location.reload();
+        }, 2000);
+      }
+    } catch (error) {}
+  };
+
+  const handleEditPerfil = async () => {
+    try {
+      const { data, error } = await supabase
+        .from("acompanhantes")
+        .update({ perfil: newPerfil })
+        .eq("id", id);
+      if (error) {
+        console.error("Error updating pes ", error);
+      } else {
+        toast.success("perfil alterado com sucesso !");
+        setTimeout(() => {
+          document.location.reload();
+        }, 2000);
+      }
+    } catch (error) {}
+  };
+  const handleEditEspecialidades = async () => {
+    try {
+      const { data, error } = await supabase
+        .from("acompanhantes")
+        .update({ especialidades: newEspecialidades })
+        .eq("id", id);
+      if (error) {
+        console.error("Error updating pes ", error);
+      } else {
+        toast.success("especialidades alteradas com sucesso !");
+        setTimeout(() => {
+          document.location.reload();
+        }, 2000);
+      }
+    } catch (error) {}
+  };
+
+  const handleEditCorOlhos = async () => {
+    try {
+      const { data, error } = await supabase
+        .from("acompanhantes")
+        .update({ cor_olhos: newCorOlhos })
+        .eq("id", id);
+      if (error) {
+        console.error("Error updating pes ", error);
+      } else {
+        toast.success("cor dos olhos alterado com sucesso !");
+        setTimeout(() => {
+          document.location.reload();
+        }, 2000);
+      }
+    } catch (error) {}
+  };
+  const handleEditCorCabelos = async () => {
+    try {
+      const { data, error } = await supabase
+        .from("acompanhantes")
+        .update({ cor_cabelos: newCorCabelos })
+        .eq("id", id);
+      if (error) {
+        console.error("Error updating pes ", error);
+      } else {
+        toast.success("cor dos cabelos alterado com sucesso !");
         setTimeout(() => {
           document.location.reload();
         }, 2000);
@@ -855,8 +1001,6 @@ const EditGirlsInfo = (props: Props) => {
                           Salvar
                         </div>
                       )}
-                    </div>
-                    <div id="02">
                       <div className="bg-[#D9D9D9] py-5 px-3 w-full rounded-xl my-3">
                         <label htmlFor="nome" className="text-sm">
                           AGENDA
@@ -896,7 +1040,6 @@ const EditGirlsInfo = (props: Props) => {
                           Salvar
                         </div>
                       )}
-
                       <div className="bg-[#D9D9D9] py-5 px-3 w-full rounded-xl my-3">
                         <label htmlFor="nome" className="text-sm">
                           ACOMPANHA
@@ -936,7 +1079,6 @@ const EditGirlsInfo = (props: Props) => {
                           Salvar
                         </div>
                       )}
-
                       <div className="bg-[#D9D9D9] py-5 px-3 w-full rounded-xl my-3">
                         <label htmlFor="nome" className="text-sm">
                           REDE SOCIAL
@@ -976,7 +1118,8 @@ const EditGirlsInfo = (props: Props) => {
                           Salvar
                         </div>
                       )}
-
+                    </div>
+                    <div id="02">
                       <div className="bg-[#D9D9D9] py-5 px-3 w-full rounded-xl my-3">
                         ATENDE
                         <div className="flex justify-between">
@@ -1092,6 +1235,196 @@ const EditGirlsInfo = (props: Props) => {
                           Salvar
                         </div>
                       )}
+                      <div className="bg-[#D9D9D9] py-5 px-3 w-full rounded-xl my-3">
+                        <label htmlFor="nome" className="text-sm">
+                          MANEQUIM
+                        </label>
+                        <div className="flex justify-between">
+                          <input
+                            onChange={getManequim}
+                            className="bg-transparent placeholder:text-[#616161] w-full placeholder:font-semibold placeholder:text-xl focus:outline-none"
+                            placeholder={Profile[0]?.manequim}
+                            disabled={!manequimEdit}
+                          />
+                          <svg
+                            onClick={() => {
+                              setManequimEdit(!manequimEdit);
+                            }}
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            strokeWidth="1.5"
+                            stroke="currentColor"
+                            className="w-6 h-6 cursor-pointer"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10"
+                            />
+                          </svg>
+                        </div>
+                      </div>
+                      {manequimEdit && (
+                        <div
+                          onClick={handleEditManequim}
+                          className="flex justify-center items-center px-3 py-2 border border-green-500 rounded-3xl text-green-500 font-semibold cursor-pointer w-32"
+                        >
+                          Salvar
+                        </div>
+                      )}
+                      <div className="bg-[#D9D9D9] py-5 px-3 w-full rounded-xl my-3">
+                        <label htmlFor="nome" className="text-sm">
+                          PERFIL
+                        </label>
+                        <div className="flex justify-between">
+                          <input
+                            onChange={getPerfil}
+                            className="bg-transparent placeholder:text-[#616161] w-full placeholder:font-semibold placeholder:text-xl focus:outline-none"
+                            placeholder={Profile[0]?.perfil}
+                            disabled={!perfilEdit}
+                          />
+                          <svg
+                            onClick={() => {
+                              setPerfilEdit(!perfilEdit);
+                            }}
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            strokeWidth="1.5"
+                            stroke="currentColor"
+                            className="w-6 h-6 cursor-pointer"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10"
+                            />
+                          </svg>
+                        </div>
+                      </div>
+                      {perfilEdit && (
+                        <div
+                          onClick={handleEditPerfil}
+                          className="flex justify-center items-center px-3 py-2 border border-green-500 rounded-3xl text-green-500 font-semibold cursor-pointer w-32"
+                        >
+                          Salvar
+                        </div>
+                      )}
+                      <div className="bg-[#D9D9D9] py-5 px-3 w-full rounded-xl my-3">
+                        <label htmlFor="nome" className="text-sm">
+                          ESPECIALIDADES
+                        </label>
+                        <div className="flex justify-between">
+                          <input
+                            onChange={getEspecialidades}
+                            className="bg-transparent placeholder:text-[#616161] w-full placeholder:font-semibold placeholder:text-xl focus:outline-none"
+                            placeholder={Profile[0]?.especialidades}
+                            disabled={!especialidadesEdit}
+                          />
+                          <svg
+                            onClick={() => {
+                              setEspecialidadesEdit(!especialidadesEdit);
+                            }}
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            strokeWidth="1.5"
+                            stroke="currentColor"
+                            className="w-6 h-6 cursor-pointer"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10"
+                            />
+                          </svg>
+                        </div>
+                      </div>
+                      {especialidadesEdit && (
+                        <div
+                          onClick={handleEditEspecialidades}
+                          className="flex justify-center items-center px-3 py-2 border border-green-500 rounded-3xl text-green-500 font-semibold cursor-pointer w-32"
+                        >
+                          Salvar
+                        </div>
+                      )}
+                      <div className="bg-[#D9D9D9] py-5 px-3 w-full rounded-xl my-3">
+                        <label htmlFor="nome" className="text-sm">
+                          COR DOS OLHOS
+                        </label>
+                        <div className="flex justify-between">
+                          <input
+                            onChange={getCorOlhos}
+                            className="bg-transparent placeholder:text-[#616161] w-full placeholder:font-semibold placeholder:text-xl focus:outline-none"
+                            placeholder={Profile[0]?.cor_olhos}
+                            disabled={!corOlhosEdit}
+                          />
+                          <svg
+                            onClick={() => {
+                              setCorOlhosEdit(!corOlhosEdit);
+                            }}
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            strokeWidth="1.5"
+                            stroke="currentColor"
+                            className="w-6 h-6 cursor-pointer"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10"
+                            />
+                          </svg>
+                        </div>
+                      </div>
+                      {corOlhosEdit && (
+                        <div
+                          onClick={handleEditCorOlhos}
+                          className="flex justify-center items-center px-3 py-2 border border-green-500 rounded-3xl text-green-500 font-semibold cursor-pointer w-32"
+                        >
+                          Salvar
+                        </div>
+                      )}
+                      <div className="bg-[#D9D9D9] py-5 px-3 w-full rounded-xl my-3">
+                        <label htmlFor="nome" className="text-sm">
+                          COR DOS CABELOS
+                        </label>
+                        <div className="flex justify-between">
+                          <input
+                            onChange={getCorCabelos}
+                            className="bg-transparent placeholder:text-[#616161] w-full placeholder:font-semibold placeholder:text-xl focus:outline-none"
+                            placeholder={Profile[0]?.cor_cabelos}
+                            disabled={!corCabelosEdit}
+                          />
+                          <svg
+                            onClick={() => {
+                              setCorCabelosEdit(!corCabelosEdit);
+                            }}
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            strokeWidth="1.5"
+                            stroke="currentColor"
+                            className="w-6 h-6 cursor-pointer"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10"
+                            />
+                          </svg>
+                        </div>
+                      </div>
+                      {corCabelosEdit && (
+                        <div
+                          onClick={handleEditCorCabelos}
+                          className="flex justify-center items-center px-3 py-2 border border-green-500 rounded-3xl text-green-500 font-semibold cursor-pointer w-32"
+                        >
+                          Salvar
+                        </div>
+                      )}
                       <div className="cursor-pointer flex items-center my-3">
                         <input
                           type="checkbox"
@@ -1104,6 +1437,31 @@ const EditGirlsInfo = (props: Props) => {
                           GAROTA DESTAQUE
                         </span>
                       </div>
+                      <div className="cursor-pointer flex items-center my-3">
+                        <input
+                          type="checkbox"
+                          onChange={handleEditConteudoDigital}
+                          className="w-10 h-10 rounded-3xl  cursor-pointer"
+                          checked={Profile[0]?.conteudo_digital}
+                        />
+
+                        <span className="ml-3 text-sm font-medium text-gray-900 ">
+                          CONTEÚDO DIGITAL
+                        </span>
+                      </div>
+                      <div className="cursor-pointer flex items-center my-3">
+                        <input
+                          type="checkbox"
+                          onChange={handleEditViagens}
+                          className="w-10 h-10 rounded-3xl  cursor-pointer"
+                          checked={Profile[0]?.disponivel_para_viagens}
+                        />
+
+                        <span className="ml-3 text-sm font-medium text-gray-900 ">
+                          VIAGENS
+                        </span>
+                      </div>
+
                       <div className="flex items-center cursor-pointer my-3">
                         <input
                           type="checkbox"
