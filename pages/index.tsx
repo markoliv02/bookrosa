@@ -357,7 +357,7 @@ export default function Home() {
                       src={botaoVoltar}
                       alt=""
                       quality={100}
-                      className="w-20 h-20 md:w-14 md:h-14 lg:w-16 lg:h-16 xl:w-20 xl:h-20 2xl:w-28 2xl:h-28"
+                      className="w-20 h-20 md:w-14 md:h-14 lg:w-16 lg:h-16 xl:w-20 xl:h-20 2xl:w-28 2xl:h-28 cursor-pointer"
                     />
                   </div>
 
@@ -381,30 +381,9 @@ export default function Home() {
                       src={botaoX}
                       alt=""
                       quality={100}
-                      className="w-20 h-20 md:w-14 md:h-14 lg:w-16 lg:h-16 xl:w-20 xl:h-20 2xl:w-28 2xl:h-28"
+                      className="w-20 h-20 md:w-14 md:h-14 lg:w-16 lg:h-16 xl:w-20 xl:h-20 2xl:w-28 2xl:h-28 cursor-pointer"
                     />
                   </div>
-                  {/* <div
-                    id="x"
-                    className="w-full flex justify-end cursor-pointer"
-                  >
-                    <div className="relative w-20 h-20 md:w-14 md:h-14 lg:w-16 lg:h-16 xl:w-20 xl:h-20 2xl:w-28 2xl:h-28 px-5">
-                      <Image
-                        onClick={() => {
-                          if (girlNumberCount + 1 === AllGirls.length) {
-                            setGirlNumberCount(0);
-                          } else {
-                            let index = girlNumberCount + 1;
-                            setGirlNumberCount(index);
-                          }
-                        }}
-                        src={botaoX}
-                        alt=""
-                        className="rounded-full drop-shadow-xl"
-                        fill={true}
-                      />
-                    </div>
-                  </div> */}
                 </div>
               </div>
             </div>
