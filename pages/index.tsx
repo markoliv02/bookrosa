@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 
-import botaoX from "../assets/botaox.svg";
+import botaoX from "../assets/botaoX.png";
 import botaoVoltar from "../assets/botaoVoltar.png";
 
 import botaoMatch from "../assets/botaoMatchP.png";
@@ -342,44 +342,49 @@ export default function Home() {
                 </div>
 
                 <div className="z-20 grid grid-cols-3 z-10 mt-0 md:mt-10 w-full ">
-                  <div
-                    id="voltar"
-                    className="w-full flex justify-start cursor-pointer"
-                  >
-                    <div className="relative w-20 h-20 md:w-14 md:h-14 lg:w-16 lg:h-16 xl:w-20 xl:h-20 2xl:w-28 2xl:h-28 px-5">
-                      <Image
-                        onClick={() => {
-                          if (girlNumberCount === 0) {
-                            setGirlNumberCount(0);
-                          } else {
-                            let index = girlNumberCount - 1;
-                            setGirlNumberCount(index);
-                          }
-                        }}
-                        src={botaoVoltar}
-                        alt=""
-                        className="rounded-full drop-shadow-xl "
-                        fill={true}
-                      />
-                    </div>
+                  {/* reposicionar e ajustar o tamanho do botão */}
+
+                  <div className="flex justify-start">
+                    <Image
+                      onClick={() => {
+                        if (girlNumberCount === 0) {
+                          setGirlNumberCount(0);
+                        } else {
+                          let index = girlNumberCount - 1;
+                          setGirlNumberCount(index);
+                        }
+                      }}
+                      src={botaoVoltar}
+                      alt=""
+                      quality={100}
+                      className="w-20 h-20 md:w-14 md:h-14 lg:w-16 lg:h-16 xl:w-20 xl:h-20 2xl:w-28 2xl:h-28"
+                    />
                   </div>
 
                   <div
                     onClick={() => handleCountClick()}
                     className="z-20 -mt-10 sm:-mt-14 md:-mt-10 lg:-mt-14 xl:-mt-36 2xl:-mt-28 w-full flex justify-center items-center md:items-end cursor-pointer"
                   >
-                    {/* <div className="relative w-28 h-28 md:w-16 md:h-16 lg:w-20 lg:h-20 xl:w-32 xl:h-28 2xl:w-36 2xl:h-36 px-5">
-                      <Image
-                        src={botaoMatch}
-                        className="rounded-full drop-shadow-xl "
-                        alt=""
-                        quality={100}
-                        fill={true}
-                      />
-                    </div> */}
                     <Image src={botaoMatch} quality={100} alt="" />
                   </div>
-                  <div
+
+                  <div className="flex justify-end">
+                    <Image
+                      onClick={() => {
+                        if (girlNumberCount === 0) {
+                          setGirlNumberCount(0);
+                        } else {
+                          let index = girlNumberCount - 1;
+                          setGirlNumberCount(index);
+                        }
+                      }}
+                      src={botaoX}
+                      alt=""
+                      quality={100}
+                      className="w-20 h-20 md:w-14 md:h-14 lg:w-16 lg:h-16 xl:w-20 xl:h-20 2xl:w-28 2xl:h-28"
+                    />
+                  </div>
+                  {/* <div
                     id="x"
                     className="w-full flex justify-end cursor-pointer"
                   >
@@ -399,7 +404,7 @@ export default function Home() {
                         fill={true}
                       />
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>
