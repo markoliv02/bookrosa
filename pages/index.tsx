@@ -371,10 +371,10 @@ export default function Home() {
                   <div className="flex justify-end">
                     <Image
                       onClick={() => {
-                        if (girlNumberCount === 0) {
+                        if (girlNumberCount + 1 === AllGirls.length) {
                           setGirlNumberCount(0);
                         } else {
-                          let index = girlNumberCount - 1;
+                          let index = girlNumberCount + 1;
                           setGirlNumberCount(index);
                         }
                       }}
