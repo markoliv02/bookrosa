@@ -408,7 +408,7 @@ const Profile = () => {
                           {Profile[0]?.altura}
                         </td>
                       </tr>
-                      <tr className="bg-[#EBE9E9] ">
+                      <tr className="bg-[#D9D9D9] ">
                         <th
                           scope="row"
                           className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
@@ -430,7 +430,7 @@ const Profile = () => {
                           {Profile[0]?.manequim}
                         </td>
                       </tr>
-                      <tr className="bg-[#EBE9E9] ">
+                      <tr className="bg-[#D9D9D9] ">
                         <th
                           scope="row"
                           className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
@@ -452,7 +452,7 @@ const Profile = () => {
                           {Profile[0]?.disponivel_para_viagens ? "sim" : "não"}
                         </td>
                       </tr>
-                      <tr className="bg-[#EBE9E9] ">
+                      <tr className="bg-[#D9D9D9] ">
                         <th
                           scope="row"
                           className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
@@ -474,7 +474,7 @@ const Profile = () => {
                           {Profile[0]?.especialidades}
                         </td>
                       </tr>
-                      <tr className="bg-[#EBE9E9] ">
+                      <tr className="bg-[#D9D9D9] ">
                         <th
                           scope="row"
                           className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
@@ -485,7 +485,7 @@ const Profile = () => {
                           {Profile[0]?.cor_olhos}
                         </td>
                       </tr>
-                      <tr className="bg-[#D9D9D9]">
+                      <tr className="bg-[#EBE9E9]">
                         <th
                           scope="row"
                           className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
@@ -496,7 +496,7 @@ const Profile = () => {
                           {Profile[0]?.celular}
                         </td>
                       </tr>
-                      <tr className="bg-[#EBE9E9]">
+                      <tr className="bg-[#D9D9D9]">
                         <th
                           scope="row"
                           className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
@@ -507,7 +507,7 @@ const Profile = () => {
                           {Profile[0]?.agenda}
                         </td>
                       </tr>
-                      <tr className="bg-[#D9D9D9] ">
+                      <tr className="bg-[#EBE9E9] ">
                         <th
                           scope="row"
                           className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
@@ -518,7 +518,7 @@ const Profile = () => {
                           {Profile[0]?.acompanha}
                         </td>
                       </tr>
-                      <tr className="bg-[#EBE9E9] ">
+                      <tr className="bg-[#D9D9D9] ">
                         <th
                           scope="row"
                           className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
@@ -529,7 +529,7 @@ const Profile = () => {
                           {Profile[0]?.atende_em}
                         </td>
                       </tr>
-                      <tr className="bg-[#D9D9D9]">
+                      <tr className="bg-[#EBE9E9]">
                         <th
                           scope="row"
                           className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
@@ -540,7 +540,7 @@ const Profile = () => {
                           {Profile[0]?.cache}
                         </td>
                       </tr>
-                      <tr className="bg-[#EBE9E9]">
+                      <tr className="bg-[#D9D9D9]">
                         <th
                           scope="row"
                           className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
@@ -759,7 +759,7 @@ const Profile = () => {
                         {Profile[0]?.altura}
                       </td>
                     </tr>
-                    <tr className="bg-[#EBE9E9] ">
+                    <tr className="bg-[#D9D9D9] ">
                       <th
                         scope="row"
                         className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
@@ -781,7 +781,7 @@ const Profile = () => {
                         {Profile[0]?.manequim}
                       </td>
                     </tr>
-                    <tr className="bg-[#EBE9E9] ">
+                    <tr className="bg-[#D9D9D9] ">
                       <th
                         scope="row"
                         className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
@@ -803,7 +803,7 @@ const Profile = () => {
                         {Profile[0]?.disponivel_para_viagens ? "sim" : "não"}
                       </td>
                     </tr>
-                    <tr className="bg-[#EBE9E9] ">
+                    <tr className="bg-[#D9D9D9] ">
                       <th
                         scope="row"
                         className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
@@ -825,7 +825,7 @@ const Profile = () => {
                         {Profile[0]?.especialidades}
                       </td>
                     </tr>
-                    <tr className="bg-[#EBE9E9] ">
+                    <tr className="bg-[#D9D9D9] ">
                       <th
                         scope="row"
                         className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
@@ -836,7 +836,7 @@ const Profile = () => {
                         {Profile[0]?.cor_olhos}
                       </td>
                     </tr>
-                    <tr className="bg-[#D9D9D9]">
+                    <tr className="bg-[#EBE9E9]">
                       <th
                         scope="row"
                         className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
@@ -847,7 +847,7 @@ const Profile = () => {
                         {Profile[0]?.celular}
                       </td>
                     </tr>
-                    <tr className="bg-[#EBE9E9]">
+                    <tr className="bg-[#D9D9D9]">
                       <th
                         scope="row"
                         className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
@@ -858,7 +858,7 @@ const Profile = () => {
                         {Profile[0]?.agenda}
                       </td>
                     </tr>
-                    <tr className="bg-[#D9D9D9] ">
+                    <tr className="bg-[#EBE9E9] ">
                       <th
                         scope="row"
                         className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
@@ -869,7 +869,7 @@ const Profile = () => {
                         {Profile[0]?.acompanha}
                       </td>
                     </tr>
-                    <tr className="bg-[#EBE9E9] ">
+                    <tr className="bg-[#D9D9D9] ">
                       <th
                         scope="row"
                         className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
@@ -880,7 +880,7 @@ const Profile = () => {
                         {Profile[0]?.atende_em}
                       </td>
                     </tr>
-                    <tr className="bg-[#D9D9D9]">
+                    <tr className="bg-[#EBE9E9]">
                       <th
                         scope="row"
                         className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
@@ -891,7 +891,7 @@ const Profile = () => {
                         {Profile[0]?.cache}
                       </td>
                     </tr>
-                    <tr className="bg-[#EBE9E9]">
+                    <tr className="bg-[#D9D9D9]">
                       <th
                         scope="row"
                         className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
