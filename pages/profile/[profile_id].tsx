@@ -17,6 +17,9 @@ import Script from "next/script";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 
+import onlyfans from "../../assets/onlyfans.svg";
+import privacy from "../../assets/privacy.png";
+
 let docInit: Document;
 
 const Profile = () => {
@@ -47,6 +50,7 @@ const Profile = () => {
           .eq("id", id);
 
         if (acompanhantes) {
+          console.log(acompanhantes);
           setProfile(acompanhantes);
         }
       }
@@ -364,6 +368,60 @@ const Profile = () => {
                       </tr>
                     </thead>
                     <tbody>
+                      {Profile[0]?.conteudo_digital && (
+                        <>
+                          <tr className="bg-[#D9D9D9]">
+                            <th
+                              scope="row"
+                              className="flex items-center py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
+                            >
+                              <Image
+                                src={onlyfans}
+                                alt=""
+                                width={40}
+                                className="mr-3"
+                              />
+                              OnlyFans
+                            </th>
+                            <td className="py-4 px-6 text-sm md:px-2 text-blue-600">
+                              <a
+                                href={`${
+                                  Profile[0]?.privacy === null
+                                    ? `/profile/${Profile[0]?.id}`
+                                    : Profile[0]?.onlyfans
+                                }`}
+                              >
+                                Acessar
+                              </a>
+                            </td>
+                          </tr>
+                          <tr className="bg-[#EBE9E9]">
+                            <th
+                              scope="row"
+                              className="flex items-center py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
+                            >
+                              <Image
+                                src={privacy}
+                                alt=""
+                                width={40}
+                                className="mr-3"
+                              />
+                              Privacy
+                            </th>
+                            <td className="py-4 px-6 text-sm md:px-2 text-blue-600">
+                              <a
+                                href={`${
+                                  Profile[0]?.privacy === null
+                                    ? `/profile/${Profile[0]?.id}`
+                                    : Profile[0]?.privacy
+                                }`}
+                              >
+                                Acessar
+                              </a>
+                            </td>
+                          </tr>
+                        </>
+                      )}
                       <tr className="bg-[#D9D9D9] ">
                         <th
                           scope="row"
@@ -715,6 +773,60 @@ const Profile = () => {
                     </tr>
                   </thead>
                   <tbody>
+                    {Profile[0]?.conteudo_digital && (
+                      <>
+                        <tr className="bg-[#D9D9D9] ">
+                          <th
+                            scope="row"
+                            className="flex items-center py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
+                          >
+                            <Image
+                              src={onlyfans}
+                              alt=""
+                              width={20}
+                              className="mr-3"
+                            />
+                            OnlyFans
+                          </th>
+                          <td className="py-4 px-6 text-sm md:px-2 text-blue-600">
+                            <a
+                              href={`${
+                                Profile[0]?.privacy === null
+                                  ? `/profile/${Profile[0]?.id}`
+                                  : Profile[0]?.onlyfans
+                              }`}
+                            >
+                              Acessar
+                            </a>
+                          </td>
+                        </tr>
+                        <tr className="bg-[#EBE9E9]">
+                          <th
+                            scope="row"
+                            className="flex items-center py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
+                          >
+                            <Image
+                              src={privacy}
+                              alt=""
+                              width={20}
+                              className="mr-3"
+                            />
+                            Privacy
+                          </th>
+                          <td className="py-4 px-6 text-sm md:px-2 text-blue-600">
+                            <a
+                              href={`${
+                                Profile[0]?.privacy === null
+                                  ? `/profile/${Profile[0]?.id}`
+                                  : Profile[0]?.privacy
+                              }`}
+                            >
+                              Acessar
+                            </a>
+                          </td>
+                        </tr>
+                      </>
+                    )}
                     <tr className="bg-[#D9D9D9] ">
                       <th
                         scope="row"
