@@ -344,7 +344,7 @@ export default function Home() {
                 <div className="z-20 grid grid-cols-3 z-10 mt-0 md:mt-10 w-full ">
                   {/* reposicionar e ajustar o tamanho do botão */}
 
-                  <div className="flex justify-start">
+                  <div id="botao voltar" className="flex justify-start">
                     <Image
                       onClick={() => {
                         if (girlNumberCount === 0) {
@@ -357,18 +357,24 @@ export default function Home() {
                       src={botaoVoltar}
                       alt=""
                       quality={100}
-                      className="w-20 h-20 md:w-14 md:h-14 lg:w-16 lg:h-16 xl:w-20 xl:h-20 2xl:w-28 2xl:h-28 cursor-pointer"
+                      className="w-16 h-16 md:w-10 md:h-10 lg:w-16 lg:h-16 xl:w-20 xl:h-20 2xl:w-24 2xl:h-24 cursor-pointer"
                     />
                   </div>
 
                   <div
+                    id="botao match"
                     onClick={() => handleCountClick()}
                     className="z-20 -mt-10 sm:-mt-14 md:-mt-10 lg:-mt-14 xl:-mt-36 2xl:-mt-28 w-full flex justify-center items-center md:items-end cursor-pointer"
                   >
-                    <Image src={botaoMatch} quality={100} alt="" />
+                    <Image
+                      src={botaoMatch}
+                      quality={100}
+                      alt=""
+                      className="w-28 h-28 md:w-20 md:h-16 lg:w-24 lg:h-24 xl:w-28 xl:h-28 2xl:w-32 2xl:h-32"
+                    />
                   </div>
 
-                  <div className="flex justify-end">
+                  <div id="botao X" className="flex justify-end">
                     <Image
                       onClick={() => {
                         if (girlNumberCount + 1 === AllGirls.length) {
@@ -381,7 +387,7 @@ export default function Home() {
                       src={botaoX}
                       alt=""
                       quality={100}
-                      className="w-20 h-20 md:w-14 md:h-14 lg:w-16 lg:h-16 xl:w-20 xl:h-20 2xl:w-28 2xl:h-28 cursor-pointer"
+                      className="w-16 h-16 md:w-10 md:h-10 lg:w-16 lg:h-16 xl:w-20 xl:h-20 2xl:w-24 2xl:h-24 cursor-pointer"
                     />
                   </div>
                 </div>
