@@ -21,11 +21,16 @@ import "react-toastify/dist/ReactToastify.css";
 import { User } from "@supabase/supabase-js";
 import Navbar from "../../component/Navbar";
 
+import onlyfans from "../../assets/onlyfans.svg";
+import privacy from "../../assets/privacy.png";
+
 let docInit: Document;
 const GirlsInfo = (props: Props) => {
   const [Dom, setDom] = React.useState<Document>(docInit);
   const [user, setUser] = React.useState<User>();
   const router = useRouter();
+
+  const [conteudoDigital, setConteudoDigital] = React.useState<boolean>(false);
 
   const schema = Yup.object().shape({
     nome: Yup.string().required("nome é obrigatório"),
@@ -54,6 +59,8 @@ const GirlsInfo = (props: Props) => {
     conteudo_digital: Yup.boolean(),
     viagens: Yup.boolean(),
     cor_olhos: Yup.string(),
+    onlyfans: Yup.string(),
+    privacy: Yup.string(),
   });
   const {
     handleSubmit,
@@ -63,6 +70,10 @@ const GirlsInfo = (props: Props) => {
     mode: "onChange",
     resolver: yupResolver(schema),
   });
+
+  const getConteudoDigital = (event: React.ChangeEvent<HTMLInputElement>) => {
+    console.log(event.target.value);
+  };
 
   const handleChangeBodyColor = () => {
     try {
@@ -111,6 +122,8 @@ const GirlsInfo = (props: Props) => {
             disponivel_para_viagens: data?.viagens,
             conteudo_digital: data?.conteudo_digital,
             especialidades: data?.especialidades,
+            privacy: data?.privacy,
+            onlyfans: data?.onlyfans,
           },
         ]);
 
@@ -429,6 +442,9 @@ const GirlsInfo = (props: Props) => {
                   </label>
                   <label className="inline-flex relative items-center cursor-pointer">
                     <input
+                      onClick={() => {
+                        setConteudoDigital(!conteudoDigital);
+                      }}
                       type="checkbox"
                       value=""
                       className="sr-only peer"
@@ -454,6 +470,38 @@ const GirlsInfo = (props: Props) => {
                     </span>
                   </label>
                 </div>
+                {conteudoDigital && (
+                  <>
+                    <div className="flex bg-[#D9D9D9] py-5 px-3 w-full rounded-xl my-3 col-span-2">
+                      <Image src={onlyfans} alt="" width={40} />
+                      <input
+                        className="bg-transparent placeholder:text-[#616161] placeholder:font-semibold placeholder:text-xl ml-5 focus:outline-none"
+                        type="text"
+                        placeholder="Link OnlyFans"
+                        {...register("onlyfans")}
+                      />
+                    </div>
+                    <ErrorMessage
+                      errors={errors}
+                      name="onlyfans"
+                      as={<div style={{ color: "red" }} />}
+                    />
+                    <div className="flex bg-[#D9D9D9] py-5 px-3 w-full rounded-xl my-3 col-span-2">
+                      <Image src={privacy} alt="" width={40} />
+                      <input
+                        className="bg-transparent placeholder:text-[#616161] placeholder:font-semibold placeholder:text-xl ml-5 focus:outline-none"
+                        type="text"
+                        placeholder="Link Privacy"
+                        {...register("privacy")}
+                      />
+                    </div>
+                    <ErrorMessage
+                      errors={errors}
+                      name="privacy"
+                      as={<div style={{ color: "red" }} />}
+                    />
+                  </>
+                )}
                 <div className="flex justify-center w-full col-span-2">
                   <button
                     type="submit"
