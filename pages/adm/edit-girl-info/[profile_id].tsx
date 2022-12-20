@@ -12,6 +12,10 @@ import { User } from "@supabase/supabase-js";
 import Navbar from "../../../component/Navbar";
 import { profile } from "console";
 
+import onlyfans from "../../../assets/onlyfans.svg";
+import privacy from "../../../assets/privacy.png";
+import Image from "next/image";
+
 let docInit: Document;
 const EditGirlsInfo = (props: Props) => {
   const { query } = useRouter();
@@ -43,6 +47,8 @@ const EditGirlsInfo = (props: Props) => {
   const [perfilEdit, setPerfilEdit] = React.useState<boolean>(false);
   const [especialidadesEdit, setEspecialidadesEdit] =
     React.useState<boolean>(false);
+  const [onlyFansEdit, setOnlyFansEdit] = React.useState<boolean>(false);
+  const [privacyEdit, setPrivacyEdit] = React.useState<boolean>(false);
 
   const [newName, setNewName] = React.useState<string>();
   const [newFeet, setNewFeet] = React.useState<string>();
@@ -63,6 +69,8 @@ const EditGirlsInfo = (props: Props) => {
   const [newCorOlhos, setNewCorOlhos] = React.useState<string>();
   const [newPerfil, setNewPerfil] = React.useState<string>();
   const [newEspecialidades, setNewEspecialidades] = React.useState<string>();
+  const [newOnlyFans, setNewOnlyFans] = React.useState<string>();
+  const [newPrivacy, setNewPrivacy] = React.useState<string>();
 
   const handleChangeBodyColor = () => {
     try {
@@ -146,6 +154,12 @@ const EditGirlsInfo = (props: Props) => {
   };
   const getCorCabelos = (event: React.ChangeEvent<HTMLInputElement>) => {
     setNewCorCabelos(event.target.value);
+  };
+  const getOnlyFans = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setNewOnlyFans(event.target.value);
+  };
+  const getPrivacy = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setNewPrivacy(event.target.value);
   };
 
   const handleEditDestaque = async () => {
@@ -529,6 +543,38 @@ const EditGirlsInfo = (props: Props) => {
         console.error("Error updating pes ", error);
       } else {
         toast.success("cor dos cabelos alterado com sucesso !");
+        setTimeout(() => {
+          document.location.reload();
+        }, 2000);
+      }
+    } catch (error) {}
+  };
+  const handleEditOnlyFans = async () => {
+    try {
+      const { data, error } = await supabase
+        .from("acompanhantes")
+        .update({ onlyfans: newOnlyFans })
+        .eq("id", id);
+      if (error) {
+        console.error("Error updating pes ", error);
+      } else {
+        toast.success("link do OnlyFans alterado com sucesso !");
+        setTimeout(() => {
+          document.location.reload();
+        }, 2000);
+      }
+    } catch (error) {}
+  };
+  const handleEditPrivacy = async () => {
+    try {
+      const { data, error } = await supabase
+        .from("acompanhantes")
+        .update({ privacy: newPrivacy })
+        .eq("id", id);
+      if (error) {
+        console.error("Error updating pes ", error);
+      } else {
+        toast.success("Link do Privacy alterado com sucesso !");
         setTimeout(() => {
           document.location.reload();
         }, 2000);
@@ -1424,6 +1470,89 @@ const EditGirlsInfo = (props: Props) => {
                         >
                           Salvar
                         </div>
+                      )}
+                      {Profile[0]?.conteudo_digital && (
+                        <>
+                          <div className="bg-[#D9D9D9] py-5 px-3 w-full rounded-xl my-3">
+                            <label htmlFor="nome" className="text-sm">
+                              PRIVACY
+                            </label>
+                            <div className="flex justify-between">
+                              <Image src={privacy} alt="" width={40} />
+                              <input
+                                onChange={getPrivacy}
+                                className="bg-transparent placeholder:text-[#616161] w-full placeholder:font-semibold placeholder:text-xl focus:outline-none ml-5"
+                                placeholder={Profile[0]?.privacy}
+                                disabled={!privacyEdit}
+                              />
+                              <svg
+                                onClick={() => {
+                                  setPrivacyEdit(!privacyEdit);
+                                }}
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                strokeWidth="1.5"
+                                stroke="currentColor"
+                                className="w-6 h-6 cursor-pointer"
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10"
+                                />
+                              </svg>
+                            </div>
+                          </div>
+                          {privacyEdit && (
+                            <div
+                              onClick={handleEditPrivacy}
+                              className="flex justify-center items-center px-3 py-2 border border-green-500 rounded-3xl text-green-500 font-semibold cursor-pointer w-32"
+                            >
+                              Salvar
+                            </div>
+                          )}
+
+                          <div className="bg-[#D9D9D9] py-5 px-3 w-full rounded-xl my-3">
+                            <label htmlFor="nome" className="text-sm">
+                              ONLYFANS
+                            </label>
+                            <div className="flex justify-between">
+                              <Image src={onlyfans} alt="" width={40} />
+                              <input
+                                onChange={getOnlyFans}
+                                className="bg-transparent placeholder:text-[#616161] w-full placeholder:font-semibold placeholder:text-xl focus:outline-none ml-5"
+                                placeholder={Profile[0]?.onlyfans}
+                                disabled={!onlyFansEdit}
+                              />
+                              <svg
+                                onClick={() => {
+                                  setOnlyFansEdit(!onlyFansEdit);
+                                }}
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                strokeWidth="1.5"
+                                stroke="currentColor"
+                                className="w-6 h-6 cursor-pointer"
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10"
+                                />
+                              </svg>
+                            </div>
+                          </div>
+                          {onlyFansEdit && (
+                            <div
+                              onClick={handleEditOnlyFans}
+                              className="flex justify-center items-center px-3 py-2 border border-green-500 rounded-3xl text-green-500 font-semibold cursor-pointer w-32"
+                            >
+                              Salvar
+                            </div>
+                          )}
+                        </>
                       )}
                       <div className="cursor-pointer flex items-center my-3">
                         <input
