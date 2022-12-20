@@ -14,6 +14,9 @@ import logo from "../../assets/logo.png";
 import logoGold from "../../assets/logoRosa.png";
 import Script from "next/script";
 
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from "react-responsive-carousel";
+
 let docInit: Document;
 
 const Profile = () => {
@@ -28,7 +31,7 @@ const Profile = () => {
   const [cell, setCell] = React.useState<string>();
 
   const [currentPhotoInViewMode, setcurrentPhotoInViewMode] =
-    React.useState<string>();
+    React.useState<number>(0);
   const [viewPhotoMode, setViewPhotoMode] = React.useState<boolean>(false);
 
   const [Dom, setDom] = React.useState<Document>(docInit);
@@ -213,7 +216,7 @@ const Profile = () => {
       {viewPhotoMode && (
         <div>
           <div
-            className="flex justify-end cursor-pointer rounded-full"
+            className="flex justify-end cursor-pointer rounded-full mb-3"
             onClick={() => setViewPhotoMode(!viewPhotoMode)}
           >
             <svg
@@ -231,9 +234,63 @@ const Profile = () => {
               />
             </svg>
           </div>
-          <div className="flex justify-center items-center ">
-            <img src={currentPhotoInViewMode} alt="" />
+          <div className="w-full flex justify-center">
+            <Carousel
+              showIndicators={false}
+              showThumbs={true}
+              swipeable={true}
+              showStatus={false}
+              selectedItem={currentPhotoInViewMode}
+              className="w-96 md:w-[450px"
+            >
+              <div>
+                <img
+                  src={`https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/001`}
+                  alt=""
+                  className="rounded-xl"
+                />
+              </div>
+              <div>
+                <img
+                  src={`https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/002`}
+                  alt=""
+                  className="rounded-xl"
+                />
+              </div>
+              <div>
+                <img
+                  src={`https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/003`}
+                  alt=""
+                  className="rounded-xl"
+                />
+              </div>
+              <div>
+                <img
+                  src={`https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/004`}
+                  alt=""
+                  className="rounded-xl"
+                />
+              </div>
+              <div>
+                <img
+                  src={`https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/005`}
+                  alt=""
+                  className="rounded-xl"
+                />
+              </div>
+              <div>
+                <img
+                  src={`https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/006`}
+                  alt=""
+                  className="rounded-xl"
+                />
+              </div>
+            </Carousel>
           </div>
+
+          {/* <div className="flex justify-center items-center ">
+            <img src={currentPhotoInViewMode} alt="" />
+          </div> */}
         </div>
       )}
 
@@ -519,9 +576,7 @@ const Profile = () => {
               >
                 <div
                   onClick={() => {
-                    setcurrentPhotoInViewMode(
-                      `https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/001`
-                    );
+                    setcurrentPhotoInViewMode(0);
                     setViewPhotoMode(true);
                   }}
                   className={`relative w-full h-48 md:h-[33rem] bg-transparent cursor-pointer overflow-hidden rounded-3xl shadow shadow-lg shadow-[#EC268F]`}
@@ -540,9 +595,7 @@ const Profile = () => {
                 <div className="grid grid-cols-1 gap-4 w-full h-48 md:h-[33rem] cursor-pointer">
                   <div
                     onClick={() => {
-                      setcurrentPhotoInViewMode(
-                        `https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/002`
-                      );
+                      setcurrentPhotoInViewMode(1);
                       setViewPhotoMode(true);
                     }}
                     className={`flex justify-center items-center relative w-full bg-transparent overflow-hidden rounded-3xl shadow shadow-lg shadow-[#EC268F]`}
@@ -560,9 +613,7 @@ const Profile = () => {
                   </div>
                   <div
                     onClick={() => {
-                      setcurrentPhotoInViewMode(
-                        `https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/003`
-                      );
+                      setcurrentPhotoInViewMode(2);
                       setViewPhotoMode(true);
                     }}
                     className={`flex justify-center items-center relative w-full bg-transparent cursor-pointer overflow-hidden rounded-3xl shadow shadow-lg shadow-[#EC268F]`}
@@ -581,9 +632,7 @@ const Profile = () => {
                 </div>
                 <div
                   onClick={() => {
-                    setcurrentPhotoInViewMode(
-                      `https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/004`
-                    );
+                    setcurrentPhotoInViewMode(3);
                     setViewPhotoMode(true);
                   }}
                   className={`relative w-full h-48 md:h-[33rem] bg-transparent cursor-pointer overflow-hidden rounded-3xl shadow shadow-lg shadow-[#EC268F]`}
@@ -601,9 +650,7 @@ const Profile = () => {
                 </div>
                 <div
                   onClick={() => {
-                    setcurrentPhotoInViewMode(
-                      `https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/005`
-                    );
+                    setcurrentPhotoInViewMode(4);
                     setViewPhotoMode(true);
                   }}
                   className={`relative w-full h-40 md:h-[33rem] md:mt-0 bg-transparent cursor-pointer overflow-hidden rounded-3xl shadow shadow-lg shadow-[#EC268F]`}
@@ -621,9 +668,7 @@ const Profile = () => {
                 </div>
                 <div
                   onClick={() => {
-                    setcurrentPhotoInViewMode(
-                      `https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/006`
-                    );
+                    setcurrentPhotoInViewMode(5);
                     setViewPhotoMode(true);
                   }}
                   className={`col-span-2 h-40 md:h-[33rem] relative w-full bg-transparent cursor-pointer overflow-hidden rounded-3xl flex justify-center shadow shadow-lg shadow-[#EC268F]`}
