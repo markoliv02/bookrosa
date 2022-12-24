@@ -181,184 +181,592 @@ const Profile = () => {
   }, [id]);
 
   return (
-    <div className="container mx-auto px-7 text-black">
-      <Script
-        strategy="afterInteractive"
-        src="https://www.googletagmanager.com/gtag/js?id=G-YNJE9LHTDH"
-      />
-      <Script id="google-analytics" strategy="afterInteractive">
-        {`
+    <>
+      <div className="container mx-auto px-7 text-black">
+        <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-YNJE9LHTDH"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', 'G-YNJE9LHTDH');
           
           `}
-      </Script>
-      <div className="grid grid-cols-4 md:grid-cols-1">
-        {!viewPhotoMode && (
-          <div
-            className="mt-5 cursor-pointer md:hidden"
-            onClick={() => document.location.replace("/")}
-          >
-            <Image src={botaoVoltar} alt="" width={40} height={40} />
+        </Script>
+        <div className="grid grid-cols-4 md:grid-cols-1">
+          {!viewPhotoMode && (
+            <div
+              className="mt-5 cursor-pointer md:hidden"
+              onClick={() => document.location.replace("/")}
+            >
+              <Image src={botaoVoltar} alt="" width={40} height={40} />
+            </div>
+          )}
+          <div className="flex items-center justify-between md:justify-center mt-5 col-span-2 ">
+            <Image
+              onClick={() => {
+                router.push("/");
+              }}
+              src={Profile[0]?.destaque ? logoGold : logoGold}
+              alt=""
+              width={300}
+              height={300}
+              className="cursor-pointer"
+            />
           </div>
-        )}
-        <div className="flex items-center justify-between md:justify-center mt-5 col-span-2 ">
-          <Image
-            onClick={() => {
-              router.push("/");
-            }}
-            src={Profile[0]?.destaque ? logoGold : logoGold}
-            alt=""
-            width={300}
-            height={300}
-            className="cursor-pointer"
-          />
         </div>
-      </div>
-      {viewPhotoMode && (
-        <div>
-          <div
-            className="flex justify-end cursor-pointer rounded-full mb-3"
-            onClick={() => setViewPhotoMode(!viewPhotoMode)}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-              className="w-7 h-7 bg-white rounded-full"
+        {viewPhotoMode && (
+          <div>
+            <div
+              className="flex justify-end cursor-pointer rounded-full mb-3"
+              onClick={() => setViewPhotoMode(!viewPhotoMode)}
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
-          </div>
-          <div className="w-full flex justify-center">
-            <Carousel
-              showIndicators={false}
-              showThumbs={true}
-              swipeable={true}
-              showStatus={false}
-              selectedItem={currentPhotoInViewMode}
-              className="w-96 md:w-[450px"
-            >
-              <div>
-                <img
-                  src={`https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/001`}
-                  alt=""
-                  className="rounded-xl"
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth="1.5"
+                stroke="currentColor"
+                className="w-7 h-7 bg-white rounded-full"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M6 18L18 6M6 6l12 12"
                 />
-              </div>
-              <div>
-                <img
-                  src={`https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/002`}
-                  alt=""
-                  className="rounded-xl"
-                />
-              </div>
-              <div>
-                <img
-                  src={`https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/003`}
-                  alt=""
-                  className="rounded-xl"
-                />
-              </div>
-              <div>
-                <img
-                  src={`https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/004`}
-                  alt=""
-                  className="rounded-xl"
-                />
-              </div>
-              <div>
-                <img
-                  src={`https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/005`}
-                  alt=""
-                  className="rounded-xl"
-                />
-              </div>
-              <div>
-                <img
-                  src={`https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/006`}
-                  alt=""
-                  className="rounded-xl"
-                />
-              </div>
-            </Carousel>
-          </div>
+              </svg>
+            </div>
+            <div className="w-full flex justify-center">
+              <Carousel
+                showIndicators={false}
+                showThumbs={true}
+                swipeable={true}
+                showStatus={false}
+                selectedItem={currentPhotoInViewMode}
+                className="w-96 md:w-[450px"
+              >
+                <div>
+                  <img
+                    src={`https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/001`}
+                    alt=""
+                    className="rounded-xl"
+                  />
+                </div>
+                <div>
+                  <img
+                    src={`https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/002`}
+                    alt=""
+                    className="rounded-xl"
+                  />
+                </div>
+                <div>
+                  <img
+                    src={`https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/003`}
+                    alt=""
+                    className="rounded-xl"
+                  />
+                </div>
+                <div>
+                  <img
+                    src={`https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/004`}
+                    alt=""
+                    className="rounded-xl"
+                  />
+                </div>
+                <div>
+                  <img
+                    src={`https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/005`}
+                    alt=""
+                    className="rounded-xl"
+                  />
+                </div>
+                <div>
+                  <img
+                    src={`https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/006`}
+                    alt=""
+                    className="rounded-xl"
+                  />
+                </div>
+              </Carousel>
+            </div>
 
-          {/* <div className="flex justify-center items-center ">
+            {/* <div className="flex justify-center items-center ">
             <img src={currentPhotoInViewMode} alt="" />
           </div> */}
-        </div>
-      )}
+          </div>
+        )}
 
-      {viewPhotoMode === false && (
-        <div>
-          <div className="flex justify-center w-full">
-            <div className="md:grid md:grid-cols-3 md:w-full md:justify-start">
-              <div id="resume" className="grid grid-cols-3 md:py-5 w-full">
-                <div
-                  className={`grid grid-cols-3 py-5 col-span-3 rounded-3xl md:bg-[#D9D9D9] shadow-none mr-5 lg:pl-4 md:pl-0 pb-10 md:grid-cols-1 lg:grid-cols-3 md:shadow md:shadow-lg md:shadow-[#EC268F]`}
-                >
-                  <div className="flex justify-start md:justify-center">
-                    <div className="w-24 h-24 xl:w-32 xl:h-32">
-                      <img
-                        src={profileImage}
-                        alt=""
-                        className="rounded-full w-full h-full object-cover shadow shadow-lg shadow-[#EC268F]"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="flex justify-start items-center col-span-2 text-left text-black md:justify-center lg:justify-start">
-                    <div className="ml-5">
-                      <h1
-                        className={`text-3xl font-semibold text-3xl md:text-2xl lg:text-3xl ${
-                          Profile[0]?.destaque
-                            ? "text-white lg:text-black"
-                            : "text-black"
-                        }`}
-                      >
-                        {Profile[0]?.nome}{" "}
-                      </h1>
-                      <div className="flex">
-                        <Image
-                          quality={50}
-                          src={
-                            whatsappIcon
-                              ? whatsappIcon
-                              : "https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/default"
-                          }
+        {viewPhotoMode === false && (
+          <div>
+            <div className="flex justify-center w-full">
+              <div className="md:grid md:grid-cols-3 md:w-full md:justify-start">
+                <div id="resume" className="grid grid-cols-3 md:py-5 w-full">
+                  <div
+                    className={`grid grid-cols-3 py-5 col-span-3 rounded-3xl md:bg-[#D9D9D9] shadow-none mr-5 lg:pl-4 md:pl-0 pb-10 md:grid-cols-1 lg:grid-cols-3 md:shadow md:shadow-lg md:shadow-[#EC268F]`}
+                  >
+                    <div className="flex justify-start md:justify-center">
+                      <div className="w-24 h-24 xl:w-32 xl:h-32">
+                        <img
+                          src={profileImage}
                           alt=""
-                          className="z-10 rounded-full"
+                          className="rounded-full w-full h-full object-cover shadow shadow-lg shadow-[#EC268F]"
                         />
+                      </div>
+                    </div>
 
-                        <h3
-                          onClick={() => {
-                            window.open(
-                              `https://api.whatsapp.com/send?phone=55${Profile[0]?.celular}&text=`
-                            );
-                          }}
-                          className={`ml-1 cursor-pointer text-md md:text-sm lg:text-md  ${
+                    <div className="flex justify-start items-center col-span-2 text-left text-black md:justify-center lg:justify-start">
+                      <div className="ml-5">
+                        <h1
+                          className={`text-3xl font-semibold text-3xl md:text-2xl lg:text-3xl ${
                             Profile[0]?.destaque
-                              ? "text-white lg:text-black "
+                              ? "text-white lg:text-black"
                               : "text-black"
                           }`}
                         >
-                          {cell}
-                        </h3>
+                          {Profile[0]?.nome}{" "}
+                        </h1>
+                        <div className="flex">
+                          <Image
+                            quality={50}
+                            src={
+                              whatsappIcon
+                                ? whatsappIcon
+                                : "https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/default"
+                            }
+                            alt=""
+                            className="z-10 rounded-full"
+                          />
+
+                          <h3
+                            onClick={() => {
+                              window.open(
+                                `https://api.whatsapp.com/send?phone=55${Profile[0]?.celular}&text=`
+                              );
+                            }}
+                            className={`ml-1 cursor-pointer text-md md:text-sm lg:text-md  ${
+                              Profile[0]?.destaque
+                                ? "text-white lg:text-black "
+                                : "text-black"
+                            }`}
+                          >
+                            {cell}
+                          </h3>
+                        </div>
                       </div>
                     </div>
                   </div>
+                  <div
+                    className={`overflow-x-auto relative shadow-md rounded-3xl my-10 col-span-3 mr-5 hidden md:block shadow shadow-lg shadow-[#EC268F]`}
+                  >
+                    <table className="w-full text-sm text-left ">
+                      <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                        <tr>
+                          <th scope="col" className="py-0 px-6"></th>
+                          <th scope="col" className="py-0 px-6"></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {Profile[0]?.conteudo_digital && (
+                          <>
+                            <tr className="bg-[#D9D9D9]">
+                              <th
+                                scope="row"
+                                className="flex items-center py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
+                              >
+                                <Image
+                                  src={onlyfans}
+                                  alt=""
+                                  width={40}
+                                  className="mr-3"
+                                />
+                                OnlyFans
+                              </th>
+                              <td className="py-4 px-6 text-sm md:px-2 text-blue-600">
+                                <a
+                                  href={`${
+                                    Profile[0]?.privacy === null
+                                      ? `/profile/${Profile[0]?.id}`
+                                      : Profile[0]?.onlyfans
+                                  }`}
+                                >
+                                  Acessar
+                                </a>
+                              </td>
+                            </tr>
+                            <tr className="bg-[#EBE9E9]">
+                              <th
+                                scope="row"
+                                className="flex items-center py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
+                              >
+                                <Image
+                                  src={privacy}
+                                  alt=""
+                                  width={40}
+                                  className="mr-3"
+                                />
+                                Privacy
+                              </th>
+                              <td className="py-4 px-6 text-sm md:px-2 text-blue-600">
+                                <a
+                                  href={`${
+                                    Profile[0]?.privacy === null
+                                      ? `/profile/${Profile[0]?.id}`
+                                      : Profile[0]?.privacy
+                                  }`}
+                                >
+                                  Acessar
+                                </a>
+                              </td>
+                            </tr>
+                          </>
+                        )}
+                        <tr className="bg-[#D9D9D9] ">
+                          <th
+                            scope="row"
+                            className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
+                          >
+                            Bairro/Cidade
+                          </th>
+                          <td className="py-4 px-6 text-md md:text-sm md:px-2">
+                            {Profile[0]?.bairro_cidade}
+                          </td>
+                        </tr>
+                        <tr className="bg-[#EBE9E9]">
+                          <th
+                            scope="row"
+                            className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
+                          >
+                            Idade
+                          </th>
+                          <td className="py-4 px-6 text-sm md:px-2">
+                            {Profile[0]?.idade}
+                          </td>
+                        </tr>
+                        <tr className="bg-[#D9D9D9]">
+                          <th
+                            scope="row"
+                            className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
+                          >
+                            Peso
+                          </th>
+                          <td className="py-4 px-6 text-sm md:px-2">
+                            {Profile[0]?.peso}
+                          </td>
+                        </tr>
+                        <tr className="bg-[#EBE9E9] ">
+                          <th
+                            scope="row"
+                            className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
+                          >
+                            Altura
+                          </th>
+                          <td className="py-4 px-6 text-sm md:px-2">
+                            {Profile[0]?.altura}
+                          </td>
+                        </tr>
+                        <tr className="bg-[#D9D9D9] ">
+                          <th
+                            scope="row"
+                            className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
+                          >
+                            Pés
+                          </th>
+                          <td className="py-4 px-6 text-sm md:px-2">
+                            {Profile[0]?.pes}
+                          </td>
+                        </tr>
+                        <tr className="bg-[#EBE9E9] ">
+                          <th
+                            scope="row"
+                            className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
+                          >
+                            Manequim
+                          </th>
+                          <td className="py-4 px-6 text-sm md:px-2">
+                            {Profile[0]?.manequim}
+                          </td>
+                        </tr>
+                        <tr className="bg-[#D9D9D9] ">
+                          <th
+                            scope="row"
+                            className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
+                          >
+                            Cor do Cabelo
+                          </th>
+                          <td className="py-4 px-6 text-sm md:px-2">
+                            {Profile[0]?.cor_cabelos}
+                          </td>
+                        </tr>
+                        <tr className="bg-[#EBE9E9] ">
+                          <th
+                            scope="row"
+                            className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
+                          >
+                            Disponivel para viagens
+                          </th>
+                          <td className="py-4 px-6 text-sm md:px-2">
+                            {Profile[0]?.disponivel_para_viagens
+                              ? "sim"
+                              : "não"}
+                          </td>
+                        </tr>
+                        <tr className="bg-[#D9D9D9] ">
+                          <th
+                            scope="row"
+                            className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
+                          >
+                            Vende conteúdo digital
+                          </th>
+                          <td className="py-4 px-6 text-sm md:px-2">
+                            {Profile[0]?.conteudo_digital ? "sim" : "não"}
+                          </td>
+                        </tr>
+                        <tr className="bg-[#EBE9E9] ">
+                          <th
+                            scope="row"
+                            className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
+                          >
+                            Especialidades
+                          </th>
+                          <td className="py-4 px-6 text-sm md:px-2">
+                            {Profile[0]?.especialidades}
+                          </td>
+                        </tr>
+                        <tr className="bg-[#D9D9D9] ">
+                          <th
+                            scope="row"
+                            className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
+                          >
+                            Cor dos Olhos
+                          </th>
+                          <td className="py-4 px-6 text-sm md:px-2">
+                            {Profile[0]?.cor_olhos}
+                          </td>
+                        </tr>
+                        <tr className="bg-[#EBE9E9]">
+                          <th
+                            scope="row"
+                            className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
+                          >
+                            Celular
+                          </th>
+                          <td className="py-4 px-6 text-sm md:px-2">
+                            {Profile[0]?.celular}
+                          </td>
+                        </tr>
+                        <tr className="bg-[#D9D9D9]">
+                          <th
+                            scope="row"
+                            className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
+                          >
+                            Agenda
+                          </th>
+                          <td className="py-4 px-6 text-sm md:px-2">
+                            {Profile[0]?.agenda}
+                          </td>
+                        </tr>
+                        <tr className="bg-[#EBE9E9] ">
+                          <th
+                            scope="row"
+                            className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
+                          >
+                            Acompanha
+                          </th>
+                          <td className="py-4 px-6 text-sm md:px-2">
+                            {Profile[0]?.acompanha}
+                          </td>
+                        </tr>
+                        <tr className="bg-[#D9D9D9] ">
+                          <th
+                            scope="row"
+                            className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
+                          >
+                            Atende em:
+                          </th>
+                          <td className="py-4 px-6 text-sm md:px-2">
+                            {Profile[0]?.atende_em}
+                          </td>
+                        </tr>
+                        <tr className="bg-[#EBE9E9]">
+                          <th
+                            scope="row"
+                            className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
+                          >
+                            Cachê
+                          </th>
+                          <td className="py-4 px-6 text-sm md:px-2">
+                            {Profile[0]?.cache}
+                          </td>
+                        </tr>
+                        <tr className="bg-[#D9D9D9]">
+                          <th
+                            scope="row"
+                            className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
+                          >
+                            Pagamento
+                          </th>
+                          <td className="py-4 px-6 text-sm md:px-2">
+                            {Profile[0]?.pagamento}
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <div
+                    className={`mb-5 hidden md:block col-span-3 h-64 overflow-hidden mr-3 lg:-mt-10  ${
+                      Profile[0]?.destaque ? "text-white" : "text-black"
+                    } `}
+                  >
+                    <h1 className="text-xl font-semibold py-5">Descrição</h1>
+
+                    <p className="text=lg lg:text-sm">{Profile[0]?.desc}</p>
+                  </div>
                 </div>
                 <div
-                  className={`overflow-x-auto relative shadow-md rounded-3xl my-10 col-span-3 mr-5 hidden md:block shadow shadow-lg shadow-[#EC268F]`}
+                  id="divisor"
+                  className={`w-full h-[4px]  rounded-full md:hidden bg-[#EC268F]`}
+                />
+
+                <div
+                  id="grade das fotos"
+                  className="grid grid-cols-3 mt-5 gap-2 md:gap-8 col-span-2 md:h-[780px]"
+                >
+                  <div
+                    onClick={() => {
+                      setcurrentPhotoInViewMode(0);
+                      setViewPhotoMode(true);
+                    }}
+                    className={`relative w-full h-48 md:h-[33rem] bg-transparent cursor-pointer overflow-hidden rounded-3xl shadow shadow-lg shadow-[#EC268F]`}
+                  >
+                    <img
+                      id="01"
+                      src={
+                        `https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/001`
+                          ? `https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/001`
+                          : "https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/default"
+                      }
+                      alt=""
+                      className={`rounded-3xl shadow object-cover h-full md:h-[33rem]`}
+                    />
+                  </div>
+                  <div className="grid grid-cols-1 gap-4 w-full h-48 md:h-[33rem] cursor-pointer">
+                    <div
+                      onClick={() => {
+                        setcurrentPhotoInViewMode(1);
+                        setViewPhotoMode(true);
+                      }}
+                      className={`flex justify-center items-center relative w-full bg-transparent overflow-hidden rounded-3xl shadow shadow-lg shadow-[#EC268F]`}
+                    >
+                      <img
+                        id="02"
+                        src={
+                          `https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/002`
+                            ? `https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/002`
+                            : "https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/default"
+                        }
+                        alt=""
+                        className={`rounded-3xl shadow  h-full md:h-[16rem] w-full object-cover`}
+                      />
+                    </div>
+                    <div
+                      onClick={() => {
+                        setcurrentPhotoInViewMode(2);
+                        setViewPhotoMode(true);
+                      }}
+                      className={`flex justify-center items-center relative w-full bg-transparent cursor-pointer overflow-hidden rounded-3xl shadow shadow-lg shadow-[#EC268F]`}
+                    >
+                      <img
+                        id="03"
+                        src={
+                          `https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/003`
+                            ? `https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/003`
+                            : "https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/default"
+                        }
+                        alt=""
+                        className={`rounded-3xl shadow h-full md:h-[16rem] w-full object-cover`}
+                      />
+                    </div>
+                  </div>
+                  <div
+                    onClick={() => {
+                      setcurrentPhotoInViewMode(3);
+                      setViewPhotoMode(true);
+                    }}
+                    className={`relative w-full h-48 md:h-[33rem] bg-transparent cursor-pointer overflow-hidden rounded-3xl shadow shadow-lg shadow-[#EC268F]`}
+                  >
+                    <img
+                      id="04"
+                      src={
+                        `https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/004`
+                          ? `https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/004`
+                          : "https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/default"
+                      }
+                      alt=""
+                      className={`md:h-[33rem] h-full object-cover`}
+                    />
+                  </div>
+                  <div
+                    onClick={() => {
+                      setcurrentPhotoInViewMode(4);
+                      setViewPhotoMode(true);
+                    }}
+                    className={`relative w-full h-40 md:h-[33rem] md:mt-0 bg-transparent cursor-pointer overflow-hidden rounded-3xl shadow shadow-lg shadow-[#EC268F]`}
+                  >
+                    <img
+                      id="05"
+                      src={
+                        `https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/005`
+                          ? `https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/005`
+                          : "https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/default"
+                      }
+                      alt=""
+                      className={`md:h-[33rem] full object-cover`}
+                    />
+                  </div>
+                  <div
+                    onClick={() => {
+                      setcurrentPhotoInViewMode(5);
+                      setViewPhotoMode(true);
+                    }}
+                    className={`col-span-2 h-40 md:h-[33rem] relative w-full bg-transparent cursor-pointer overflow-hidden rounded-3xl flex justify-center shadow shadow-lg shadow-[#EC268F]`}
+                  >
+                    <img
+                      id="06"
+                      src={
+                        `https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/006`
+                          ? `https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/006`
+                          : "https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/default"
+                      }
+                      alt=""
+                      className={`h-full md:h-[33rem] object-cover`}
+                    />
+                  </div>
+                </div>
+                <div
+                  id="divisor 2"
+                  className={`w-full h-[4px] rounded-full mt-10 col-span-3 bg-[#EC268F]`}
+                />
+                <div className="col-span-3">
+                  <h1 className="text-xl font-semibold">Vídeo</h1>
+
+                  <div
+                    className={`flex justify-center w-full h-48 md:h-[33rem] bg-gray-300 my-5 rounded-3xl shadow shadow-lg shadow-[#EC268F]`}
+                  >
+                    <video
+                      className="w-full h-48 md:h-[33rem] rounded-3xl"
+                      src={videoUrl}
+                      // width={200}
+                      // height={200}
+                      controls
+                    />
+                  </div>
+                </div>
+                <div
+                  className={`overflow-x-auto relative shadow-md rounded-3xl my-10 shadow shadow-md md:hidden shadow shadow-lg shadow-[#EC268F]`}
                 >
                   <table className="w-full text-sm text-left ">
                     <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -370,7 +778,7 @@ const Profile = () => {
                     <tbody>
                       {Profile[0]?.conteudo_digital && (
                         <>
-                          <tr className="bg-[#D9D9D9]">
+                          <tr className="bg-[#D9D9D9] ">
                             <th
                               scope="row"
                               className="flex items-center py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
@@ -378,7 +786,7 @@ const Profile = () => {
                               <Image
                                 src={onlyfans}
                                 alt=""
-                                width={40}
+                                width={20}
                                 className="mr-3"
                               />
                               OnlyFans
@@ -403,7 +811,7 @@ const Profile = () => {
                               <Image
                                 src={privacy}
                                 alt=""
-                                width={40}
+                                width={20}
                                 className="mr-3"
                               />
                               Privacy
@@ -429,7 +837,7 @@ const Profile = () => {
                         >
                           Bairro/Cidade
                         </th>
-                        <td className="py-4 px-6 text-md md:text-sm md:px-2">
+                        <td className="py-4 px-6 text-sm md:px-2">
                           {Profile[0]?.bairro_cidade}
                         </td>
                       </tr>
@@ -504,7 +912,7 @@ const Profile = () => {
                           scope="row"
                           className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
                         >
-                          Disponivel para viagens
+                          Disponível para viagens
                         </th>
                         <td className="py-4 px-6 text-sm md:px-2">
                           {Profile[0]?.disponivel_para_viagens ? "sim" : "não"}
@@ -612,425 +1020,43 @@ const Profile = () => {
                     </tbody>
                   </table>
                 </div>
-
                 <div
-                  className={`mb-5 hidden md:block col-span-3 h-64 overflow-hidden mr-3 lg:-mt-10  ${
+                  className={`mb-5 md:hidden h-40 ${
                     Profile[0]?.destaque ? "text-white" : "text-black"
-                  } `}
+                  }`}
                 >
                   <h1 className="text-xl font-semibold py-5">Descrição</h1>
 
-                  <p className="text=lg lg:text-sm">{Profile[0]?.desc}</p>
+                  <p className="text=lg">{Profile[0]?.desc}</p>
                 </div>
-              </div>
-              <div
-                id="divisor"
-                className={`w-full h-[4px]  rounded-full md:hidden bg-[#EC268F]`}
-              />
-
-              <div
-                id="grade das fotos"
-                className="grid grid-cols-3 mt-5 gap-2 md:gap-8 col-span-2 md:h-[780px]"
-              >
-                <div
-                  onClick={() => {
-                    setcurrentPhotoInViewMode(0);
-                    setViewPhotoMode(true);
-                  }}
-                  className={`relative w-full h-48 md:h-[33rem] bg-transparent cursor-pointer overflow-hidden rounded-3xl shadow shadow-lg shadow-[#EC268F]`}
-                >
-                  <img
-                    id="01"
-                    src={
-                      `https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/001`
-                        ? `https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/001`
-                        : "https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/default"
-                    }
-                    alt=""
-                    className={`rounded-3xl shadow object-cover h-full md:h-[33rem]`}
-                  />
-                </div>
-                <div className="grid grid-cols-1 gap-4 w-full h-48 md:h-[33rem] cursor-pointer">
-                  <div
-                    onClick={() => {
-                      setcurrentPhotoInViewMode(1);
-                      setViewPhotoMode(true);
-                    }}
-                    className={`flex justify-center items-center relative w-full bg-transparent overflow-hidden rounded-3xl shadow shadow-lg shadow-[#EC268F]`}
-                  >
-                    <img
-                      id="02"
-                      src={
-                        `https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/002`
-                          ? `https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/002`
-                          : "https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/default"
-                      }
-                      alt=""
-                      className={`rounded-3xl shadow  h-full md:h-[16rem] w-full object-cover`}
-                    />
-                  </div>
-                  <div
-                    onClick={() => {
-                      setcurrentPhotoInViewMode(2);
-                      setViewPhotoMode(true);
-                    }}
-                    className={`flex justify-center items-center relative w-full bg-transparent cursor-pointer overflow-hidden rounded-3xl shadow shadow-lg shadow-[#EC268F]`}
-                  >
-                    <img
-                      id="03"
-                      src={
-                        `https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/003`
-                          ? `https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/003`
-                          : "https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/default"
-                      }
-                      alt=""
-                      className={`rounded-3xl shadow h-full md:h-[16rem] w-full object-cover`}
-                    />
-                  </div>
-                </div>
-                <div
-                  onClick={() => {
-                    setcurrentPhotoInViewMode(3);
-                    setViewPhotoMode(true);
-                  }}
-                  className={`relative w-full h-48 md:h-[33rem] bg-transparent cursor-pointer overflow-hidden rounded-3xl shadow shadow-lg shadow-[#EC268F]`}
-                >
-                  <img
-                    id="04"
-                    src={
-                      `https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/004`
-                        ? `https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/004`
-                        : "https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/default"
-                    }
-                    alt=""
-                    className={`md:h-[33rem] h-full object-cover`}
-                  />
-                </div>
-                <div
-                  onClick={() => {
-                    setcurrentPhotoInViewMode(4);
-                    setViewPhotoMode(true);
-                  }}
-                  className={`relative w-full h-40 md:h-[33rem] md:mt-0 bg-transparent cursor-pointer overflow-hidden rounded-3xl shadow shadow-lg shadow-[#EC268F]`}
-                >
-                  <img
-                    id="05"
-                    src={
-                      `https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/005`
-                        ? `https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/005`
-                        : "https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/default"
-                    }
-                    alt=""
-                    className={`md:h-[33rem] full object-cover`}
-                  />
-                </div>
-                <div
-                  onClick={() => {
-                    setcurrentPhotoInViewMode(5);
-                    setViewPhotoMode(true);
-                  }}
-                  className={`col-span-2 h-40 md:h-[33rem] relative w-full bg-transparent cursor-pointer overflow-hidden rounded-3xl flex justify-center shadow shadow-lg shadow-[#EC268F]`}
-                >
-                  <img
-                    id="06"
-                    src={
-                      `https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/006`
-                        ? `https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/006`
-                        : "https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/default"
-                    }
-                    alt=""
-                    className={`h-full md:h-[33rem] object-cover`}
-                  />
-                </div>
-              </div>
-              <div
-                id="divisor 2"
-                className={`w-full h-[4px] rounded-full mt-10 col-span-3 bg-[#EC268F]`}
-              />
-              <div className="col-span-3">
-                <h1 className="text-xl font-semibold">Vídeo</h1>
-
-                <div
-                  className={`flex justify-center w-full h-48 md:h-[33rem] bg-gray-300 my-5 rounded-3xl shadow shadow-lg shadow-[#EC268F]`}
-                >
-                  <video
-                    className="w-full h-48 md:h-[33rem] rounded-3xl"
-                    src={videoUrl}
-                    // width={200}
-                    // height={200}
-                    controls
-                  />
-                </div>
-              </div>
-              <div
-                className={`overflow-x-auto relative shadow-md rounded-3xl my-10 shadow shadow-md md:hidden shadow shadow-lg shadow-[#EC268F]`}
-              >
-                <table className="w-full text-sm text-left ">
-                  <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                    <tr>
-                      <th scope="col" className="py-0 px-6"></th>
-                      <th scope="col" className="py-0 px-6"></th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {Profile[0]?.conteudo_digital && (
-                      <>
-                        <tr className="bg-[#D9D9D9] ">
-                          <th
-                            scope="row"
-                            className="flex items-center py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
-                          >
-                            <Image
-                              src={onlyfans}
-                              alt=""
-                              width={20}
-                              className="mr-3"
-                            />
-                            OnlyFans
-                          </th>
-                          <td className="py-4 px-6 text-sm md:px-2 text-blue-600">
-                            <a
-                              href={`${
-                                Profile[0]?.privacy === null
-                                  ? `/profile/${Profile[0]?.id}`
-                                  : Profile[0]?.onlyfans
-                              }`}
-                            >
-                              Acessar
-                            </a>
-                          </td>
-                        </tr>
-                        <tr className="bg-[#EBE9E9]">
-                          <th
-                            scope="row"
-                            className="flex items-center py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
-                          >
-                            <Image
-                              src={privacy}
-                              alt=""
-                              width={20}
-                              className="mr-3"
-                            />
-                            Privacy
-                          </th>
-                          <td className="py-4 px-6 text-sm md:px-2 text-blue-600">
-                            <a
-                              href={`${
-                                Profile[0]?.privacy === null
-                                  ? `/profile/${Profile[0]?.id}`
-                                  : Profile[0]?.privacy
-                              }`}
-                            >
-                              Acessar
-                            </a>
-                          </td>
-                        </tr>
-                      </>
-                    )}
-                    <tr className="bg-[#D9D9D9] ">
-                      <th
-                        scope="row"
-                        className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
-                      >
-                        Bairro/Cidade
-                      </th>
-                      <td className="py-4 px-6 text-sm md:px-2">
-                        {Profile[0]?.bairro_cidade}
-                      </td>
-                    </tr>
-                    <tr className="bg-[#EBE9E9]">
-                      <th
-                        scope="row"
-                        className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
-                      >
-                        Idade
-                      </th>
-                      <td className="py-4 px-6 text-sm md:px-2">
-                        {Profile[0]?.idade}
-                      </td>
-                    </tr>
-                    <tr className="bg-[#D9D9D9]">
-                      <th
-                        scope="row"
-                        className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
-                      >
-                        Peso
-                      </th>
-                      <td className="py-4 px-6 text-sm md:px-2">
-                        {Profile[0]?.peso}
-                      </td>
-                    </tr>
-                    <tr className="bg-[#EBE9E9] ">
-                      <th
-                        scope="row"
-                        className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
-                      >
-                        Altura
-                      </th>
-                      <td className="py-4 px-6 text-sm md:px-2">
-                        {Profile[0]?.altura}
-                      </td>
-                    </tr>
-                    <tr className="bg-[#D9D9D9] ">
-                      <th
-                        scope="row"
-                        className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
-                      >
-                        Pés
-                      </th>
-                      <td className="py-4 px-6 text-sm md:px-2">
-                        {Profile[0]?.pes}
-                      </td>
-                    </tr>
-                    <tr className="bg-[#EBE9E9] ">
-                      <th
-                        scope="row"
-                        className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
-                      >
-                        Manequim
-                      </th>
-                      <td className="py-4 px-6 text-sm md:px-2">
-                        {Profile[0]?.manequim}
-                      </td>
-                    </tr>
-                    <tr className="bg-[#D9D9D9] ">
-                      <th
-                        scope="row"
-                        className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
-                      >
-                        Cor do Cabelo
-                      </th>
-                      <td className="py-4 px-6 text-sm md:px-2">
-                        {Profile[0]?.cor_cabelos}
-                      </td>
-                    </tr>
-                    <tr className="bg-[#EBE9E9] ">
-                      <th
-                        scope="row"
-                        className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
-                      >
-                        Disponível para viagens
-                      </th>
-                      <td className="py-4 px-6 text-sm md:px-2">
-                        {Profile[0]?.disponivel_para_viagens ? "sim" : "não"}
-                      </td>
-                    </tr>
-                    <tr className="bg-[#D9D9D9] ">
-                      <th
-                        scope="row"
-                        className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
-                      >
-                        Vende conteúdo digital
-                      </th>
-                      <td className="py-4 px-6 text-sm md:px-2">
-                        {Profile[0]?.conteudo_digital ? "sim" : "não"}
-                      </td>
-                    </tr>
-                    <tr className="bg-[#EBE9E9] ">
-                      <th
-                        scope="row"
-                        className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
-                      >
-                        Especialidades
-                      </th>
-                      <td className="py-4 px-6 text-sm md:px-2">
-                        {Profile[0]?.especialidades}
-                      </td>
-                    </tr>
-                    <tr className="bg-[#D9D9D9] ">
-                      <th
-                        scope="row"
-                        className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
-                      >
-                        Cor dos Olhos
-                      </th>
-                      <td className="py-4 px-6 text-sm md:px-2">
-                        {Profile[0]?.cor_olhos}
-                      </td>
-                    </tr>
-                    <tr className="bg-[#EBE9E9]">
-                      <th
-                        scope="row"
-                        className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
-                      >
-                        Celular
-                      </th>
-                      <td className="py-4 px-6 text-sm md:px-2">
-                        {Profile[0]?.celular}
-                      </td>
-                    </tr>
-                    <tr className="bg-[#D9D9D9]">
-                      <th
-                        scope="row"
-                        className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
-                      >
-                        Agenda
-                      </th>
-                      <td className="py-4 px-6 text-sm md:px-2">
-                        {Profile[0]?.agenda}
-                      </td>
-                    </tr>
-                    <tr className="bg-[#EBE9E9] ">
-                      <th
-                        scope="row"
-                        className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
-                      >
-                        Acompanha
-                      </th>
-                      <td className="py-4 px-6 text-sm md:px-2">
-                        {Profile[0]?.acompanha}
-                      </td>
-                    </tr>
-                    <tr className="bg-[#D9D9D9] ">
-                      <th
-                        scope="row"
-                        className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
-                      >
-                        Atende em:
-                      </th>
-                      <td className="py-4 px-6 text-sm md:px-2">
-                        {Profile[0]?.atende_em}
-                      </td>
-                    </tr>
-                    <tr className="bg-[#EBE9E9]">
-                      <th
-                        scope="row"
-                        className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
-                      >
-                        Cachê
-                      </th>
-                      <td className="py-4 px-6 text-sm md:px-2">
-                        {Profile[0]?.cache}
-                      </td>
-                    </tr>
-                    <tr className="bg-[#D9D9D9]">
-                      <th
-                        scope="row"
-                        className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
-                      >
-                        Pagamento
-                      </th>
-                      <td className="py-4 px-6 text-sm md:px-2">
-                        {Profile[0]?.pagamento}
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <div
-                className={`mb-5 md:hidden h-40 ${
-                  Profile[0]?.destaque ? "text-white" : "text-black"
-                }`}
-              >
-                <h1 className="text-xl font-semibold py-5">Descrição</h1>
-
-                <p className="text=lg">{Profile[0]?.desc}</p>
               </div>
             </div>
           </div>
+        )}
+      </div>
+      <div className="bg-opacity-25	 bribrightness-95	 sticky bottom-0 w-full bg-black p-3 flex justify-center items-center">
+        <div
+          onClick={() => {
+            window.open(
+              `https://api.whatsapp.com/send?phone=55${Profile[0]?.celular}&text=`
+            );
+          }}
+          className="relative flex justify-center items-center z-20 text-center rounded-xl bg-[#26852B] p-4 text-white"
+        >
+          <Image
+            quality={50}
+            src={
+              whatsappIcon
+                ? whatsappIcon
+                : "https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/default"
+            }
+            alt=""
+            className="z-10 rounded-full mr-2"
+          />
+          Conversar no Whatsapp
         </div>
-      )}
-    </div>
+      </div>
+    </>
   );
 };
 
