@@ -297,15 +297,11 @@ export default function Home() {
               id="img bnt"
               className="flex justify-center flex-wrap mb-5 mt-2 bg-transparent px-5"
             >
-              <div className="flex justify-center w-full">
-                <Image
-                  src={
-                    AllGirls[girlNumberCount]?.destaque ? destaque : novidade
-                  }
-                  alt=""
-                  className="mr-2 a-mt-[280px]"
-                />
-              </div>
+              {AllGirls[girlNumberCount]?.destaque && (
+                <div className="flex justify-center w-full">
+                  <Image src={destaque} alt="" className="mr-2 a-mt-[280px]" />
+                </div>
+              )}
               <div
                 onClick={() =>
                   router.push(`/profile/${AllGirls[girlNumberCount]?.id}`)
