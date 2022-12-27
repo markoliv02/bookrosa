@@ -223,6 +223,14 @@ export default function Home() {
 
   return (
     <div className="container mx-auto text-black">
+      <Head>
+        <title>Casa Branca - Home</title>
+        <meta
+          name="description"
+          content="Diversas garotas acompanhantes para qualquer gosto e qualquer hora"
+        />
+      </Head>
+
       <Script
         strategy="afterInteractive"
         src="https://www.googletagmanager.com/gtag/js?id=G-YNJE9LHTDH"

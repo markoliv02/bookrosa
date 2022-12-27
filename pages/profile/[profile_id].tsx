@@ -19,6 +19,7 @@ import { Carousel } from "react-responsive-carousel";
 
 import onlyfans from "../../assets/onlyfans.svg";
 import privacy from "../../assets/privacy.png";
+import Head from "next/head";
 
 let docInit: Document;
 
@@ -183,6 +184,10 @@ const Profile = () => {
   return (
     <>
       <div className="container mx-auto px-7 text-black">
+        <Head>
+          <title>{Profile[0]?.nome} - Casa Branca</title>
+          <meta name="description" content="Garotas acompanhantes" />
+        </Head>
         <Script
           strategy="afterInteractive"
           src="https://www.googletagmanager.com/gtag/js?id=G-YNJE9LHTDH"
