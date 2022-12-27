@@ -343,7 +343,7 @@ const Profile = () => {
                           <h3
                             onClick={() => {
                               window.open(
-                                `https://api.whatsapp.com/send?phone=55${Profile[0]?.celular}&text=`
+                                `https://api.whatsapp.com/send?phone=55${Profile[0]?.celular}&text=Olá, vi seu perfil no Casa Branca Sp, gostaria de mais informações`
                               );
                             }}
                             className={`ml-1 cursor-pointer text-md md:text-sm lg:text-md  ${
@@ -1038,10 +1038,10 @@ const Profile = () => {
         <div
           onClick={() => {
             window.open(
-              `https://api.whatsapp.com/send?phone=55${Profile[0]?.celular}&text=`
+              `https://api.whatsapp.com/send?phone=55${Profile[0]?.celular}&text=Olá, vi seu perfil no Casa Branca Sp, gostaria de mais informações `
             );
           }}
-          className="relative flex justify-center items-center z-20 text-center rounded-xl bg-[#26852B] p-4 text-white"
+          className="relative flex justify-center items-center z-20 text-center rounded-xl bg-[#26852B] p-4 text-white cursor-pointer"
         >
           <Image
             quality={50}
