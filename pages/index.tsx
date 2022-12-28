@@ -15,6 +15,7 @@ import React, { useEffect } from "react";
 import supabase from "../utils/supabase";
 import { useRouter } from "next/router";
 import Script from "next/script";
+import Profile from "./profile/[profile_id]";
 
 let initScreen: Screen;
 let docInit: Document;
@@ -317,13 +318,18 @@ export default function Home() {
                 className="flex justify-center items-center md:h-auto cursor-pointer"
               >
                 {/* em currentScreenProps, posso definir diferentes tamanhos para a foto de acordo com a altura ou largura do display do celular */}
+                {/* className={`rounded-3xl shadow shadow-xl brightness-75 shadow-[#EC268F] ${
+                    currentScreenProps?.availHeight > 800
+                      ? "h-[450px]"
+                      : "h-[450px]"
+                  }  md:w-[250px] lg:w-[300px] xl:w-[350px] 2xl:w-[400px] md:h-[300px] lg:h-[400px] xl:h-[500px] 2xl:h-[600px]`} */}
                 <img
                   src={currentGirl}
                   alt=""
                   className={`rounded-3xl shadow shadow-xl brightness-75 shadow-[#EC268F] ${
-                    currentScreenProps?.availHeight > 800
+                    AllGirls[girlNumberCount]?.destaque
                       ? "h-[450px]"
-                      : "h-[450px]"
+                      : "h-[500px]"
                   }  md:w-[250px] lg:w-[300px] xl:w-[350px] 2xl:w-[400px] md:h-[300px] lg:h-[400px] xl:h-[500px] 2xl:h-[600px]`}
                 />
               </div>
