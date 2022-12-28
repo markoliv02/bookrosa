@@ -336,7 +336,7 @@ export default function Home() {
 
               <div
                 id="nome e social"
-                className={`z-10 flex flex-wrap items-end px-5 ${
+                className={`z-10 flex flex-wrap items-end px-5 ml-3 ${
                   currentScreenProps?.availHeight < 830 ? "-mt-96" : "-mt-80"
                 } `}
               >
