@@ -1039,14 +1039,14 @@ const Profile = () => {
           </div>
         )}
       </div>
-      <div className="bg-opacity-25	 bribrightness-95	 sticky bottom-0 w-full bg-black p-3 flex justify-center items-center">
+      <div className="bg-opacity-25	 bribrightness-95	 sticky bottom-0 w-full bg-black p-2 flex justify-center items-center">
         <div
           onClick={() => {
             window.open(
               `https://api.whatsapp.com/send?phone=55${Profile[0]?.celular}&text=Olá, vi seu perfil no Casa Branca Sp, gostaria de mais informações `
             );
           }}
-          className="relative flex justify-center items-center z-20 text-center rounded-xl bg-[#26852B] p-4 text-white cursor-pointer"
+          className="relative flex justify-center items-center z-20 text-center rounded-xl bg-[#26852B] p-2 text-white cursor-pointer"
         >
           <Image
             quality={50}
