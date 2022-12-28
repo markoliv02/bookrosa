@@ -247,7 +247,7 @@ const Profile = () => {
             <div className="w-full flex justify-center">
               <Carousel
                 showIndicators={false}
-                showThumbs={true}
+                showThumbs={false}
                 swipeable={true}
                 showStatus={false}
                 selectedItem={currentPhotoInViewMode}
