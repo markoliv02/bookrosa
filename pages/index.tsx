@@ -391,7 +391,7 @@ export default function Home() {
                       src={botaoMatch}
                       quality={100}
                       alt=""
-                      className="w-28 h-28 md:w-20 md:h-16 lg:w-24 lg:h-24 xl:w-28 xl:h-28 2xl:w-32 2xl:h-32"
+                      className="w-24 h-24 md:w-20 md:h-16 lg:w-24 lg:h-24 xl:w-28 xl:h-28 2xl:w-32 2xl:h-32"
                     />
                   </div>
 
