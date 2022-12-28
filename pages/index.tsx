@@ -322,8 +322,8 @@ export default function Home() {
                   alt=""
                   className={`rounded-3xl shadow shadow-xl brightness-75 shadow-[#EC268F] ${
                     currentScreenProps?.availHeight > 800
-                      ? "h-[500px]"
-                      : "h-[500px]"
+                      ? "h-[450px]"
+                      : "h-[450px]"
                   }  md:w-[250px] lg:w-[300px] xl:w-[350px] 2xl:w-[400px] md:h-[300px] lg:h-[400px] xl:h-[500px] 2xl:h-[600px]`}
                 />
               </div>
