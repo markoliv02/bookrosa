@@ -433,7 +433,7 @@ const Profile = () => {
                             scope="row"
                             className="py-4 px-6 font-bold text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
                           >
-                            Bairro/Cidade
+                            Cidade e Bairro
                           </th>
                           <td className="py-4 px-6 text-md md:text-sm md:px-2">
                             {Profile[0]?.bairro_cidade}
@@ -840,7 +840,7 @@ const Profile = () => {
                           scope="row"
                           className="py-4 px-6 font-bold text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
                         >
-                          Bairro/Cidade
+                          Cidade e Bairro
                         </th>
                         <td className="py-4 px-6 text-sm md:px-2">
                           {Profile[0]?.bairro_cidade}
