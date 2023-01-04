@@ -8,7 +8,9 @@ import botaoMatch from "../assets/botaoMatchP.png";
 
 import verificada from "../assets/verificadoIcon.svg";
 import destaque from "../assets/destaque.svg";
-import novidade from "../assets/novidade.svg";
+import menuIcon from "../assets/menuIcon.svg";
+import menuIconBlack from "../assets/menuIconBlack.svg";
+
 import logoGold from "../assets/logoRosa.png";
 
 import React, { useEffect } from "react";
@@ -294,6 +296,18 @@ export default function Home() {
           }`}
         >
           <div className="mb-82">
+            <div className="flex justify-end w-full ">
+              <Image
+                src={
+                  AllGirls[girlNumberCount]?.destaque ? menuIcon : menuIconBlack
+                }
+                alt=""
+                className="mr-5 md:-mt-32 mt-5 cursor-pointer"
+                onClick={() => {
+                  document.location.replace("/contato");
+                }}
+              />
+            </div>
             <div className="flex items-center justify-center md:-mt-20 mb-10 mt-3">
               <Image
                 src={AllGirls[girlNumberCount]?.destaque ? logoGold : logoGold}
@@ -356,8 +370,8 @@ export default function Home() {
                           : AllGirls[girlNumberCount]?.idade}
                       </span>
                     </h1>
-                    <h3 className="relative text-white text-xl">
-                      @{AllGirls[girlNumberCount]?.social_midia}
+                    <h3 className="relative text-white text-xl h-7 w-full bg-transparent">
+                      {/* @{AllGirls[girlNumberCount]?.social_midia} */}
                     </h3>
                   </div>
                 </div>

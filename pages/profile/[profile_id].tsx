@@ -431,7 +431,7 @@ const Profile = () => {
                         <tr className="bg-[#D9D9D9] ">
                           <th
                             scope="row"
-                            className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
+                            className="py-4 px-6 font-bold text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
                           >
                             Bairro/Cidade
                           </th>
@@ -442,7 +442,7 @@ const Profile = () => {
                         <tr className="bg-[#EBE9E9]">
                           <th
                             scope="row"
-                            className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
+                            className="py-4 px-6 font-bold text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
                           >
                             Idade
                           </th>
@@ -453,7 +453,7 @@ const Profile = () => {
                         <tr className="bg-[#D9D9D9]">
                           <th
                             scope="row"
-                            className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
+                            className="py-4 px-6 font-bold text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
                           >
                             Peso
                           </th>
@@ -464,7 +464,7 @@ const Profile = () => {
                         <tr className="bg-[#EBE9E9] ">
                           <th
                             scope="row"
-                            className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
+                            className="py-4 px-6 font-bold text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
                           >
                             Altura
                           </th>
@@ -475,7 +475,7 @@ const Profile = () => {
                         <tr className="bg-[#D9D9D9] ">
                           <th
                             scope="row"
-                            className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
+                            className="py-4 px-6 font-bold text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
                           >
                             Pés
                           </th>
@@ -486,7 +486,7 @@ const Profile = () => {
                         <tr className="bg-[#EBE9E9] ">
                           <th
                             scope="row"
-                            className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
+                            className="py-4 px-6 font-bold text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
                           >
                             Manequim
                           </th>
@@ -497,7 +497,7 @@ const Profile = () => {
                         <tr className="bg-[#D9D9D9] ">
                           <th
                             scope="row"
-                            className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
+                            className="py-4 px-6 font-bold text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
                           >
                             Cor do Cabelo
                           </th>
@@ -508,7 +508,7 @@ const Profile = () => {
                         <tr className="bg-[#EBE9E9] ">
                           <th
                             scope="row"
-                            className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
+                            className="py-4 px-6 font-bold text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
                           >
                             Disponivel para viagens
                           </th>
@@ -521,7 +521,7 @@ const Profile = () => {
                         <tr className="bg-[#D9D9D9] ">
                           <th
                             scope="row"
-                            className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
+                            className="py-4 px-6 font-bold text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
                           >
                             Vende conteúdo digital
                           </th>
@@ -532,7 +532,7 @@ const Profile = () => {
                         <tr className="bg-[#EBE9E9] ">
                           <th
                             scope="row"
-                            className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
+                            className="py-4 px-6 font-bold text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
                           >
                             Especialidades
                           </th>
@@ -543,7 +543,7 @@ const Profile = () => {
                         <tr className="bg-[#D9D9D9] ">
                           <th
                             scope="row"
-                            className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
+                            className="py-4 px-6 font-bold text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
                           >
                             Cor dos Olhos
                           </th>
@@ -554,7 +554,7 @@ const Profile = () => {
                         <tr className="bg-[#EBE9E9]">
                           <th
                             scope="row"
-                            className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
+                            className="py-4 px-6 font-bold text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
                           >
                             Celular
                           </th>
@@ -565,7 +565,7 @@ const Profile = () => {
                         <tr className="bg-[#D9D9D9]">
                           <th
                             scope="row"
-                            className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
+                            className="py-4 px-6 font-bold text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
                           >
                             Agenda
                           </th>
@@ -576,7 +576,7 @@ const Profile = () => {
                         <tr className="bg-[#EBE9E9] ">
                           <th
                             scope="row"
-                            className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
+                            className="py-4 px-6 font-bold text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
                           >
                             Acompanha
                           </th>
@@ -587,7 +587,7 @@ const Profile = () => {
                         <tr className="bg-[#D9D9D9] ">
                           <th
                             scope="row"
-                            className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
+                            className="py-4 px-6 font-bold text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
                           >
                             Atende em:
                           </th>
@@ -598,7 +598,7 @@ const Profile = () => {
                         <tr className="bg-[#EBE9E9]">
                           <th
                             scope="row"
-                            className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
+                            className="py-4 px-6 font-bold text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
                           >
                             Cachê
                           </th>
@@ -609,7 +609,7 @@ const Profile = () => {
                         <tr className="bg-[#D9D9D9]">
                           <th
                             scope="row"
-                            className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
+                            className="py-4 px-6 font-bold text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
                           >
                             Pagamento
                           </th>
@@ -838,7 +838,7 @@ const Profile = () => {
                       <tr className="bg-[#D9D9D9] ">
                         <th
                           scope="row"
-                          className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
+                          className="py-4 px-6 font-bold text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
                         >
                           Bairro/Cidade
                         </th>
@@ -849,7 +849,7 @@ const Profile = () => {
                       <tr className="bg-[#EBE9E9]">
                         <th
                           scope="row"
-                          className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
+                          className="py-4 px-6 font-bold text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
                         >
                           Idade
                         </th>
@@ -860,7 +860,7 @@ const Profile = () => {
                       <tr className="bg-[#D9D9D9]">
                         <th
                           scope="row"
-                          className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
+                          className="py-4 px-6 font-bold text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
                         >
                           Peso
                         </th>
@@ -871,7 +871,7 @@ const Profile = () => {
                       <tr className="bg-[#EBE9E9] ">
                         <th
                           scope="row"
-                          className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
+                          className="py-4 px-6 font-bold text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
                         >
                           Altura
                         </th>
@@ -882,7 +882,7 @@ const Profile = () => {
                       <tr className="bg-[#D9D9D9] ">
                         <th
                           scope="row"
-                          className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
+                          className="py-4 px-6 font-bold text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
                         >
                           Pés
                         </th>
@@ -893,7 +893,7 @@ const Profile = () => {
                       <tr className="bg-[#EBE9E9] ">
                         <th
                           scope="row"
-                          className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
+                          className="py-4 px-6 font-bold text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
                         >
                           Manequim
                         </th>
@@ -904,7 +904,7 @@ const Profile = () => {
                       <tr className="bg-[#D9D9D9] ">
                         <th
                           scope="row"
-                          className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
+                          className="py-4 px-6 font-bold text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
                         >
                           Cor do Cabelo
                         </th>
@@ -915,7 +915,7 @@ const Profile = () => {
                       <tr className="bg-[#EBE9E9] ">
                         <th
                           scope="row"
-                          className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
+                          className="py-4 px-6 font-bold text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
                         >
                           Disponível para viagens
                         </th>
@@ -926,7 +926,7 @@ const Profile = () => {
                       <tr className="bg-[#D9D9D9] ">
                         <th
                           scope="row"
-                          className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
+                          className="py-4 px-6 font-bold text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
                         >
                           Vende conteúdo digital
                         </th>
@@ -937,7 +937,7 @@ const Profile = () => {
                       <tr className="bg-[#EBE9E9] ">
                         <th
                           scope="row"
-                          className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
+                          className="py-4 px-6 font-bold text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
                         >
                           Especialidades
                         </th>
@@ -948,7 +948,7 @@ const Profile = () => {
                       <tr className="bg-[#D9D9D9] ">
                         <th
                           scope="row"
-                          className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
+                          className="py-4 px-6 font-bold text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
                         >
                           Cor dos Olhos
                         </th>
@@ -959,7 +959,7 @@ const Profile = () => {
                       <tr className="bg-[#EBE9E9]">
                         <th
                           scope="row"
-                          className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
+                          className="py-4 px-6 font-bold text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
                         >
                           Celular
                         </th>
@@ -970,7 +970,7 @@ const Profile = () => {
                       <tr className="bg-[#D9D9D9]">
                         <th
                           scope="row"
-                          className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
+                          className="py-4 px-6 font-bold text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
                         >
                           Agenda
                         </th>
@@ -981,7 +981,7 @@ const Profile = () => {
                       <tr className="bg-[#EBE9E9] ">
                         <th
                           scope="row"
-                          className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
+                          className="py-4 px-6 font-bold text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
                         >
                           Acompanha
                         </th>
@@ -992,7 +992,7 @@ const Profile = () => {
                       <tr className="bg-[#D9D9D9] ">
                         <th
                           scope="row"
-                          className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
+                          className="py-4 px-6 font-bold text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
                         >
                           Atende em:
                         </th>
@@ -1003,7 +1003,7 @@ const Profile = () => {
                       <tr className="bg-[#EBE9E9]">
                         <th
                           scope="row"
-                          className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
+                          className="py-4 px-6 font-bold text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
                         >
                           Cachê
                         </th>
@@ -1014,7 +1014,7 @@ const Profile = () => {
                       <tr className="bg-[#D9D9D9]">
                         <th
                           scope="row"
-                          className="py-4 px-6 font-medium text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
+                          className="py-4 px-6 font-bold text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
                         >
                           Pagamento
                         </th>

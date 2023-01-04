@@ -6,6 +6,9 @@ import * as React from "react";
 import Navbar from "../../component/Navbar";
 import supabase from "../../utils/supabase";
 
+import ativaIcon from "../../assets/ativa.svg";
+import inativaIcon from "../../assets/inativa.svg";
+
 let docInit: Document;
 
 const Home = () => {
@@ -153,6 +156,12 @@ const Home = () => {
                 <div className="flex items-end z-10 h-5/6 -mt-80 2xl:ml-10 xl-mt-56 2xl:-mt-80 ml-5">
                   <div>
                     <h1 className="relative text-white text-xl font-semibold">
+                      {girl?.status ? (
+                        <Image src={ativaIcon} alt="" className="mr-1" />
+                      ) : (
+                        <Image src={inativaIcon} alt="" className="mr-1" />
+                      )}
+
                       {girl?.nome}
                       {" " + girl?.clicks}
                     </h1>
