@@ -87,7 +87,7 @@ const Contato = () => {
 
         <div className="w-full flex justify-center">
           <a
-            href="https://api.whatsapp.com/send?phone=55${38992617123}&text=Olá, gostaria de divulgar com a Casa Branca"
+            href="https://wa.me/5538992617123?text=Ol%C3%A1%2C+gostaria+de+divulgar+com+a+Casa+Branca"
             className="text-white flex justify-center items-center bg-[#64B161] rounded-full p-5 w-40 my-5 cursor-pointer"
           >
             <Image
