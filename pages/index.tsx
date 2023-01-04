@@ -182,7 +182,13 @@ export default function Home() {
             bd.style.backgroundColor = "white";
             bd.style.backgroundImage = "none";
           } else {
-            bd.style.backgroundColor = "#ff0078";
+            if (AllGirls[girlNumberCount]?.destaque) {
+              bd.style.backgroundColor = "black";
+              bd.style.backgroundImage = "none";
+            } else {
+              bd.style.backgroundColor = "white";
+              bd.style.backgroundImage = "none";
+            }
           }
         }
       }
@@ -257,13 +263,13 @@ export default function Home() {
               Anterior
             </h1>
             {girlNumberCount === 0 && (
-              <div className="flex justify-center items-center text-2xl text-[#828282] bg-white w-full rounded-3xl md:w-[250px] lg:w-[300px] xl:w-[350px] 2xl:w-[400px] md:h-[300px] lg:h-[400px] xl:h-[500px] 2xl:h-[600px]">
+              <div className="flex justify-center shadow-md shadow-[#EC268F] items-center text-2xl text-[#828282] bg-white w-full rounded-3xl md:w-[250px] lg:w-[300px] xl:w-[350px] 2xl:w-[400px] md:h-[300px] lg:h-[400px] xl:h-[500px] 2xl:h-[600px]">
                 <h1>Vazio</h1>
               </div>
             )}
             {girlNumberCount > 0 && (
               <div>
-                <div className="rounded-3xl md:w-[250px] lg:w-[300px] xl:w-[350px] 2xl:w-[400px] md:h-[300px] lg:h-[400px] xl:h-[500px] 2xl:h-[600px]">
+                <div className="rounded-3xl shadow-md shadow-[#EC268F] md:w-[250px] lg:w-[300px] xl:w-[350px] 2xl:w-[400px] md:h-[300px] lg:h-[400px] xl:h-[500px] 2xl:h-[600px]">
                   <img
                     src={previousGirl}
                     alt=""
@@ -291,9 +297,7 @@ export default function Home() {
         <div
           id="garota atual"
           style={{ transition: "background-color 0.5s ease" }}
-          className={`flex items-center ${
-            AllGirls[girlNumberCount]?.destaque ? "bg-black" : "bg-white"
-          }`}
+          className={`flex items-center `}
         >
           <div className="mb-82">
             <div className="flex justify-end w-full ">
@@ -439,13 +443,13 @@ export default function Home() {
               Próxima
             </h1>
             {girlNumberCount + 1 === AllGirls.length && (
-              <div className="flex justify-center items-center text-2xl text-[#828282] bg-white w-full rounded-3xl md:w-[250px] lg:w-[300px] xl:w-[350px] 2xl:w-[400px] md:h-[300px] lg:h-[400px] xl:h-[500px] 2xl:h-[600px]">
+              <div className="flex justify-center shadow-md shadow-[#EC268F] items-center text-2xl text-[#828282] bg-white w-full rounded-3xl md:w-[250px] lg:w-[300px] xl:w-[350px] 2xl:w-[400px] md:h-[300px] lg:h-[400px] xl:h-[500px] 2xl:h-[600px]">
                 <h1>Vazio</h1>
               </div>
             )}
             {girlNumberCount + 1 < AllGirls.length && (
               <div>
-                <div className="rounded-3xl md:w-[250px] lg:w-[300px] xl:w-[350px] 2xl:w-[400px] md:h-[300px] lg:h-[400px] xl:h-[500px] 2xl:h-[600px]">
+                <div className="rounded-3xl shadow-md shadow-[#EC268F] md:w-[250px] lg:w-[300px] xl:w-[350px] 2xl:w-[400px] md:h-[300px] lg:h-[400px] xl:h-[500px] 2xl:h-[600px]">
                   <img
                     src={nextGirl}
                     alt=""
