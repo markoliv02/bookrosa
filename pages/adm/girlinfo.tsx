@@ -39,6 +39,8 @@ const GirlsInfo = (props: Props) => {
     peso: Yup.string().required("peso é obrigatório"),
     cache: Yup.string().required("cache é obrigatório"),
     cidade: Yup.string().required("cidade é obrigatório"),
+    bairro: Yup.string().required("bairro é obrigatório"),
+    possui_local: Yup.string(),
     telefone: Yup.string()?.phone(
       "BR",
       false,
@@ -103,7 +105,9 @@ const GirlsInfo = (props: Props) => {
             acompanha: data?.acompanha,
             agenda: data?.agenda,
             cache: data?.cache,
-            bairro_cidade: data?.cidade,
+            cidade: data?.cidade,
+            bairro: data?.bairro,
+            possui_local: data?.possui_local,
             idade: data?.idade,
             nome: data?.nome,
             pagamento: data?.pagamento,
@@ -259,6 +263,19 @@ const GirlsInfo = (props: Props) => {
                     <input
                       className="bg-transparent placeholder:text-[#616161] placeholder:font-semibold placeholder:text-xl ml-5 focus:outline-none"
                       type="text"
+                      placeholder="Bairro"
+                      {...register("bairro")}
+                    />
+                  </div>
+                  <ErrorMessage
+                    errors={errors}
+                    name="bairro"
+                    as={<div style={{ color: "red" }} />}
+                  />
+                  <div className="bg-[#D9D9D9] py-5 px-3 w-full rounded-xl my-3">
+                    <input
+                      className="bg-transparent placeholder:text-[#616161] placeholder:font-semibold placeholder:text-xl ml-5 focus:outline-none"
+                      type="text"
                       placeholder="Telefone"
                       {...register("telefone")}
                     />
@@ -320,6 +337,19 @@ const GirlsInfo = (props: Props) => {
                   <ErrorMessage
                     errors={errors}
                     name="redesocial"
+                    as={<div style={{ color: "red" }} />}
+                  />
+                  <div className="bg-[#D9D9D9] py-5 px-3 w-full rounded-xl my-3">
+                    <input
+                      className="bg-transparent placeholder:text-[#616161] placeholder:font-semibold placeholder:text-xl ml-5 focus:outline-none"
+                      type="text"
+                      placeholder="Possui local próprio"
+                      {...register("possui_local")}
+                    />
+                  </div>
+                  <ErrorMessage
+                    errors={errors}
+                    name="possui_local"
                     as={<div style={{ color: "red" }} />}
                   />
                   <div className="bg-[#D9D9D9] py-5 px-3 w-full rounded-xl my-3">

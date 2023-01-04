@@ -428,15 +428,26 @@ const Profile = () => {
                             </tr>
                           </>
                         )}
+                        <tr className="bg-[#EBE9E9] ">
+                          <th
+                            scope="row"
+                            className="py-4 px-6 font-bold text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
+                          >
+                            Cidade
+                          </th>
+                          <td className="py-4 px-6 text-md md:text-sm md:px-2">
+                            {Profile[0]?.cidade}
+                          </td>
+                        </tr>
                         <tr className="bg-[#D9D9D9] ">
                           <th
                             scope="row"
                             className="py-4 px-6 font-bold text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
                           >
-                            Cidade e Bairro
+                            Bairro
                           </th>
                           <td className="py-4 px-6 text-md md:text-sm md:px-2">
-                            {Profile[0]?.bairro_cidade}
+                            {Profile[0]?.bairro}
                           </td>
                         </tr>
                         <tr className="bg-[#EBE9E9]">
@@ -589,13 +600,24 @@ const Profile = () => {
                             scope="row"
                             className="py-4 px-6 font-bold text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
                           >
+                            Possui local próprio:
+                          </th>
+                          <td className="py-4 px-6 text-sm md:px-2">
+                            {Profile[0]?.possui_local}
+                          </td>
+                        </tr>
+                        <tr className="bg-[#EBE9E9] ">
+                          <th
+                            scope="row"
+                            className="py-4 px-6 font-bold text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
+                          >
                             Atende em:
                           </th>
                           <td className="py-4 px-6 text-sm md:px-2">
                             {Profile[0]?.atende_em}
                           </td>
                         </tr>
-                        <tr className="bg-[#EBE9E9]">
+                        <tr className="bg-[#D9D9D9]">
                           <th
                             scope="row"
                             className="py-4 px-6 font-bold text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
@@ -606,7 +628,7 @@ const Profile = () => {
                             {Profile[0]?.cache}
                           </td>
                         </tr>
-                        <tr className="bg-[#D9D9D9]">
+                        <tr className="bg-[#EBE9E9]">
                           <th
                             scope="row"
                             className="py-4 px-6 font-bold text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
@@ -835,7 +857,7 @@ const Profile = () => {
                           </tr>
                         </>
                       )}
-                      <tr className="bg-[#D9D9D9] ">
+                      <tr className="bg-[#EBE9E9] ">
                         <th
                           scope="row"
                           className="py-4 px-6 font-bold text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
@@ -843,7 +865,18 @@ const Profile = () => {
                           Cidade e Bairro
                         </th>
                         <td className="py-4 px-6 text-sm md:px-2">
-                          {Profile[0]?.bairro_cidade}
+                          {Profile[0]?.cidade}
+                        </td>
+                      </tr>
+                      <tr className="bg-[#D9D9D9] ">
+                        <th
+                          scope="row"
+                          className="py-4 px-6 font-bold text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
+                        >
+                          CBairro
+                        </th>
+                        <td className="py-4 px-6 text-sm md:px-2">
+                          {Profile[0]?.bairro}
                         </td>
                       </tr>
                       <tr className="bg-[#EBE9E9]">
@@ -1000,7 +1033,18 @@ const Profile = () => {
                           {Profile[0]?.atende_em}
                         </td>
                       </tr>
-                      <tr className="bg-[#EBE9E9]">
+                      <tr className="bg-[#EBE9E9] ">
+                        <th
+                          scope="row"
+                          className="py-4 px-6 font-bold text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
+                        >
+                          possui local próprio:
+                        </th>
+                        <td className="py-4 px-6 text-sm md:px-2">
+                          {Profile[0]?.possui_local}
+                        </td>
+                      </tr>
+                      <tr className="bg-[#D9D9D9]">
                         <th
                           scope="row"
                           className="py-4 px-6 font-bold text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
@@ -1011,7 +1055,7 @@ const Profile = () => {
                           {Profile[0]?.cache}
                         </td>
                       </tr>
-                      <tr className="bg-[#D9D9D9]">
+                      <tr className="bg-[#EBE9E9]">
                         <th
                           scope="row"
                           className="py-4 px-6 font-bold text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"

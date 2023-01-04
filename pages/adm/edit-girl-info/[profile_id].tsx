@@ -49,6 +49,8 @@ const EditGirlsInfo = (props: Props) => {
     React.useState<boolean>(false);
   const [onlyFansEdit, setOnlyFansEdit] = React.useState<boolean>(false);
   const [privacyEdit, setPrivacyEdit] = React.useState<boolean>(false);
+  const [bairroEdit, setBairroEdit] = React.useState<boolean>(false);
+  const [possuiLocalEdit, setPossuiLocalEdit] = React.useState<boolean>(false);
 
   const [newName, setNewName] = React.useState<string>();
   const [newFeet, setNewFeet] = React.useState<string>();
@@ -56,6 +58,7 @@ const EditGirlsInfo = (props: Props) => {
   const [newWeight, setNewWeight] = React.useState<string>();
   const [newCache, setNewCache] = React.useState<string>();
   const [newCity, setNewCity] = React.useState<string>();
+  const [newBairro, setnewBairro] = React.useState<string>();
   const [newCell, setNewCell] = React.useState<string>();
   const [newPay, setNewPay] = React.useState<string>();
   const [newSchedule, setNewSchedule] = React.useState<string>();
@@ -71,6 +74,7 @@ const EditGirlsInfo = (props: Props) => {
   const [newEspecialidades, setNewEspecialidades] = React.useState<string>();
   const [newOnlyFans, setNewOnlyFans] = React.useState<string>();
   const [newPrivacy, setNewPrivacy] = React.useState<string>();
+  const [newPossuiLocal, setNewPossuiLocal] = React.useState<string>();
 
   const handleChangeBodyColor = () => {
     try {
@@ -160,6 +164,12 @@ const EditGirlsInfo = (props: Props) => {
   };
   const getPrivacy = (event: React.ChangeEvent<HTMLInputElement>) => {
     setNewPrivacy(event.target.value);
+  };
+  const getBairro = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setnewBairro(event.target.value);
+  };
+  const getPossuiLocal = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setNewPossuiLocal(event.target.value);
   };
 
   const handleEditDestaque = async () => {
@@ -322,12 +332,12 @@ const EditGirlsInfo = (props: Props) => {
     try {
       const { data, error } = await supabase
         .from("acompanhantes")
-        .update({ bairro_cidade: newCity })
+        .update({ cidade: newCity })
         .eq("id", id);
       if (error) {
         console.error("Error updating pes ", error);
       } else {
-        toast.success("cidade/bairro alterado com sucesso !");
+        toast.success("cidade alterada com sucesso !");
         setTimeout(() => {
           document.location.reload();
         }, 2000);
@@ -575,6 +585,39 @@ const EditGirlsInfo = (props: Props) => {
         console.error("Error updating pes ", error);
       } else {
         toast.success("Link do Privacy alterado com sucesso !");
+        setTimeout(() => {
+          document.location.reload();
+        }, 2000);
+      }
+    } catch (error) {}
+  };
+  const handleEditBairro = async () => {
+    try {
+      const { data, error } = await supabase
+        .from("acompanhantes")
+        .update({ bairro: newBairro })
+        .eq("id", id);
+      if (error) {
+        console.error("Error updating pes ", error);
+      } else {
+        toast.success("Bairro alterado com sucesso !");
+        setTimeout(() => {
+          document.location.reload();
+        }, 2000);
+      }
+    } catch (error) {}
+  };
+
+  const handleEditPossuiLocal = async () => {
+    try {
+      const { data, error } = await supabase
+        .from("acompanhantes")
+        .update({ possui_local: newPossuiLocal })
+        .eq("id", id);
+      if (error) {
+        console.error("Error updating pes ", error);
+      } else {
+        toast.success("alterado com sucesso !");
         setTimeout(() => {
           document.location.reload();
         }, 2000);
@@ -938,7 +981,7 @@ const EditGirlsInfo = (props: Props) => {
                             onChange={getCity}
                             className="bg-transparent placeholder:text-[#616161] w-full placeholder:font-semibold placeholder:text-xl focus:outline-none"
                             type="text"
-                            placeholder={Profile[0]?.bairro_cidade}
+                            placeholder={Profile[0]?.cidade}
                             disabled={!cityEdit}
                           />
                           <svg
@@ -963,6 +1006,45 @@ const EditGirlsInfo = (props: Props) => {
                       {cityEdit && (
                         <div
                           onClick={handleEditCity}
+                          className="flex justify-center items-center px-3 py-2 border border-green-500 rounded-3xl text-green-500 font-semibold cursor-pointer w-32"
+                        >
+                          Salvar
+                        </div>
+                      )}
+                      <div className="bg-[#D9D9D9] py-5 px-3 w-full rounded-xl my-3">
+                        <label htmlFor="nome" className="text-sm">
+                          BAIRRO
+                        </label>
+                        <div className="flex justify-between">
+                          <input
+                            onChange={getBairro}
+                            className="bg-transparent placeholder:text-[#616161] w-full placeholder:font-semibold placeholder:text-xl focus:outline-none"
+                            type="text"
+                            placeholder={Profile[0]?.bairro}
+                            disabled={!bairroEdit}
+                          />
+                          <svg
+                            onClick={() => {
+                              setBairroEdit(!bairroEdit);
+                            }}
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            strokeWidth="1.5"
+                            stroke="currentColor"
+                            className="w-6 h-6 cursor-pointer"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10"
+                            />
+                          </svg>
+                        </div>
+                      </div>
+                      {bairroEdit && (
+                        <div
+                          onClick={handleEditBairro}
                           className="flex justify-center items-center px-3 py-2 border border-green-500 rounded-3xl text-green-500 font-semibold cursor-pointer w-32"
                         >
                           Salvar
@@ -1198,6 +1280,44 @@ const EditGirlsInfo = (props: Props) => {
                       {atendeEdit && (
                         <div
                           onClick={handleEditAtende}
+                          className="flex justify-center items-center px-3 py-2 border border-green-500 rounded-3xl text-green-500 font-semibold cursor-pointer w-32"
+                        >
+                          Salvar
+                        </div>
+                      )}
+
+                      <div className="bg-[#D9D9D9] py-5 px-3 w-full rounded-xl my-3">
+                        POSSUI LOCAL PRÓPRIO
+                        <div className="flex justify-between">
+                          <input
+                            onChange={getPossuiLocal}
+                            className="bg-transparent placeholder:text-[#616161] w-full placeholder:font-semibold placeholder:text-xl focus:outline-none"
+                            type="text"
+                            placeholder={Profile[0]?.possui_local}
+                            disabled={!possuiLocalEdit}
+                          />
+                          <svg
+                            onClick={() => {
+                              setPossuiLocalEdit(!possuiLocalEdit);
+                            }}
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            strokeWidth="1.5"
+                            stroke="currentColor"
+                            className="w-6 h-6 cursor-pointer"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10"
+                            />
+                          </svg>
+                        </div>
+                      </div>
+                      {possuiLocalEdit && (
+                        <div
+                          onClick={handleEditPossuiLocal}
                           className="flex justify-center items-center px-3 py-2 border border-green-500 rounded-3xl text-green-500 font-semibold cursor-pointer w-32"
                         >
                           Salvar
