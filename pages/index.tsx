@@ -322,7 +322,7 @@ export default function Home() {
             </div>
             <div
               id="img bnt"
-              className="flex justify-center flex-wrap mb-5 mt-2 bg-transparent px-5"
+              className="flex justify-center flex-wrap mb-5 mt-2 bg-transparent px-5 "
             >
               {AllGirls[girlNumberCount]?.destaque && (
                 <div className="flex justify-center w-full">
@@ -344,7 +344,7 @@ export default function Home() {
                 <img
                   src={currentGirl}
                   alt=""
-                  className={`rounded-3xl shadow shadow-xl brightness-75 shadow-[#EC268F] ${
+                  className={`rounded-3xl shadow shadow-xl brightness-75 shadow-[#EC268F] w-72 ${
                     AllGirls[girlNumberCount]?.destaque
                       ? "h-[450px]"
                       : "h-[500px]"
