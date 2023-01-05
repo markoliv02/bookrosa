@@ -667,7 +667,7 @@ const Profile = () => {
                       setcurrentPhotoInViewMode(0);
                       setViewPhotoMode(true);
                     }}
-                    className={`relative w-full h-48 md:h-[33rem] bg-transparent cursor-pointer overflow-hidden rounded-3xl shadow shadow-lg shadow-[#EC268F]`}
+                    className={`relative w-full h-48 md:h-[33rem] bg-transparent cursor-pointer overflow-hidde`}
                   >
                     <img
                       id="01"
@@ -677,7 +677,7 @@ const Profile = () => {
                           : "https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/default"
                       }
                       alt=""
-                      className={`rounded-3xl shadow object-cover h-full md:h-[33rem]`}
+                      className={`rounded-3xl shadow object-cover h-full md:h-[33rem] rounded-3xl shadow shadow-lg shadow-[#EC268F]`}
                     />
                   </div>
                   <div className="grid grid-cols-1 gap-4 w-full h-48 md:h-[33rem] cursor-pointer">
@@ -723,7 +723,7 @@ const Profile = () => {
                       setcurrentPhotoInViewMode(3);
                       setViewPhotoMode(true);
                     }}
-                    className={`relative w-full h-48 md:h-[33rem] bg-transparent cursor-pointer overflow-hidden rounded-3xl shadow shadow-lg shadow-[#EC268F]`}
+                    className={`relative w-full h-48 md:h-[33rem] bg-transparent cursor-pointer overflow-hidde`}
                   >
                     <img
                       id="04"
@@ -733,7 +733,7 @@ const Profile = () => {
                           : "https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/default"
                       }
                       alt=""
-                      className={`md:h-[33rem] h-full object-cover`}
+                      className={`md:h-[33rem] h-full object-cover rounded-3xl shadow shadow-lg shadow-[#EC268F]`}
                     />
                   </div>
                   <div
@@ -741,7 +741,7 @@ const Profile = () => {
                       setcurrentPhotoInViewMode(4);
                       setViewPhotoMode(true);
                     }}
-                    className={`relative w-full h-40 md:h-[33rem] md:mt-0 bg-transparent cursor-pointer overflow-hidden rounded-3xl shadow shadow-lg shadow-[#EC268F]`}
+                    className={`relative w-full h-40 md:h-[33rem] md:mt-0 bg-transparent cursor-pointer overflow-hidde rounded-3xl`}
                   >
                     <img
                       id="05"
@@ -751,7 +751,7 @@ const Profile = () => {
                           : "https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/default"
                       }
                       alt=""
-                      className={`md:h-[33rem] full object-cover`}
+                      className={`md:h-[33rem] full object-cover rounded-3xl shadow shadow-lg shadow-[#EC268F]`}
                     />
                   </div>
                   <div
@@ -759,7 +759,7 @@ const Profile = () => {
                       setcurrentPhotoInViewMode(5);
                       setViewPhotoMode(true);
                     }}
-                    className={`col-span-2 h-40 md:h-[33rem] relative w-full bg-transparent cursor-pointer overflow-hidden rounded-3xl flex justify-center shadow shadow-lg shadow-[#EC268F]`}
+                    className={`col-span-2 h-40 md:h-[33rem] relative w-full bg-transparent cursor-pointer overflow-hidde rounded-3xl flex justify-center `}
                   >
                     <img
                       id="06"
@@ -769,7 +769,7 @@ const Profile = () => {
                           : "https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/default"
                       }
                       alt=""
-                      className={`h-full md:h-[33rem] object-cover`}
+                      className={`h-full md:h-[33rem] object-cover rounded-3xl shadow shadow-lg shadow-[#EC268F]`}
                     />
                   </div>
                 </div>
