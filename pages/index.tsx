@@ -344,7 +344,7 @@ export default function Home() {
                 <img
                   src={currentGirl}
                   alt=""
-                  className={`rounded-3xl shadow shadow-xl brightness-75 shadow-[#EC268F] w-72 ${
+                  className={`rounded-3xl shadow shadow-xl brightness-75 shadow-[#EC268F] ${
                     AllGirls[girlNumberCount]?.destaque
                       ? "h-[450px]"
                       : "h-[500px]"

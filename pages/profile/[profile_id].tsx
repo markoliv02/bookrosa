@@ -662,24 +662,24 @@ const Profile = () => {
                   id="grade das fotos"
                   className="grid grid-cols-3 mt-5 gap-2 md:gap-8 col-span-2 md:h-[780px]"
                 >
-                  <div
+                  {/* <div
                     onClick={() => {
                       setcurrentPhotoInViewMode(0);
                       setViewPhotoMode(true);
                     }}
                     className={`relative w-full h-48 md:h-[33rem] bg-transparent cursor-pointer overflow-hidden rounded-3xl shadow shadow-lg shadow-[#EC268F]`}
-                  >
-                    <img
-                      id="01"
-                      src={
-                        `https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/001`
-                          ? `https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/001`
-                          : "https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/default"
-                      }
-                      alt=""
-                      className={`rounded-3xl shadow object-cover h-full md:h-[33rem]`}
-                    />
-                  </div>
+                  > */}
+                  <img
+                    id="01"
+                    src={
+                      `https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/001`
+                        ? `https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/001`
+                        : "https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/default"
+                    }
+                    alt=""
+                    className={`rounded-3xl shadow object-cover h-full md:h-[33rem] rounded-3xl shadow shadow-lg shadow-[#EC268F]`}
+                  />
+                  {/* </div> */}
                   <div className="grid grid-cols-1 gap-4 w-full h-48 md:h-[33rem] cursor-pointer">
                     <div
                       onClick={() => {
@@ -718,60 +718,60 @@ const Profile = () => {
                       />
                     </div>
                   </div>
-                  <div
+                  {/* <div
                     onClick={() => {
                       setcurrentPhotoInViewMode(3);
                       setViewPhotoMode(true);
                     }}
                     className={`relative w-full h-48 md:h-[33rem] bg-transparent cursor-pointer overflow-hidden rounded-3xl shadow shadow-lg shadow-[#EC268F]`}
-                  >
-                    <img
-                      id="04"
-                      src={
-                        `https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/004`
-                          ? `https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/004`
-                          : "https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/default"
-                      }
-                      alt=""
-                      className={`md:h-[33rem] h-full object-cover`}
-                    />
-                  </div>
-                  <div
+                  > */}
+                  <img
+                    id="04"
+                    src={
+                      `https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/004`
+                        ? `https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/004`
+                        : "https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/default"
+                    }
+                    alt=""
+                    className={`md:h-[33rem] h-full rounded-3xl shadow shadow-lg shadow-[#EC268F]`}
+                  />
+                  {/* </div> */}
+                  {/* <div
                     onClick={() => {
                       setcurrentPhotoInViewMode(4);
                       setViewPhotoMode(true);
                     }}
                     className={`relative w-full h-40 md:h-[33rem] md:mt-0 bg-transparent cursor-pointer overflow-hidden rounded-3xl shadow shadow-lg shadow-[#EC268F]`}
-                  >
-                    <img
-                      id="05"
-                      src={
-                        `https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/005`
-                          ? `https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/005`
-                          : "https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/default"
-                      }
-                      alt=""
-                      className={`md:h-[33rem] full object-cover`}
-                    />
-                  </div>
-                  <div
+                  > */}
+                  <img
+                    id="05"
+                    src={
+                      `https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/005`
+                        ? `https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/005`
+                        : "https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/default"
+                    }
+                    alt=""
+                    className={`md:h-[33rem] full  rounded-3xl shadow shadow-lg shadow-[#EC268F]`}
+                  />
+                  {/* </div> */}
+                  {/* <div
                     onClick={() => {
                       setcurrentPhotoInViewMode(5);
                       setViewPhotoMode(true);
                     }}
                     className={`col-span-2 h-40 md:h-[33rem] relative w-full bg-transparent cursor-pointer overflow-hidden rounded-3xl flex justify-center shadow shadow-lg shadow-[#EC268F]`}
-                  >
-                    <img
-                      id="06"
-                      src={
-                        `https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/006`
-                          ? `https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/006`
-                          : "https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/default"
-                      }
-                      alt=""
-                      className={`h-full md:h-[33rem] object-cover`}
-                    />
-                  </div>
+                  > */}
+                  <img
+                    id="06"
+                    src={
+                      `https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/006`
+                        ? `https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/006`
+                        : "https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/default"
+                    }
+                    alt=""
+                    className={`h-full md:h-[33rem] w-full col-span-2 rounded-3xl shadow shadow-lg shadow-[#EC268F]`}
+                  />
+                  {/* </div> */}
                 </div>
                 <div
                   id="divisor 2"
