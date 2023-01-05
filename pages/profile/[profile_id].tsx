@@ -30,7 +30,7 @@ const Profile = () => {
   const [id, setid] = React.useState<string>();
   const [Profile, setProfile] = React.useState<Array<any>>([]);
   const [profileImage, setProfileImage] = React.useState<string>();
-  const [galery, setGalery] = React.useState<Array<string>>([]);
+  // const [galery, setGalery] = React.useState<Array<string>>([]);
   const [videoUrl, setVideoUrl] = React.useState<string>();
   const [cell, setCell] = React.useState<string>();
 
@@ -78,26 +78,26 @@ const Profile = () => {
     }
   };
 
-  const handleGetGaleryImages = async () => {
-    try {
-      let ar = [];
-      for (let i = 0; i < 6; i++) {
-        const { data } = supabase.storage
-          .from("photos")
-          .getPublicUrl(`${Profile[0]?.id}/galery/00${i + 1}`);
+  // const handleGetGaleryImages = async () => {
+  //   try {
+  //     let ar = [];
+  //     for (let i = 0; i < 6; i++) {
+  //       const { data } = supabase.storage
+  //         .from("photos")
+  //         .getPublicUrl(`${Profile[0]?.id}/galery/00${i + 1}`);
 
-        if (data) {
-          ar.push(data?.publicUrl);
-        }
-      }
-      setGalery(ar);
-    } catch (error) {
-      console.error(error);
-      console.log(
-        "Erro ao buscar imagens na galeria do perfil !!! f(handleGetGaleryImages)"
-      );
-    }
-  };
+  //       if (data) {
+  //         ar.push(data?.publicUrl);
+  //       }
+  //     }
+  //     setGalery(ar);
+  //   } catch (error) {
+  //     console.error(error);
+  //     console.log(
+  //       "Erro ao buscar imagens na galeria do perfil !!! f(handleGetGaleryImages)"
+  //     );
+  //   }
+  // };
 
   const handleGetVideo = async () => {
     try {
