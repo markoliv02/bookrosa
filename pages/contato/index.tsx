@@ -63,29 +63,29 @@ const Contato = () => {
         </div>
 
         <h1 className="text-2xl font-semibold text-center mt-5">
-          Anuncie com A Casa Branca
+          Anuncie agora mesmo com A Casa Branca São Paulo{" "}
         </h1>
 
         <p className="text-center mt-3">
-          A maior rede de acompanhantes de São Paulo - a Casa Branca turbina seu
-          perfil pelas rede sociais - Twitter - Telegram - Site . Entre em
-          contato e escolha o seu pacote.
+          A maior e mais completa rede de acompanhantes de São Paulo. A Casa
+          Branca possui uma rede de clientes via Telegram - Twitter - Site.
+          Entre em contato e escolha seu pacote de divulgação.
         </p>
 
         {/* wpp */}
 
-        <h1 className="text-2xl font-semibold text-center mt-5">Whatsapp</h1>
+        {/* <h1 className="text-2xl font-semibold text-center mt-5">Whatsapp</h1>
 
-        <p className="text-center mt-3 text-2xl">(38) 99261-7123</p>
+        <p className="text-center mt-3 text-2xl">(38) 99261-7123</p> */}
 
         {/* email */}
 
-        <h1 className="text-2xl font-semibold text-center mt-5">Email</h1>
-        <p className="text-center mt-3 text-2xl">falecomucp@gmail.com</p>
+        {/* <h1 className="text-2xl font-semibold text-center mt-5">Email</h1>
+        <p className="text-center mt-3 text-2xl">falecomucp@gmail.com</p> */}
 
         {/* botao wpp */}
 
-        <div className="w-full flex justify-center">
+        {/* <div className="w-full flex justify-center">
           <a
             href="https://wa.me/5538992617123?text=Ol%C3%A1%2C+gostaria+de+divulgar+com+a+Casa+Branca"
             className="text-white flex justify-center items-center bg-[#64B161] rounded-full p-5 w-40 my-5 cursor-pointer"
@@ -102,7 +102,7 @@ const Contato = () => {
             />
             CONVERSAR
           </a>
-        </div>
+        </div> */}
       </div>
     </div>
   );
