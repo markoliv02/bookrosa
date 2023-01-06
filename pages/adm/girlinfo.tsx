@@ -311,6 +311,8 @@ const GirlsInfo = (props: Props) => {
                     name="agenda"
                     as={<div style={{ color: "red" }} />}
                   />
+                </div>
+                <div id="02">
                   <div className="bg-[#D9D9D9] py-5 px-3 w-full rounded-xl my-3">
                     <input
                       className="bg-transparent placeholder:text-[#616161] placeholder:font-semibold placeholder:text-xl ml-5 focus:outline-none"
@@ -322,21 +324,6 @@ const GirlsInfo = (props: Props) => {
                   <ErrorMessage
                     errors={errors}
                     name="acompanha"
-                    as={<div style={{ color: "red" }} />}
-                  />
-                </div>
-                <div id="02">
-                  <div className="bg-[#D9D9D9] py-5 px-3 w-full rounded-xl my-3">
-                    <input
-                      className="bg-transparent placeholder:text-[#616161] placeholder:font-semibold placeholder:text-xl ml-5 focus:outline-none"
-                      type="text"
-                      placeholder="@ Rede Social"
-                      {...register("redesocial")}
-                    />
-                  </div>
-                  <ErrorMessage
-                    errors={errors}
-                    name="redesocial"
                     as={<div style={{ color: "red" }} />}
                   />
                   <div className="bg-[#D9D9D9] py-5 px-3 w-full rounded-xl my-3">
@@ -376,19 +363,6 @@ const GirlsInfo = (props: Props) => {
                   <ErrorMessage
                     errors={errors}
                     name="altura"
-                    as={<div style={{ color: "red" }} />}
-                  />
-                  <div className="bg-[#D9D9D9] py-5 px-3 w-full rounded-xl my-3">
-                    <input
-                      className="bg-transparent placeholder:text-[#616161] placeholder:font-semibold placeholder:text-xl ml-5 focus:outline-none"
-                      type="text"
-                      placeholder="Descrição"
-                      {...register("desc")}
-                    />
-                  </div>
-                  <ErrorMessage
-                    errors={errors}
-                    name="desc"
                     as={<div style={{ color: "red" }} />}
                   />
                   <div className="bg-[#D9D9D9] py-5 px-3 w-full rounded-xl my-3">
@@ -441,19 +415,6 @@ const GirlsInfo = (props: Props) => {
                   <ErrorMessage
                     errors={errors}
                     name="perfil"
-                    as={<div style={{ color: "red" }} />}
-                  />
-                  <div className="bg-[#D9D9D9] py-5 px-3 w-full rounded-xl my-3">
-                    <input
-                      className="bg-transparent placeholder:text-[#616161] placeholder:font-semibold placeholder:text-xl ml-5 focus:outline-none"
-                      type="text"
-                      placeholder="Especialiades"
-                      {...register("especialidades")}
-                    />
-                  </div>
-                  <ErrorMessage
-                    errors={errors}
-                    name="especialidades"
                     as={<div style={{ color: "red" }} />}
                   />
 

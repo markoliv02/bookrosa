@@ -546,18 +546,8 @@ const Profile = () => {
                             {Profile[0]?.conteudo_digital ? "sim" : "não"}
                           </td>
                         </tr>
+
                         <tr className="bg-[#EBE9E9] ">
-                          <th
-                            scope="row"
-                            className="py-4 px-6 font-bold text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
-                          >
-                            Especialidades
-                          </th>
-                          <td className="py-4 px-6 text-sm md:px-2">
-                            {Profile[0]?.especialidades}
-                          </td>
-                        </tr>
-                        <tr className="bg-[#D9D9D9] ">
                           <th
                             scope="row"
                             className="py-4 px-6 font-bold text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
@@ -568,7 +558,7 @@ const Profile = () => {
                             {Profile[0]?.cor_olhos}
                           </td>
                         </tr>
-                        <tr className="bg-[#EBE9E9]">
+                        <tr className="bg-[#D9D9D9]">
                           <th
                             scope="row"
                             className="py-4 px-6 font-bold text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
@@ -579,7 +569,7 @@ const Profile = () => {
                             {Profile[0]?.celular}
                           </td>
                         </tr>
-                        <tr className="bg-[#D9D9D9]">
+                        <tr className="bg-[#EBE9E9]">
                           <th
                             scope="row"
                             className="py-4 px-6 font-bold text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
@@ -590,7 +580,7 @@ const Profile = () => {
                             {Profile[0]?.agenda}
                           </td>
                         </tr>
-                        <tr className="bg-[#EBE9E9] ">
+                        <tr className="bg-[#D9D9D9] ">
                           <th
                             scope="row"
                             className="py-4 px-6 font-bold text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
@@ -601,7 +591,7 @@ const Profile = () => {
                             {Profile[0]?.acompanha}
                           </td>
                         </tr>
-                        <tr className="bg-[#D9D9D9] ">
+                        <tr className="bg-[#EBE9E9] ">
                           <th
                             scope="row"
                             className="py-4 px-6 font-bold text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
@@ -612,7 +602,7 @@ const Profile = () => {
                             {Profile[0]?.possui_local}
                           </td>
                         </tr>
-                        <tr className="bg-[#EBE9E9] ">
+                        <tr className="bg-[#D9D9D9] ">
                           <th
                             scope="row"
                             className="py-4 px-6 font-bold text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
@@ -623,7 +613,7 @@ const Profile = () => {
                             {Profile[0]?.atende_em}
                           </td>
                         </tr>
-                        <tr className="bg-[#D9D9D9]">
+                        <tr className="bg-[#EBE9E9]">
                           <th
                             scope="row"
                             className="py-4 px-6 font-bold text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
@@ -634,7 +624,7 @@ const Profile = () => {
                             {Profile[0]?.cache}
                           </td>
                         </tr>
-                        <tr className="bg-[#EBE9E9]">
+                        <tr className="bg-[#D9D9D9]">
                           <th
                             scope="row"
                             className="py-4 px-6 font-bold text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
@@ -647,16 +637,6 @@ const Profile = () => {
                         </tr>
                       </tbody>
                     </table>
-                  </div>
-
-                  <div
-                    className={`mb-5 hidden md:block col-span-3 h-64 overflow-hidden mr-3 lg:-mt-10  ${
-                      Profile[0]?.destaque ? "text-white" : "text-black"
-                    } `}
-                  >
-                    <h1 className="text-xl font-semibold py-5">Descrição</h1>
-
-                    <p className="text=lg lg:text-sm">{Profile[0]?.desc}</p>
                   </div>
                 </div>
                 <div
@@ -982,18 +962,8 @@ const Profile = () => {
                           {Profile[0]?.conteudo_digital ? "sim" : "não"}
                         </td>
                       </tr>
+
                       <tr className="bg-[#EBE9E9] ">
-                        <th
-                          scope="row"
-                          className="py-4 px-6 font-bold text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
-                        >
-                          Especialidades
-                        </th>
-                        <td className="py-4 px-6 text-sm md:px-2">
-                          {Profile[0]?.especialidades}
-                        </td>
-                      </tr>
-                      <tr className="bg-[#D9D9D9] ">
                         <th
                           scope="row"
                           className="py-4 px-6 font-bold text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
@@ -1004,7 +974,7 @@ const Profile = () => {
                           {Profile[0]?.cor_olhos}
                         </td>
                       </tr>
-                      <tr className="bg-[#EBE9E9]">
+                      <tr className="bg-[#D9D9D9]">
                         <th
                           scope="row"
                           className="py-4 px-6 font-bold text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
@@ -1015,7 +985,7 @@ const Profile = () => {
                           {Profile[0]?.celular}
                         </td>
                       </tr>
-                      <tr className="bg-[#D9D9D9]">
+                      <tr className="bg-[#EBE9E9]">
                         <th
                           scope="row"
                           className="py-4 px-6 font-bold text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
@@ -1026,7 +996,7 @@ const Profile = () => {
                           {Profile[0]?.agenda}
                         </td>
                       </tr>
-                      <tr className="bg-[#EBE9E9] ">
+                      <tr className="bg-[#D9D9D9] ">
                         <th
                           scope="row"
                           className="py-4 px-6 font-bold text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
@@ -1037,7 +1007,7 @@ const Profile = () => {
                           {Profile[0]?.acompanha}
                         </td>
                       </tr>
-                      <tr className="bg-[#D9D9D9] ">
+                      <tr className="bg-[#EBE9E9] ">
                         <th
                           scope="row"
                           className="py-4 px-6 font-bold text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
@@ -1048,7 +1018,7 @@ const Profile = () => {
                           {Profile[0]?.atende_em}
                         </td>
                       </tr>
-                      <tr className="bg-[#EBE9E9] ">
+                      <tr className="bg-[#D9D9D9] ">
                         <th
                           scope="row"
                           className="py-4 px-6 font-bold text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
@@ -1059,7 +1029,7 @@ const Profile = () => {
                           {Profile[0]?.possui_local}
                         </td>
                       </tr>
-                      <tr className="bg-[#D9D9D9]">
+                      <tr className="bg-[#EBE9E9]">
                         <th
                           scope="row"
                           className="py-4 px-6 font-bold text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
@@ -1070,7 +1040,7 @@ const Profile = () => {
                           {Profile[0]?.cache}
                         </td>
                       </tr>
-                      <tr className="bg-[#EBE9E9]">
+                      <tr className="bg-[#D9D9D9]">
                         <th
                           scope="row"
                           className="py-4 px-6 font-bold text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
