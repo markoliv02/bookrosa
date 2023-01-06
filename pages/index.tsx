@@ -23,7 +23,7 @@ let initScreen: Screen;
 let docInit: Document;
 
 export default function Home() {
-  const [girlNumberCount, setGirlNumberCount] = React.useState(0);
+  const [girlNumberCount, setGirlNumberCount] = React.useState(1);
   const [AllGirls, setAllGirls] = React.useState<Array<any>>([]);
 
   const [currentGirl, setCurrentGirl] = React.useState<string>();
