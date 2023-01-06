@@ -74,20 +74,15 @@ const Contato = () => {
 
         {/* wpp */}
 
-        {/* <h1 className="text-2xl font-semibold text-center mt-5">Whatsapp</h1>
+        <h1 className="text-2xl font-semibold text-center mt-5">Whatsapp</h1>
 
-        <p className="text-center mt-3 text-2xl">(38) 99261-7123</p> */}
-
-        {/* email */}
-
-        {/* <h1 className="text-2xl font-semibold text-center mt-5">Email</h1>
-        <p className="text-center mt-3 text-2xl">falecomucp@gmail.com</p> */}
+        <p className="text-center mt-3 text-2xl">(11)95398-6786</p>
 
         {/* botao wpp */}
 
-        {/* <div className="w-full flex justify-center">
+        <div className="w-full flex justify-center">
           <a
-            href="https://wa.me/5538992617123?text=Ol%C3%A1%2C+gostaria+de+divulgar+com+a+Casa+Branca"
+            href="https://wa.me/5511953986786?text=Ol%C3%A1%2C+gostaria+de+divulgar+com+a+Casa+Branca"
             className="text-white flex justify-center items-center bg-[#64B161] rounded-full p-5 w-40 my-5 cursor-pointer"
           >
             <Image
@@ -102,7 +97,7 @@ const Contato = () => {
             />
             CONVERSAR
           </a>
-        </div> */}
+        </div>
       </div>
     </div>
   );
