@@ -166,6 +166,7 @@ const Profile = () => {
       let cellformated = formatedCell.join("");
       setCell(cellformated);
     }
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [Profile]);
 
@@ -207,7 +208,12 @@ const Profile = () => {
               className="mt-5 cursor-pointer md:hidden"
               onClick={() => document.location.replace("/")}
             >
-              <Image src={botaoVoltar} alt="" width={40} height={40} />
+              <Image
+                src={botaoVoltar}
+                alt="Imagem não encontrada"
+                width={40}
+                height={40}
+              />
             </div>
           )}
           <div className="flex items-center justify-between md:justify-center mt-5 col-span-2 ">
@@ -216,7 +222,7 @@ const Profile = () => {
                 router.push("/");
               }}
               src={Profile[0]?.destaque ? logoGold : logoGold}
-              alt=""
+              alt="Imagem não encontrada"
               width={300}
               height={300}
               className="cursor-pointer"
@@ -256,42 +262,42 @@ const Profile = () => {
                 <div>
                   <img
                     src={`https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/001`}
-                    alt=""
+                    alt="Imagem não encontrada"
                     className="rounded-xl"
                   />
                 </div>
                 <div>
                   <img
                     src={`https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/002`}
-                    alt=""
+                    alt="Imagem não encontrada"
                     className="rounded-xl"
                   />
                 </div>
                 <div>
                   <img
                     src={`https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/003`}
-                    alt=""
+                    alt="Imagem não encontrada"
                     className="rounded-xl"
                   />
                 </div>
                 <div>
                   <img
                     src={`https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/004`}
-                    alt=""
+                    alt="Imagem não encontrada"
                     className="rounded-xl"
                   />
                 </div>
                 <div>
                   <img
                     src={`https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/005`}
-                    alt=""
+                    alt="Imagem não encontrada"
                     className="rounded-xl"
                   />
                 </div>
                 <div>
                   <img
                     src={`https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/006`}
-                    alt=""
+                    alt="Imagem não encontrada"
                     className="rounded-xl"
                   />
                 </div>
@@ -299,7 +305,7 @@ const Profile = () => {
             </div>
 
             {/* <div className="flex justify-center items-center ">
-            <img src={currentPhotoInViewMode} alt="" />
+            <img src={currentPhotoInViewMode} alt="Imagem não encontrada" />
           </div> */}
           </div>
         )}
@@ -316,7 +322,7 @@ const Profile = () => {
                       <div className="w-24 h-24 xl:w-32 xl:h-32">
                         <img
                           src={profileImage}
-                          alt=""
+                          alt="Imagem não encontrada"
                           className="rounded-full w-full h-full object-cover shadow shadow-lg shadow-[#EC268F]"
                         />
                       </div>
@@ -341,7 +347,7 @@ const Profile = () => {
                                 ? whatsappIcon
                                 : "https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/default"
                             }
-                            alt=""
+                            alt="Imagem não encontrada"
                             className="z-10 rounded-full"
                           />
 
@@ -383,7 +389,7 @@ const Profile = () => {
                               >
                                 <Image
                                   src={onlyfans}
-                                  alt=""
+                                  alt="Imagem não encontrada"
                                   width={40}
                                   className="mr-3"
                                 />
@@ -408,7 +414,7 @@ const Profile = () => {
                               >
                                 <Image
                                   src={privacy}
-                                  alt=""
+                                  alt="Imagem não encontrada"
                                   width={40}
                                   className="mr-3"
                                 />
@@ -676,7 +682,7 @@ const Profile = () => {
                           ? `https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/001`
                           : "https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/default"
                       }
-                      alt=""
+                      alt="Imagem não encontrada"
                       className={`rounded-3xl shadow object-cover h-full md:h-[33rem] rounded-3xl shadow shadow-lg shadow-[#EC268F]`}
                     />
                   </div>
@@ -695,7 +701,7 @@ const Profile = () => {
                             ? `https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/002`
                             : "https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/default"
                         }
-                        alt=""
+                        alt="Imagem não encontrada"
                         className={`rounded-3xl shadow  h-full md:h-[16rem] w-full object-cover`}
                       />
                     </div>
@@ -713,7 +719,7 @@ const Profile = () => {
                             ? `https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/003`
                             : "https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/default"
                         }
-                        alt=""
+                        alt="Imagem não encontrada"
                         className={`rounded-3xl shadow h-full md:h-[16rem] w-full object-cover`}
                       />
                     </div>
@@ -732,7 +738,7 @@ const Profile = () => {
                           ? `https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/004`
                           : "https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/default"
                       }
-                      alt=""
+                      alt="Imagem não encontrada"
                       className={`md:h-[33rem] h-full object-cover rounded-3xl shadow shadow-lg shadow-[#EC268F]`}
                     />
                   </div>
@@ -744,13 +750,21 @@ const Profile = () => {
                     className={`relative w-full h-40 md:h-[33rem] md:mt-0 bg-transparent cursor-pointer overflow-hidde rounded-3xl`}
                   >
                     <img
+                      // onError={() => {
+                      //   const img = Dom.querySelector(
+                      //     "md:h-[33rem] full object-cover rounded-3xl shadow shadow-lg shadow-[#EC268F]"
+                      //   );
+                      //   if (img !== null) {
+                      //     img.style.display = "none";
+                      //   }
+                      // }}
                       id="05"
                       src={
                         `https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/005`
                           ? `https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/005`
-                          : "https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/default"
+                          : "https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/404"
                       }
-                      alt=""
+                      alt="Imagem não encontrada"
                       className={`md:h-[33rem] full object-cover rounded-3xl shadow shadow-lg shadow-[#EC268F]`}
                     />
                   </div>
@@ -768,7 +782,7 @@ const Profile = () => {
                           ? `https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/006`
                           : "https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/default"
                       }
-                      alt=""
+                      alt="Imagem não encontrada"
                       className={`h-full md:h-[33rem] object-cover rounded-3xl shadow shadow-lg shadow-[#EC268F]`}
                     />
                   </div>
@@ -789,6 +803,7 @@ const Profile = () => {
                       // width={200}
                       // height={200}
                       controls
+                      preload="metadata"
                     />
                   </div>
                 </div>
@@ -812,7 +827,7 @@ const Profile = () => {
                             >
                               <Image
                                 src={onlyfans}
-                                alt=""
+                                alt="Imagem não encontrada"
                                 width={20}
                                 className="mr-3"
                               />
@@ -837,7 +852,7 @@ const Profile = () => {
                             >
                               <Image
                                 src={privacy}
-                                alt=""
+                                alt="Imagem não encontrada"
                                 width={20}
                                 className="mr-3"
                               />
@@ -1099,7 +1114,7 @@ const Profile = () => {
                 ? whatsappIcon
                 : "https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/default"
             }
-            alt=""
+            alt="Imagem não encontrada"
             className="z-10 rounded-full mr-2"
           />
           Conversar no Whatsapp
