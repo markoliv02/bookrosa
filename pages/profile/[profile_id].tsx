@@ -175,7 +175,7 @@ const Profile = () => {
     setDom(document);
     // eslint-disable-next-line react-hooks/exhaustive-deps
     //não colocar ',[]' pois se colocar quando der reload na pagina não vai carregar os dados
-  }, []);
+  });
 
   React.useEffect(() => {
     handleGetProfile();
