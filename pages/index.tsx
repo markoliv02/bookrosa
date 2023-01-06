@@ -326,14 +326,14 @@ export default function Home() {
             >
               {AllGirls[girlNumberCount]?.destaque && (
                 <div className="flex justify-center w-full">
-                  <Image src={destaque} alt="" className="mr-2 a-mt-[280px]" />
+                  <Image src={destaque} alt="" className="mb-10" />
                 </div>
               )}
               <div
                 onClick={() =>
                   router.push(`/profile/${AllGirls[girlNumberCount]?.id}`)
                 }
-                className="flex justify-center items-center md:h-auto cursor-pointer"
+                className="flex justify-center items-center h-96 md:h-auto cursor-pointer"
               >
                 {/* em currentScreenProps, posso definir diferentes tamanhos para a foto de acordo com a altura ou largura do display do celular */}
                 {/* className={`rounded-3xl shadow shadow-xl brightness-75 shadow-[#EC268F] ${
