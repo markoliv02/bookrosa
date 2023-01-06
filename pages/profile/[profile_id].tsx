@@ -795,7 +795,7 @@ const Profile = () => {
                   <h1 className="text-xl font-semibold">Vídeo</h1>
 
                   <div
-                    className={`flex justify-center w-full h-48 md:h-[33rem] bg-transparent my-5 rounded-3xl shadow shadow-lg shadow-[#EC268F]`}
+                    className={`flex justify-center w-full h-48 md:h-[33rem] bg-gray-400 my-5 rounded-3xl shadow shadow-lg shadow-[#EC268F]`}
                   >
                     <video
                       className="w-full h-48 md:h-[33rem] rounded-3xl"
