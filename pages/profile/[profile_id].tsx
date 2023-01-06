@@ -1054,15 +1054,6 @@ const Profile = () => {
                     </tbody>
                   </table>
                 </div>
-                <div
-                  className={`mb-5 md:hidden h-40 ${
-                    Profile[0]?.destaque ? "text-white" : "text-black"
-                  }`}
-                >
-                  <h1 className="text-xl font-semibold py-5">Descrição</h1>
-
-                  <p className="text=lg">{Profile[0]?.desc}</p>
-                </div>
               </div>
             </div>
           </div>
