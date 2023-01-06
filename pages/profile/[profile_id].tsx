@@ -1063,7 +1063,7 @@ const Profile = () => {
         <div
           onClick={() => {
             window.open(
-              `https://api.whatsapp.com/send?phone=55${Profile[0]?.celular}&text=Olá, vi seu perfil no Casa Branca Sp, gostaria de mais informações `
+              `https://api.whatsapp.com/send?phone=55${Profile[0]?.celular}&text=Ol%C3%A1,%20vi%20seu%20perfil%20no%20Casa%20Branca%20Sp,%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20%E2%9D%A4`
             );
           }}
           className="relative flex justify-center items-center z-20 text-center rounded-xl bg-[#26852B] p-2 text-white cursor-pointer"
