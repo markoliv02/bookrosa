@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import * as React from "react";
 type Props = {};
-import logo from "../assets/logo.svg";
+import logo from "../assets/logoPreta.png";
 import supabase from "../utils/supabase";
 
 import { ToastContainer, toast } from "react-toastify";

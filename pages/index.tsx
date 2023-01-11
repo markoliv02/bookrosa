@@ -11,7 +11,8 @@ import destaque from "../assets/destaque.svg";
 import menuIcon from "../assets/menuIcon.svg";
 import menuIconBlack from "../assets/menuIconBlack.svg";
 
-import logoGold from "../assets/logoRosa.png";
+import logoBranca from "../assets/logoBranca.png";
+import logoPreta from "../assets/logoPreta.png";
 
 import React, { useEffect } from "react";
 import supabase from "../utils/supabase";
@@ -285,7 +286,7 @@ export default function Home() {
                       </span>
                     </h1>
                     <h3 className="relative text-white text-xl">
-                      @{AllGirls[girlNumberCount - 1]?.social_midia}
+                      {/* @{AllGirls[girlNumberCount - 1]?.social_midia} */}
                     </h3>
                   </div>
                 </div>
@@ -314,7 +315,9 @@ export default function Home() {
             </div>
             <div className="flex items-center justify-center md:-mt-20 mb-10 mt-3">
               <Image
-                src={AllGirls[girlNumberCount]?.destaque ? logoGold : logoGold}
+                src={
+                  AllGirls[girlNumberCount]?.destaque ? logoBranca : logoPreta
+                }
                 alt=""
                 width={200}
                 height={200}
@@ -470,7 +473,7 @@ export default function Home() {
                       </span>
                     </h1>
                     <h3 className="relative text-white text-xl">
-                      @{AllGirls[girlNumberCount + 1]?.social_midia}
+                      {/* @{AllGirls[girlNumberCount + 1]?.social_midia} */}
                     </h3>
                   </div>
                 </div>

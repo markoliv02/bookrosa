@@ -8,10 +8,10 @@ import Image from "next/image";
 
 import whatsappIcon from "../../assets/whatsapp.svg";
 import botaoVoltar from "../../assets/botaoVoltar02.svg";
-import botaoVoltarGold from "../../assets/botaoVoltarGold.svg";
 
-import logo from "../../assets/logo.png";
-import logoGold from "../../assets/logoRosa.png";
+import logoBranca from "../../assets/logoBranca.png";
+import logoPreta from "../../assets/logoBranca.png";
+
 import Script from "next/script";
 
 import "react-responsive-carousel/lib/styles/carousel.min.css";
@@ -219,7 +219,7 @@ const Profile = () => {
                 <img
                   src={`https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/001`}
                   alt="Imagem não encontrada"
-                  className="rounded-xl w-full h-[500px] "
+                  className="rounded-xl"
                 />
               </div>
               <div>
@@ -302,7 +302,7 @@ const Profile = () => {
                   onClick={() => {
                     router.push("/");
                   }}
-                  src={Profile[0]?.destaque ? logoGold : logoGold}
+                  src={Profile[0]?.destaque ? logoBranca : logoPreta}
                   alt="Imagem não encontrada"
                   width={300}
                   height={300}
