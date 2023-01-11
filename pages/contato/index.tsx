@@ -1,7 +1,9 @@
 // @flow
 import Image from "next/image";
 import * as React from "react";
-import logoGold from "../../assets/logoRosa.png";
+
+import logo from "../../assets/logoPreta.png";
+
 import whatsappIcon from "../../assets/whatsapp.svg";
 
 let docInit: Document;
@@ -59,7 +61,7 @@ const Contato = () => {
           </svg>
         </div>
         <div className="flex items-center justify-center  mt-3">
-          <Image src={logoGold} alt="" width={200} height={200} />
+          <Image src={logo} alt="" width={200} height={200} />
         </div>
 
         <h1 className="text-2xl font-semibold text-center mt-5">
@@ -82,7 +84,7 @@ const Contato = () => {
 
         <div className="w-full flex justify-center">
           <a
-            href="https://wa.me/5511953986786?text=Ol%C3%A1%2C+gostaria+de+divulgar+com+a+Casa+Branca"
+            href="https://wa.me/5511953986786?text=Ol%C3%A1%2C+gostaria+de+divulgar+com+a+Base+Rosa"
             className="text-white flex justify-center items-center bg-[#64B161] rounded-full p-5 w-40 my-5 cursor-pointer"
           >
             <Image
