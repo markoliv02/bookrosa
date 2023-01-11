@@ -184,6 +184,87 @@ const Profile = () => {
 
   return (
     <>
+      {viewPhotoMode && (
+        <div>
+          <div
+            id="botão fechar X"
+            className="flex justify-end cursor-pointer rounded-full m-3"
+            onClick={() => setViewPhotoMode(!viewPhotoMode)}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth="1.5"
+              stroke="currentColor"
+              className="w-7 h-7 bg-white rounded-full text-black"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </div>
+          <div className="w-full flex justify-center">
+            <Carousel
+              showIndicators={false}
+              showThumbs={false}
+              swipeable={true}
+              showStatus={false}
+              selectedItem={currentPhotoInViewMode}
+              className="w-full md:w-[450px"
+            >
+              <div>
+                <img
+                  src={`https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/001`}
+                  alt="Imagem não encontrada"
+                  className="rounded-xl w-full h-[500px] "
+                />
+              </div>
+              <div>
+                <img
+                  src={`https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/002`}
+                  alt="Imagem não encontrada"
+                  className="rounded-xl"
+                />
+              </div>
+              <div>
+                <img
+                  src={`https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/003`}
+                  alt="Imagem não encontrada"
+                  className="rounded-xl"
+                />
+              </div>
+              <div>
+                <img
+                  src={`https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/004`}
+                  alt="Imagem não encontrada"
+                  className="rounded-xl"
+                />
+              </div>
+              <div>
+                <img
+                  src={`https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/005`}
+                  alt="Imagem não encontrada"
+                  className="rounded-xl"
+                />
+              </div>
+              <div>
+                <img
+                  src={`https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/006`}
+                  alt="Imagem não encontrada"
+                  className="rounded-xl"
+                />
+              </div>
+            </Carousel>
+          </div>
+
+          {/* <div className="flex justify-center items-center ">
+            <img src={currentPhotoInViewMode} alt="Imagem não encontrada" />
+          </div> */}
+        </div>
+      )}
       <div className="container mx-auto px-7 text-black">
         <Head>
           <title>{Profile[0]?.nome} - Casa Branca</title>
@@ -204,111 +285,33 @@ const Profile = () => {
         </Script>
         <div className="grid grid-cols-4 md:grid-cols-1">
           {!viewPhotoMode && (
-            <div
-              className="mt-5 cursor-pointer md:hidden"
-              onClick={() => document.location.replace("/")}
-            >
-              <Image
-                src={botaoVoltar}
-                alt="Imagem não encontrada"
-                width={40}
-                height={40}
-              />
-            </div>
-          )}
-          <div className="flex items-center justify-between md:justify-center mt-5 col-span-2 ">
-            <Image
-              onClick={() => {
-                router.push("/");
-              }}
-              src={Profile[0]?.destaque ? logoGold : logoGold}
-              alt="Imagem não encontrada"
-              width={300}
-              height={300}
-              className="cursor-pointer"
-            />
-          </div>
-        </div>
-        {viewPhotoMode && (
-          <div>
-            <div
-              className="flex justify-end cursor-pointer rounded-full mb-3"
-              onClick={() => setViewPhotoMode(!viewPhotoMode)}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth="1.5"
-                stroke="currentColor"
-                className="w-7 h-7 bg-white rounded-full"
+            <>
+              <div
+                className="mt-5 cursor-pointer md:hidden"
+                onClick={() => document.location.replace("/")}
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M6 18L18 6M6 6l12 12"
+                <Image
+                  src={botaoVoltar}
+                  alt="Imagem não encontrada"
+                  width={40}
+                  height={40}
                 />
-              </svg>
-            </div>
-            <div className="w-full flex justify-center">
-              <Carousel
-                showIndicators={false}
-                showThumbs={false}
-                swipeable={true}
-                showStatus={false}
-                selectedItem={currentPhotoInViewMode}
-                className="w-96 md:w-[450px"
-              >
-                <div>
-                  <img
-                    src={`https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/001`}
-                    alt="Imagem não encontrada"
-                    className="rounded-xl"
-                  />
-                </div>
-                <div>
-                  <img
-                    src={`https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/002`}
-                    alt="Imagem não encontrada"
-                    className="rounded-xl"
-                  />
-                </div>
-                <div>
-                  <img
-                    src={`https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/003`}
-                    alt="Imagem não encontrada"
-                    className="rounded-xl"
-                  />
-                </div>
-                <div>
-                  <img
-                    src={`https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/004`}
-                    alt="Imagem não encontrada"
-                    className="rounded-xl"
-                  />
-                </div>
-                <div>
-                  <img
-                    src={`https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/005`}
-                    alt="Imagem não encontrada"
-                    className="rounded-xl"
-                  />
-                </div>
-                <div>
-                  <img
-                    src={`https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/006`}
-                    alt="Imagem não encontrada"
-                    className="rounded-xl"
-                  />
-                </div>
-              </Carousel>
-            </div>
-
-            {/* <div className="flex justify-center items-center ">
-            <img src={currentPhotoInViewMode} alt="Imagem não encontrada" />
-          </div> */}
-          </div>
-        )}
+              </div>
+              <div className="flex items-center justify-between md:justify-center mt-5 col-span-2 ">
+                <Image
+                  onClick={() => {
+                    router.push("/");
+                  }}
+                  src={Profile[0]?.destaque ? logoGold : logoGold}
+                  alt="Imagem não encontrada"
+                  width={300}
+                  height={300}
+                  className="cursor-pointer"
+                />
+              </div>
+            </>
+          )}
+        </div>
 
         {viewPhotoMode === false && (
           <div>
