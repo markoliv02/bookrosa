@@ -65,7 +65,7 @@ const Contato = () => {
         </div>
 
         <h1 className="text-2xl font-semibold text-center mt-5">
-          Anuncie agora mesmo com A Casa Branca São Paulo{" "}
+          Anuncie agora mesmo com A Base Rosa São Paulo{" "}
         </h1>
 
         <p className="text-center mt-3">

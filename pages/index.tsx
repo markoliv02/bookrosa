@@ -234,7 +234,7 @@ export default function Home() {
   return (
     <div className="container mx-auto text-black">
       <Head>
-        <title>Casa Branca - Home</title>
+        <title>Base Rosa - Home</title>
         <meta
           name="description"
           content="Diversas garotas acompanhantes para qualquer gosto e qualquer hora"
