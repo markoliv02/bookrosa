@@ -9,8 +9,7 @@ import Image from "next/image";
 import whatsappIcon from "../../assets/whatsapp.svg";
 import botaoVoltar from "../../assets/botaoVoltar02.svg";
 
-import logoBranca from "../../assets/logoBranca.png";
-import logoPreta from "../../assets/logoBranca.png";
+import logoRosa from "../../assets/logoRosa.png";
 
 import Script from "next/script";
 
@@ -302,7 +301,7 @@ const Profile = () => {
                   onClick={() => {
                     router.push("/");
                   }}
-                  src={Profile[0]?.destaque ? logoBranca : logoPreta}
+                  src={Profile[0]?.destaque ? logoRosa : logoRosa}
                   alt="Imagem não encontrada"
                   width={300}
                   height={300}

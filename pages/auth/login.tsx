@@ -2,7 +2,7 @@
 import Image from "next/image";
 import * as React from "react";
 
-import logo from "../../assets/logoPreta.png";
+import logo from "../../assets/logoRosa.png";
 
 import { useForm } from "react-hook-form";
 

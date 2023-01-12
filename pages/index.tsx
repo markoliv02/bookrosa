@@ -11,8 +11,8 @@ import destaque from "../assets/destaque.svg";
 import menuIcon from "../assets/menuIcon.svg";
 import menuIconBlack from "../assets/menuIconBlack.svg";
 
-import logoBranca from "../assets/logoBranca.png";
-import logoPreta from "../assets/logoPreta.png";
+import logoRosa from "../assets/logoRosa.png";
+
 
 import React, { useEffect } from "react";
 import supabase from "../utils/supabase";
@@ -316,7 +316,7 @@ export default function Home() {
             <div className="flex items-center justify-center md:-mt-20 mb-10 mt-3">
               <Image
                 src={
-                  AllGirls[girlNumberCount]?.destaque ? logoBranca : logoPreta
+                  AllGirls[girlNumberCount]?.destaque ? logoRosa : logoRosa
                 }
                 alt=""
                 width={200}
