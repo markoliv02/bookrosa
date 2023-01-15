@@ -13,6 +13,7 @@ import menuIconBlack from "../assets/menuIconBlack.svg";
 
 import logoRosa from "../assets/logoRosa.png";
 
+
 import React, { useEffect } from "react";
 import supabase from "../utils/supabase";
 import { useRouter } from "next/router";
@@ -256,31 +257,31 @@ export default function Home() {
       <div className="md:grid md:grid-cols-3 md:h-screen">
         <div
           id="garota anterior"
-          className="hidden md:flex flex-wrap justify-center items-center mr-10 mt-20"
+          className="hidden md:flex flex-wrap justify-center items-center mr-10"
         >
           <div>
             <h1 className="w-full text-3xl font-semibold text-white my-5 ml-2">
               Anterior
             </h1>
             {girlNumberCount === 0 && (
-              <div className="flex justify-center shadow-md shadow-[#EC268F] items-center text-2xl text-[#828282] bg-white w-full rounded-3xl md:w-[250px] lg:w-[300px] xl:w-[350px] 2xl:w-[400px] md:h-[300px] lg:h-[350px] xl:h-[500px] 2xl:h-[600px]">
+              <div className="flex justify-center shadow-md shadow-[#EC268F] items-center text-2xl text-[#828282] bg-white w-full rounded-3xl md:w-[250px] lg:w-[300px] xl:w-[350px] 2xl:w-[400px] md:h-[300px] lg:h-[400px] xl:h-[500px] 2xl:h-[600px]">
                 <h1>Vazio</h1>
               </div>
             )}
             {girlNumberCount > 0 && (
               <div>
-                <div className="rounded-3xl shadow-md shadow-[#EC268F] md:w-[250px] lg:w-[300px] xl:w-[350px] 2xl:w-[400px] md:h-[300px] lg:h-[350px] xl:h-[500px] 2xl:h-[600px]">
+                <div className="rounded-3xl shadow-md shadow-[#EC268F] md:w-[250px] lg:w-[300px] xl:w-[350px] 2xl:w-[400px] md:h-[300px] lg:h-[400px] xl:h-[500px] 2xl:h-[600px]">
                   <img
                     src={previousGirl}
                     alt=""
-                    className="rounded-3xl md:w-[250px] lg:w-[300px] xl:w-[350px] 2xl:w-[400px] md:h-[300px] lg:h-[350px] xl:h-[500px] 2xl:h-[600px] brightness-75"
+                    className="rounded-3xl md:w-[250px] lg:w-[300px] xl:w-[350px] 2xl:w-[400px] md:h-[300px] lg:h-[400px] xl:h-[500px] 2xl:h-[600px] brightness-75"
                   />
                 </div>
                 <div className="flex items-end z-10 h-5/6 2xl:ml-10 -mt-24 ml-5">
                   <div>
-                    <h1 className="relative text-white text-4xl lg:text-2xl md:text-xl font-semibold">
+                    <h1 className="relative text-white text-4xl font-semibold">
                       {AllGirls[girlNumberCount - 1]?.nome}{" "}
-                      <span className="text-3xl lg:text-xl md:text-xl">
+                      <span className="text-3xl">
                         {AllGirls[girlNumberCount - 1]?.idade}
                       </span>
                     </h1>
@@ -314,7 +315,9 @@ export default function Home() {
             </div>
             <div className="flex items-center justify-center md:-mt-20 mb-10 mt-3">
               <Image
-                src={AllGirls[girlNumberCount]?.destaque ? logoRosa : logoRosa}
+                src={
+                  AllGirls[girlNumberCount]?.destaque ? logoRosa : logoRosa
+                }
                 alt=""
                 width={200}
                 height={200}
@@ -353,7 +356,7 @@ export default function Home() {
                 <img
                   src={currentGirl}
                   alt=""
-                  className={`rounded-3xl shadow shadow-xl brightness-75 shadow-[#EC268F]  md:w-[250px] lg:w-[300px] xl:w-[350px] 2xl:w-[400px] md:h-[300px] lg:h-[350px] xl:h-[500px] 2xl:h-[600px]`}
+                  className={`rounded-3xl shadow shadow-xl brightness-75 shadow-[#EC268F]  md:w-[250px] lg:w-[300px] xl:w-[350px] 2xl:w-[400px] md:h-[300px] lg:h-[400px] xl:h-[500px] 2xl:h-[600px]`}
                 />
               </div>
 
@@ -370,10 +373,10 @@ export default function Home() {
                   className="flex items-end z-10 h-5/6 2xl:ml-10 cursor-pointer ml-2"
                 >
                   <div>
-                    <h1 className="flex items-center w-full relative text-white text-4xl lg:text-3xl md:text-xl font-semibold">
+                    <h1 className="flex items-center w-full relative text-white text-4xl font-semibold">
                       <Image src={verificada} alt="" className="mr-1" />
                       {currentName[0]}{" "}
-                      <span className="ml-2 text-3xl lg:text-2xl md:text-xl">
+                      <span className="ml-2 text-3xl">
                         {AllGirls[girlNumberCount]?.idade === "0"
                           ? " "
                           : AllGirls[girlNumberCount]?.idade}
@@ -441,31 +444,31 @@ export default function Home() {
         </div>
         <div
           id="proxima garota"
-          className="hidden md:flex flex-wrap justify-center items-center abg-[#FF93C6] ml-10 mt-20"
+          className="hidden md:flex flex-wrap justify-center items-center abg-[#FF93C6] ml-10"
         >
           <div>
             <h1 className="w-full text-3xl font-semibold text-white my-5 ml-2">
               Próxima
             </h1>
             {girlNumberCount + 1 === AllGirls.length && (
-              <div className="flex justify-center shadow-md shadow-[#EC268F] items-center text-2xl text-[#828282] bg-white w-full rounded-3xl md:w-[250px] lg:w-[300px] xl:w-[350px] 2xl:w-[400px] md:h-[300px] lg:h-[350px] xl:h-[500px] 2xl:h-[600px]">
+              <div className="flex justify-center shadow-md shadow-[#EC268F] items-center text-2xl text-[#828282] bg-white w-full rounded-3xl md:w-[250px] lg:w-[300px] xl:w-[350px] 2xl:w-[400px] md:h-[300px] lg:h-[400px] xl:h-[500px] 2xl:h-[600px]">
                 <h1>Vazio</h1>
               </div>
             )}
             {girlNumberCount + 1 < AllGirls.length && (
               <div>
-                <div className="rounded-3xl shadow-md shadow-[#EC268F] md:w-[250px] lg:w-[300px] xl:w-[350px] 2xl:w-[400px] md:h-[300px] lg:h-[350px] xl:h-[500px] 2xl:h-[600px]">
+                <div className="rounded-3xl shadow-md shadow-[#EC268F] md:w-[250px] lg:w-[300px] xl:w-[350px] 2xl:w-[400px] md:h-[300px] lg:h-[400px] xl:h-[500px] 2xl:h-[600px]">
                   <img
                     src={nextGirl}
                     alt=""
-                    className="rounded-3xl md:w-[250px] lg:w-[300px] xl:w-[350px] 2xl:w-[400px] md:h-[300px] lg:h-[350px] xl:h-[500px] 2xl:h-[600px] brightness-75"
+                    className="rounded-3xl md:w-[250px] lg:w-[300px] xl:w-[350px] 2xl:w-[400px] md:h-[300px] lg:h-[400px] xl:h-[500px] 2xl:h-[600px] brightness-75"
                   />
                 </div>
                 <div className="flex items-end z-10 h-5/6 2xl:ml-10 -mt-24 ml-5">
                   <div>
-                    <h1 className="relative text-white text-4xl lg:text-2xl md:text-xl font-semibold">
+                    <h1 className="relative text-white text-4xl font-semibold">
                       {AllGirls[girlNumberCount + 1]?.nome}{" "}
-                      <span className="text-3xl lg:text-xl md:text-xl">
+                      <span className="text-3xl">
                         {AllGirls[girlNumberCount + 1]?.idade}
                       </span>
                     </h1>
