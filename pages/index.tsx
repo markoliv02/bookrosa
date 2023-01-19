@@ -256,7 +256,7 @@ export default function Home() {
       <div className="md:grid md:grid-cols-3 md:h-screen">
         <div
           id="garota anterior"
-          className="hidden md:flex flex-wrap justify-center items-center mr-10 mt-20"
+          className="hidden md:flex flex-wrap justify-center items-center mr-3 mt-20"
         >
           <div>
             <h1 className="w-full text-3xl font-semibold text-white my-5 ml-2">
@@ -269,11 +269,11 @@ export default function Home() {
             )}
             {girlNumberCount > 0 && (
               <div>
-                <div className="rounded-3xl shadow-md shadow-[#EC268F] md:w-[250px] lg:w-[300px] xl:w-[350px] 2xl:w-[400px] md:h-[300px] lg:h-[350px] xl:h-[500px] 2xl:h-[600px]">
+                <div className="rounded-3xl shadow-md shadow-[#EC268F] md:w-[150px] lg:w-[250px] xl:w-[300px] 2xl:w-[350px] md:h-[200px] lg:h-[300px] xl:h-[400px] 2xl:h-[500px]">
                   <img
                     src={previousGirl}
                     alt=""
-                    className="rounded-3xl md:w-[250px] lg:w-[300px] xl:w-[350px] 2xl:w-[400px] md:h-[300px] lg:h-[350px] xl:h-[500px] 2xl:h-[600px] brightness-75"
+                    className="rounded-3xl md:w-[150px] lg:w-[250px] xl:w-[300px] 2xl:w-[350px] md:h-[200px] lg:h-[300px] xl:h-[400px] 2xl:h-[500px] brightness-75"
                   />
                 </div>
                 <div className="flex items-end z-10 h-5/6 2xl:ml-10 -mt-24 ml-5">
@@ -353,7 +353,7 @@ export default function Home() {
                 <img
                   src={currentGirl}
                   alt=""
-                  className={`rounded-3xl shadow shadow-xl brightness-75 shadow-[#EC268F]  md:w-[250px] lg:w-[300px] xl:w-[350px] 2xl:w-[400px] md:h-[300px] lg:h-[350px] xl:h-[500px] 2xl:h-[600px]`}
+                  className={`rounded-3xl shadow shadow-xl brightness-75 shadow-[#EC268F]  md:w-[150px] lg:w-[300px] xl:w-[300px] 2xl:w-[350px] md:h-[200px] lg:h-[350px] xl:h-[400px] 2xl:h-[500px]`}
                 />
               </div>
 
@@ -367,7 +367,7 @@ export default function Home() {
                   onClick={() =>
                     router.push(`/profile/${AllGirls[girlNumberCount]?.id}`)
                   }
-                  className="flex items-end z-10 h-5/6 2xl:ml-10 cursor-pointer ml-2"
+                  className="flex items-end z-10 h-5/6 xl:ml-5 2xl:ml-10 cursor-pointer ml-2"
                 >
                   <div>
                     <h1 className="flex items-center w-full relative text-white text-4xl lg:text-3xl md:text-xl font-semibold">
@@ -401,14 +401,14 @@ export default function Home() {
                       src={botaoVoltar}
                       alt=""
                       quality={100}
-                      className="w-16 h-16 md:w-10 md:h-10 lg:w-16 lg:h-16 xl:w-20 xl:h-20 2xl:w-24 2xl:h-24 cursor-pointer"
+                      className="w-16 h-16 md:w-10 md:h-10 lg:w-14 lg:h-14 xl:w-16 xl:h-16 2xl:w-20 2xl:h-20 cursor-pointer"
                     />
                   </div>
 
                   <div
                     id="botao match"
                     onClick={() => handleCountClick()}
-                    className="z-20 -mt-10 sm:-mt-14 md:-mt-10 lg:-mt-14 xl:-mt-36 2xl:-mt-28 w-full flex justify-center items-center md:items-end cursor-pointer"
+                    className="z-20 -mt-10 sm:-mt-14 md:-mt-10 lg:-mt-12 xl:-mt-32 2xl:-mt-24 w-full flex justify-center items-center md:items-end cursor-pointer"
                   >
                     <Image
                       src={botaoMatch}
@@ -431,7 +431,7 @@ export default function Home() {
                       src={botaoX}
                       alt=""
                       quality={100}
-                      className="w-16 h-16 md:w-10 md:h-10 lg:w-16 lg:h-16 xl:w-20 xl:h-20 2xl:w-24 2xl:h-24 cursor-pointer"
+                      className="w-16 h-16 md:w-10 md:h-10 lg:w-14 lg:h-14 xl:w-16 xl:h-16 2xl:w-20 2xl:h-20 cursor-pointer"
                     />
                   </div>
                 </div>
@@ -441,7 +441,7 @@ export default function Home() {
         </div>
         <div
           id="proxima garota"
-          className="hidden md:flex flex-wrap justify-center items-center abg-[#FF93C6] ml-10 mt-20"
+          className="hidden md:flex flex-wrap justify-center items-center abg-[#FF93C6] ml-3 mt-20"
         >
           <div>
             <h1 className="w-full text-3xl font-semibold text-white my-5 ml-2">
@@ -454,11 +454,11 @@ export default function Home() {
             )}
             {girlNumberCount + 1 < AllGirls.length && (
               <div>
-                <div className="rounded-3xl shadow-md shadow-[#EC268F] md:w-[250px] lg:w-[300px] xl:w-[350px] 2xl:w-[400px] md:h-[300px] lg:h-[350px] xl:h-[500px] 2xl:h-[600px]">
+                <div className="rounded-3xl shadow-md shadow-[#EC268F] md:w-[150px] lg:w-[250px] xl:w-[300px] 2xl:w-[350px] md:h-[200px] lg:h-[300px] xl:h-[400px] 2xl:h-[500px]">
                   <img
                     src={nextGirl}
                     alt=""
-                    className="rounded-3xl md:w-[250px] lg:w-[300px] xl:w-[350px] 2xl:w-[400px] md:h-[300px] lg:h-[350px] xl:h-[500px] 2xl:h-[600px] brightness-75"
+                    className="rounded-3xl md:w-[150px] lg:w-[250px] xl:w-[300px] 2xl:w-[350px] md:h-[200px] lg:h-[300px] xl:h-[400px] 2xl:h-[500px] brightness-75"
                   />
                 </div>
                 <div className="flex items-end z-10 h-5/6 2xl:ml-10 -mt-24 ml-5">
