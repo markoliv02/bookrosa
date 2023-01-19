@@ -212,7 +212,7 @@ const Profile = () => {
               swipeable={true}
               showStatus={false}
               selectedItem={currentPhotoInViewMode}
-              className="w-full md:w-[450px"
+              className="w-full md:w-[550px]"
             >
               <div>
                 <img
