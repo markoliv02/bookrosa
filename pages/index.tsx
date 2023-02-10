@@ -6,6 +6,7 @@ import botaoVoltar from "../assets/botaoVoltar.png";
 
 import botaoMatch from "../assets/botaoMatchP.png";
 
+import telegramIcon from "../assets/telegram.svg";
 import verificada from "../assets/verificadoIcon.svg";
 import destaque from "../assets/destaque.svg";
 import menuIcon from "../assets/menuIcon.svg";
@@ -300,17 +301,31 @@ export default function Home() {
           className={`flex items-center `}
         >
           <div className="mb-82">
-            <div className="flex justify-end w-full ">
-              <Image
-                src={
-                  AllGirls[girlNumberCount]?.destaque ? menuIcon : menuIconBlack
-                }
-                alt=""
-                className="mr-5 md:-mt-32 mt-5 cursor-pointer"
-                onClick={() => {
-                  document.location.replace("/contato");
-                }}
-              />
+            <div className="flex justify-between w-full">
+              <div className="flex justify-start w-full ">
+                <Image
+                  src={telegramIcon}
+                  alt=""
+                  className="ml-5 md:-mt-32 mt-5 cursor-pointer"
+                  onClick={() => {
+                    document.location.replace("https://t.me/Garotas_BaseRosa");
+                  }}
+                />
+              </div>
+              <div className="flex justify-end w-full ">
+                <Image
+                  src={
+                    AllGirls[girlNumberCount]?.destaque
+                      ? menuIcon
+                      : menuIconBlack
+                  }
+                  alt=""
+                  className="mr-5 md:-mt-32 mt-5 cursor-pointer"
+                  onClick={() => {
+                    document.location.replace("/contato");
+                  }}
+                />
+              </div>
             </div>
             <div className="flex items-center justify-center md:-mt-20 mb-10 mt-3">
               <Image
@@ -320,6 +335,7 @@ export default function Home() {
                 height={200}
               />
             </div>
+
             <div
               id="img bnt"
               className="flex justify-center flex-wrap mb-5 mt-2 bg-transparent px-5 "
@@ -367,13 +383,14 @@ export default function Home() {
                   onClick={() =>
                     router.push(`/profile/${AllGirls[girlNumberCount]?.id}`)
                   }
-                  className="flex items-end z-10 h-5/6 xl:ml-5 2xl:ml-10 cursor-pointer ml-2"
+                  className="flex items-end z-10 h-5/6 xl:ml-5 2xl:ml-10 cursor-pointer -ml-5"
                 >
                   <div>
-                    <h1 className="flex items-center w-full relative text-white text-4xl lg:text-3xl md:text-xl font-semibold">
+                    <h1 className="flex items-end w-full relative text-white text-3xl lg:text-3xl md:text-xl font-semibold">
                       <Image src={verificada} alt="" className="mr-1" />
-                      {currentName[0]}{" "}
-                      <span className="ml-2 text-3xl lg:text-2xl md:text-xl">
+                      {currentName[0]}
+                      <span className="ml-2 text-2xl lg:text-2xl md:text-xl">
+                        <span>{currentName[1]} </span>
                         {AllGirls[girlNumberCount]?.idade === "0"
                           ? " "
                           : AllGirls[girlNumberCount]?.idade}
