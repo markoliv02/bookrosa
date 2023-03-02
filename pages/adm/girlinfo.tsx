@@ -1,4 +1,6 @@
 // @flow
+// PÁGINA DE CADASTRO DAS GAROTAS
+
 import Image from "next/image";
 import * as React from "react";
 type Props = {};
@@ -60,6 +62,8 @@ const GirlsInfo = (props: Props) => {
     especialidades: Yup.string(),
     conteudo_digital: Yup.boolean(),
     viagens: Yup.boolean(),
+    possui_silicone: Yup.boolean(),
+    anal_com_adicional: Yup.boolean(),
     cor_olhos: Yup.string(),
     onlyfans: Yup.string(),
     privacy: Yup.string(),
@@ -128,6 +132,8 @@ const GirlsInfo = (props: Props) => {
             especialidades: data?.especialidades,
             privacy: data?.privacy,
             onlyfans: data?.onlyfans,
+            possui_silicone: data?.possui_silicone,
+            anal_com_adicional: data?.anal_com_adicional,
           },
         ]);
 
@@ -458,6 +464,32 @@ const GirlsInfo = (props: Props) => {
                     <div className="w-11 h-6 bg-[#D9D9D9] peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-[#FA00FF] rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#FA00FF]"></div>
                     <span className="ml-3 text-sm font-medium text-gray-900">
                       VIAGENS
+                    </span>
+                  </label>
+                  <label className="inline-flex relative items-center cursor-pointer w-full">
+                    <input
+                      type="checkbox"
+                      value=""
+                      className="sr-only peer"
+                      {...register("possui_silicone")}
+                    />
+
+                    <div className="w-11 h-6 bg-[#D9D9D9] peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-[#FA00FF] rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#FA00FF]"></div>
+                    <span className="ml-3 text-sm font-medium text-gray-900">
+                      POSSUI SÍLICONE
+                    </span>
+                  </label>
+                  <label className="inline-flex relative items-center cursor-pointer w-full">
+                    <input
+                      type="checkbox"
+                      value=""
+                      className="sr-only peer"
+                      {...register("anal_com_adicional")}
+                    />
+
+                    <div className="w-11 h-6 bg-[#D9D9D9] peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-[#FA00FF] rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#FA00FF]"></div>
+                    <span className="ml-3 text-sm font-medium text-gray-900">
+                      ANAL COM ADICIONAL
                     </span>
                   </label>
                 </div>
