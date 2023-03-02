@@ -1,4 +1,5 @@
 // @flow
+// PÁGINA DE EDIÇÃO DO PERFIL DAS GAROTAS
 import * as React from "react";
 type Props = {};
 
@@ -195,6 +196,42 @@ const EditGirlsInfo = (props: Props) => {
       const { data, error } = await supabase
         .from("acompanhantes")
         .update({ conteudo_digital: !Profile[0]?.conteudo_digital })
+        .eq("id", id);
+
+      if (error) {
+        console.error("Error updating ", error);
+      } else {
+        toast.success("alterado com sucesso !");
+        setTimeout(() => {
+          document.location.reload();
+        }, 1000);
+      }
+    } catch (error) {}
+  };
+
+  const handleEditPossuiSilicone = async () => {
+    try {
+      const { data, error } = await supabase
+        .from("acompanhantes")
+        .update({ possui_silicone: !Profile[0]?.possui_silicone })
+        .eq("id", id);
+
+      if (error) {
+        console.error("Error updating ", error);
+      } else {
+        toast.success("alterado com sucesso !");
+        setTimeout(() => {
+          document.location.reload();
+        }, 1000);
+      }
+    } catch (error) {}
+  };
+
+  const handleEditAnalAdicional = async () => {
+    try {
+      const { data, error } = await supabase
+        .from("acompanhantes")
+        .update({ anal_com_adicional: !Profile[0]?.anal_com_adicional })
         .eq("id", id);
 
       if (error) {
@@ -1721,6 +1758,30 @@ const EditGirlsInfo = (props: Props) => {
 
                         <span className="ml-3 text-sm font-medium text-gray-900 ">
                           ATIVA ?
+                        </span>
+                      </div>
+                      <div className="flex items-center cursor-pointer my-3">
+                        <input
+                          type="checkbox"
+                          onChange={handleEditPossuiSilicone}
+                          className="w-10 h-10 rounded-3xl cursor-pointer"
+                          checked={Profile[0]?.possui_silicone}
+                        />
+
+                        <span className="ml-3 text-sm font-medium text-gray-900 ">
+                          POSSUI SILICONE
+                        </span>
+                      </div>
+                      <div className="flex items-center cursor-pointer my-3">
+                        <input
+                          type="checkbox"
+                          onChange={handleEditAnalAdicional}
+                          className="w-10 h-10 rounded-3xl cursor-pointer"
+                          checked={Profile[0]?.anal_com_adicional}
+                        />
+
+                        <span className="ml-3 text-sm font-medium text-gray-900 ">
+                          ANAL COM ADICIONAL
                         </span>
                       </div>
                       <div className="flex justify-end w-full">
