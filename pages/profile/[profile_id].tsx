@@ -173,7 +173,7 @@ const Profile = () => {
     setid(`${query.profile_id}`);
     setDom(document);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    //não colocar ',[]' pois se colocar quando der reload na pagina não vai carregar os dados
+    //Não colocar ',[]' pois se colocar quando der reload na pagina Não vai carregar os dados
   });
 
   React.useEffect(() => {
@@ -217,42 +217,42 @@ const Profile = () => {
               <div>
                 <img
                   src={`https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/001`}
-                  alt="Imagem não encontrada"
+                  alt="Imagem Não encontrada"
                   className="rounded-xl"
                 />
               </div>
               <div>
                 <img
                   src={`https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/002`}
-                  alt="Imagem não encontrada"
+                  alt="Imagem Não encontrada"
                   className="rounded-xl"
                 />
               </div>
               <div>
                 <img
                   src={`https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/003`}
-                  alt="Imagem não encontrada"
+                  alt="Imagem Não encontrada"
                   className="rounded-xl"
                 />
               </div>
               <div>
                 <img
                   src={`https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/004`}
-                  alt="Imagem não encontrada"
+                  alt="Imagem Não encontrada"
                   className="rounded-xl"
                 />
               </div>
               <div>
                 <img
                   src={`https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/005`}
-                  alt="Imagem não encontrada"
+                  alt="Imagem Não encontrada"
                   className="rounded-xl"
                 />
               </div>
               <div>
                 <img
                   src={`https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/006`}
-                  alt="Imagem não encontrada"
+                  alt="Imagem Não encontrada"
                   className="rounded-xl"
                 />
               </div>
@@ -260,7 +260,7 @@ const Profile = () => {
           </div>
 
           {/* <div className="flex justify-center items-center ">
-            <img src={currentPhotoInViewMode} alt="Imagem não encontrada" />
+            <img src={currentPhotoInViewMode} alt="Imagem Não encontrada" />
           </div> */}
         </div>
       )}
@@ -291,7 +291,7 @@ const Profile = () => {
               >
                 <Image
                   src={botaoVoltar}
-                  alt="Imagem não encontrada"
+                  alt="Imagem Não encontrada"
                   width={40}
                   height={40}
                 />
@@ -302,7 +302,7 @@ const Profile = () => {
                     router.push("/");
                   }}
                   src={Profile[0]?.destaque ? logoRosa : logoRosa}
-                  alt="Imagem não encontrada"
+                  alt="Imagem Não encontrada"
                   width={300}
                   height={300}
                   className="cursor-pointer"
@@ -324,7 +324,7 @@ const Profile = () => {
                       <div className="w-24 h-24 xl:w-32 xl:h-32">
                         <img
                           src={profileImage}
-                          alt="Imagem não encontrada"
+                          alt="Imagem Não encontrada"
                           className="rounded-full w-full h-full object-cover shadow shadow-lg shadow-[#EC268F]"
                         />
                       </div>
@@ -349,7 +349,7 @@ const Profile = () => {
                                 ? whatsappIcon
                                 : "https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/default"
                             }
-                            alt="Imagem não encontrada"
+                            alt="Imagem Não encontrada"
                             className="z-10 rounded-full"
                           />
 
@@ -391,7 +391,7 @@ const Profile = () => {
                               >
                                 <Image
                                   src={onlyfans}
-                                  alt="Imagem não encontrada"
+                                  alt="Imagem Não encontrada"
                                   width={40}
                                   className="mr-3"
                                 />
@@ -416,7 +416,7 @@ const Profile = () => {
                               >
                                 <Image
                                   src={privacy}
-                                  alt="Imagem não encontrada"
+                                  alt="Imagem Não encontrada"
                                   width={40}
                                   className="mr-3"
                                 />
@@ -543,7 +543,7 @@ const Profile = () => {
                             Possui Silicone
                           </th>
                           <td className="py-4 px-6 text-sm md:px-2">
-                            {Profile[0]?.possui_silicone ? "sim" : "não"}
+                            {Profile[0]?.possui_silicone ? "Sim" : "Não"}
                           </td>
                         </tr>
                         <tr className="bg-[#EBE9E9] ">
@@ -554,7 +554,7 @@ const Profile = () => {
                             Anal com Adicional
                           </th>
                           <td className="py-4 px-6 text-sm md:px-2">
-                            {Profile[0]?.anal_com_adicional ? "sim" : "não"}
+                            {Profile[0]?.anal_com_adicional ? "Sim" : "Não"}
                           </td>
                         </tr>
                         <tr className="bg-[#D9D9D9] ">
@@ -566,8 +566,8 @@ const Profile = () => {
                           </th>
                           <td className="py-4 px-6 text-sm md:px-2">
                             {Profile[0]?.disponivel_para_viagens
-                              ? "sim"
-                              : "não"}
+                              ? "Sim"
+                              : "Não"}
                           </td>
                         </tr>
                         <tr className="bg-[#EBE9E9] ">
@@ -578,7 +578,7 @@ const Profile = () => {
                             Vende conteúdo digital
                           </th>
                           <td className="py-4 px-6 text-sm md:px-2">
-                            {Profile[0]?.conteudo_digital ? "sim" : "não"}
+                            {Profile[0]?.conteudo_digital ? "Sim" : "Não"}
                           </td>
                         </tr>
 
@@ -686,7 +686,7 @@ const Profile = () => {
                           ? `https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/001`
                           : "https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/default"
                       }
-                      alt="Imagem não encontrada"
+                      alt="Imagem Não encontrada"
                       className={`rounded-3xl shadow object-cover h-full md:h-[33rem] rounded-3xl shadow shadow-lg shadow-[#EC268F]`}
                     />
                   </div>
@@ -705,7 +705,7 @@ const Profile = () => {
                             ? `https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/002`
                             : "https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/default"
                         }
-                        alt="Imagem não encontrada"
+                        alt="Imagem Não encontrada"
                         className={`rounded-3xl shadow  h-full md:h-[16rem] w-full object-cover`}
                       />
                     </div>
@@ -723,7 +723,7 @@ const Profile = () => {
                             ? `https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/003`
                             : "https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/default"
                         }
-                        alt="Imagem não encontrada"
+                        alt="Imagem Não encontrada"
                         className={`rounded-3xl shadow h-full md:h-[16rem] w-full object-cover`}
                       />
                     </div>
@@ -742,7 +742,7 @@ const Profile = () => {
                           ? `https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/004`
                           : "https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/default"
                       }
-                      alt="Imagem não encontrada"
+                      alt="Imagem Não encontrada"
                       className={`md:h-[33rem] h-full object-cover rounded-3xl shadow shadow-lg shadow-[#EC268F]`}
                     />
                   </div>
@@ -768,7 +768,7 @@ const Profile = () => {
                           ? `https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/005`
                           : "https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/404"
                       }
-                      alt="Imagem não encontrada"
+                      alt="Imagem Não encontrada"
                       className={`md:h-[33rem] full object-cover rounded-3xl shadow shadow-lg shadow-[#EC268F]`}
                     />
                   </div>
@@ -786,7 +786,7 @@ const Profile = () => {
                           ? `https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/${Profile[0]?.id}/galery/006`
                           : "https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/default"
                       }
-                      alt="Imagem não encontrada"
+                      alt="Imagem Não encontrada"
                       className={`h-full md:h-[33rem] object-cover rounded-3xl shadow shadow-lg shadow-[#EC268F]`}
                     />
                   </div>
@@ -831,7 +831,7 @@ const Profile = () => {
                             >
                               <Image
                                 src={onlyfans}
-                                alt="Imagem não encontrada"
+                                alt="Imagem Não encontrada"
                                 width={20}
                                 className="mr-3"
                               />
@@ -856,7 +856,7 @@ const Profile = () => {
                             >
                               <Image
                                 src={privacy}
-                                alt="Imagem não encontrada"
+                                alt="Imagem Não encontrada"
                                 width={20}
                                 className="mr-3"
                               />
@@ -983,7 +983,7 @@ const Profile = () => {
                           Possui Silicone
                         </th>
                         <td className="py-4 px-6 text-sm md:px-2">
-                          {Profile[0]?.possui_silicone ? "sim" : "não"}
+                          {Profile[0]?.possui_silicone ? "Sim" : "Não"}
                         </td>
                       </tr>
                       <tr className="bg-[#EBE9E9] ">
@@ -994,7 +994,7 @@ const Profile = () => {
                           Anal com Adicional
                         </th>
                         <td className="py-4 px-6 text-sm md:px-2">
-                          {Profile[0]?.anal_com_adicional ? "sim" : "não"}
+                          {Profile[0]?.anal_com_adicional ? "Sim" : "Não"}
                         </td>
                       </tr>
                       <tr className="bg-[#D9D9D9] ">
@@ -1005,7 +1005,7 @@ const Profile = () => {
                           Disponível para viagens
                         </th>
                         <td className="py-4 px-6 text-sm md:px-2">
-                          {Profile[0]?.disponivel_para_viagens ? "sim" : "não"}
+                          {Profile[0]?.disponivel_para_viagens ? "Sim" : "Não"}
                         </td>
                       </tr>
                       <tr className="bg-[#EBE9E9] ">
@@ -1016,7 +1016,7 @@ const Profile = () => {
                           Vende conteúdo digital
                         </th>
                         <td className="py-4 px-6 text-sm md:px-2">
-                          {Profile[0]?.conteudo_digital ? "sim" : "não"}
+                          {Profile[0]?.conteudo_digital ? "Sim" : "Não"}
                         </td>
                       </tr>
 
@@ -1121,7 +1121,7 @@ const Profile = () => {
                 ? whatsappIcon
                 : "https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/default"
             }
-            alt="Imagem não encontrada"
+            alt="Imagem Não encontrada"
             className="z-10 rounded-full mr-2"
           />
           Conversar no Whatsapp
