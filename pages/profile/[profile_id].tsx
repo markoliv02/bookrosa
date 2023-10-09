@@ -535,7 +535,7 @@ const Profile = () => {
                             {Profile[0]?.cor_olhos}
                           </td>
                         </tr>
-                        {/* <tr className="bg-[#D9D9D9] ">
+                        <tr className="bg-[#D9D9D9] ">
                           <th
                             scope="row"
                             className="py-4 px-6 font-bold text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
@@ -545,8 +545,8 @@ const Profile = () => {
                           <td className="py-4 px-6 text-sm md:px-2">
                             {Profile[0]?.possui_silicone ? "Sim" : "Não"}
                           </td>
-                        </tr> */}
-                        {/* <tr className="bg-[#EBE9E9] ">
+                        </tr>
+                        <tr className="bg-[#EBE9E9] ">
                           <th
                             scope="row"
                             className="py-4 px-6 font-bold text-md text-gray-900 whitespace-nowrap md:text-base md:px-2 xl:px-6 xl:text-lg"
@@ -556,7 +556,7 @@ const Profile = () => {
                           <td className="py-4 px-6 text-sm md:px-2">
                             {Profile[0]?.anal_com_adicional ? "Sim" : "Não"}
                           </td>
-                        </tr> */}
+                        </tr>
                         <tr className="bg-[#D9D9D9] ">
                           <th
                             scope="row"
