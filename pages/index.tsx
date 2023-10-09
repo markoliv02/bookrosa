@@ -308,7 +308,7 @@ export default function Home() {
                   alt=""
                   className="ml-5 md:-mt-32 mt-5 cursor-pointer"
                   onClick={() => {
-                    document.location.replace("https://t.me/Garotas_BaseRosa");
+                    document.location.replace("https://t.me/FaixaRosaSp");
                   }}
                 />
               </div>

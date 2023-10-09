@@ -78,13 +78,13 @@ const Contato = () => {
 
         <h1 className="text-2xl font-semibold text-center mt-5">Whatsapp</h1>
 
-        <p className="text-center mt-3 text-2xl">(11)95398-6786</p>
+        <p className="text-center mt-3 text-2xl">(11)95815-8860</p>
 
         {/* botao wpp */}
 
         <div className="w-full flex justify-center">
           <a
-            href="https://wa.me/5511953986786?text=Ol%C3%A1%2C+gostaria+de+divulgar+com+a+Base+Rosa"
+            href="https://wa.me/message/LZYRRG46QMVGD1"
             className="text-white flex justify-center items-center bg-[#64B161] rounded-full p-5 w-40 my-5 cursor-pointer"
           >
             <Image
