@@ -266,7 +266,7 @@ const Profile = () => {
       )}
       <div className="container mx-auto px-7 text-black">
         <Head>
-          <title>{Profile[0]?.nome} - Base Rosa</title>
+          <title>{Profile[0]?.nome} - SpSexx</title>
           <meta name="description" content="Garotas acompanhantes" />
         </Head>
         <Script
