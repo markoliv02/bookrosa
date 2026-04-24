@@ -103,7 +103,7 @@ export default function Home() {
       const { data } = supabase.storage
         .from("photos")
         .getPublicUrl(
-          `${AllGirls[girlNumberCount]?.id}/${AllGirls[girlNumberCount]?.id}_capa`
+          `${AllGirls[girlNumberCount]?.id}/${AllGirls[girlNumberCount]?.id}_capa`,
         );
 
       if (data) {
@@ -112,7 +112,7 @@ export default function Home() {
     } catch (error) {
       console.error(error);
       console.log(
-        "Erro ao buscar foto de capa da garota atual!!! f(handleGetCurrentGirlImage)"
+        "Erro ao buscar foto de capa da garota atual!!! f(handleGetCurrentGirlImage)",
       );
     }
   };
@@ -125,7 +125,7 @@ export default function Home() {
           .getPublicUrl(
             `${AllGirls[girlNumberCount - 1]?.id}/${
               AllGirls[girlNumberCount - 1]?.id
-            }_capa`
+            }_capa`,
           );
 
         if (data) {
@@ -137,7 +137,7 @@ export default function Home() {
     } catch (error) {
       console.error(error);
       console.log(
-        "Erro ao buscar foto de capa da garota anterior!!! f(handleGetPreviousGirlImage)"
+        "Erro ao buscar foto de capa da garota anterior!!! f(handleGetPreviousGirlImage)",
       );
     }
   };
@@ -152,7 +152,7 @@ export default function Home() {
           .getPublicUrl(
             `${AllGirls[girlNumberCount + 1]?.id}/${
               AllGirls[girlNumberCount + 1]?.id
-            }_capa`
+            }_capa`,
           );
 
         if (data) {
@@ -162,7 +162,7 @@ export default function Home() {
     } catch (error) {
       console.error(error);
       console.log(
-        "Erro ao buscar foto de capa da proxima garota!!! f(handleGetNextGirlImage)"
+        "Erro ao buscar foto de capa da proxima garota!!! f(handleGetNextGirlImage)",
       );
     }
   };
@@ -196,7 +196,7 @@ export default function Home() {
     } catch (error) {
       console.error(error);
       console.log(
-        "Erro ao atualizar background color em body!!! f(handleChangeBodyColor)"
+        "Erro ao atualizar background color em body!!! f(handleChangeBodyColor)",
       );
     }
   };
@@ -264,13 +264,13 @@ export default function Home() {
               Anterior
             </h1>
             {girlNumberCount === 0 && (
-              <div className="flex justify-center shadow-md shadow-[#EC268F] items-center text-2xl text-[#828282] bg-white w-full rounded-3xl md:w-[250px] lg:w-[300px] xl:w-[350px] 2xl:w-[400px] md:h-[300px] lg:h-[350px] xl:h-[500px] 2xl:h-[600px]">
+              <div className="flex justify-center shadow-md shadow-[#9D8652] items-center text-2xl text-[#828282] bg-white w-full rounded-3xl md:w-[250px] lg:w-[300px] xl:w-[350px] 2xl:w-[400px] md:h-[300px] lg:h-[350px] xl:h-[500px] 2xl:h-[600px]">
                 <h1>Vazio</h1>
               </div>
             )}
             {girlNumberCount > 0 && (
               <div>
-                <div className="rounded-3xl shadow-md shadow-[#EC268F] md:w-[150px] lg:w-[250px] xl:w-[300px] 2xl:w-[350px] md:h-[200px] lg:h-[300px] xl:h-[400px] 2xl:h-[500px]">
+                <div className="rounded-3xl shadow-md shadow-[#9D8652] md:w-[150px] lg:w-[250px] xl:w-[300px] 2xl:w-[350px] md:h-[200px] lg:h-[300px] xl:h-[400px] 2xl:h-[500px]">
                   <img
                     src={previousGirl}
                     alt=""
@@ -369,7 +369,7 @@ export default function Home() {
                 <img
                   src={currentGirl}
                   alt=""
-                  className={`rounded-3xl shadow shadow-xl brightness-75 shadow-[#EC268F]  md:w-[150px] lg:w-[300px] xl:w-[300px] 2xl:w-[350px] md:h-[200px] lg:h-[350px] xl:h-[400px] 2xl:h-[500px]`}
+                  className={`rounded-3xl shadow shadow-xl brightness-75 shadow-[#9D8652]  md:w-[150px] lg:w-[300px] xl:w-[300px] 2xl:w-[350px] md:h-[200px] lg:h-[350px] xl:h-[400px] 2xl:h-[500px]`}
                 />
               </div>
 
@@ -465,13 +465,13 @@ export default function Home() {
               Próxima
             </h1>
             {girlNumberCount + 1 === AllGirls.length && (
-              <div className="flex justify-center shadow-md shadow-[#EC268F] items-center text-2xl text-[#828282] bg-white w-full rounded-3xl md:w-[250px] lg:w-[300px] xl:w-[350px] 2xl:w-[400px] md:h-[300px] lg:h-[350px] xl:h-[500px] 2xl:h-[600px]">
+              <div className="flex justify-center shadow-md shadow-[#9D8652] items-center text-2xl text-[#828282] bg-white w-full rounded-3xl md:w-[250px] lg:w-[300px] xl:w-[350px] 2xl:w-[400px] md:h-[300px] lg:h-[350px] xl:h-[500px] 2xl:h-[600px]">
                 <h1>Vazio</h1>
               </div>
             )}
             {girlNumberCount + 1 < AllGirls.length && (
               <div>
-                <div className="rounded-3xl shadow-md shadow-[#EC268F] md:w-[150px] lg:w-[250px] xl:w-[300px] 2xl:w-[350px] md:h-[200px] lg:h-[300px] xl:h-[400px] 2xl:h-[500px]">
+                <div className="rounded-3xl shadow-md shadow-[#9D8652] md:w-[150px] lg:w-[250px] xl:w-[300px] 2xl:w-[350px] md:h-[200px] lg:h-[300px] xl:h-[400px] 2xl:h-[500px]">
                   <img
                     src={nextGirl}
                     alt=""

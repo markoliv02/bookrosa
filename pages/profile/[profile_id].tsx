@@ -72,7 +72,7 @@ const Profile = () => {
     } catch (error) {
       console.error(error);
       console.log(
-        "Erro ao buscar imagem de perfil!!! f(handleGetProfileImage)"
+        "Erro ao buscar imagem de perfil!!! f(handleGetProfileImage)",
       );
     }
   };
@@ -110,7 +110,7 @@ const Profile = () => {
     } catch (error) {
       console.error(error);
       console.log(
-        "Erro ao buscar video na galeria do perfil!!! f(handleGetVideo)"
+        "Erro ao buscar video na galeria do perfil!!! f(handleGetVideo)",
       );
     }
   };
@@ -132,7 +132,7 @@ const Profile = () => {
     } catch (error) {
       console.error(error);
       console.log(
-        "Erro ao atualizar background color em body!!! f(handleChangeBodyColor)"
+        "Erro ao atualizar background color em body!!! f(handleChangeBodyColor)",
       );
     }
   };
@@ -318,14 +318,14 @@ const Profile = () => {
               <div className="md:grid md:grid-cols-3 md:w-full md:justify-start">
                 <div id="resume" className="grid grid-cols-3 md:py-5 w-full">
                   <div
-                    className={`grid grid-cols-3 py-5 col-span-3 rounded-3xl md:bg-[#D9D9D9] shadow-none mr-5 lg:pl-4 md:pl-0 pb-10 md:grid-cols-1 lg:grid-cols-3 md:shadow md:shadow-lg md:shadow-[#EC268F]`}
+                    className={`grid grid-cols-3 py-5 col-span-3 rounded-3xl md:bg-[#D9D9D9] shadow-none mr-5 lg:pl-4 md:pl-0 pb-10 md:grid-cols-1 lg:grid-cols-3 md:shadow md:shadow-lg md:shadow-[#9D8652]`}
                   >
                     <div className="flex justify-start md:justify-center">
                       <div className="w-24 h-24 xl:w-32 xl:h-32">
                         <img
                           src={profileImage}
                           alt="Imagem Não encontrada"
-                          className="rounded-full w-full h-full object-cover shadow shadow-lg shadow-[#EC268F]"
+                          className="rounded-full w-full h-full object-cover shadow shadow-lg shadow-[#9D8652]"
                         />
                       </div>
                     </div>
@@ -356,7 +356,7 @@ const Profile = () => {
                           <h3
                             onClick={() => {
                               window.open(
-                                `https://api.whatsapp.com/send?phone=55${Profile[0]?.celular}&text=Olá, vi seu perfil no Base Rosa Sp, gostaria de mais informações`
+                                `https://api.whatsapp.com/send?phone=55${Profile[0]?.celular}&text=Olá, vi seu perfil no Base Rosa Sp, gostaria de mais informações`,
                               );
                             }}
                             className={`ml-1 cursor-pointer text-md md:text-sm lg:text-md  ${
@@ -372,7 +372,7 @@ const Profile = () => {
                     </div>
                   </div>
                   <div
-                    className={`overflow-x-auto relative shadow-md rounded-3xl my-10 col-span-3 mr-5 hidden md:block shadow shadow-lg shadow-[#EC268F]`}
+                    className={`overflow-x-auto relative shadow-md rounded-3xl my-10 col-span-3 mr-5 hidden md:block shadow shadow-lg shadow-[#9D8652]`}
                   >
                     <table className="w-full text-sm text-left ">
                       <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -665,7 +665,7 @@ const Profile = () => {
                 </div>
                 <div
                   id="divisor"
-                  className={`w-full h-[4px]  rounded-full md:hidden bg-[#EC268F]`}
+                  className={`w-full h-[4px]  rounded-full md:hidden bg-[#9D8652]`}
                 />
 
                 <div
@@ -687,7 +687,7 @@ const Profile = () => {
                           : "https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/default"
                       }
                       alt="Imagem Não encontrada"
-                      className={`rounded-3xl shadow object-cover h-full md:h-[33rem] rounded-3xl shadow shadow-lg shadow-[#EC268F]`}
+                      className={`rounded-3xl shadow object-cover h-full md:h-[33rem] rounded-3xl shadow shadow-lg shadow-[#9D8652]`}
                     />
                   </div>
                   <div className="grid grid-cols-1 gap-4 w-full h-48 md:h-[33rem] cursor-pointer">
@@ -696,7 +696,7 @@ const Profile = () => {
                         setcurrentPhotoInViewMode(1);
                         setViewPhotoMode(true);
                       }}
-                      className={`flex justify-center items-center relative w-full bg-transparent overflow-hidden rounded-3xl shadow shadow-lg shadow-[#EC268F]`}
+                      className={`flex justify-center items-center relative w-full bg-transparent overflow-hidden rounded-3xl shadow shadow-lg shadow-[#9D8652]`}
                     >
                       <img
                         id="02"
@@ -714,7 +714,7 @@ const Profile = () => {
                         setcurrentPhotoInViewMode(2);
                         setViewPhotoMode(true);
                       }}
-                      className={`flex justify-center items-center relative w-full bg-transparent cursor-pointer overflow-hidden rounded-3xl shadow shadow-lg shadow-[#EC268F]`}
+                      className={`flex justify-center items-center relative w-full bg-transparent cursor-pointer overflow-hidden rounded-3xl shadow shadow-lg shadow-[#9D8652]`}
                     >
                       <img
                         id="03"
@@ -743,7 +743,7 @@ const Profile = () => {
                           : "https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/default"
                       }
                       alt="Imagem Não encontrada"
-                      className={`md:h-[33rem] h-full object-cover rounded-3xl shadow shadow-lg shadow-[#EC268F]`}
+                      className={`md:h-[33rem] h-full object-cover rounded-3xl shadow shadow-lg shadow-[#9D8652]`}
                     />
                   </div>
                   <div
@@ -756,7 +756,7 @@ const Profile = () => {
                     <img
                       // onError={() => {
                       //   const img = Dom.querySelector(
-                      //     "md:h-[33rem] full object-cover rounded-3xl shadow shadow-lg shadow-[#EC268F]"
+                      //     "md:h-[33rem] full object-cover rounded-3xl shadow shadow-lg shadow-[#9D8652]"
                       //   );
                       //   if (img !== null) {
                       //     img.style.display = "none";
@@ -769,7 +769,7 @@ const Profile = () => {
                           : "https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/404"
                       }
                       alt="Imagem Não encontrada"
-                      className={`md:h-[33rem] full object-cover rounded-3xl shadow shadow-lg shadow-[#EC268F]`}
+                      className={`md:h-[33rem] full object-cover rounded-3xl shadow shadow-lg shadow-[#9D8652]`}
                     />
                   </div>
                   <div
@@ -787,19 +787,19 @@ const Profile = () => {
                           : "https://viudhkddfyymxinmimyo.supabase.co/storage/v1/object/public/photos/default"
                       }
                       alt="Imagem Não encontrada"
-                      className={`h-full md:h-[33rem] object-cover rounded-3xl shadow shadow-lg shadow-[#EC268F]`}
+                      className={`h-full md:h-[33rem] object-cover rounded-3xl shadow shadow-lg shadow-[#9D8652]`}
                     />
                   </div>
                 </div>
                 <div
                   id="divisor 2"
-                  className={`w-full h-[4px] rounded-full mt-10 col-span-3 bg-[#EC268F]`}
+                  className={`w-full h-[4px] rounded-full mt-10 col-span-3 bg-[#9D8652]`}
                 />
                 <div className="col-span-3">
                   <h1 className="text-xl font-semibold">Vídeo</h1>
 
                   <div
-                    className={`flex justify-center w-full h-48 md:h-[33rem] bg-gray-400 my-5 rounded-3xl shadow shadow-lg shadow-[#EC268F]`}
+                    className={`flex justify-center w-full h-48 md:h-[33rem] bg-gray-400 my-5 rounded-3xl shadow shadow-lg shadow-[#9D8652]`}
                   >
                     <video
                       className="w-full h-48 md:h-[33rem] rounded-3xl"
@@ -812,7 +812,7 @@ const Profile = () => {
                   </div>
                 </div>
                 <div
-                  className={`overflow-x-auto relative shadow-md rounded-3xl my-10 shadow shadow-md md:hidden shadow shadow-lg shadow-[#EC268F]`}
+                  className={`overflow-x-auto relative shadow-md rounded-3xl my-10 shadow shadow-md md:hidden shadow shadow-lg shadow-[#9D8652]`}
                 >
                   <table className="w-full text-sm text-left ">
                     <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -1110,7 +1110,7 @@ const Profile = () => {
         <div
           onClick={() => {
             window.open(
-              `https://api.whatsapp.com/send?phone=55${Profile[0]?.celular}&text=Ol%C3%A1,%20vi%20seu%20perfil%20na%20Base%20Rosa%20Sp,%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20%E2%9D%A4`
+              `https://api.whatsapp.com/send?phone=55${Profile[0]?.celular}&text=Ol%C3%A1,%20vi%20seu%20perfil%20na%20Base%20Rosa%20Sp,%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20%E2%9D%A4`,
             );
           }}
           className="relative flex justify-center items-center z-20 text-center rounded-xl bg-[#26852B] p-2 text-white cursor-pointer"
