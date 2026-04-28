@@ -77,7 +77,7 @@ const EditGirlsPhotos = (props: Props) => {
     } catch (error) {
       console.error(error);
       console.log(
-        "Erro ao atualizar background color em body!!! f(handleChangeBodyColor)"
+        "Erro ao atualizar background color em body!!! f(handleChangeBodyColor)",
       );
     }
   };
@@ -108,7 +108,7 @@ const EditGirlsPhotos = (props: Props) => {
       <Navbar />
       <div className="flex justify-center items-center my-5">
         <div className="grid grid-cols-1 lg:grid-cols-3 bg-white shadow shadow-xl rounded-3xl w-[1100px]">
-          <div className="flex flex-wrap justify-center items-center col-span-2 bg-gradient-to-b from-[#FA00FF] to-[#FF06C8] rounded-3xl lg:rounded-l-3xl w-full">
+          <div className="flex flex-wrap justify-center items-center col-span-2 bg-gradient-to-b from-[#CEA955] to-[#9D8652] rounded-3xl lg:rounded-l-3xl w-full">
             <h1
               className="text-4xl font-semibold text-white mt-10 w-full text-center
             "
@@ -118,14 +118,14 @@ const EditGirlsPhotos = (props: Props) => {
 
             <div
               onClick={handleRemoveVideo}
-              className="flex justify-center items-center rounded-[50px] bg-[#890082]  text-white text-3xl font-semibold w-full text-center w-96 h-40 my-10 cursor-pointer"
+              className="flex justify-center items-center rounded-[50px] bg-[#9D8652]  text-white text-3xl font-semibold w-full text-center w-96 h-40 my-10 cursor-pointer"
             >
               Excluir Video
             </div>
 
             <div
               onClick={handleRemoveCapa}
-              className="flex justify-center items-center rounded-[50px] bg-[#890082]  text-white text-3xl font-semibold w-full text-center w-96 h-40 my-10 cursor-pointer"
+              className="flex justify-center items-center rounded-[50px] bg-[#9D8652]  text-white text-3xl font-semibold w-full text-center w-96 h-40 my-10 cursor-pointer"
             >
               Excluir foto da capa
             </div>
@@ -135,7 +135,7 @@ const EditGirlsPhotos = (props: Props) => {
               onClick={() => {
                 handleRemovePhotos(1);
               }}
-              className="flex justify-center items-center rounded-[50px] bg-[#890082]  text-white text-3xl font-semibold w-full text-center w-full h-40 cursor-pointer"
+              className="flex justify-center items-center rounded-[50px] bg-[#9D8652]  text-white text-3xl font-semibold w-full text-center w-full h-40 cursor-pointer"
             >
               Excluir foto 1
             </div>
@@ -143,7 +143,7 @@ const EditGirlsPhotos = (props: Props) => {
               onClick={() => {
                 handleRemovePhotos(2);
               }}
-              className="flex justify-center items-center rounded-[50px] bg-[#890082]  text-white text-3xl font-semibold w-full text-center w-full h-40 cursor-pointer"
+              className="flex justify-center items-center rounded-[50px] bg-[#9D8652]  text-white text-3xl font-semibold w-full text-center w-full h-40 cursor-pointer"
             >
               Excluir foto 2
             </div>
@@ -151,7 +151,7 @@ const EditGirlsPhotos = (props: Props) => {
               onClick={() => {
                 handleRemovePhotos(3);
               }}
-              className="flex justify-center items-center rounded-[50px] bg-[#890082]  text-white text-3xl font-semibold w-full text-center w-full h-40 cursor-pointer"
+              className="flex justify-center items-center rounded-[50px] bg-[#9D8652]  text-white text-3xl font-semibold w-full text-center w-full h-40 cursor-pointer"
             >
               Excluir foto 3
             </div>
@@ -159,7 +159,7 @@ const EditGirlsPhotos = (props: Props) => {
               onClick={() => {
                 handleRemovePhotos(4);
               }}
-              className="flex justify-center items-center rounded-[50px] bg-[#890082]  text-white text-3xl font-semibold w-full text-center w-full h-40 cursor-pointer"
+              className="flex justify-center items-center rounded-[50px] bg-[#9D8652]  text-white text-3xl font-semibold w-full text-center w-full h-40 cursor-pointer"
             >
               Excluir foto 4
             </div>
@@ -167,7 +167,7 @@ const EditGirlsPhotos = (props: Props) => {
               onClick={() => {
                 handleRemovePhotos(5);
               }}
-              className="flex justify-center items-center rounded-[50px] bg-[#890082]  text-white text-3xl font-semibold w-full text-center w-full h-40 cursor-pointer"
+              className="flex justify-center items-center rounded-[50px] bg-[#9D8652]  text-white text-3xl font-semibold w-full text-center w-full h-40 cursor-pointer"
             >
               Excluir foto 5
             </div>
@@ -175,7 +175,7 @@ const EditGirlsPhotos = (props: Props) => {
               onClick={() => {
                 handleRemovePhotos(6);
               }}
-              className="flex justify-center items-center rounded-[50px] bg-[#890082]  text-white text-3xl font-semibold w-full text-center w-full h-40 cursor-pointer"
+              className="flex justify-center items-center rounded-[50px] bg-[#9D8652]  text-white text-3xl font-semibold w-full text-center w-full h-40 cursor-pointer"
             >
               Excluir foto 6
             </div>
@@ -184,7 +184,7 @@ const EditGirlsPhotos = (props: Props) => {
               onClick={() => {
                 router.push(`/adm/register-girl-photos/${newID}`);
               }}
-              className="flex justify-center items-center bg-gradient-to-b from-[#FF004C] to-[#FF00D6] text-white  font-semibold text-2xl col-span-2 rounded-xl p-5 cursor-pointer"
+              className="flex justify-center items-center bg-gradient-to-b from-[#CEA955] to-[#9D8652] text-white  font-semibold text-2xl col-span-2 rounded-xl p-5 cursor-pointer"
             >
               NOVAS FOTOS
             </div>

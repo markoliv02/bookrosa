@@ -46,7 +46,7 @@ const GirlsInfo = (props: Props) => {
     telefone: Yup.string()?.phone(
       "BR",
       false,
-      "insira um numero de telefone válido"
+      "insira um numero de telefone válido",
     ),
     pagamento: Yup.string(),
     agenda: Yup.string(),
@@ -92,7 +92,7 @@ const GirlsInfo = (props: Props) => {
     } catch (error) {
       console.error(error);
       console.log(
-        "Erro ao atualizar background color em body!!! f(handleChangeBodyColor)"
+        "Erro ao atualizar background color em body!!! f(handleChangeBodyColor)",
       );
     }
   };
@@ -177,7 +177,7 @@ const GirlsInfo = (props: Props) => {
           <Navbar />
           <div className="flex justify-center items-center my-5">
             <div className="grid grid-cols-1 lg:grid-cols-3 bg-white shadow shadow-xl rounded-3xl">
-              <div className="flex justify-center items-center col-span-2 bg-gradient-to-b from-[#FA00FF] to-[#FF06C8] rounded-l-3xl hidden lg:flex">
+              <div className="flex justify-center items-center col-span-2 bg-gradient-to-b from-[#CEA955] to-[#9D8652] rounded-l-3xl hidden lg:flex">
                 <h1 className="text-4xl font-semibold text-white">
                   Cadastro de acompanhantes
                 </h1>
@@ -528,7 +528,7 @@ const GirlsInfo = (props: Props) => {
                 <div className="flex justify-center w-full col-span-2">
                   <button
                     type="submit"
-                    className="bg-gradient-to-b from-[#FA00FF] to-[#FF06C8] py-4 px-14 rounded-3xl text-2xl font-semibold my-5 text-white"
+                    className="bg-gradient-to-b from-[#CEA955] to-[#9D8652] py-4 px-14 rounded-3xl text-2xl font-semibold my-5 text-white"
                   >
                     REGISTRAR
                   </button>

@@ -2,7 +2,7 @@
 import Image from "next/image";
 import * as React from "react";
 
-import logo from "../../../assets/logo.svg";
+import logo from "../../../assets/logoRosa.png";
 
 import { useForm } from "react-hook-form";
 
@@ -31,7 +31,7 @@ const RedefinePassword = () => {
     } catch (error) {
       console.error(error);
       console.log(
-        "Erro ao atualizar background color em body!!! f(handleChangeBodyColor)"
+        "Erro ao atualizar background color em body!!! f(handleChangeBodyColor)",
       );
     }
   };
@@ -133,7 +133,7 @@ const RedefinePassword = () => {
               </div>
               <button
                 type="submit"
-                className="bg-gradient-to-b from-[#FF004C] to-[#FF00D6] py-4 px-14 rounded-3xl text-2xl font-semibold my-5 text-white"
+                className="bg-gradient-to-b from-[#FF004C] to-[#CEA955] py-4 px-14 rounded-3xl text-2xl font-semibold my-5 text-white"
               >
                 SALVAR
               </button>

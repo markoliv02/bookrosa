@@ -234,7 +234,7 @@ export default function Home() {
   return (
     <div className="container mx-auto text-black">
       <Head>
-        <title>SpSexx - Home</title>
+        <title>BrazilianGirls - Home</title>
         <meta
           name="description"
           content="Diversas garotas acompanhantes para qualquer gosto e qualquer hora"
@@ -431,7 +431,7 @@ export default function Home() {
                       src={botaoMatch}
                       quality={100}
                       alt=""
-                      className="w-24 h-24 md:w-20 md:h-16 lg:w-24 lg:h-24 xl:w-28 xl:h-28 2xl:w-32 2xl:h-32"
+                      className="w-17 h-17 md:w-20 md:h-16 lg:w-24 lg:h-24 xl:w-28 xl:h-28 2xl:w-32 2xl:h-32"
                     />
                   </div>
 

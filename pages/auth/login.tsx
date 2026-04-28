@@ -28,7 +28,7 @@ const Login = () => {
     } catch (error) {
       console.error(error);
       console.log(
-        "Erro ao atualizar background color em body!!! f(handleChangeBodyColor)"
+        "Erro ao atualizar background color em body!!! f(handleChangeBodyColor)",
       );
     }
   };
@@ -123,14 +123,14 @@ const Login = () => {
                 name="password"
                 as={<div style={{ color: "red" }} />}
               />
-              <div className="w-full text-[#FF00D6] font-semibold cursor-pointer">
+              <div className="w-full text-[#B99A54] font-semibold cursor-pointer">
                 <span onClick={() => router.push("/auth/forgotPassword")}>
                   Esqueci minha senha
                 </span>
               </div>
               <button
                 type="submit"
-                className="bg-gradient-to-b from-[#FF004C] to-[#FF00D6] py-4 px-14 rounded-3xl text-2xl font-semibold my-5 text-white"
+                className="bg-gradient-to-b from-[#CEA955] to-[#9D8652] py-4 px-14 rounded-3xl text-2xl font-semibold my-5 text-white"
               >
                 ENTRAR
               </button>

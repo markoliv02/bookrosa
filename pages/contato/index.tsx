@@ -26,7 +26,7 @@ const Contato = () => {
     } catch (error) {
       console.error(error);
       console.log(
-        "Erro ao atualizar background color em body!!! f(handleChangeBodyColor)"
+        "Erro ao atualizar background color em body!!! f(handleChangeBodyColor)",
       );
     }
   };
@@ -65,13 +65,13 @@ const Contato = () => {
         </div>
 
         <h1 className="text-2xl font-semibold text-center mt-5">
-          Anuncie agora mesmo com o site SpSexx São Paulo{" "}
+          Anuncie agora mesmo com o site BrazilianGirls São Paulo{" "}
         </h1>
 
         <p className="text-center mt-3">
-          A maior e mais completa rede de acompanhantes de São Paulo. A SpSexx
-          possui uma rede de clientes via Telegram - Twitter - Site. Entre em
-          contato e escolha seu pacote de divulgação.
+          A maior e mais completa rede de acompanhantes de São Paulo. A
+          BrazilianGirls possui uma rede de clientes via Telegram - Twitter -
+          Site. Entre em contato e escolha seu pacote de divulgação.
         </p>
 
         {/* wpp */}

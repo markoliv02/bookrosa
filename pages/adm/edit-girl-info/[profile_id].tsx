@@ -88,7 +88,7 @@ const EditGirlsInfo = (props: Props) => {
     } catch (error) {
       console.error(error);
       console.log(
-        "Erro ao atualizar background color em body!!! f(handleChangeBodyColor)"
+        "Erro ao atualizar background color em body!!! f(handleChangeBodyColor)",
       );
     }
   };
@@ -1790,7 +1790,7 @@ const EditGirlsInfo = (props: Props) => {
                             // window.open(`/profile/${id}`);
                             router.push(`/adm/edit-girl-photos/${id}`);
                           }}
-                          className="bg-gradient-to-b from-[#FF004C] to-[#FF00D6] py-4 px-14 rounded-3xl text-2xl font-semibold my-5 text-white mt-10 cursor-pointer"
+                          className="bg-gradient-to-b from-[#CEA955] to-[#9D8652] py-4 px-14 rounded-3xl text-2xl font-semibold my-5 text-white mt-10 cursor-pointer"
                         >
                           EDITAR FOTOS
                         </div>
