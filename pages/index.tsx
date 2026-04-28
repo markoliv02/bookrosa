@@ -20,8 +20,13 @@ import { useRouter } from "next/router";
 import Script from "next/script";
 import Profile from "./profile/[profile_id]";
 
-let initScreen: Screen;
-let docInit: Document;
+// variaveis definidas da forma abaixo estavam funcionando
+//let initScreen: Screen;
+//let docInit: Document;
+
+//testando nova forma de definir as variaveis
+const initScreen = {} as Screen;
+const docInit = {} as Document;
 
 export default function Home() {
   const [girlNumberCount, setGirlNumberCount] = React.useState(1);
